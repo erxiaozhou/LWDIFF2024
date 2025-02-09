@@ -1,0 +1,76 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'i32.trunc_sat_f64_s', and the instruction format is 't_2.cvtop_t_1_sx^?'. Therefore, the placeholder 't_1' in the instruction format represents 'f64' and 't_2' represents 'i32'. The '^?' indicates that the operation is saturating, meaning it clamps the value instead of trapping on overflow.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Numeric Instructions i32.cvtop_f64_sx^?
+The instruction is valid with type [f64] -> [i32].
+C |- i32.cvtop_f64_sx^? : [f64] -> [i32]
+```
+
+Execution Description:
+```
+exec instructions Instructions Numeric Instructions i32.cvtop_f64_sx^?
+Assert: due to validation, a value of value type f64 is on the top of the stack.
+Pop the value f64.const~c_1 from the stack.
+If cvtop^{sx^?}_{f64,i32}(c_1) is defined:
+Let c_2 be a possible result of computing cvtop^{sx^?}_{f64,i32}(c_1).
+Push the value i32.const~c_2 to the stack.
+Else:
+Trap.
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `i32.trunc_sat_f64_s` takes a value from the stack (operand). The type of the operand should be f64.
+
+Result:
+```json
+{
+    "op_0": "f64"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["f64"],
+        "result": ["i32"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction pops a value from the stack, truncates it to an i32, and pushes the result back to the stack. If the original value is out of the range of i32, it is clamped to the nearest i32 value instead of causing a trap.",
+        "WhetherTrap": false
+    }
+]
+```

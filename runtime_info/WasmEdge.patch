@@ -1,0 +1,94 @@
+diff --git a/lib/driver/runtimeTool.cpp b/lib/driver/runtimeTool.cpp
+index 3f94b7d9..9f270c61 100644
+--- a/lib/driver/runtimeTool.cpp
++++ b/lib/driver/runtimeTool.cpp
+@@ -201,6 +201,14 @@ int Tool(struct DriverToolOptions &Opt) noexcept {
+       }
+     }
+ 
++    // add z
++    const char * has_inst_path = "<parent_path>/CP912/ld_WasmEdge_disableAOT_lastest/dump_result/dump_instantiation";
++    uint32_t has_visited_here = 0xFFFFFFFF;
++    FILE *fp_has_inst = fopen(has_inst_path, "wb");
++    fwrite(&has_visited_here, 4, 1, fp_has_inst);
++    fclose(fp_has_inst);
++    // 
++
+     if (HasInit) {
+       auto AsyncResult = VM.asyncExecute(InitFunc);
+       if (Timeout.has_value()) {
+@@ -267,7 +275,73 @@ int Tool(struct DriverToolOptions &Opt) noexcept {
+         AsyncResult.cancel();
+       }
+     }
+-    if (auto Result = AsyncResult.get()) {
++
++    char ty_to_store;
++    uint32_t i32_v;
++    uint64_t i64_v;
++    float f32_v;
++    double f64_v;
++    uint128_t i128_v;
++    auto Result = AsyncResult.get();
++    const char * vstack_path = "<parent_path>/CP912/ld_WasmEdge_disableAOT_lastest/dump_result/dump_vstack";
++    FILE *fp2 = fopen(vstack_path, "wb");
++    size_t vstack_len = Result->size();
++    fwrite(&vstack_len, sizeof(size_t), 1, fp2);
++    for (size_t I = 0; I < vstack_len; ++I) {
++        switch ((*Result)[I].second.getCode()) {
++        case TypeCode::I32:
++          ty_to_store = 0x7F;
++          i32_v = (*Result)[I].first.get<uint32_t>();
++          fwrite(&ty_to_store, sizeof(char), 1, fp2);
++          fwrite(&i32_v, 4, 1, fp2);
++          break;
++        case TypeCode::I64:
++          ty_to_store = 0x7E;
++          i64_v = (*Result)[I].first.get<uint64_t>();
++          fwrite(&ty_to_store, sizeof(char), 1, fp2);
++          fwrite(&i64_v, 8, 1, fp2);
++          break;
++        case TypeCode::F32:
++          ty_to_store = 0x7D;
++          f32_v = (*Result)[I].first.get<float>();
++          fwrite(&ty_to_store, sizeof(char), 1, fp2);
++          fwrite(&f32_v, 4, 1, fp2);
++          break;
++        case TypeCode::F64:
++          ty_to_store = 0x7C;
++          f64_v = (*Result)[I].first.get<double>();
++          fwrite(&ty_to_store, sizeof(char), 1, fp2);
++          fwrite(&f64_v, 8, 1, fp2);
++          break;
++        case TypeCode::V128:
++          ty_to_store = 0x7B;
++          i128_v = (*Result)[I].first.get<uint128_t>();
++          fwrite(&ty_to_store, sizeof(char), 1, fp2);
++          fwrite(&i128_v, 16, 1, fp2);
++          break;
++        /// TODO: FuncRef and ExternRef
++        
++        case TypeCode::FuncRef:
++          ty_to_store = 0x70;
++          fwrite(&ty_to_store, sizeof(char), 1, fp2);
++          ;
++          break;
++        case TypeCode::ExternRef:
++          ty_to_store = 0x6F;
++          fwrite(&ty_to_store, sizeof(char), 1, fp2);
++          ;
++          break;
++        // case 
++        default:
++        // printf("type code: %hhu\n", (*Result)[I].second.getCode());
++          // putc((*Result)[I].second.getCode());
++          break;
++        }
++    }
++    
++    fclose(fp2);
++
++    if (Result) {
+       /// Print results.
+       for (size_t I = 0; I < Result->size(); ++I) {
+         switch ((*Result)[I].second.getCode()) {

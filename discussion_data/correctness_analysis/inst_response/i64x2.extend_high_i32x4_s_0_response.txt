@@ -1,0 +1,107 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'i64x2.extend_high_i32x4_s', and the instruction format is 't_2xN.vcvtop_half_t_1xM_sx^?'. Therefore, the placeholder 't_2xN' in the instruction format represents a vector of two 64-bit integers, 't_1xM' represents a vector of four 32-bit integers, and 'sx^?' represents a sign extension operation.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+exec instructions Instructions Vector Instructions i64x2.extend_high_i32x4_s
+Assert: due to validation, a value of value type v128 is on the top of the stack.
+
+Pop the value v128.const~c_1 from the stack.
+
+If half is low, then:
+
+Let i^* be the sequence lanes_{i32x4}(c_1)[0 : 2].
+
+Else:
+
+Let i^* be the sequence lanes_{i32x4}(c_1)[2 : 2].
+
+Let j^* be the result of computing vcvtop^{s}_{|i32|,|i64|}(i^*).
+
+Let c be the result of computing lanes^{-1}_{i64x2}(j^*).
+
+Push the value v128.const~c onto the stack.
+```
+
+Execution Description:
+```
+exec instructions Instructions Vector Instructions i64x2.extend_high_i32x4_s
+Assert: due to validation, a value of value type v128 is on the top of the stack.
+
+Pop the value v128.const~c_1 from the stack.
+
+If half is low, then:
+
+Let i^* be the sequence lanes_{i32x4}(c_1)[0 : 2].
+
+Else:
+
+Let i^* be the sequence lanes_{i32x4}(c_1)[2 : 2].
+
+Let j^* be the result of computing vcvtop^{s}_{|i32|,|i64|}(i^*).
+
+Let c be the result of computing lanes^{-1}_{i64x2}(j^*).
+
+Push the value v128.const~c onto the stack.
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `i64x2.extend_high_i32x4_s` takes a value from the stack (operand). The type of the operand should be a vector of 128 bits (v128).
+
+Result:
+```json
+{
+    "op_0": "v128"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "v128",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["v128"],
+        "result": ["v128"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction pops a v128 value from the stack, extends the high half of the i32x4 value to i64x2 with sign extension, and pushes the result back to the stack.",
+        "WhetherTrap": false
+    }
+]
+```

@@ -1,0 +1,9 @@
+{
+    "actions": [
+        "special_op_mutate_debug",
+        "deep_block_mutate2",
+        "valid_module_mutate"
+    ],
+    "enable_log": true,
+    "tester_name_prefix": "ZRandomTester"
+}

@@ -1,0 +1,34 @@
+In natural language, the binary definition of **numtype** in WebAssembly is a single byte that represents a number type. There are four possible values for this byte, each corresponding to a different number type. The byte `0x7F` represents the `i32` type, `0x7E` represents the `i64` type, `0x7D` represents the `f32` type, and `0x7C` represents the `f64` type.
+
+In JSON format, this definition can be represented as follows:
+
+```json
+[
+    {
+        "numtype": [
+            {
+                "name": "i32",
+                "type": "<Fix:7F:hex>",
+                "description": "A single byte that represents the i32 number type."
+            },
+            {
+                "name": "i64",
+                "type": "<Fix:7E:hex>",
+                "description": "A single byte that represents the i64 number type."
+            },
+            {
+                "name": "f32",
+                "type": "<Fix:7D:hex>",
+                "description": "A single byte that represents the f32 number type."
+            },
+            {
+                "name": "f64",
+                "type": "<Fix:7C:hex>",
+                "description": "A single byte that represents the f64 number type."
+            }
+        ]
+    }
+]
+```
+
+Each entry in the list represents a different variant of the `numtype` definition. The `name` field specifies the number type, the `type` field specifies the corresponding byte value in hexadecimal format, and the `description` field provides a detailed explanation of the component.

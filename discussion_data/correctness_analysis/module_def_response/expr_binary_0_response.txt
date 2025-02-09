@@ -1,0 +1,29 @@
+In natural language, the binary definition of **expr** in WebAssembly represents an expression. It is composed of a sequence of instructions, each represented by **instr**, and is terminated by an explicit end opcode, represented by the hexadecimal value `0x0B`. 
+
+In JSON format, the definition of **expr** can be represented as follows:
+
+```json
+[
+    {
+        "expr": [
+            {
+                "name": "instructions",
+                "type": "<Vec:instr>",
+                "description": "A sequence of instructions, each represented by 'instr'."
+            },
+            {
+                "name": "end",
+                "type": "<Fix:0B:hex>",
+                "description": "An explicit end opcode, represented by the hexadecimal value '0x0B', that terminates the sequence of instructions."
+            }
+        ]
+    }
+]
+```
+
+In this JSON representation:
+
+- The key `expr` represents the name of the definition.
+- The value is a list of the definition's components.
+- The first component, `instructions`, is a vector of instructions, each represented by `instr`.
+- The second component, `end`, is an explicit end opcode, represented by the hexadecimal value `0x0B`, that terminates the sequence of instructions.

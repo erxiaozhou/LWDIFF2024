@@ -1,0 +1,96 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'i8x16.add', and the instruction format is 'shape.vbinop'. Therefore, the placeholder 'shape' in the instruction format represents 'i8x16'.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Vector Instructions i8x16.vbinop
+The instruction is valid with type [v128~v128] \rightarrow [v128].
+
+C \vdash i8x16.vbinop : [v128~v128] \rightarrow [v128]
+```
+
+Execution Description:
+```
+exec instructions Instructions Vector Instructions i8x16.vbinop
+Assert: due to validation, two values of value type v128 are on the top of the stack.
+
+Pop the value v128.const~c_2 from the stack.
+
+Pop the value v128.const~c_1 from the stack.
+
+If vbinop_{i8x16}(c_1, c_2) is defined:
+
+Let c be a possible result of computing vbinop_{i8x16}(c_1, c_2).
+
+Push the value v128.const~c to the stack.
+
+Else:
+
+Trap.
+
+(v128.const~c_1)~(v128.const~c_2)~i8x16.vbinop \hookrightarrow (v128.const~c)
+  & (if c \in vbinop_{i8x16}(c_1, c_2)) 
+
+(v128.const~c_1)~(v128.const~c_2)~i8x16.vbinop \hookrightarrow trap
+  & (if vbinop_{i8x16}(c_1, c_2) = {})
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `i8x16.add` takes two operands of type v128 from the stack. There are no immediate arguments.
+
+Result:
+```json
+{
+    "op_0": "v128",
+    "op_1": "v128"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+{
+    "InputConstraint": [],
+    "ContextConstraint": [],
+    "Valid": true
+}
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["v128", "v128"],
+        "result": ["v128"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction pops two values from the stack, adds them together, and pushes the result back to the stack.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction traps if the addition operation is not defined.",
+        "WhetherTrap": true
+    }
+]
+```

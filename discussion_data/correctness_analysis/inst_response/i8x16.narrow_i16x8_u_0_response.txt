@@ -1,0 +1,109 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'i8x16.narrow_i16x8_u', and the instruction format is 't_2xN.narrow_t_1xM_sx'. Therefore, the placeholder 't_2xN' in the instruction format represents a value type 'i16x8', and 't_1xM' represents a value type 'i8x16'. The 'sx' represents 'u' which stands for unsigned.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+exec instructions Instructions Vector Instructions i16x8.narrow_i8x16_u
+Assert: due to syntax, N = 2 * M.
+
+Assert: due to validation, two values of value type v128 are on the top of the stack.
+
+Pop the value v128.const~c_2 from the stack.
+
+Let d_2^M be the result of computing narrow^{u}_{|i8x16|,|i16x8|}(lanes_{i8x16xM}(c_2)).
+
+Pop the value v128.const~c_1 from the stack.
+
+Let d_1^M be the result of computing narrow^{u}_{|i8x16|,|i16x8|}(lanes_{i8x16xM}(c_1)).
+
+Let c be the result of lanes^{-1}_{i16x8xN}(d_1^M~d_2^M).
+
+Push the value v128.const~c onto the stack.
+```
+
+Execution Description:
+```
+exec instructions Instructions Vector Instructions i16x8.narrow_i8x16_u
+Assert: due to syntax, N = 2 * M.
+
+Assert: due to validation, two values of value type v128 are on the top of the stack.
+
+Pop the value v128.const~c_2 from the stack.
+
+Let d_2^M be the result of computing narrow^{u}_{|i8x16|,|i16x8|}(lanes_{i8x16xM}(c_2)).
+
+Pop the value v128.const~c_1 from the stack.
+
+Let d_1^M be the result of computing narrow^{u}_{|i8x16|,|i16x8|}(lanes_{i8x16xM}(c_1)).
+
+Let c be the result of lanes^{-1}_{i16x8xN}(d_1^M~d_2^M).
+
+Push the value v128.const~c onto the stack.
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `i8x16.narrow_i16x8_u` takes two values from the stack (operands). The type of the operands should be v128.
+
+Result:
+```json
+{
+    "op_0": "v128",
+    "op_1": "v128"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "v128",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "v128",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["v128", "v128"],
+        "result": ["v128"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction pops two v128 values from the stack, narrows them from i16x8 to i8x16 unsigned, and pushes the result back onto the stack.",
+        "WhetherTrap": false
+    }
+]
+```

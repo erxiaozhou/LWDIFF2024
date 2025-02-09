@@ -1,0 +1,95 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'f32.demote_f64', and the instruction format is 't_2.cvtop_t_1_sx^?'. Therefore, the placeholder 't_1' in the instruction format represents 'f64' and 't_2' represents 'f32'.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Numeric Instructions f32.demote_f64
+The instruction is valid with type [f64] → [f32].
+
+C ⊢ f32.demote_f64 : [f64] → [f32]
+```
+
+Execution Description:
+```
+exec instructions Instructions Numeric Instructions f32.demote_f64
+Assert: due to validation, a value of value type f64 is on the top of the stack.
+
+Pop the value f64.const~c_1 from the stack.
+
+If cvtop^{sx^?}_{f64,f32}(c_1) is defined:
+
+Let c_2 be a possible result of computing cvtop^{sx^?}_{f64,f32}(c_1).
+
+Push the value f32.const~c_2 to the stack.
+
+Else:
+
+Trap.
+
+(f64.const~c_1)~f32.demote_f64 → (f32.const~c_2)
+  (if c_2 ∈ cvtop^{sx^?}_{f64,f32}(c_1))
+
+(f64.const~c_1)~f32.demote_f64 → trap
+  (if cvtop^{sx^?}_{f64,f32}(c_1) = {})
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `f32.demote_f64` takes a value from the stack (operand). The type of the operand should be f64.
+
+Result:
+```json
+{
+    "op_0": "f64"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["f64"],
+        "result": ["f32"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction pops a value from the stack, demotes it from f64 to f32, and pushes the result back to the stack.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction traps if the demotion operation is not defined.",
+        "WhetherTrap": true
+    }
+]
+```

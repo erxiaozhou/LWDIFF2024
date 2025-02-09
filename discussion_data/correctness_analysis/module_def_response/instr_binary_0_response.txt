@@ -1,0 +1,49 @@
+In natural language, the binary definition of `instr` in the context of reference instructions in WebAssembly can be described as follows:
+
+1. `ref.null t`: This instruction is represented by the byte code `0xD0` followed by a `reftype` `t`. It creates a null reference of type `t`.
+2. `ref.is_null`: This instruction is represented by the byte code `0xD1`. It checks if a reference is null.
+3. `ref.func x`: This instruction is represented by the byte code `0xD2` followed by a `funcidx` `x`. It creates a function reference for the function `x`.
+
+The JSON representation of the binary definition of `instr` is as follows:
+
+```json
+[
+    {
+        "ref.null t": [
+            {
+                "name": "opcode",
+                "type": "<Fix:D0:hex>",
+                "description": "The opcode for the 'ref.null t' instruction, which is fixed at 0xD0."
+            },
+            {
+                "name": "t",
+                "type": "reftype",
+                "description": "The reference type for the null reference."
+            }
+        ]
+    },
+    {
+        "ref.is_null": [
+            {
+                "name": "opcode",
+                "type": "<Fix:D1:hex>",
+                "description": "The opcode for the 'ref.is_null' instruction, which is fixed at 0xD1."
+            }
+        ]
+    },
+    {
+        "ref.func x": [
+            {
+                "name": "opcode",
+                "type": "<Fix:D2:hex>",
+                "description": "The opcode for the 'ref.func x' instruction, which is fixed at 0xD2."
+            },
+            {
+                "name": "x",
+                "type": "funcidx",
+                "description": "The function index for the function reference."
+            }
+        ]
+    }
+]
+```

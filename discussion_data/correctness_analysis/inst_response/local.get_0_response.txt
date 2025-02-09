@@ -1,0 +1,102 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'local.get', and the instruction format is 'local.get~x'. Therefore, the placeholder 'x' in the instruction format represents a local index.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Variable Instructions local.get~local_idx
+The local C.locals[local_idx] must be defined in the context.
+
+Let t be the value type C.locals[local_idx].
+
+Then the instruction is valid with type [] \rightarrow [t].
+
+\frac{
+  C.locals[local_idx] = t
+}{
+  C \vdash local.get~local_idx : [] \rightarrow [t]
+}
+```
+
+Execution Description:
+```
+exec instructions Instructions Variable Instructions local.get~local_idx
+Let F be the current frame.
+
+Assert: due to validation, F.locals[local_idx] exists.
+
+Let val be the value F.locals[local_idx].
+
+Push the value val to the stack.
+
+\begin{array}{lcl@{\qquad}l}
+F; (local.get~local_idx) &\hookrightarrow& F; val
+  & (\mathrel{if} F.locals[local_idx] = val) \\
+\end{array}
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `local.get~local_idx` does not take any operands from the stack, but it does take a local index as an immediate argument. The type of the immediate argument is a local index.
+
+Result:
+```json
+{
+    "imm_0": "local_idx"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [
+            {
+                "v1": "imm_0",
+                "v2": "context.locals.length",
+                "relation": "lt"
+            }
+        ],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": [],
+        "result": ["context.locals[imm_0].type"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction pushes the value of the local variable at the given index to the stack.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction traps if the local variable at the given index is not defined.",
+        "WhetherTrap": true
+    }
+]
+```

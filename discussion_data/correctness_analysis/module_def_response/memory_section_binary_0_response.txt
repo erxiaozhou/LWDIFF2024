@@ -1,0 +1,33 @@
+In natural language, the memory section in WebAssembly binary format is identified by the ID 5. It decodes into a vector of memories that represent the memory component of a module. Each memory is defined by a memory type.
+
+In JSON format, the memory section and memory are defined as follows:
+
+```json
+[
+    {
+        "memory_section": [
+            {
+                "name": "section_id",
+                "type": "<Fix:5:hex>",
+                "description": "The ID of the memory section, which is fixed at 0x05."
+            },
+            {
+                "name": "memories",
+                "type": "<Vec:memory>",
+                "description": "A vector of memories that represent the memory component of a module."
+            }
+        ]
+    },
+    {
+        "memory": [
+            {
+                "name": "memory_type",
+                "type": "memtype",
+                "description": "The type of the memory."
+            }
+        ]
+    }
+]
+```
+
+In the memory section, the `section_id` is a fixed hexadecimal value of 5. The `memories` is a vector of memory elements. Each memory element is defined by a `memory_type`, which is of type `memtype`.

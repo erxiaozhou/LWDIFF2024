@@ -1,0 +1,8 @@
+{
+    "actions": [
+        "byte_mutate",
+        "module_byte_mutate"
+    ],
+    "enable_log": true,
+    "tester_name_prefix": "ZRandomTester"
+}

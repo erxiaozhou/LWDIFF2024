@@ -1,0 +1,33 @@
+In natural language, the binary definition of the table section in WebAssembly consists of two parts: the table section itself and the table. The table section, identified by the id 4, decodes into a vector of tables that represent the tables component of a module. Each table in the vector is defined by its table type.
+
+In JSON format, the definitions are as follows:
+
+```json
+[
+    {
+        "tablesec": [
+            {
+                "name": "section_id",
+                "type": "<Fix:04:hex>",
+                "description": "The ID of the table section, which is fixed at 0x04."
+            },
+            {
+                "name": "tables",
+                "type": "<Vec:table>",
+                "description": "A vector of tables that represent the tables component of a module."
+            }
+        ]
+    },
+    {
+        "table": [
+            {
+                "name": "type",
+                "type": "tabletype",
+                "description": "The type of the table."
+            }
+        ]
+    }
+]
+```
+
+In this JSON representation, the `tablesec` definition represents the table section, which has a fixed section id of 0x04 and a vector of tables. The `table` definition represents each table in the vector, which is defined by its table type.

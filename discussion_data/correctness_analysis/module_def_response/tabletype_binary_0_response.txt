@@ -1,0 +1,24 @@
+In natural language, the binary definition of **tabletype** in WebAssembly is a combination of two components: `et` and `lim`. The `et` component represents the element reference type, which is a `reftype`. The `lim` component represents the limits of the table, which is a `limits` type. The `tabletype` is defined as the combination of `lim` and `et`.
+
+In JSON format, the definition of **tabletype** is represented as follows:
+
+```json
+[
+    {
+        "tabletype": [
+            {
+                "name": "et",
+                "type": "reftype",
+                "description": "The element reference type of the table."
+            },
+            {
+                "name": "lim",
+                "type": "limits",
+                "description": "The limits of the table."
+            }
+        ]
+    }
+]
+```
+
+This JSON representation follows the guidelines provided. Each key in the JSON represents the name of the definition, in this case, `tabletype`. The value is a list of the definition's components, `et` and `lim`. Each component in the list includes the fields `name`, `type`, and `description`, providing a detailed description of each component.

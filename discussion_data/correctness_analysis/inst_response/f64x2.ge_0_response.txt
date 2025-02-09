@@ -1,0 +1,115 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'f64x2.ge', and the instruction format is 'txN.vrelop'. Therefore, the placeholder 't' in the instruction format represents a value type, and 'xN' represents the number of lanes in the vector. 
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+exec instructions Instructions Vector Instructions f64x2.vrelop
+Assert: due to validation, two values of value type v128 are on the top of the stack.
+
+Pop the value v128.const~c_2 from the stack.
+
+Pop the value v128.const~c_1 from the stack.
+
+Let i^* be the sequence lanes_{f64x2}(c_1).
+
+Let j^* be the sequence lanes_{f64x2}(c_2).
+
+Let c be the result of computing lanes^{-1}_{f64x2}(extend^{s}_{1,|f64|}(vrelop_f64(i^*, j^*))).
+
+Push the value v128.const~c to the stack.
+```
+
+Execution Description:
+```
+exec instructions Instructions Vector Instructions f64x2.vrelop
+Assert: due to validation, two values of value type v128 are on the top of the stack.
+
+Pop the value v128.const~c_2 from the stack.
+
+Pop the value v128.const~c_1 from the stack.
+
+Let i^* be the sequence lanes_{f64x2}(c_1).
+
+Let j^* be the sequence lanes_{f64x2}(c_2).
+
+Let c be the result of computing lanes^{-1}_{f64x2}(extend^{s}_{1,|f64|}(vrelop_f64(i^*, j^*))).
+
+Push the value v128.const~c to the stack.
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `f64x2.ge` takes two operands of type v128 from the stack. There are no immediate arguments.
+
+Result:
+```json
+{
+    "op_0": "v128",
+    "op_1": "v128"
+}
+```
+
+4. Summarize Validation Rules:
+
+The validation rules for the `f64x2.ge` instruction are as follows:
+
+- Two values of type v128 must be on the top of the stack.
+- The instruction pops these two values from the stack and computes the result of the greater than or equal to operation on the corresponding lanes of the two vectors.
+- The result is then pushed back onto the stack.
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "v128",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "v128",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+The `f64x2.ge` instruction takes two operands of type v128 and returns a value of type v128.
+
+Result:
+```json
+[
+    {
+        "param": ["v128", "v128"],
+        "result": ["v128"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+The `f64x2.ge` instruction performs the greater than or equal to operation on the corresponding lanes of the two input vectors. If the value in a lane of the first vector is greater than or equal to the value in the corresponding lane of the second vector, the result in that lane is all ones. Otherwise, the result is all zeros.
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction performs the greater than or equal to operation on the corresponding lanes of the two input vectors. If the value in a lane of the first vector is greater than or equal to the value in the corresponding lane of the second vector, the result in that lane is all ones. Otherwise, the result is all zeros.",
+        "WhetherTrap": false
+    }
+]
+```

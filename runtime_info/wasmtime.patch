@@ -1,0 +1,222 @@
+diff --git a/src/commands/run.rs b/src/commands/run.rs
+index 81c724bd7..6ebd2da97 100644
+--- a/src/commands/run.rs
++++ b/src/commands/run.rs
+@@ -439,10 +439,16 @@ impl RunCommand {
+                         .or_else(|| instance.get_func(&mut *store, "_start"))
+                 };
+ 
++            let has_inst_path = "/home/anonymous/CP912/wasmtime2/dump_instantiation";
++            let mut file = std::fs::File::create(has_inst_path).expect("create failed");
++            let has_visited_num: u32 = 0xFFFFFFFF;
++            std::io::Write::write_all(&mut file, &has_visited_num.to_le_bytes()).expect("write failed");
++                // 
+                 match func {
+                     Some(func) => self.invoke_func(store, func),
+                     None => Ok(()),
+                 }
++                
+             }
+             #[cfg(feature = "component-model")]
+             CliLinker::Component(linker) => {
+@@ -475,12 +481,12 @@ impl RunCommand {
+ 
+     fn invoke_func(&self, store: &mut Store<Host>, func: Func) -> Result<()> {
+         let ty = func.ty(&store);
+-        if ty.params().len() > 0 {
+-            eprintln!(
+-                "warning: using `--invoke` with a function that takes arguments \
+-                 is experimental and may break in the future"
+-            );
+-        }
++        // if ty.params().len() > 0 {
++        //     eprintln!(
++        //         "warning: using `--invoke` with a function that takes arguments \
++        //          is experimental and may break in the future"
++        //     );
++        // }
+         let mut args = self.module_and_args.iter().skip(1);
+         let mut values = Vec::new();
+         for ty in ty.params() {
+@@ -526,13 +532,14 @@ impl RunCommand {
+             return Err(self.handle_core_dump(&mut *store, err));
+         }
+ 
+-        if !results.is_empty() {
+-            eprintln!(
+-                "warning: using `--invoke` with a function that returns values \
+-                 is experimental and may break in the future"
+-            );
+-        }
++        // if !results.is_empty() {
++        //     eprintln!(
++        //         "warning: using `--invoke` with a function that returns values \
++        //          is experimental and may break in the future"
++        //     );
++        // }
+ 
++        dump_vstack(&results);
+         for result in results {
+             match result {
+                 Val::I32(i) => println!("{}", i),
+@@ -544,10 +551,13 @@ impl RunCommand {
+                 Val::V128(i) => println!("{}", i.as_u128()),
+             }
+         }
+-
++        
+         Ok(())
+     }
+ 
++
++
++
+     #[cfg(feature = "coredump")]
+     fn handle_core_dump(&self, store: &mut Store<Host>, err: Error) -> Error {
+         let coredump_path = match &self.run.common.debug.coredump {
+@@ -789,6 +799,75 @@ impl RunCommand {
+     }
+ }
+ 
++/// dump the value stack
++pub fn dump_vstack(results: &Vec<Val>) {
++    let _path = "/home/anonymous/CP912/wasmtime2/dump_vstack";
++    let mut file = std::fs::File::create(_path).expect("create failed");
++    std::io::Write::write_all(&mut file, &results.len().to_le_bytes()).expect("write failed");
++    for result in results {
++        match result {
++            Val::I32(value_content) => {
++                let cur_ty:u8 = 0x7F;
++                std::io::Write::write_all(&mut file, &cur_ty.to_le_bytes()).expect("write failed");
++                std::io::Write::write_all(&mut file, &value_content.to_le_bytes()).expect("write failed");
++            },
++            Val::I64(value_content) => {
++                let cur_ty:u8 = 0x7E;
++                std::io::Write::write_all(&mut file, &cur_ty.to_le_bytes()).expect("write failed");
++                std::io::Write::write_all(&mut file, &value_content.to_le_bytes()).expect("write failed");
++            },
++            Val::F32(value_content) => {
++                let cur_ty:u8 = 0x7D;
++                std::io::Write::write_all(&mut file, &cur_ty.to_le_bytes()).expect("write failed");
++                std::io::Write::write_all(&mut file, &value_content.to_le_bytes()).expect("write failed");
++            },
++            Val::F64(value_content) => {
++                let cur_ty:u8 = 0x7C;
++                std::io::Write::write_all(&mut file, &cur_ty.to_le_bytes()).expect("write failed");
++                std::io::Write::write_all(&mut file, &value_content.to_le_bytes()).expect("write failed");
++            },
++            Val::V128(value_content) => {
++                let cur_ty:u8 = 0x7B;
++                std::io::Write::write_all(&mut file, &cur_ty.to_le_bytes()).expect("write failed");
++                std::io::Write::write_all(&mut file, &value_content.as_u128().to_le_bytes()).expect("write failed");
++            },
++            Val::ExternRef(value_content) => {
++                let cur_ty:u8 = 0x6F;
++                std::io::Write::write_all(&mut file, &cur_ty.to_le_bytes()).expect("write failed");
++                match value_content {
++                    None => {
++                        let null:u8 = 0x00;
++                        std::io::Write::write_all(&mut file, &null.to_le_bytes()).expect("write failed");
++                    },
++                    Some(_) => {
++                        let not_null:u8 = 0x01;
++                        std::io::Write::write_all(&mut file, &not_null.to_le_bytes()).expect("write failed");
++                    }
++                }
++            },
++            Val::FuncRef(value_content) => {
++                let cur_ty:u8 = 0x70;
++                std::io::Write::write_all(&mut file, &cur_ty.to_le_bytes()).expect("write failed");
++                match value_content {
++                    None => {
++                        let null:u8 = 0x00;
++                        std::io::Write::write_all(&mut file, &null.to_le_bytes()).expect("write failed");
++                    },
++                    Some(_) => {
++                        let not_null:u8 = 0x01;
++                        std::io::Write::write_all(&mut file, &not_null.to_le_bytes()).expect("write failed");
++                    }
++                }
++            },
++            // Val::I32(i) => println!("{}", i),
++            // Val::I64(i) => println!("{}", i),
++            // Val::F32(f) => println!("{}", f32::from_bits(*f)),
++            // Val::F64(f) => println!("{}", f64::from_bits(*f)),
++            // Val::ExternRef(_) => println!("<externref>"),
++            // Val::FuncRef(_) => println!("<funcref>"),
++        }
++    }
++}
+ #[derive(Default, Clone)]
+ struct Host {
+     preview1_ctx: Option<wasmtime_wasi::WasiCtx>,
+diff --git a/src/helloz.rs b/src/helloz.rs
+new file mode 100644
+index 000000000..67df450ec
+--- /dev/null
++++ b/src/helloz.rs
+@@ -0,0 +1,64 @@
++//! Small example of how to instantiate a wasm module that imports one function,
++//! showing how you can fill in host functionality for a wasm module.
++
++// You can execute this example with `cargo run --example hello`
++
++use anyhow::Result;
++use wasmtime::*;
++
++struct MyState {
++    name: String,
++    count: usize,
++}
++
++fn main() -> Result<()> {
++    // First the wasm module needs to be compiled. This is done with a global
++    // "compilation environment" within an `Engine`. Note that engines can be
++    // further configured through `Config` if desired instead of using the
++    // default like this is here.
++    println!("Compiling module...");
++    let engine = Engine::default();
++    let module = Module::from_file(&engine, "examples/hello.wat")?;
++
++    // After a module is compiled we create a `Store` which will contain
++    // instantiated modules and other items like host functions. A Store
++    // contains an arbitrary piece of host information, and we use `MyState`
++    // here.
++    println!("Initializing...");
++    let mut store = Store::new(
++        &engine,
++        MyState {
++            name: "hello, world!".to_string(),
++            count: 0,
++        },
++    );
++
++    // Our wasm module we'll be instantiating requires one imported function.
++    // the function takes no parameters and returns no results. We create a host
++    // implementation of that function here, and the `caller` parameter here is
++    // used to get access to our original `MyState` value.
++    println!("Creating callback...");
++    let hello_func = Func::wrap(&mut store, |mut caller: Caller<'_, MyState>| {
++        println!("Calling back...");
++        println!("> {}", caller.data().name);
++        caller.data_mut().count += 1;
++    });
++
++    // Once we've got that all set up we can then move to the instantiation
++    // phase, pairing together a compiled module as well as a set of imports.
++    // Note that this is where the wasm `start` function, if any, would run.
++    println!("Instantiating module...");
++    let imports = [hello_func.into()];
++    let instance = Instance::new(&mut store, &module, &imports)?;
++
++    // Next we poke around a bit to extract the `run` function from the module.
++    println!("Extracting export...");
++    let run = instance.get_typed_func::<(), ()>(&mut store, "run")?;
++
++    // And last but not least we can call it!
++    println!("Calling export...");
++    run.call(&mut store, ())?;
++
++    println!("Done.");
++    Ok(())
++}

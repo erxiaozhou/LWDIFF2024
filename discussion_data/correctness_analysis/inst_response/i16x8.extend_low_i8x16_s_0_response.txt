@@ -1,0 +1,101 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'i16x8.extend_low_i8x16_s', and the instruction format is 't_2xN.vcvtop_half_t_1xM_sx^?'. Therefore, the placeholder 't_2xN' in the instruction format represents a vector of 16-bit integers, 't_1xM' represents a vector of 8-bit integers, 'half' represents the half of the vector to be extended, and 'sx^?' represents the sign extension.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+exec instructions Instructions Vector Instructions i16x8.extend_low_i8x16_s
+Assert: due to validation, a value of value type v128 is on the top of the stack.
+
+Pop the value v128.const~c_1 from the stack.
+
+If half is low, then:
+
+Let i^* be the sequence lanes_{i8x16}(c_1)[0 : 8].
+
+Else:
+
+Let i^* be the sequence lanes_{i8x16}(c_1)[8 : 8].
+
+Let j^* be the result of computing vcvtop^{s}_{|i8|,|i16|}(i^*).
+
+Let c be the result of computing lanes^{-1}_{i16x8}(j^*).
+
+Push the value v128.const~c onto the stack.
+```
+
+Execution Description:
+```
+exec instructions Instructions Vector Instructions i16x8.extend_low_i8x16_s
+Assert: due to validation, a value of value type v128 is on the top of the stack.
+
+Pop the value v128.const~c_1 from the stack.
+
+If half is low, then:
+
+Let i^* be the sequence lanes_{i8x16}(c_1)[0 : 8].
+
+Else:
+
+Let i^* be the sequence lanes_{i8x16}(c_1)[8 : 8].
+
+Let j^* be the result of computing vcvtop^{s}_{|i8|,|i16|}(i^*).
+
+Let c be the result of computing lanes^{-1}_{i16x8}(j^*).
+
+Push the value v128.const~c onto the stack.
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `i16x8.extend_low_i8x16_s` takes a value from the stack (operand). The type of the operand should be a v128 vector.
+
+Result:
+```json
+{
+    "op_0": "v128"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["v128"],
+        "result": ["v128"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction extends the lower half of a v128 vector from 8-bit integers to 16-bit integers with sign extension.",
+        "WhetherTrap": false
+    }
+]
+```

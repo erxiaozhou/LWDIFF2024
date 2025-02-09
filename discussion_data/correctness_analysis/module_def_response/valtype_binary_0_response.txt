@@ -1,0 +1,46 @@
+In natural language, the binary definition of **valtype** in WebAssembly is a value type that can be a number type, vector type, or reference type. This means that the **valtype** can be represented as either a number type, a vector type, or a reference type. The binary format for these types corresponds to the signed LEB128 encoding of small negative sN values, so that they can coexist with (positive) type indices in the future.
+
+In JSON format, the definition of **valtype** would be represented as follows:
+
+```json
+[
+    {
+        "valtype": [
+            {
+                "name": "numtype",
+                "type": "<Union:numtype:vectype:reftype>",
+                "description": "A value type that can be a number type, vector type, or reference type."
+            }
+        ]
+    },
+    {
+        "numtype": [
+            {
+                "name": "numtype",
+                "type": "numtype",
+                "description": "A number type."
+            }
+        ]
+    },
+    {
+        "vectype": [
+            {
+                "name": "vectype",
+                "type": "vectype",
+                "description": "A vector type."
+            }
+        ]
+    },
+    {
+        "reftype": [
+            {
+                "name": "reftype",
+                "type": "reftype",
+                "description": "A reference type."
+            }
+        ]
+    }
+]
+```
+
+In this JSON representation, the **valtype** is defined as a union of **numtype**, **vectype**, and **reftype**. Each of these types is then defined separately with their respective descriptions.

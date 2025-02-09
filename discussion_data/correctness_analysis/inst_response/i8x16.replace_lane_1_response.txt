@@ -1,0 +1,112 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'i8x16.replace_lane', and the instruction format is 'shape.replace_lane~x'. Therefore, the placeholder 'shape' in the instruction format represents 'i8x16', and 'x' represents a lane index.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Vector Instructions i8x16.replace_lane~laneidx
+The lane index laneidx must be smaller than dim(i8x16).
+
+Let t be unpacked(i8x16).
+
+The instruction is valid with type [v128~t] \rightarrow [v128].
+
+\frac{
+  laneidx < dim(i8x16)
+}{
+  C \vdash i8x16.replace_lane~laneidx : [v128~unpacked(i8x16)] \rightarrow [v128]
+}
+```
+
+Execution Description:
+```
+exec instructions Instructions Vector Instructions i8x16.replace_lane~x
+Assert: due to validation, x < dim(i8x16).
+
+Let t_1 be the type unpacked(i8x16).
+
+Assert: due to validation, a value of value type t_1 is on the top of the stack.
+
+Pop the value t_1.const~c_1 from the stack.
+
+Assert: due to validation, a value of value type v128 is on the top of the stack.
+
+Pop the value v128.const~c_2 from the stack.
+
+Let i^* be the sequence lanes_{i8x16}(c_2).
+
+Let c be the result of computing lanes^{-1}_{i8x16}(i^* \mathrel{with} [x] = c_1)
+
+Push v128.const~c on the stack.
+
+\begin{array}{l}
+\begin{array}{lcl@{\qquad}l}
+(t_1.const~c_1)~(v128.const~c_2)~i8x16.replace_lane~x &\hookrightarrow& (v128.const~c)
+\end{array}
+\\\\ \qquad
+  \begin{array}[t]{@r@{~}l@}
+   (\mathrel{if} & i^* = lanes_{i8x16}(c_2) \\\\
+    \wedge & c = lanes^{-1}_{i8x16}(i^* \mathrel{with} [x] = c_1))
+  \end{array}
+\end{array}
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `i8x16.replace_lane~x` takes two operands from the stack and one immediate argument. The first operand is of type `i32` which is the type unpacked from `i8x16`, the second operand is of type `v128`, and the immediate argument is a lane index.
+
+Result:
+```json
+{
+    "op_0": "i32",
+    "op_1": "v128",
+    "imm_0": "lane_idx"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+{
+    "InputConstraint": [
+        {
+            "v1": "imm_0",
+            "v2": "16",
+            "relation": "lt"
+        }
+    ],
+    "ContextConstraint": [],
+    "Valid": true
+}
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["i32", "v128"],
+        "result": ["v128"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction replaces a lane in a v128 value with a new value. The lane to be replaced is specified by the immediate argument, and the new value is the first operand. The v128 value is the second operand. The result is pushed onto the stack.",
+        "WhetherTrap": false
+    }
+]
+```

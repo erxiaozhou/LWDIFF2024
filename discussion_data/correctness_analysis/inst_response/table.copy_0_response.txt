@@ -1,0 +1,120 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'table.copy', and the instruction format is 'table.copy~x~y'. Therefore, the placeholders 'x' and 'y' in the instruction format represent table indices.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Table Instructions table.copy~table_idx1~table_idx2
+The table C.tables[table_idx1] must be defined in the context.
+Let limits_1~t_1 be the table type C.tables[table_idx1].
+The table C.tables[table_idx2] must be defined in the context.
+Let limits_2~t_2 be the table type C.tables[table_idx2].
+The reference type t_1 must be the same as t_2.
+Then the instruction is valid with type [i32~i32~i32] \rightarrow [].
+```
+
+Execution Description:
+```
+exec instructions Instructions Table Instructions table.copy~table_idx1~table_idx2
+Let F be the current frame.
+Assert: due to validation, F.module.tableaddrs[table_idx1] exists.
+Let ta_x be the table address F.module.tableaddrs[table_idx1].
+Assert: due to validation, S.tables[ta_x] exists.
+Let tab_x be the table instance S.tables[ta_x].
+Assert: due to validation, F.module.tableaddrs[table_idx2] exists.
+Let ta_y be the table address F.module.tableaddrs[table_idx2].
+Assert: due to validation, S.tables[ta_y] exists.
+Let tab_y be the table instance S.tables[ta_y].
+Assert: due to validation, a value of value type i32 is on the top of the stack.
+Pop the value i32.const~n from the stack.
+Assert: due to validation, a value of value type i32 is on the top of the stack.
+Pop the value i32.const~s from the stack.
+Assert: due to validation, a value of value type i32 is on the top of the stack.
+Pop the value i32.const~d from the stack.
+If s + n is larger than the length of tab_y.elem or d + n is larger than the length of tab_x.elem, then:
+Trap.
+If n = 0, then:
+Return.
+If d \leq s, then:
+Push the value i32.const~d to the stack.
+Push the value i32.const~s to the stack.
+Execute the instruction table.get~table_idx2.
+Execute the instruction table.set~table_idx1.
+Assert: due to the earlier check against the table size, d+1 < 2^{32}.
+Push the value i32.const~(d+1) to the stack.
+Assert: due to the earlier check against the table size, s+1 < 2^{32}.
+Push the value i32.const~(s+1) to the stack.
+Else:
+Assert: due to the earlier check against the table size, d+n-1 < 2^{32}.
+Push the value i32.const~(d+n-1) to the stack.
+Assert: due to the earlier check against the table size, s+n-1 < 2^{32}.
+Push the value i32.const~(s+n-1) to the stack.
+Execute the instruction table.get~table_idx2.
+Execute the instruction table.set~table_idx1.
+Push the value i32.const~d to the stack.
+Push the value i32.const~s to the stack.
+Push the value i32.const~(n-1) to the stack.
+Execute the instruction table.copy~table_idx1~table_idx2.
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `table.copy~table_idx1~table_idx2` takes three values from the stack (operands) and two table indices (immediate arguments). The type of the operands should be i32. The type of the immediate arguments is a table index.
+
+Result:
+```json
+{
+    "op_0": "i32",
+    "op_1": "i32",
+    "op_2": "i32",
+    "imm_0": "table_idx",
+    "imm_1": "table_idx"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [
+            {
+                "v1": "imm_0",
+                "v2": "context.tables.length",
+                "relation": "lt"
+            },
+            {
+                "v1": "imm_1",
+                "v2": "context.tables.length",
+                "relation": "lt"
+            },
+            {
+                "v1": "context.tables[imm_0].type",
+                "v2": "context.tables[imm_1].type",
+                "relation": "eq"
+            }
+        ],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["i32", "i32", "i32"],
+        "result": []
+    }
+]
+```
+
+6. Describe

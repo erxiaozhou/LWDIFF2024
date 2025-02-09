@@ -1,0 +1,82 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'v128.const', and the instruction format is 'v128.const~c'. Therefore, the placeholder 'c' in the instruction format represents a constant value of type v128.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Vector Instructions v128.const~v128_const
+The instruction is valid with type [] \rightarrow [v128].
+
+\frac{
+}{
+  C \vdash v128.const~v128_const : [] \rightarrow [v128]
+}
+```
+
+Execution Description:
+```
+exec instructions Instructions Vector Instructions v128.const~v128_const
+Push the value v128.const~v128_const to the stack.
+
+No formal reduction rule is required for this instruction, since const instructions coincide with values.
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `v128.const~v128_const` does not take any operands from the stack, but it does take an immediate argument of type v128.
+
+Result:
+```json
+{
+    "imm_0": "v128"
+}
+```
+
+4. Summarize Validation Rules:
+
+The validation of this instruction does not depend on any specific constraints on the input or context. It is always valid as long as the immediate argument is of type v128.
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+The instruction `v128.const~v128_const` does not take any parameters and returns a value of type v128.
+
+Result:
+```json
+[
+    {
+        "param": [],
+        "result": ["v128"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+The instruction `v128.const~v128_const` always pushes the immediate argument of type v128 onto the stack. It does not interact with any context variables and does not trap.
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction pushes the immediate argument of type v128 onto the stack.",
+        "WhetherTrap": false
+    }
+]
+```

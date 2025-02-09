@@ -1,0 +1,91 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'f32x4.convert_i32x4_s', and the instruction format is 't_2xN.vcvtop_t_1xM_sx'. Therefore, the placeholder 't_2xN' in the instruction format represents a vector of 4 f32 values (f32x4), and 't_1xM' represents a vector of 4 i32 values (i32x4).
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+exec instructions Instructions Vector Instructions f32x4.vcvtop_i32x4_sx
+Assert: due to validation, a value of value type v128 is on the top of the stack.
+
+Pop the value v128.const~c_1 from the stack.
+
+Let i^* be the sequence lanes_i32x4(c_1).
+
+Let c be the result of computing lanes^{-1}_f32x4(vcvtop^{sx}_{|i32|,|f32|}(i^*))
+
+Push the value v128.const~c onto the stack.
+```
+
+Execution Description:
+```
+exec instructions Instructions Vector Instructions f32x4.vcvtop_i32x4_sx
+Assert: due to validation, a value of value type v128 is on the top of the stack.
+
+Pop the value v128.const~c_1 from the stack.
+
+Let i^* be the sequence lanes_i32x4(c_1).
+
+Let c be the result of computing lanes^{-1}_f32x4(vcvtop^{sx}_{|i32|,|f32|}(i^*))
+
+Push the value v128.const~c onto the stack.
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `f32x4.convert_i32x4_s` takes a value from the stack (operand). The type of the operand should be a v128 value.
+
+Result:
+```json
+{
+    "op_0": "v128"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "v128",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["v128"],
+        "result": ["v128"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction pops a v128 value from the stack, interprets it as a vector of 4 i32 values, converts each i32 value to a f32 value, and pushes the resulting v128 value back onto the stack.",
+        "WhetherTrap": false
+    }
+]
+```

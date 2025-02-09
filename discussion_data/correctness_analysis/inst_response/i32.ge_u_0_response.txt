@@ -1,0 +1,115 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'i32.ge_u', and the instruction format is 't.relop'. Therefore, the placeholder 't' in the instruction format represents a value type, which is 'i32' in this case. The placeholder 'relop' represents a relational operation, which is 'ge_u' (greater than or equal to, unsigned) in this case.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Numeric Instructions i32.ge_u
+The instruction is valid with type [i32~i32] \rightarrow [i32].
+
+\frac{
+}{
+  C \vdash i32.ge_u : [i32~i32] \rightarrow [i32]
+}
+```
+
+Execution Description:
+```
+exec instructions Instructions Numeric Instructions i32.ge_u
+Assert: due to validation, two values of value type i32 are on the top of the stack.
+
+Pop the value i32.const~c_2 from the stack.
+
+Pop the value i32.const~c_1 from the stack.
+
+Let c be the result of computing ge_u_i32(c_1, c_2).
+
+Push the value i32.const~c to the stack.
+
+\begin{array}{lcl@{\qquad}l}
+(i32.const~c_1)~(i32.const~c_2)~i32.ge_u &\hookrightarrow& (i32.const~c)
+  & (\mathrel{if} c = ge_u_i32(c_1,c_2)) \\
+\end{array}
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `i32.ge_u` takes two operands of type i32 from the stack and does not take any immediate arguments.
+
+Result:
+```json
+{
+    "op_0": "i32",
+    "op_1": "i32"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+{
+    "InputConstraint": [
+        {
+            "v1": "op_0.type",
+            "v2": "i32",
+            "relation": "eq"
+        },
+        {
+            "v1": "op_1.type",
+            "v2": "i32",
+            "relation": "eq"
+        }
+    ],
+    "ContextConstraint": [],
+    "Valid": true
+}
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["i32", "i32"],
+        "result": ["i32"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0",
+                "v2": "op_1",
+                "relation": "ge"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The first operand is greater than or equal to the second operand.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0",
+                "v2": "op_1",
+                "relation": "lt"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The first operand is less than the second operand.",
+        "WhetherTrap": false
+    }
+]
+```

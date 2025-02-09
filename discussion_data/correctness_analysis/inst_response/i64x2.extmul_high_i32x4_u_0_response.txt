@@ -1,0 +1,136 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'i64x2.extmul_high_i32x4_u', and the instruction format is 't_2xN.extmul_half_t_1xM_sx'. Therefore, the placeholder 't_2xN' in the instruction format represents a vector of two 64-bit integers (i64x2), 't_1xM' represents a vector of four 32-bit integers (i32x4), and 'sx' represents unsigned (u).
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+exec instructions Instructions Vector Instructions i64x2.extmul_high_i32x4_u
+Assert: due to validation, two values of value type v128 are on the top of the stack.
+
+Pop the value v128.const~c_2 from the stack.
+
+Pop the value v128.const~c_1 from the stack.
+
+If half is low, then:
+
+Let i^* be the sequence lanes_{i32x4}(c_1)[0 : N].
+
+Let j^* be the sequence lanes_{i32x4}(c_2)[0 : N].
+
+Else:
+
+Let i^* be the sequence lanes_{i32x4}(c_1)[N : N].
+
+Let j^* be the sequence lanes_{i32x4}(c_2)[N : N].
+
+Let c be the result of computing lanes^{-1}_{i64x2}(imul_{i64x2}(extend^{u}_{|i32|,|i64|}(i^*), extend^{u}_{|i32|,|i64|}(j^*)))
+
+Push the value v128.const~c onto the stack.
+
+(v128.const~c_1)~(v128.const~c_2)~i64x2.extmul_high_i32x4_u &hookrightarrow& (v128.const~c) 
+
+  (if & i^* = lanes_{i32x4}(c_1)[half(0, N) : N] 
+  & j^* = lanes_{i32x4}(c_2)[half(0, N) : N] 
+  & c = lanes^{-1}_{i64x2}(imul_{i64x2}(extend^{u}_{|i32|,|i64|}(i^*), extend^{u}_{|i32|,|i64|}(j^*))))
+
+
+
+where:
+
+low(x, y) &=& x 
+high(x, y) &=& y 
+```
+
+Execution Description:
+```
+exec instructions Instructions Vector Instructions i64x2.extmul_high_i32x4_u
+Assert: due to validation, two values of value type v128 are on the top of the stack.
+
+Pop the value v128.const~c_2 from the stack.
+
+Pop the value v128.const~c_1 from the stack.
+
+If half is low, then:
+
+Let i^* be the sequence lanes_{i32x4}(c_1)[0 : N].
+
+Let j^* be the sequence lanes_{i32x4}(c_2)[0 : N].
+
+Else:
+
+Let i^* be the sequence lanes_{i32x4}(c_1)[N : N].
+
+Let j^* be the sequence lanes_{i32x4}(c_2)[N : N].
+
+Let c be the result of computing lanes^{-1}_{i64x2}(imul_{i64x2}(extend^{u}_{|i32|,|i64|}(i^*), extend^{u}_{|i32|,|i64|}(j^*)))
+
+Push the value v128.const~c onto the stack.
+
+(v128.const~c_1)~(v128.const~c_2)~i64x2.extmul_high_i32x4_u &hookrightarrow& (v128.const~c) 
+
+  (if & i^* = lanes_{i32x4}(c_1)[half(0, N) : N] 
+  & j^* = lanes_{i32x4}(c_2)[half(0, N) : N] 
+  & c = lanes^{-1}_{i64x2}(imul_{i64x2}(extend^{u}_{|i32|,|i64|}(i^*), extend^{u}_{|i32|,|i64|}(j^*))))
+
+
+
+where:
+
+low(x, y) &=& x 
+high(x, y) &=& y 
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `i64x2.extmul_high_i32x4_u` takes two operands of type v128 from the stack. There are no immediate arguments.
+
+Result:
+```json
+{
+    "op_0": "v128",
+    "op_1": "v128"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["v128", "v128"],
+        "result": ["v128"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction pops two v128 values from the stack, performs an extended multiplication on the high half of the i32x4 lanes, and pushes the result (a v128 value) onto the stack.",
+        "WhetherTrap": false
+    }
+]
+```

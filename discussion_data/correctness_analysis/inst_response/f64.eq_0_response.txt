@@ -1,0 +1,106 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'f64.eq', and the instruction format is 't.relop'. Therefore, the placeholder 't' in the instruction format represents a value type, which is 'f64' in this case.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Numeric Instructions f64.eq
+The instruction is valid with type [f64~f64] \rightarrow [i32].
+
+\frac{
+}{
+  C \vdash f64.eq : [f64~f64] \rightarrow [i32]
+}
+```
+
+Execution Description:
+```
+exec instructions Instructions Numeric Instructions f64.eq
+Assert: due to validation, two values of value type f64 are on the top of the stack.
+
+Pop the value f64.const~c_2 from the stack.
+
+Pop the value f64.const~c_1 from the stack.
+
+Let c be the result of computing eq_f64(c_1, c_2).
+
+Push the value i32.const~c to the stack.
+
+\begin{array}{lcl@{\qquad}l}
+(f64.const~c_1)~(f64.const~c_2)~f64.eq &\hookrightarrow& (i32.const~c)
+  & (\mathrel{if} c = eq_f64(c_1,c_2)) \\
+\end{array}
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `f64.eq` takes two operands of type f64 from the stack and does not take any immediate arguments.
+
+Result:
+```json
+{
+    "op_0": "f64",
+    "op_1": "f64"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["f64", "f64"],
+        "result": ["i32"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0",
+                "v2": "op_1",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The two operands are equal. The instruction pushes the value 1 (true) to the stack.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0",
+                "v2": "op_1",
+                "relation": "neq"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The two operands are not equal. The instruction pushes the value 0 (false) to the stack.",
+        "WhetherTrap": false
+    }
+]
+```

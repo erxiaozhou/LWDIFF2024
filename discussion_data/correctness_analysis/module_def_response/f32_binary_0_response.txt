@@ -1,0 +1,19 @@
+In natural language, the binary definition of **f32** in WebAssembly represents a 32-bit floating-point value. This value is encoded directly by its IEEE 754-2019 (Section 3.4) bit pattern in little endian byte order. The definition consists of a single component, which is a sequence of bytes. The number of bytes is determined by the size of the floating-point value, which is 32 bits or 4 bytes for **f32**.
+
+In JSON format, the definition of **f32** can be represented as follows:
+
+```json
+[
+    {
+        "f32": [
+            {
+                "name": "b*",
+                "type": "<Array:byte:4>",
+                "description": "A sequence of 4 bytes representing the IEEE 754-2019 (Section 3.4) bit pattern of the 32-bit floating-point value in little endian byte order."
+            }
+        ]
+    }
+]
+```
+
+In this JSON representation, the key "f32" represents the name of the definition. The value is a list of the definition's components. The component is represented by a dictionary with fields "name", "type", and "description". The "name" field is "b*", the "type" field is "<Array:byte:4>", and the "description" field provides a detailed description of the component.

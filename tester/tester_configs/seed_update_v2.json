@@ -1,0 +1,10 @@
+{
+    "new_tcs_cov": false,
+    "replace_":true,
+    "max_cov":true,
+    "new_all_success_tcs_cov":false,
+    "new_seed_cov":true,
+    "MC":true,
+    "trimming":true,
+    "new_all_success_seed_cov":true
+}

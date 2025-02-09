@@ -1,0 +1,19 @@
+In WebAssembly, the `funcidx` is a type of index that refers to the function indices space. It is represented as a `u32` value in the binary format. The `funcidx` is used to reference functions in the function table of a WebAssembly module.
+
+In JSON format, the definition of `funcidx` can be represented as follows:
+
+```json
+[
+    {
+        "funcidx": [
+            {
+                "name": "index",
+                "type": "u32",
+                "description": "A u32 value that represents the index of a function in the function indices space of a WebAssembly module."
+            }
+        ]
+    }
+]
+```
+
+In this JSON representation, the key `funcidx` represents the name of the definition. The value is a list of components that make up the `funcidx`. In this case, there is only one component named `index`, which is of type `u32`. The description provides a detailed explanation of what the `index` component represents.

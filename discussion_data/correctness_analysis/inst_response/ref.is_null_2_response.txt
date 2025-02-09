@@ -1,0 +1,91 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'ref.is_null', and the instruction format is 'ref.is_null'. Therefore, there are no placeholders in the instruction format.
+
+2. Replace Placeholders:
+
+Since there are no placeholders in the instruction format, there is no need to replace any placeholders in the `validation_description` and `execution_description`.
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `ref.is_null` takes a reference value from the stack (operand). The type of the operand should be a reference type, which can be either `funcref` or `externref`.
+
+Result:
+```json
+{
+    "op_0": ["funcref", "externref"]
+}
+```
+
+4. Summarize Validation Rules:
+
+The instruction is valid if the operand is a reference type.
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": ["funcref", "externref"],
+                "relation": "in"
+            }
+        ],
+        "ContextConstraint": [],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+The instruction takes a reference type as a parameter and returns an i32.
+
+Result:
+```json
+[
+    {
+        "param": ["funcref"],
+        "result": ["i32"]
+    },
+    {
+        "param": ["externref"],
+        "result": ["i32"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+The instruction pops a reference value from the stack. If the value is null, it pushes 1 to the stack. Otherwise, it pushes 0 to the stack.
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0",
+                "v2": "null",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The operand is a null reference. The instruction pushes 1 to the stack.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0",
+                "v2": "null",
+                "relation": "neq"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The operand is a non-null reference. The instruction pushes 0 to the stack.",
+        "WhetherTrap": false
+    }
+]
+```

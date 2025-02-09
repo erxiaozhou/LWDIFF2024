@@ -1,0 +1,72 @@
+In natural language, the element section in WebAssembly binary format is identified by the id 9 and decodes into a vector of element segments. Each element segment can be one of eight variants, distinguished by an initial u32 integer. This integer can be interpreted as a bitfield, where bit 0 indicates a passive or declarative segment, bit 1 indicates the presence of an explicit table index for an active segment and otherwise distinguishes passive from declarative segments, and bit 2 indicates the use of element type and element expressions instead of element kind and element indices. Each variant of the element segment has a different structure and results in a different output.
+
+In JSON format, the definition of the element section and its variants can be represented as follows:
+
+```json
+[
+    {
+        "element_section": [
+            {
+                "name": "section_id",
+                "type": "<Fix:9:hex>",
+                "description": "The ID of the element section, which is fixed at 0x09."
+            },
+            {
+                "name": "element_segments",
+                "type": "<Vec:element_segment>",
+                "description": "A vector of element segments that represent the elems component of a module."
+            }
+        ]
+    },
+    {
+        "element_segment": [
+            {
+                "name": "variant",
+                "type": "u32",
+                "description": "An integer indicating the variant of the element segment. It can be interpreted as a bitfield."
+            },
+            {
+                "name": "expr",
+                "type": "<Optional:expr>",
+                "description": "An optional expression used in some variants of the element segment."
+            },
+            {
+                "name": "funcidx",
+                "type": "<Optional:<Vec:funcidx>>",
+                "description": "An optional vector of function indices used in some variants of the element segment."
+            },
+            {
+                "name": "tableidx",
+                "type": "<Optional:tableidx>",
+                "description": "An optional table index used in some variants of the element segment."
+            },
+            {
+                "name": "elemkind",
+                "type": "<Optional:elemkind>",
+                "description": "An optional element kind used in some variants of the element segment."
+            },
+            {
+                "name": "reftype",
+                "type": "<Optional:reftype>",
+                "description": "An optional reference type used in some variants of the element segment."
+            },
+            {
+                "name": "expr_vec",
+                "type": "<Optional:<Vec:expr>>",
+                "description": "An optional vector of expressions used in some variants of the element segment."
+            }
+        ]
+    },
+    {
+        "elemkind": [
+            {
+                "name": "kind",
+                "type": "<Fix:0:hex>",
+                "description": "The kind of the element, which is fixed at 0x00 and represents funcref."
+            }
+        ]
+    }
+]
+```
+
+Please note that the actual structure of each variant of the element segment is more complex and depends on the value of the variant field. The above JSON only provides a high-level overview of the possible components of an element segment.

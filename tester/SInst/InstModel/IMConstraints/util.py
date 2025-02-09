@@ -1,0 +1,2 @@
+class OPTypeUndeterminedException(Exception):
+    pass

@@ -1,0 +1,36 @@
+In natural language, a custom section in WebAssembly binary format is defined by two components: the section itself and the custom data it contains. The custom section, denoted as `customsec`, is a section with the id 0 (`section_0(custom)`). The custom data, denoted as `custom`, consists of a name and a sequence of bytes. The name is a UTF-8 string that further identifies the custom section, and the sequence of bytes is an uninterpreted sequence for custom use. If an implementation interprets the data of a custom section, then errors in that data, or the placement of the section, must not invalidate the module.
+
+In JSON format, the definition of a custom section is represented as follows:
+
+```json
+[
+    {
+        "customsec": [
+            {
+                "name": "section_id",
+                "type": "<Fix:0:hex>",
+                "description": "The ID of the custom section, which is fixed at 0."
+            },
+            {
+                "name": "custom",
+                "type": "custom",
+                "description": "The custom data contained in the section."
+            }
+        ]
+    },
+    {
+        "custom": [
+            {
+                "name": "name",
+                "type": "utf8str",
+                "description": "A UTF-8 string that further identifies the custom section."
+            },
+            {
+                "name": "bytes",
+                "type": "<Vec:byte>",
+                "description": "An uninterpreted sequence of bytes for custom use."
+            }
+        ]
+    }
+]
+```

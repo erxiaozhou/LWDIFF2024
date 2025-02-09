@@ -1,0 +1,19 @@
+In natural language, the binary definition of **memtype** in WebAssembly is a memory type that is encoded with its limits. It consists of a single component named `lim` which is of type `limits`. The `lim` represents the limits of the memory type.
+
+In JSON format, the definition of **memtype** can be represented as follows:
+
+```json
+[
+    {
+        "memtype": [
+            {
+                "name": "lim",
+                "type": "limits",
+                "description": "The limits of the memory type."
+            }
+        ]
+    }
+]
+```
+
+This JSON representation follows the guidelines provided. The key in the JSON is the name of the definition, which is `memtype`. The value is a list of the definition's components. In this case, there is only one component named `lim`. The `type` field specifies the type of the component, which is `limits`. The `description` field provides a detailed description of the component.

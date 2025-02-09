@@ -1,0 +1,19 @@
+# Task description
+Please summary the control flow construct grammar, considering the attached background imformation. Note it, here, control flow constrct refers to the nested instruction, which contains the other instructions. An instruction does not contain the other instructions is a non-control flow construct instruction, even it is a contrl instruction. 
+
+- you should group the instructions that do not contains the control flow construct and represent them as  non-control flow construct instructions.
+- Note it, the back
+Note it, the background information just contains the control instrucitons. Therefore, you should include a tokento represent the non-control flow construct instructions.
+
+# Format requirement
+- First, you summary the control flow construct grammar in natural language.
+- Then, you should summary it in a structured way, such as a BNF grammar. 
+- You should organize the BNF grammar as a JSON mapping. An expansion rule should looks like
+```
+"<control_flow_name>": ['control_flow_start', '<blocktype>', '<insts>', 'end']
+- Your response should include the following necessary information: 
+    - Each kind of control flow construct should be represented as a expaonsion rule.
+    - There should be a token named "other-instruction" to represent the non-control Wasm instructions, which are not included in the background.
+    - There should be a token named "non-contrl-flow-instruction" to represent the non-control flow construct instructions, including the non control flow instructions in the background and the other instructions.
+
+{SPECIFICATION_CONTENT}

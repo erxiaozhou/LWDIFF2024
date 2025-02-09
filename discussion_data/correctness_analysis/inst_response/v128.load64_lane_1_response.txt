@@ -1,0 +1,127 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'v128.load64_lane', and the instruction format is 'v128.loadN_lane~memarg~x'. Therefore, the placeholder 'N' in the instruction format represents the bit width of the lane, and 'x' represents the lane index.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Memory Instructions v128.load64_lane~memarg~laneidx
+The lane index laneidx must be smaller than 128/64.
+The memory C.mems[0] must be defined in the context.
+The alignment 2^{memarg.align} must not be larger than 64/8.
+Then the instruction is valid with type [i32~v128] \rightarrow [v128].
+```
+
+Execution Description:
+```
+exec instructions Instructions Memory Instructions v128.load64_lane~memarg~x
+Let F be the current frame.
+Assert: due to validation, F.module.memaddrs[0] exists.
+Let a be the memory address F.module.memaddrs[0].
+Assert: due to validation, S.mems[a] exists.
+Let mem be the memory instance S.mems[a].
+Assert: due to validation, a value of value type v128 is on the top of the stack.
+Pop the value v128.const~v from the stack.
+Assert: due to validation, a value of value type i32 is on the top of the stack.
+Pop the value i32.const~i from the stack.
+Let ea be the integer i + memarg.offset.
+If ea + 64/8 is larger than the length of mem.data, then:
+Trap.
+Let b^* be the byte sequence mem.data[ea : 64/8].
+Let r be the constant for which bytes_{i64}(r) = b^*.
+Let L be 128 / 64.
+Let c be the result of computing lanes^{-1}_{i64x2}(lanes_{i64x2}(v) with [x] = r).
+Push the value v128.const~c to the stack.
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `v128.load64_lane~memarg~x` takes two values from the stack (operands) and a memory argument and a lane index (immediate arguments). The type of the first operand should be i32, the type of the second operand should be v128. The type of the first immediate argument is a memory argument, and the type of the second immediate argument is a lane index.
+
+Result:
+```json
+{
+    "op_0": "i32",
+    "op_1": "v128",
+    "imm_0": "offset",
+    "imm_1": "lane_idx",
+    "imm_2": "align"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "imm_1",
+                "v2": "2",
+                "relation": "lt"
+            },
+            {
+                "v1": "2^imm_2",
+                "v2": "8",
+                "relation": "le"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "v1": "0",
+                "v2": "context.mems.length",
+                "relation": "lt"
+            }
+        ],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["i32", "v128"],
+        "result": ["v128"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0 + imm_0 + 8",
+                "v2": "context.Mem[0].length",
+                "relation": "le"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The instruction loads a 64-bit value from memory, replaces one lane of a v128 value, and pushes the result onto the stack.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0 + imm_0 + 8",
+                "v2": "context.Mem[0].length",
+                "relation": "gt"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "Memory out-of-bounds, leading to a trap.",
+        "WhetherTrap": true
+    }
+]
+```

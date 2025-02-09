@@ -1,0 +1,19 @@
+In WebAssembly, the binary definition of **tableidx** is a type of index that refers to a table in the table section of a module. It is represented as a variable-length integer, specifically a `u32` type, which is encoded using the unsigned LEB128 format. This format allows for efficient encoding of large numbers while still being compact for smaller numbers.
+
+In JSON format, the definition of **tableidx** can be represented as follows:
+
+```json
+[
+    {
+        "tableidx": [
+            {
+                "name": "index",
+                "type": "u32",
+                "description": "A variable-length integer that refers to a table in the table section of a module. It is encoded using the unsigned LEB128 format."
+            }
+        ]
+    }
+]
+```
+
+This JSON representation follows the guidelines provided. The key is the name of the definition, "tableidx", and the value is a list of the definition's components. In this case, there is only one component, "index", which is of type "u32". The description provides a detailed explanation of what the "index" component represents.

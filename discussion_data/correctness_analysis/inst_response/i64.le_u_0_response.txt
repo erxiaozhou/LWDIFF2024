@@ -1,0 +1,106 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'i64.le_u', and the instruction format is 't.relop'. Therefore, the placeholder 't' in the instruction format represents a value type i64.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Numeric Instructions i64.relop
+The instruction is valid with type [i64~i64] \rightarrow [i32].
+
+\frac{
+}{
+  C \vdash i64.relop : [i64~i64] \rightarrow [i32]
+}
+```
+
+Execution Description:
+```
+exec instructions Instructions Numeric Instructions i64.relop
+Assert: due to validation, two values of value type i64 are on the top of the stack.
+
+Pop the value i64.const~c_2 from the stack.
+
+Pop the value i64.const~c_1 from the stack.
+
+Let c be the result of computing relop_i64(c_1, c_2).
+
+Push the value i32.const~c to the stack.
+
+\begin{array}{lcl@{\qquad}l}
+(i64.const~c_1)~(i64.const~c_2)~i64.relop &\hookrightarrow& (i32.const~c)
+  & (\mathrel{if} c = relop_i64(c_1,c_2)) \\
+\end{array}
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `i64.le_u` takes two operands of type i64 from the stack and does not take any immediate arguments.
+
+Result:
+```json
+{
+    "op_0": "i64",
+    "op_1": "i64"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["i64", "i64"],
+        "result": ["i32"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0",
+                "v2": "op_1",
+                "relation": "le"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The instruction compares two i64 operands and pushes 1 to the stack if the first operand is less than or equal to the second operand.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0",
+                "v2": "op_1",
+                "relation": "gt"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The instruction compares two i64 operands and pushes 0 to the stack if the first operand is greater than the second operand.",
+        "WhetherTrap": false
+    }
+]
+```

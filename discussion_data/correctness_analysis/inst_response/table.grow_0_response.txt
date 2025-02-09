@@ -1,0 +1,118 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'table.grow', and the instruction format is 'table.grow~x'. Therefore, the placeholder 'x' in the instruction format represents a table index.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Table Instructions table.grow~table_idx
+The table C.tables[table_idx] must be defined in the context.
+
+Let limits~t be the table type C.tables[table_idx].
+
+Then the instruction is valid with type [t~i32] \rightarrow [i32].
+
+\frac{
+  C.tables[table_idx] = limits~t
+}{
+  C \vdash table.grow~table_idx : [t~i32] \rightarrow [i32]
+}
+```
+
+Execution Description:
+```
+exec instructions Instructions Table Instructions table.grow~table_idx
+Let F be the current frame.
+
+Assert: due to validation, F.module.tableaddrs[table_idx] exists.
+
+Let a be the table address F.module.tableaddrs[table_idx].
+
+Assert: due to validation, S.tables[a] exists.
+
+Let tab be the table instance S.tables[a].
+
+Let sz be the length of S.tables[a].
+
+Assert: due to validation, a value of value type i32 is on the top of the stack.
+
+Pop the value i32.const~n from the stack.
+
+Assert: due to validation, a reference value is on the top of the stack.
+
+Pop the value val from the stack.
+
+Either, try growing table by n entries with initialization value val:
+
+If it succeeds, push the value i32.const~sz to the stack.
+
+Else, push the value i32.const~(-1) to the stack.
+
+Or, push the value i32.const~(-1) to the stack.
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `table.grow~table_idx` takes a value from the stack (operand) and a table index (immediate argument). The type of the operand should be i32. The type of the immediate argument is a table index.
+
+Result:
+```json
+{
+    "op_0": "i32",
+    "imm_0": "table_idx"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [
+            {
+                "v1": "imm_0",
+                "v2": "context.tables.length",
+                "relation": "lt"
+            }
+        ],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["i32"],
+        "result": ["i32"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction pops a value from the stack and tries to grow the table at the given index by this value. If it succeeds, it pushes the old table size to the stack. If it fails, it pushes -1 to the stack.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction traps if the table at the given index is not defined or cannot be grown.",
+        "WhetherTrap": true
+    }
+]
+```

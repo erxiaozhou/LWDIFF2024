@@ -1,0 +1,89 @@
+1. Infer Placeholder Values:
+The concrete instruction name is 'i16x8.shl', and the instruction format is 'txN.vishiftop'. Therefore, the placeholder 't' in the instruction format represents a value type 'i16', and 'xN' represents a vector of 8 lanes.
+
+2. Replace Placeholders:
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+Assert: due to validation, a value of value type i32 is on the top of the stack.
+Pop the value i32.const~s from the stack.
+Assert: due to validation, a value of value type v128 is on the top of the stack.
+Pop the value v128.const~c_1 from the stack.
+Let i^* be the sequence lanes_{i16x8}(c_1).
+Let c be lanes^{-1}_{i16x8}(vishiftop_{i16}(i^*, s^8)).
+Push the value v128.const~c to the stack.
+```
+
+Execution Description:
+```
+Assert: due to validation, a value of value type i32 is on the top of the stack.
+Pop the value i32.const~s from the stack.
+Assert: due to validation, a value of value type v128 is on the top of the stack.
+Pop the value v128.const~c_1 from the stack.
+Let i^* be the sequence lanes_{i16x8}(c_1).
+Let c be lanes^{-1}_{i16x8}(vishiftop_{i16}(i^*, s^8)).
+Push the value v128.const~c to the stack.
+```
+
+3. Determine Operand and Immediate Argument Types:
+The instruction `i16x8.shl` takes two operands from the stack. The first operand is of type i32 and the second operand is of type v128.
+
+Result:
+```json
+{
+    "op_0": "i32",
+    "op_1": "v128"
+}
+```
+
+4. Summarize Validation Rules:
+The instruction is valid if the top of the stack contains a value of type i32 followed by a value of type v128. The i32 value is popped from the stack and used as the shift amount. The v128 value is also popped from the stack and its lanes are shifted left by the shift amount.
+
+Result:
+```json
+{
+    "InputConstraint": [
+        {
+            "v1": "op_0.type",
+            "v2": "i32",
+            "relation": "eq"
+        },
+        {
+            "v1": "op_1.type",
+            "v2": "v128",
+            "relation": "eq"
+        }
+    ],
+    "ContextConstraint": [],
+    "Valid": true
+}
+```
+
+5. Summarize the type of the instruction:
+The instruction takes two parameters of types i32 and v128 and does not return a result.
+
+Result:
+```json
+[
+    {
+        "param": ["i32", "v128"],
+        "result": []
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+The instruction shifts the lanes of a v128 value left by a specified amount. The shift amount is given by an i32 value. The result is a new v128 value with the lanes shifted left. The original v128 and i32 values are popped from the stack and the result is pushed onto the stack.
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction shifts the lanes of a v128 value left by a specified amount. The shift amount is given by an i32 value. The result is a new v128 value with the lanes shifted left.",
+        "WhetherTrap": false
+    }
+]
+```

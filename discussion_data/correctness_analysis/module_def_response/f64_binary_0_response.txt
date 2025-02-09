@@ -1,0 +1,19 @@
+In natural language, the binary definition of **f64** in WebAssembly represents a 64-bit floating-point value. This value is encoded directly by its IEEE 754-2019 (Section 3.4) bit pattern in little endian byte order. The definition consists of a sequence of bytes, with the length of the sequence being 64/8 = 8 bytes.
+
+In JSON format, the definition of **f64** can be represented as follows:
+
+```json
+[
+    {
+        "f64": [
+            {
+                "name": "byte_sequence",
+                "type": "<Array:byte:8>",
+                "description": "A sequence of 8 bytes representing the IEEE 754-2019 (Section 3.4) bit pattern of the 64-bit floating-point value in little endian byte order."
+            }
+        ]
+    }
+]
+```
+
+In this JSON representation, the key "f64" represents the name of the definition. The value is a list of the definition's components. In this case, there is only one component named "byte_sequence". The type of this component is an array of 8 bytes, represented as "<Array:byte:8>". The description provides a detailed explanation of the component.

@@ -1,0 +1,62 @@
+In natural language, the export section in WebAssembly binary format is identified by the ID 7. It decodes into a vector of exports that represent the exports component of a module. Each export is defined by a name and an export description. The export description can be one of four types: a function index, a table index, a memory index, or a global index. Each of these types is identified by a unique constant value (0x00 for function, 0x01 for table, 0x02 for memory, and 0x03 for global), followed by the respective index.
+
+In JSON format, the definition of the export section and its components would be represented as follows:
+
+```json
+[
+    {
+        "exportsec": [
+            {
+                "name": "section_id",
+                "type": "<Fix:07:hex>",
+                "description": "The ID of the export section, which is fixed at 0x07."
+            },
+            {
+                "name": "exports",
+                "type": "<Vec:export>",
+                "description": "A vector of exports that represent the exports component of a module."
+            }
+        ]
+    },
+    {
+        "export": [
+            {
+                "name": "name",
+                "type": "utf8str",
+                "description": "The name of the export."
+            },
+            {
+                "name": "desc",
+                "type": "exportdesc",
+                "description": "The description of the export, which can be a function index, a table index, a memory index, or a global index."
+            }
+        ]
+    },
+    {
+        "exportdesc": [
+            {
+                "name": "func",
+                "type": "<Fix:00:hex>",
+                "description": "A constant value identifying a function index."
+            },
+            {
+                "name": "table",
+                "type": "<Fix:01:hex>",
+                "description": "A constant value identifying a table index."
+            },
+            {
+                "name": "mem",
+                "type": "<Fix:02:hex>",
+                "description": "A constant value identifying a memory index."
+            },
+            {
+                "name": "global",
+                "type": "<Fix:03:hex>",
+                "description": "A constant value identifying a global index."
+            }
+        ]
+    }
+]
+```
+
+Please note that the `exportdesc` type is a union of four different types, each identified by a unique constant value.

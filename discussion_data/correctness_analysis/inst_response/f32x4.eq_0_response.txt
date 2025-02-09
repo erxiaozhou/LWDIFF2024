@@ -1,0 +1,105 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'f32x4.eq', and the instruction format is 'txN.vrelop'. Therefore, the placeholder 't' in the instruction format represents a value type 'f32', 'xN' represents a vector of 4 elements, and 'vrelop' represents the relational operation 'eq' (equal).
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+exec instructions Instructions Vector Instructions f32x4.eq
+Assert: due to validation, two values of value type v128 are on the top of the stack.
+
+Pop the value v128.const~c_2 from the stack.
+
+Pop the value v128.const~c_1 from the stack.
+
+Let i^* be the sequence lanes_{f32x4}(c_1).
+
+Let j^* be the sequence lanes_{f32x4}(c_2).
+
+Let c be the result of computing lanes^{-1}_{f32x4}(extend^{s}_{1,|f32|}(eq_f32(i^*, j^*))).
+
+Push the value v128.const~c to the stack.
+```
+
+Execution Description:
+```
+exec instructions Instructions Vector Instructions f32x4.eq
+Assert: due to validation, two values of value type v128 are on the top of the stack.
+
+Pop the value v128.const~c_2 from the stack.
+
+Pop the value v128.const~c_1 from the stack.
+
+Let i^* be the sequence lanes_{f32x4}(c_1).
+
+Let j^* be the sequence lanes_{f32x4}(c_2).
+
+Let c be the result of computing lanes^{-1}_{f32x4}(extend^{s}_{1,|f32|}(eq_f32(i^*, j^*))).
+
+Push the value v128.const~c to the stack.
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `f32x4.eq` takes two operands of type v128 from the stack. There are no immediate arguments.
+
+Result:
+```json
+{
+    "op_0": "v128",
+    "op_1": "v128"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "v128",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "v128",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["v128", "v128"],
+        "result": ["v128"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction compares each pair of corresponding floating point numbers in two v128 operands. If they are equal, the result is a vector of all ones, otherwise it is a vector of all zeros.",
+        "WhetherTrap": false
+    }
+]
+```

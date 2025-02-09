@@ -1,0 +1,103 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'i64.eqz', and the instruction format is 't.testop'. Therefore, the placeholder 't' in the instruction format represents a value type, which is 'i64' in this case.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Numeric Instructions i64.eqz
+The instruction is valid with type [i64] \rightarrow [i32].
+
+\frac{
+}{
+  C \vdash i64.eqz : [i64] \rightarrow [i32]
+}
+```
+
+Execution Description:
+```
+exec instructions Instructions Numeric Instructions i64.eqz
+Assert: due to validation, a value of value type i64 is on the top of the stack.
+
+Pop the value i64.const~c_1 from the stack.
+
+Let c be the result of computing eqz_i64(c_1).
+
+Push the value i32.const~c to the stack.
+
+\begin{array}{lcl@{\qquad}l}
+(i64.const~c_1)~i64.eqz &\hookrightarrow& (i32.const~c)
+  & (\mathrel{if} c = eqz_i64(c_1)) \\
+\end{array}
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `i64.eqz` takes a value from the stack (operand). The type of the operand should be i64.
+
+Result:
+```json
+{
+    "op_0": "i64"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["i64"],
+        "result": ["i32"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0",
+                "v2": "0",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The operand is zero. The instruction returns 1.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0",
+                "v2": "0",
+                "relation": "neq"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The operand is not zero. The instruction returns 0.",
+        "WhetherTrap": false
+    }
+]
+```

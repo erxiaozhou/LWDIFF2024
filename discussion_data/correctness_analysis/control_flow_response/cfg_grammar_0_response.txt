@@ -1,0 +1,51 @@
+In natural language, the control flow construct grammar in WebAssembly can be summarized as follows:
+
+There are three types of control flow constructs: block, loop, and if. Each of these constructs can contain a sequence of instructions, which can be either control flow constructs or non-control flow construct instructions. The sequence of instructions within a control flow construct is called a block and is terminated by an 'end' keyword. 
+
+The 'block' construct is a sequence of instructions that are executed sequentially. The 'loop' construct is similar to the 'block' construct, but it allows for the instructions within it to be executed repeatedly. The 'if' construct allows for conditional execution of instructions. It contains two blocks of instructions: one for the 'then' clause and one for the 'else' clause.
+
+Non-control flow construct instructions are those that do not contain other instructions. These include the 'nop', 'unreachable', 'br', 'br_if', 'br_table', 'return', 'call', and 'call_indirect' instructions described in the background information, as well as any other WebAssembly instructions not included in the background information.
+
+In BNF grammar, the control flow construct grammar can be represented as follows:
+
+```
+<control_flow> ::= 'block' <blocktype> <insts> 'end'
+                 | 'loop' <blocktype> <insts> 'end'
+                 | 'if' <blocktype> <insts> 'else' <insts> 'end'
+<insts> ::= <inst> <insts> | ε
+<inst> ::= <control_flow> | <non-control_flow_construct_instruction>
+<non-control_flow_construct_instruction> ::= 'nop' | 'unreachable' | 'br' | 'br_if' | 'br_table' | 'return' | 'call' | 'call_indirect' | <other_instruction>
+<other_instruction> ::= any other WebAssembly instruction not included in the background information
+```
+
+In JSON format, the control flow construct grammar can be represented as follows:
+
+```json
+{
+  "<control_flow>": [
+    ["block", "<blocktype>", "<insts>", "end"],
+    ["loop", "<blocktype>", "<insts>", "end"],
+    ["if", "<blocktype>", "<insts>", "else", "<insts>", "end"]
+  ],
+  "<insts>": [
+    ["<inst>", "<insts>"],
+    []
+  ],
+  "<inst>": [
+    "<control_flow>",
+    "<non-control_flow_construct_instruction>"
+  ],
+  "<non-control_flow_construct_instruction>": [
+    "nop",
+    "unreachable",
+    "br",
+    "br_if",
+    "br_table",
+    "return",
+    "call",
+    "call_indirect",
+    "<other_instruction>"
+  ],
+  "<other_instruction>": "any other WebAssembly instruction not included in the background information"
+}
+```

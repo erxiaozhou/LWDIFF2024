@@ -1,0 +1,67 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'v128.any_true', and the instruction format is 'v128.any_true'. Therefore, there are no placeholders in the instruction format.
+
+2. Replace Placeholders:
+
+Since there are no placeholders in the instruction format, the `validation_description` and `execution_description` remain the same.
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `v128.any_true` takes a value of type v128 from the stack (operand). There are no immediate arguments for this instruction.
+
+Result:
+```json
+{
+    "op_0": "v128"
+}
+```
+
+4. Summarize Validation Rules:
+
+The validation rules for the `v128.any_true` instruction are straightforward. The instruction is valid if a value of type v128 is on the top of the stack.
+
+Result:
+```json
+{
+    "InputConstraint": [
+        {
+            "v1": "op_0.type",
+            "v2": "v128",
+            "relation": "eq"
+        }
+    ],
+    "ContextConstraint": [],
+    "Valid": true
+}
+```
+
+5. Summarize the type of the instruction:
+
+The `v128.any_true` instruction takes a single operand of type v128 and returns a value of type i32.
+
+Result:
+```json
+[
+    {
+        "param": ["v128"],
+        "result": ["i32"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+The `v128.any_true` instruction pops a value of type v128 from the stack, computes the result of the `ine_{128}(c_1, 0)` operation, and pushes the result onto the stack. The instruction does not trap.
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction pops a value of type v128 from the stack, computes the result of the `ine_{128}(c_1, 0)` operation, and pushes the result onto the stack.",
+        "WhetherTrap": false
+    }
+]
+```

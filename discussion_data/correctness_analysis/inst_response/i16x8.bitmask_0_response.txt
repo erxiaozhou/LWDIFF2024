@@ -1,0 +1,105 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'i16x8.bitmask', and the instruction format is 'txN.bitmask'. Therefore, the placeholder 't' in the instruction format represents a value type 'i16', and 'N' represents the number of lanes '8'.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+exec instructions Instructions Vector Instructions i16x8.bitmask
+Assert: due to validation, a value of value type v128 is on the top of the stack.
+
+Pop the value v128.const~c_1 from the stack.
+
+Let i_1^8 be the sequence lanes_{i16x8}(c).
+
+Let B be the bit width |i16| of value type i16.
+
+Let i_2^8 be the sequence as a result of computing ilt_s_{B}(i_1^8, 0^8).
+
+Let c be the integer ibits_{32}^{-1}(i_2^8~0^{32-8}).
+
+Push the value i32.const~c onto the stack.
+
+(v128.const~c_1)~i16x8.bitmask &hookrightarrow& (i32.const~c)
+  & (if c = ibits_{32}^{-1}(ilt_s_{|i16|}(lanes_{i16x8}(c), 0^8)))
+```
+
+Execution Description:
+```
+exec instructions Instructions Vector Instructions i16x8.bitmask
+Assert: due to validation, a value of value type v128 is on the top of the stack.
+
+Pop the value v128.const~c_1 from the stack.
+
+Let i_1^8 be the sequence lanes_{i16x8}(c).
+
+Let B be the bit width |i16| of value type i16.
+
+Let i_2^8 be the sequence as a result of computing ilt_s_{B}(i_1^8, 0^8).
+
+Let c be the integer ibits_{32}^{-1}(i_2^8~0^{32-8}).
+
+Push the value i32.const~c onto the stack.
+
+(v128.const~c_1)~i16x8.bitmask &hookrightarrow& (i32.const~c)
+  & (if c = ibits_{32}^{-1}(ilt_s_{|i16|}(lanes_{i16x8}(c), 0^8)))
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `i16x8.bitmask` takes a value from the stack (operand). The type of the operand should be v128.
+
+Result:
+```json
+{
+    "op_0": "v128"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "v128",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["v128"],
+        "result": ["i32"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction pops a v128 value from the stack, computes the bitmask of the i16x8 lanes, and pushes the result onto the stack.",
+        "WhetherTrap": false
+    }
+]
+```

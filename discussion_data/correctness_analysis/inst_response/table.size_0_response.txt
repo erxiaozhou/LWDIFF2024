@@ -1,0 +1,115 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'table.size', and the instruction format is 'table.size~x'. Therefore, the placeholder 'x' in the instruction format represents a table index.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Table Instructions table.size~table_idx
+The table C.tables[table_idx] must be defined in the context.
+
+Then the instruction is valid with type [] \rightarrow [i32].
+
+\frac{
+  C.tables[table_idx] = tabletype
+}{
+  C \vdash table.size~table_idx : [] \rightarrow [i32]
+}
+```
+
+Execution Description:
+```
+exec instructions Instructions Table Instructions table.size~table_idx
+Let F be the current frame.
+
+Assert: due to validation, F.module.tableaddrs[table_idx] exists.
+
+Let a be the table address F.module.tableaddrs[table_idx].
+
+Assert: due to validation, S.tables[a] exists.
+
+Let tab be the table instance S.tables[a].
+
+Let sz be the length of tab.elem.
+
+Push the value i32.const~sz to the stack.
+
+\begin{array}{l}
+\begin{array}{lcl@{\qquad}l}
+S; F; table.size~table_idx &\hookrightarrow& S; F; (i32.const~sz)
+\end{array}
+\\ \qquad
+  (\mathrel{if} |S.tables[F.module.tableaddrs[table_idx]].elem| = sz) \\
+\end{array}
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `table.size~table_idx` does not take any operands from the stack, but it does take a table index (immediate argument). The type of the immediate argument is a table index.
+
+Result:
+```json
+{
+    "imm_0": "table_idx"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [
+            {
+                "v1": "imm_0",
+                "v2": "context.tables.length",
+                "relation": "lt"
+            }
+        ],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": [],
+        "result": ["i32"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction pushes the size of the table at the given index to the stack.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [
+            {
+                "v1": "imm_0",
+                "v2": "context.tables.length",
+                "relation": "ge"
+            }
+        ],
+        "Description": "The instruction traps if the table at the given index is not defined.",
+        "WhetherTrap": true
+    }
+]
+```

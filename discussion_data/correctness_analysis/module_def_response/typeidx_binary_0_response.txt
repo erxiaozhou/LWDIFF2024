@@ -1,0 +1,19 @@
+In WebAssembly, the **typeidx** is a binary index that is used to reference a type in the type section of a WebAssembly module. It is represented as a variable-length integer, also known as a **u32**. The **typeidx** is used to specify the type of a function, for example, when defining the function's signature.
+
+In JSON format, the binary definition of **typeidx** can be represented as follows:
+
+```json
+[
+    {
+        "typeidx": [
+            {
+                "name": "index",
+                "type": "u32",
+                "description": "A variable-length integer that references a type in the type section of a WebAssembly module."
+            }
+        ]
+    }
+]
+```
+
+This JSON representation follows the guidelines provided. The key "typeidx" represents the name of the definition, and the value is a list of the definition's components. In this case, there is only one component, "index", which is of type "u32" and is described as a variable-length integer that references a type in the type section of a WebAssembly module.

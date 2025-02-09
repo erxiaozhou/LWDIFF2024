@@ -1,0 +1,101 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'f32.nearest', and the instruction format is 't.unop'. Therefore, the placeholder 't' in the instruction format represents a value type, which is 'f32' in this case.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Numeric Instructions f32.unop
+The instruction is valid with type [f32] → [f32].
+
+C ⊢ f32.unop : [f32] → [f32]
+```
+
+Execution Description:
+```
+exec instructions Instructions Numeric Instructions f32.unop
+Assert: due to validation, a value of value type f32 is on the top of the stack.
+
+Pop the value f32.const~c_1 from the stack.
+
+If unop_f32(c_1) is defined, then:
+
+Let c be a possible result of computing unop_f32(c_1).
+
+Push the value f32.const~c to the stack.
+
+Else:
+
+Trap.
+
+(f32.const~c_1)~f32.unop ⟼ (f32.const~c)
+  (if c ∈ unop_f32(c_1))
+
+(f32.const~c_1)~f32.unop ⟼ trap
+  (if unop_{f32}(c_1) = {})
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `f32.nearest` takes a value from the stack (operand). The type of the operand should be f32.
+
+Result:
+```json
+{
+    "op_0": "f32"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "f32",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["f32"],
+        "result": ["f32"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction pops a value from the stack, rounds it to the nearest representable value, and pushes the result back to the stack.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction traps if the rounding operation is not defined.",
+        "WhetherTrap": true
+    }
+]
+```

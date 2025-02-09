@@ -1,0 +1,19 @@
+In natural language, the binary definition of **vectype** is quite straightforward. It is represented by a single byte, specifically the hexadecimal value `0x7B`, which corresponds to the vector type `v128`.
+
+In JSON format, following the provided guidelines, the definition of **vectype** can be represented as follows:
+
+```json
+[
+    {
+        "vectype": [
+            {
+                "name": "vectype_byte",
+                "type": "<Fix:7B:hex>",
+                "description": "The byte representation of the vectype, which is fixed at 0x7B, corresponding to the vector type v128."
+            }
+        ]
+    }
+]
+```
+
+In this JSON representation, the key "vectype" corresponds to the name of the definition. The value is a list of components, in this case, there is only one component named "vectype_byte". The type of this component is a fixed hexadecimal value `0x7B`. The description provides a detailed explanation of the component.

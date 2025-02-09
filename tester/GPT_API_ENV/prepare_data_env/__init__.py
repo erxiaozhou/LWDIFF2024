@@ -1,0 +1,1 @@
+from .prepare_data_env import get_full_extracted_text

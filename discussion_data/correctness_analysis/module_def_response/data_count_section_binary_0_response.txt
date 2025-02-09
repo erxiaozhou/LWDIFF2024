@@ -1,0 +1,27 @@
+In natural language, the binary definition of the data count section in WebAssembly is a section with a fixed ID of 0x0C. It contains an optional u32 value that represents the number of data segments in the data section. If this count does not match the length of the data segment vector, the module is considered malformed. This section is used to simplify single-pass validation, as it occurs before the code section, allowing a single-pass validator to use this count instead of deferring validation.
+
+In JSON format, the definition is represented as follows:
+
+```json
+[
+    {
+        "data_count_section": [
+            {
+                "name": "section_id",
+                "type": "<Fix:0C:hex>",
+                "description": "The ID of the data count section, which is fixed at 0x0C."
+            },
+            {
+                "name": "section_len",
+                "type": "u32",
+                "description": "The length of the data count section in bytes."
+            },
+            {
+                "name": "n",
+                "type": "<Optional:u32>",
+                "description": "An optional u32 value representing the number of data segments in the data section. If present, it must match the length of the data segment vector; otherwise, the module is malformed."
+            }
+        ]
+    }
+]
+```

@@ -1,0 +1,25 @@
+to_skip_keys = [
+    '<WasmEdge_disableAOT_newer::type code: <num>>||<iwasm_classic_interp_dump::WASM module load failed: unknown value type>||<iwasm_fast_interp_dump::WASM module load failed: unknown value type>||<iwasm_fast_jit_dump::WASM module load failed: unknown value type>||<iwasm_mt_jit_dump::unknown error failed to compile fast jit function>',
+    '<iwasm_classic_interp_dump::WASM module load failed: unknown value type>||<iwasm_fast_interp_dump::WASM module load failed: unknown value type>||<iwasm_fast_jit_dump::WASM module load failed: unknown value type>||<iwasm_mt_jit_dump::IllegalOpcode>',
+    '<iwasm_classic_interp_dump::Exception>||<iwasm_fast_interp_dump::Exception>||<iwasm_fast_jit_dump::Exception>||<iwasm_mt_jit_dump::IllegalOpcode>||<wasmi_interp::Exception>',
+    '<iwasm_classic_interp_dump::WASM module load failed: unknown value type>||<iwasm_fast_interp_dump::WASM module load failed: unknown value type>||<iwasm_fast_jit_dump::WASM module load failed: unknown value type>||<iwasm_mt_jit_dump::unknown error failed to compile fast jit function>',
+    '<WasmEdge_disableAOT_newer::type code: <num>>||<iwasm_classic_interp_dump::IllegalOpcode>||<iwasm_fast_interp_dump::IllegalOpcode>||<iwasm_fast_jit_dump::IllegalOpcode>||<iwasm_mt_jit_dump::IllegalOpcode>',
+    '<iwasm_classic_interp_dump::IllegalOpcode>||<iwasm_fast_interp_dump::IllegalOpcode>||<iwasm_fast_jit_dump::IllegalOpcode>||<iwasm_mt_jit_dump::IllegalOpcode>',
+    '<WasmEdge_disableAOT_newer::type code: <num>>||<iwasm_classic_interp_dump::IllegalOpcode>||<iwasm_fast_interp_dump::IllegalOpcode>||<iwasm_fast_jit_dump::IllegalOpcode>||<iwasm_mt_jit_dump::IllegalOpcode>',
+    '<iwasm_classic_interp_dump::IllegalOpcode>||<iwasm_fast_interp_dump::IllegalOpcode>||<iwasm_fast_jit_dump::IllegalOpcode>||<iwasm_mt_jit_dump::IllegalOpcode>||<wasmi_interp::Exception>',
+    '<iwasm_classic_interp_dump::Exception>||<iwasm_fast_interp_dump::Exception>||<iwasm_fast_jit_dump::Exception>',
+    '<iwasm_classic_interp_dump::IllegalOpcode>||<iwasm_fast_interp_dump::IllegalOpcode>||<iwasm_fast_jit_dump::IllegalOpcode>',
+    '<iwasm_classic_interp_dump::Exception>||<iwasm_fast_interp_dump::Exception>||<iwasm_fast_jit_dump::Exception>',
+    '<iwasm_classic_interp_dump::IllegalOpcode>||<iwasm_fast_interp_dump::IllegalOpcode>||<iwasm_fast_jit_dump::IllegalOpcode>||<wasmi_interp::Exception>',
+    '<WasmEdge_disableAOT_newer::type code: <num>>||<iwasm_classic_interp_dump::IllegalOpcode>||<iwasm_fast_interp_dump::IllegalOpcode>||<iwasm_fast_jit_dump::IllegalOpcode>',
+    '<WasmEdge_disableAOT_newer::type code: <num>>||<iwasm_classic_interp_dump::IllegalOpcode>||<iwasm_fast_interp_dump::IllegalOpcode>||<iwasm_fast_jit_dump::IllegalOpcode>||<wasmi_interp::Exception>',
+    '<WasmEdge_disableAOT_newer::type code: <num>>||<iwasm_classic_interp_dump::WASM module load failed: unknown value type>||<iwasm_fast_interp_dump::WASM module load failed: unknown value type>||<iwasm_fast_jit_dump::WASM module load failed: unknown value type>',
+    '<iwasm_classic_interp_dump::WASM module load failed: unknown value type>||<iwasm_fast_interp_dump::WASM module load failed: unknown value type>||<iwasm_fast_jit_dump::WASM module load failed: unknown value type>||<iwasm_mt_jit_dump::unknown error failed to compile fast jit function>||<wasmer_default_dump::unsupported table element type: ExternRef>',
+    '<WasmEdge_disableAOT_newer::type code: <num>>||<iwasm_classic_interp_dump::WASM module load failed: unknown value type>||<iwasm_fast_interp_dump::WASM module load failed: unknown value type>||<iwasm_fast_jit_dump::WASM module load failed: unknown value type>||<iwasm_mt_jit_dump::unknown error failed to compile fast jit function>||<wasmer_default_dump::unsupported table element type: ExternRef>',
+    '<iwasm_classic_interp_dump::WASM module load failed: unknown value type>||<iwasm_fast_interp_dump::WASM module load failed: unknown value type>||<iwasm_fast_jit_dump::WASM module load failed: unknown value type>||<iwasm_mt_jit_dump::IllegalOpcode>||<wasmer_default_dump::unsupported table element type: ExternRef>',
+    '<WasmEdge_disableAOT_newer::type code: <num>>',
+    '<WasmEdge_disableAOT_newer::<num>>||<wasmi_interp::Crash>',
+    '<WasmEdge_disableAOT_newer::<num>>||<iwasm_classic_interp_dump::<num>>||<iwasm_fast_interp_dump::<num>>||<iwasm_fast_jit_dump::<num>>||<iwasm_jit_dump::<num>>||<iwasm_mt_jit_dump::<num>>||<wasmi_interp::Crash>',
+    '<WasmEdge_disableAOT_newer::<num>>||<wasmi_interp::ReferenceUnsupport>'
+    
+]

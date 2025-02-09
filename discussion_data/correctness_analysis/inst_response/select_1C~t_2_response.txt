@@ -1,0 +1,112 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'select_1C~t', and the instruction format is 'select~(t^ast)^?'. Therefore, the placeholder 't^ast' in the instruction format represents a value type.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Parametric Instructions select~(op_0.type)^?
+If op_0.type is present, then:
+The length of op_0.type must be 1.
+Then the instruction is valid with type [op_0.type~op_0.type~i32] \rightarrow [op_0.type].
+Else:
+The instruction is valid with type [t~t~i32] \rightarrow [t], for any operand type t that matches some number type or vector type.
+```
+
+Execution Description:
+```
+exec instructions Instructions Parametric Instructions select~(op_0.type)^?
+Assert: due to validation, a value of value type i32 is on the top of the stack.
+Pop the value i32.const~c from the stack.
+Assert: due to validation, two more values (of the same value type) are on the top of the stack.
+Pop the value val_2 from the stack.
+Pop the value val_1 from the stack.
+If c is not 0, then:
+Push the value val_1 back to the stack.
+Else:
+Push the value val_2 back to the stack.
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `select_1C~t` takes three values from the stack (operands). The type of the first two operands should match the value type, and the type of the third operand should be i32.
+
+Result:
+```json
+{
+    "op_0": "i32 | i64 | f32 | f64 | v128 | funcref | externref",
+    "op_1": "i32 | i64 | f32 | f64 | v128 | funcref | externref",
+    "op_2": "i32"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "op_1.type",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_2.type",
+                "v2": "i32",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["i32 | i64 | f32 | f64 | v128 | funcref | externref", "i32 | i64 | f32 | f64 | v128 | funcref | externref", "i32"],
+        "result": ["i32 | i64 | f32 | f64 | v128 | funcref | externref"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_2",
+                "v2": "0",
+                "relation": "neq"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The instruction pushes the first operand back to the stack if the third operand is not 0.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_2",
+                "v2": "0",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The instruction pushes the second operand back to the stack if the third operand is 0.",
+        "WhetherTrap": false
+    }
+]
+```

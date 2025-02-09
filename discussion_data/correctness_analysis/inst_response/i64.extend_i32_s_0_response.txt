@@ -1,0 +1,99 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'i64.extend_i32_s', and the instruction format is 't_2.cvtop_t_1_sx^?'. Therefore, the placeholder 't_1' in the instruction format represents the source value type i32, and 't_2' represents the target value type i64.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Numeric Instructions i64.extend_i32_s
+The instruction is valid with type [i32] \rightarrow [i64].
+
+\frac{
+}{
+  C \vdash i64.extend_i32_s : [i32] \rightarrow [i64]
+}
+```
+
+Execution Description:
+```
+exec instructions Instructions Numeric Instructions i64.extend_i32_s
+Assert: due to validation, a value of value type i32 is on the top of the stack.
+
+Pop the value i32.const~c_1 from the stack.
+
+If cvtop^{sx^?}_{i32,i64}(c_1) is defined:
+
+Let c_2 be a possible result of computing cvtop^{sx^?}_{i32,i64}(c_1).
+
+Push the value i64.const~c_2 to the stack.
+
+Else:
+
+Trap.
+
+\begin{array}{lcl@{\qquad}l}
+(i32.const~c_1)~i64.extend_i32_s &\hookrightarrow& (i64.const~c_2)
+  & (\mathrel{if} c_2 \in cvtop^{sx^?}_{i32,i64}(c_1)) \\\\
+(i32.const~c_1)~i64.extend_i32_s &\hookrightarrow& trap
+  & (\mathrel{if} cvtop^{sx^?}_{i32,i64}(c_1) = \{\})
+\end{array}
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `i64.extend_i32_s` takes a value from the stack (operand). The type of the operand should be i32.
+
+Result:
+```json
+{
+    "op_0": "i32"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["i32"],
+        "result": ["i64"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction pops a value from the stack, extends it from i32 to i64, and pushes the result back to the stack.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction traps if the conversion from i32 to i64 is not defined.",
+        "WhetherTrap": true
+    }
+]
+```

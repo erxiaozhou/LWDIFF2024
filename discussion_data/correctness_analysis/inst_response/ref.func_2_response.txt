@@ -1,0 +1,103 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'ref.func', and the instruction format is 'ref.func~x'. Therefore, the placeholder 'x' in the instruction format represents a function index.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Reference Instructions ref.func~func_idx
+The function C.funcs[func_idx] must be defined in the context.
+The function index func_idx must be contained in C.refs.
+The instruction is valid with type [] \rightarrow [funcref].
+```
+
+Execution Description:
+```
+exec instructions Instructions Reference Instructions ref.func~func_idx
+Let F be the current frame.
+Assert: due to validation, F.module.funcaddrs[func_idx] exists.
+Let a be the function address F.module.funcaddrs[func_idx].
+Push the value ref~a to the stack.
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `ref.func~func_idx` does not take any operands from the stack but takes a function index (immediate argument). The type of the immediate argument is a function index.
+
+Result:
+```json
+{
+    "imm_0": "func_idx"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [
+            {
+                "v1": "imm_0",
+                "v2": "context.funcs.length",
+                "relation": "lt"
+            },
+            {
+                "v1": "imm_0",
+                "v2": "context.refs",
+                "relation": "in"
+            }
+        ],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": [],
+        "result": ["funcref"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [
+            {
+                "v1": "imm_0",
+                "v2": "context.funcs.length",
+                "relation": "lt"
+            }
+        ],
+        "Description": "The instruction pushes a reference to the function at the given index to the stack.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [
+            {
+                "v1": "imm_0",
+                "v2": "context.funcs.length",
+                "relation": "ge"
+            }
+        ],
+        "Description": "The instruction traps if the function at the given index is not defined.",
+        "WhetherTrap": true
+    }
+]
+```

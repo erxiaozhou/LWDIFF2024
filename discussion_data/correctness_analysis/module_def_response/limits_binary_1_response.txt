@@ -1,0 +1,52 @@
+In natural language, the binary definition of limits in WebAssembly is represented by two variants. The first variant is represented by a flag of 0x00 followed by a u32 value 'n', which denotes the minimum limit. In this case, there is no maximum limit. The second variant is represented by a flag of 0x01 followed by two u32 values 'n' and 'm', which denote the minimum and maximum limits respectively.
+
+In JSON format, the definition of limits can be represented as follows:
+
+```json
+[
+    {
+        "limits": [
+            {
+                "name": "limits_variant",
+                "type": "<Union:limits_without_max:limits_with_max>",
+                "description": "The limits can be one of two variants. The first variant 'limits_without_max' represents a limit with only a minimum value. The second variant 'limits_with_max' represents a limit with both minimum and maximum values."
+            }
+        ]
+    },
+    {
+        "limits_without_max": [
+            {
+                "name": "flag",
+                "type": "<Fix:00:hex>",
+                "description": "A flag indicating that there is no maximum limit. The flag is fixed at 0x00."
+            },
+            {
+                "name": "min",
+                "type": "u32",
+                "description": "The minimum limit."
+            }
+        ]
+    },
+    {
+        "limits_with_max": [
+            {
+                "name": "flag",
+                "type": "<Fix:01:hex>",
+                "description": "A flag indicating that there is a maximum limit. The flag is fixed at 0x01."
+            },
+            {
+                "name": "min",
+                "type": "u32",
+                "description": "The minimum limit."
+            },
+            {
+                "name": "max",
+                "type": "u32",
+                "description": "The maximum limit."
+            }
+        ]
+    }
+]
+```
+
+In this JSON representation, each key represents a part of the limits definition. The 'limits' key has a list of components as its value. Each component in the list has a 'name', 'type', and 'description'. The 'name' is the name of the component, the 'type' specifies the type of the component, and the 'description' provides a detailed description of the component. The 'type' of the 'limits_variant' component is a union of two definitions, 'limits_without_max' and 'limits_with_max', representing the two variants of the limits definition. The 'limits_without_max' and 'limits_with_max' definitions are represented separately, detailing their structure and components.

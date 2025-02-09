@@ -1,0 +1,70 @@
+In natural language, the binary definition of the code section in WebAssembly is as follows:
+
+The code section is identified by the ID 10. It decodes into a vector of code entries, each of which is a pair of value type vectors and expressions. These pairs represent the locals and body field of the functions in the funcs component of a module. The type fields of the respective functions are encoded separately in the function section.
+
+Each code entry consists of the u32 size of the function code in bytes and the actual function code. The function code further consists of the declaration of locals and the function body as an expression.
+
+Local declarations are compressed into a vector. Each entry in this vector consists of a u32 count and a value type, denoting count locals of the same value type.
+
+The JSON representation of the binary definition of the code section is as follows:
+
+```json
+[
+    {
+        "code_section": [
+            {
+                "name": "section_id",
+                "type": "<Fix:10:hex>",
+                "description": "The ID of the code section, which is fixed at 0x10."
+            },
+            {
+                "name": "code_entries",
+                "type": "<Vec:code>",
+                "description": "A vector of code entries, each of which is a pair of value type vectors and expressions."
+            }
+        ]
+    },
+    {
+        "code": [
+            {
+                "name": "size",
+                "type": "u32",
+                "description": "The size of the function code in bytes."
+            },
+            {
+                "name": "function_code",
+                "type": "func",
+                "description": "The actual function code, which consists of the declaration of locals and the function body as an expression."
+            }
+        ]
+    },
+    {
+        "func": [
+            {
+                "name": "locals",
+                "type": "<Vec:locals>",
+                "description": "A vector of local declarations."
+            },
+            {
+                "name": "expression",
+                "type": "expr",
+                "description": "The function body as an expression."
+            }
+        ]
+    },
+    {
+        "locals": [
+            {
+                "name": "count",
+                "type": "u32",
+                "description": "The count of locals of the same value type."
+            },
+            {
+                "name": "value_type",
+                "type": "valtype",
+                "description": "The value type of the locals."
+            }
+        ]
+    }
+]
+```

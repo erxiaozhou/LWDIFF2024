@@ -1,0 +1,148 @@
+Take the instruction  global.set~x as an example,
+Given the following instruction information 
+
+
+{
+    "concrete instruciton name": "global.set",
+    "instruction format": "global.set~x",
+    "validation_description": "valid instructions Instructions Variable Instructions global.set~x\nThe global C.globals[x] must be defined in the context.\n\nLet mut~t be the global type C.globals[x].\n\nThe mutability mut must be var.\n\nThen the instruction is valid with type [t] \\rightarrow [].\n\n\\frac{\n  C.globals[x] = var~t\n}{\n  C \\vdash global.set~x : [t] \\rightarrow []\n}",
+    "execution_description": "exec instructions Instructions Variable Instructions global.set~x\nLet F be the current frame.\n\nAssert: due to validation, F.module.globaladdrs[x] exists.\n\nLet a be the global address F.module.globaladdrs[x].\n\nAssert: due to validation, S.globals[a] exists.\n\nLet glob be the global instance S.globals[a].\n\nAssert: due to validation, a value is on the top of the stack.\n\nPop the value val from the stack.\n\nReplace glob.value with the value val.\n\n\\begin{array}{l}\n\\begin{array}{lcl@{\\qquad}l}\nS; F; val~(global.set~x) &\\hookrightarrow& S'; F; \\epsilon\n\\end{array}\n\\\\ \\qquad\n(\\mathrel{if} S' = S \\mathrel{with} globals[F.module.globaladdrs[x]].value = val) \\\\\n\\end{array}\n\n\n\nValidation ensures that the global is, in fact, marked as mutable."
+}
+
+
+The expected output is:
+
+
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'global.set', and the instruction format is 'global.set~x'. Therefore, the placeholder 'x' in the instruction format represents a global index.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Variable Instructions global.set~global_idx
+The global C.globals[global_idx] must be defined in the context.
+
+Let mut~t be the global type C.globals[global_idx].
+
+The mutability mut must be var.
+
+Then the instruction is valid with type [t] \rightarrow [].
+
+\frac{
+  C.globals[global_idx] = var~t
+}{
+  C \vdash global.set~global_idx : [t] \rightarrow []
+}
+```
+
+Execution Description:
+```
+exec instructions Instructions Variable Instructions global.set~global_idx
+Let F be the current frame.
+
+Assert: due to validation, F.module.globaladdrs[global_idx] exists.
+
+Let a be the global address F.module.globaladdrs[global_idx].
+
+Assert: due to validation, S.globals[a] exists.
+
+Let glob be the global instance S.globals[a].
+
+Assert: due to validation, a value is on the top of the stack.
+
+Pop the value val from the stack.
+
+Replace glob.value with the value val.
+
+\begin{array}{l}
+\begin{array}{lcl@{\qquad}l}
+S; F; val~(global.set~global_idx) &\hookrightarrow& S'; F; \epsilon
+\end{array}
+\\ \qquad
+(\mathrel{if} S' = S \mathrel{with} globals[F.module.globaladdrs[global_idx]].value = val) \\
+\end{array}
+
+Validation ensures that the global is, in fact, marked as mutable.
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `global.set~global_idx` takes a value from the stack (operand) and a global index (immediate argument). The type of the operand should match the type of the global variable at the given index. The type of the immediate argument is a global index.
+
+Result:
+```json
+{
+    "op_0": "context.globals[global_idx].type",
+    "imm_0": "u32"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "context.globals[imm_0].type",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "v1": "imm_0",
+                "v2": "context.globals.length",
+                "relation": "lt"
+            },
+            {
+                "v1": "context.globals[imm_0].mut",
+                "v2": "var",
+                "relation": "eq"
+            }
+        ],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+
+Result:
+```json
+[
+    {
+        "param": ["context.globals[global_idx].type"],
+        "result": []
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [
+        ],
+        "Description": "The instruction pops a value from the stack and sets the value of the global variable at the given index to this value.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [
+        ],
+        "Description": "The instruction traps if the global variable at the given index is not defined or not mutable.",
+        "WhetherTrap": true
+    }
+]
+```

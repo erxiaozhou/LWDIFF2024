@@ -1,0 +1,141 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'v128.load32_splat', and the instruction format is 'v128.loadN_splat~memarg'. Therefore, the placeholder 'N' in the instruction format represents 32.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Memory Instructions v128.load32_splat~memarg
+The memory C.mems[0] must be defined in the context.
+
+The alignment 2^{memarg.align} must not be larger than 32/8.
+
+Then the instruction is valid with type [i32] \rightarrow [v128].
+
+\frac{
+  C.mems[0] = memtype
+  \qquad
+  2^{memarg.align} \leq 32/8
+}{
+  C \vdash v128.load32_splat~memarg : [i32] \rightarrow [v128]
+}
+```
+
+Execution Description:
+```
+exec instructions Instructions Memory Instructions v128.load32_splat~memarg
+Let F be the current frame.
+
+Assert: due to validation, F.module.memaddrs[0] exists.
+
+Let a be the memory address F.module.memaddrs[0].
+
+Assert: due to validation, S.mems[a] exists.
+
+Let mem be the memory instance S.mems[a].
+
+Assert: due to validation, a value of value type i32 is on the top of the stack.
+
+Pop the value i32.const~i from the stack.
+
+Let ea be the integer i + memarg.offset.
+
+If ea + 32/8 is larger than the length of mem.data, then:
+
+Trap.
+
+Let b^* be the byte sequence mem.data[ea \mathrel{\mathbf:} 32/8].
+
+Let n be the integer for which bytes_{i32}(n) = b^*.
+
+Let L be the integer 128 / 32.
+
+Let c be the result of computing lanes^{-1}_{i32xL}(n^L).
+
+Push the value v128.const~c to the stack.
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `v128.load32_splat~memarg` takes a value from the stack (operand) and a memory argument (immediate argument). The type of the operand is i32. The type of the immediate argument is a memory argument, which includes an alignment and an offset.
+
+Result:
+```json
+{
+    "op_0": "i32",
+    "imm_0": "align",
+    "imm_1": "offset"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "2^imm_0",
+                "v2": "4",
+                "relation": "le"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "v1": "0",
+                "v2": "context.mems.length",
+                "relation": "lt"
+            }
+        ],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["i32"],
+        "result": ["v128"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0 + imm_1 + 4",
+                "v2": "context.Mem[0].length",
+                "relation": "le"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The instruction loads a 32-bit integer from memory, replicates it into a 128-bit vector, and pushes it onto the stack.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0 + imm_1 + 4",
+                "v2": "context.Mem[0].length",
+                "relation": "gt"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "Memory out-of-bounds, leading to a trap.",
+        "WhetherTrap": true
+    }
+]
+```

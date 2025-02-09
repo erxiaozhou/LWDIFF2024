@@ -1,0 +1,13 @@
+spec
+tt
+text2embedding_data
+spec2tcs
+ori_results
+
+.pytest_cache
+removed_files
+__pycache__
+results
+pre_data/combined_inst_data_3
+debug_info
+inst_ty_info

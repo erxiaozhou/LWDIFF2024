@@ -1,0 +1,95 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'f64.convert_i64_u', and the instruction format is 't_2.cvtop_t_1_sx^?'. Therefore, the placeholder 't_2' in the instruction format represents 'f64' and 't_1' represents 'i64'. The 'sx' represents 'u' which means unsigned.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Numeric Instructions f64.convert_i64_u
+The instruction is valid with type [i64] → [f64].
+
+C ⊢ f64.convert_i64_u : [i64] → [f64]
+```
+
+Execution Description:
+```
+exec instructions Instructions Numeric Instructions f64.convert_i64_u
+Assert: due to validation, a value of value type i64 is on the top of the stack.
+
+Pop the value i64.const~c_1 from the stack.
+
+If cvtop^{u}_{i64,f64}(c_1) is defined:
+
+Let c_2 be a possible result of computing cvtop^{u}_{i64,f64}(c_1).
+
+Push the value f64.const~c_2 to the stack.
+
+Else:
+
+Trap.
+
+(i64.const~c_1)~f64.convert_i64_u → (f64.const~c_2)
+  (if c_2 ∈ cvtop^{u}_{i64,f64}(c_1))
+
+(i64.const~c_1)~f64.convert_i64_u → trap
+  (if cvtop^{u}_{i64,f64}(c_1) = {})
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `f64.convert_i64_u` takes a value from the stack (operand). The type of the operand should be i64.
+
+Result:
+```json
+{
+    "op_0": "i64"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["i64"],
+        "result": ["f64"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction pops a value from the stack, converts it from an unsigned 64-bit integer to a 64-bit float, and pushes the result back to the stack.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction traps if the conversion is not defined.",
+        "WhetherTrap": true
+    }
+]
+```

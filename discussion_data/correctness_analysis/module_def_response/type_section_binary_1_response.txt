@@ -1,0 +1,38 @@
+In natural language, the type section in WebAssembly binary format is identified by the ID 1. It decodes into a vector of function types that represent the types component of a module. The type section is represented by the symbol `typesec` and it is equivalent to a sequence of function types `ft*`. The function types are encoded as a section with the ID 1 and a vector of function types.
+
+In JSON format, the definition of the type section can be represented as follows:
+
+```json
+[
+    {
+        "typesec": [
+            {
+                "name": "section_id",
+                "type": "<Fix:1:hex>",
+                "description": "The ID of the type section, which is fixed at 0x01."
+            },
+            {
+                "name": "ft*",
+                "type": "<Vec:functype>",
+                "description": "A vector of function types that represent the types component of a module."
+            }
+        ]
+    },
+    {
+        "functype": [
+            {
+                "name": "param",
+                "type": "<Vec:valtype>",
+                "description": "A vector of value types that represent the parameter types of the function."
+            },
+            {
+                "name": "result",
+                "type": "<Vec:valtype>",
+                "description": "A vector of value types that represent the return types of the function."
+            }
+        ]
+    }
+]
+```
+
+Please note that the `functype` is a placeholder for the actual function type definition, which should be provided separately according to the WebAssembly specification. The `valtype` is a placeholder for the actual value type definition, which should also be provided separately according to the WebAssembly specification.

@@ -1,0 +1,83 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'f32x4.neg', and the instruction format is 'shape.vunop'. Therefore, the placeholder 'shape' in the instruction format represents a SIMD shape, which is 'f32x4' in this case.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Vector Instructions f32x4.vunop
+The instruction is valid with type [v128] \rightarrow [v128].
+
+\frac{
+}{
+  C \vdash f32x4.vunop : [v128] \rightarrow [v128]
+}
+```
+
+Execution Description:
+```
+exec instructions Instructions Vector Instructions f32x4.vunop
+Assert: due to validation, a value of value type v128 is on the top of the stack.
+
+Pop the value v128.const~c_1 from the stack.
+
+Let c be the result of computing vunop_{f32x4}(c_1).
+
+Push the value v128.const~c to the stack.
+
+\begin{array}{lcl@{\qquad}l}
+(v128.const~c_1)~v128.vunop &\hookrightarrow& (v128.const~c)
+  & (\mathrel{if} c = vunop_{f32x4}(c_1))
+\end{array}
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `f32x4.neg` takes a value from the stack (operand). The type of the operand should be v128.
+
+Result:
+```json
+{
+    "op_0": "v128"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+{
+    "InputConstraint": [],
+    "ContextConstraint": [],
+    "Valid": true
+}
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["v128"],
+        "result": ["v128"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction pops a value from the stack, negates each lane in the SIMD value, and pushes the result back to the stack.",
+        "WhetherTrap": false
+    }
+]
+```

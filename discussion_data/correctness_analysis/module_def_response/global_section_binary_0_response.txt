@@ -1,0 +1,38 @@
+In natural language, the global section in WebAssembly binary format is identified by the section id 6. It decodes into a vector of globals that represent the globals component of a module. Each global is defined by a globaltype and an expression. The globaltype defines the type and mutability of the global variable, while the expression provides the initial value of the global variable.
+
+In JSON format, the definition of the global section and global can be represented as follows:
+
+```json
+[
+    {
+        "globalsec": [
+            {
+                "name": "section_id",
+                "type": "<Fix:6:hex>",
+                "description": "The ID of the global section, which is fixed at 0x06."
+            },
+            {
+                "name": "globals",
+                "type": "<Vec:global>",
+                "description": "A vector of global variables that represent the globals component of a module."
+            }
+        ]
+    },
+    {
+        "global": [
+            {
+                "name": "gt",
+                "type": "globaltype",
+                "description": "The type and mutability of the global variable."
+            },
+            {
+                "name": "e",
+                "type": "expr",
+                "description": "The initial value of the global variable."
+            }
+        ]
+    }
+]
+```
+
+In the above JSON, the `globalsec` definition represents the global section, which consists of a section id and a vector of globals. The `global` definition represents each global variable, which consists of a globaltype and an expression.

@@ -1,0 +1,99 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'f64.convert_i32_u', and the instruction format is 't_2.cvtop_t_1_sx^?'. Therefore, the placeholder 't_1' in the instruction format represents 'i32' and 't_2' represents 'f64'. The 'sx' is not present in the concrete instruction name, so it is optional and not used in this case.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Numeric Instructions f64.convert_i32_u
+The instruction is valid with type [i32] \rightarrow [f64].
+
+\frac{
+}{
+  C \vdash f64.convert_i32_u : [i32] \rightarrow [f64]
+}
+```
+
+Execution Description:
+```
+exec instructions Instructions Numeric Instructions f64.convert_i32_u
+Assert: due to validation, a value of value type i32 is on the top of the stack.
+
+Pop the value i32.const~c_1 from the stack.
+
+If cvtop_{i32,f64}(c_1) is defined:
+
+Let c_2 be a possible result of computing cvtop_{i32,f64}(c_1).
+
+Push the value f64.const~c_2 to the stack.
+
+Else:
+
+Trap.
+
+\begin{array}{lcl@{\qquad}l}
+(i32.const~c_1)~f64.convert_i32_u &\hookrightarrow& (f64.const~c_2)
+  & (\mathrel{if} c_2 \in cvtop_{i32,f64}(c_1)) \\\\
+(i32.const~c_1)~f64.convert_i32_u &\hookrightarrow& trap
+  & (\mathrel{if} cvtop_{i32,f64}(c_1) = \{\})
+\end{array}
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `f64.convert_i32_u` takes a value from the stack (operand). The type of the operand should be i32.
+
+Result:
+```json
+{
+    "op_0": "i32"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["i32"],
+        "result": ["f64"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction pops a value from the stack, converts it from i32 to f64, and pushes the result back to the stack.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction traps if the conversion from i32 to f64 is not defined.",
+        "WhetherTrap": true
+    }
+]
+```

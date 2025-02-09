@@ -1,0 +1,92 @@
+In natural language, the data section in WebAssembly binary format is identified by the id 11 and decodes into a vector of data segments. Each data segment can be one of three variants, each variant is identified by an initial integer (0, 1, or 2) which can be interpreted as a bitfield. 
+
+The first variant (0:u32) represents an active data segment with a memory index of 0 and an offset defined by an expression. The second variant (1:u32) represents a passive data segment. The third variant (2:u32) represents an active data segment with a memory index and an offset defined by an expression. The memory index and offset are used to specify where the data segment should be loaded in memory.
+
+In JSON format, the definition of the data section and data segment would look like this:
+
+```json
+[
+    {
+        "datasec": [
+            {
+                "name": "section_id",
+                "type": "<Fix:11:hex>",
+                "description": "The ID of the data section, which is fixed at 0x11."
+            },
+            {
+                "name": "data_segments",
+                "type": "<Vec:data>",
+                "description": "A vector of data segments that represent the datas component of a module."
+            }
+        ]
+    },
+    {
+        "data": [
+            {
+                "name": "variant",
+                "type": "<Union:active_memory_zero:passive:active_memory_index>",
+                "description": "An integer indicating the variant of the data segment. 'active_memory_zero' for active with memory index 0, 'passive' for passive, 'active_memory_index' for active with a memory index."
+            }
+        ]
+    },
+    {
+        "active_memory_zero": [
+            {
+                "name": "flag",
+                "type": "<Fix:0:u32>",
+                "description": "A flag indicating this is an active data segment with memory index 0."
+            },
+            {
+                "name": "expression",
+                "type": "expr",
+                "description": "An expression defining the offset."
+            },
+            {
+                "name": "bytes",
+                "type": "<Vec:byte>",
+                "description": "A vector of bytes representing the data segment."
+            }
+        ]
+    },
+    {
+        "passive": [
+            {
+                "name": "flag",
+                "type": "<Fix:1:u32>",
+                "description": "A flag indicating this is a passive data segment."
+            },
+            {
+                "name": "bytes",
+                "type": "<Vec:byte>",
+                "description": "A vector of bytes representing the data segment."
+            }
+        ]
+    },
+    {
+        "active_memory_index": [
+            {
+                "name": "flag",
+                "type": "<Fix:2:u32>",
+                "description": "A flag indicating this is an active data segment with a memory index."
+            },
+            {
+                "name": "memory_index",
+                "type": "memidx",
+                "description": "The memory index."
+            },
+            {
+                "name": "expression",
+                "type": "expr",
+                "description": "An expression defining the offset."
+            },
+            {
+                "name": "bytes",
+                "type": "<Vec:byte>",
+                "description": "A vector of bytes representing the data segment."
+            }
+        ]
+    }
+]
+```
+
+Please note that in the current version of WebAssembly, at most one memory may be defined or imported in a single module, so all valid active data segments have a memory value of 0.

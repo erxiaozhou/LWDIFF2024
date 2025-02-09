@@ -1,0 +1,110 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'i32x4.extmul_high_i16x8_s', and the instruction format is 't_2xN.extmul_half_t_1xM_sx'. Therefore, the placeholder 't_2xN' in the instruction format represents a vector type 'i32x4', 't_1xM' represents a vector type 'i16x8', and 'sx' represents 's' which indicates signed extension.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+exec instructions Instructions Vector Instructions i32x4.extmul_high_i16x8_s
+Assert: due to validation, two values of value type v128 are on the top of the stack.
+
+Pop the value v128.const~c_2 from the stack.
+
+Pop the value v128.const~c_1 from the stack.
+
+If half is low, then:
+
+Let i^* be the sequence lanes_{i16x8}(c_1)[0 : N].
+
+Let j^* be the sequence lanes_{i16x8}(c_2)[0 : N].
+
+Else:
+
+Let i^* be the sequence lanes_{i16x8}(c_1)[N : N].
+
+Let j^* be the sequence lanes_{i16x8}(c_2)[N : N].
+
+Let c be the result of computing lanes^{-1}_{i32x4}(imul_{i32x4}(extend^{s}_{|i16|,|i32|}(i^*), extend^{s}_{|i16|,|i32|}(j^*)))
+
+Push the value v128.const~c onto the stack.
+```
+
+Execution Description:
+```
+exec instructions Instructions Vector Instructions i32x4.extmul_high_i16x8_s
+Assert: due to validation, two values of value type v128 are on the top of the stack.
+
+Pop the value v128.const~c_2 from the stack.
+
+Pop the value v128.const~c_1 from the stack.
+
+If half is low, then:
+
+Let i^* be the sequence lanes_{i16x8}(c_1)[0 : N].
+
+Let j^* be the sequence lanes_{i16x8}(c_2)[0 : N].
+
+Else:
+
+Let i^* be the sequence lanes_{i16x8}(c_1)[N : N].
+
+Let j^* be the sequence lanes_{i16x8}(c_2)[N : N].
+
+Let c be the result of computing lanes^{-1}_{i32x4}(imul_{i32x4}(extend^{s}_{|i16|,|i32|}(i^*), extend^{s}_{|i16|,|i32|}(j^*)))
+
+Push the value v128.const~c onto the stack.
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `i32x4.extmul_high_i16x8_s` takes two values of value type v128 from the stack (operands). There are no immediate arguments.
+
+Result:
+```json
+{
+    "op_0": "v128",
+    "op_1": "v128"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["v128", "v128"],
+        "result": ["v128"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction pops two v128 values from the stack, performs signed multiplication and extension on the high half of each value, and pushes the result back onto the stack.",
+        "WhetherTrap": false
+    }
+]
+```

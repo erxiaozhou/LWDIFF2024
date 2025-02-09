@@ -1,0 +1,103 @@
+1. Infer Placeholder Values:
+The concrete instruction name is 'f32.ceil', and the instruction format is 't.unop'. Therefore, the placeholder 't' in the instruction format represents a value type, which is 'f32' in this case.
+
+2. Replace Placeholders:
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Numeric Instructions f32.unop
+The instruction is valid with type [f32] \rightarrow [f32].
+
+\frac{
+}{  
+  C \vdash f32.unop : [f32] \rightarrow [f32]
+}
+```
+
+Execution Description:
+```
+exec instructions Instructions Numeric Instructions f32.unop
+Assert: due to validation, a value of value type f32 is on the top of the stack.
+
+Pop the value f32.const~c_1 from the stack.
+
+If unop_f32(c_1) is defined, then:
+
+Let c be a possible result of computing unop_f32(c_1).
+
+Push the value f32.const~c to the stack.
+
+Else:
+
+Trap.
+
+\begin{array}{lcl@{\qquad}l}
+(f32.const~c_1)~f32.unop &\hookrightarrow& (f32.const~c)
+  & (\mathrel{if} c \in unop_f32(c_1)) \\\\
+(f32.const~c_1)~f32.unop &\hookrightarrow& trap
+  & (\mathrel{if} unop_{f32}(c_1) = \{\})
+\end{array}
+```
+
+3. Determine Operand and Immediate Argument Types:
+The instruction `f32.ceil` takes a value from the stack (operand). The type of the operand should be f32.
+
+Result:
+```json
+{
+    "op_0": "f32"
+}
+```
+
+4. Summarize Validation Rules:
+The instruction is valid if the operand is of type f32.
+
+Result:
+```json
+{
+    "InputConstraint": [
+        {
+            "v1": "op_0.type",
+            "v2": "f32",
+            "relation": "eq"
+        }
+    ],
+    "ContextConstraint": [],
+    "Valid": true
+}
+```
+
+5. Summarize the type of the instruction:
+The instruction takes a parameter of type f32 and returns a value of type f32.
+
+Result:
+```json
+[
+    {
+        "param": ["f32"],
+        "result": ["f32"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+The instruction pops a value from the stack, computes the ceiling of the value, and pushes the result back to the stack. If the computation is not defined, the instruction traps.
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction pops a value from the stack, computes the ceiling of the value, and pushes the result back to the stack.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction traps if the ceiling computation is not defined.",
+        "WhetherTrap": true
+    }
+]
+```

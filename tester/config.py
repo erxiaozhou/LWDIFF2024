@@ -1,0 +1,3 @@
+MONGO_HOST = 'localhost'
+MONGO_PORT = 27016
+EXEC_TIMEOUT = 1

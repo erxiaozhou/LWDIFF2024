@@ -1,0 +1,104 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'i64.lt_u', and the instruction format is 't.relop'. Therefore, the placeholder 't' in the instruction format represents a value type, which is 'i64' in this case. The placeholder 'relop' represents a relational operation, which is 'lt_u' (unsigned less than) in this case.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Numeric Instructions i64.lt_u
+The instruction is valid with type [i64~i64] \rightarrow [i32].
+
+\frac{
+}{
+  C \vdash i64.lt_u : [i64~i64] \rightarrow [i32]
+}
+```
+
+Execution Description:
+```
+exec instructions Instructions Numeric Instructions i64.lt_u
+Assert: due to validation, two values of value type i64 are on the top of the stack.
+
+Pop the value i64.const~c_2 from the stack.
+
+Pop the value i64.const~c_1 from the stack.
+
+Let c be the result of computing lt_u_i64(c_1, c_2).
+
+Push the value i32.const~c to the stack.
+
+\begin{array}{lcl@{\qquad}l}
+(i64.const~c_1)~(i64.const~c_2)~i64.lt_u &\hookrightarrow& (i32.const~c)
+  & (\mathrel{if} c = lt_u_i64(c_1,c_2)) \\
+\end{array}
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `i64.lt_u` takes two operands from the stack, both of type i64. It does not take any immediate arguments.
+
+Result:
+```json
+{
+    "op_0": "i64",
+    "op_1": "i64"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+{
+    "InputConstraint": [],
+    "ContextConstraint": [],
+    "Valid": true
+}
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["i64", "i64"],
+        "result": ["i32"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0",
+                "v2": "op_1",
+                "relation": "lt"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The first operand is less than the second operand. The instruction pushes the boolean result (1 for true, 0 for false) onto the stack as an i32.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0",
+                "v2": "op_1",
+                "relation": "ge"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The first operand is not less than the second operand. The instruction pushes the boolean result (1 for true, 0 for false) onto the stack as an i32.",
+        "WhetherTrap": false
+    }
+]
+```

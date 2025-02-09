@@ -1,0 +1,24 @@
+In natural language, the binary definition of **reftype** in WebAssembly is a single byte that represents a reference type. It can have two possible values: `0x70` which represents a `funcref` and `0x6F` which represents an `externref`.
+
+In JSON format, the definition of **reftype** can be represented as follows:
+
+```json
+[
+    {
+        "reftype": [
+            {
+                "name": "funcref",
+                "type": "<Fix:70:hex>",
+                "description": "A single byte that represents a function reference."
+            },
+            {
+                "name": "externref",
+                "type": "<Fix:6F:hex>",
+                "description": "A single byte that represents an external reference."
+            }
+        ]
+    }
+]
+```
+
+In this JSON representation, each key in the JSON represents the name of a definition. The value is a list of the definition's components. Each component in the list includes the following fields: `name`, `type`, and `description`. The `name` specifies the name of the component. The `type` specifies the type of the component. If a type has multiple variants, it is explicitly defined as a union using `<Union:...>`. The `description` provides a detailed description of the component.

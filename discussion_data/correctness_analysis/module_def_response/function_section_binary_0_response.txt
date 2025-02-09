@@ -1,0 +1,24 @@
+In natural language, the function section in WebAssembly binary format is identified by the section id 3. It decodes into a vector of type indices that represent the type fields of the functions in the funcs component of a module. The locals and body fields of the respective functions are encoded separately in the code section.
+
+In JSON format, the function section is represented as follows:
+
+```json
+[
+    {
+        "function_section": [
+            {
+                "name": "section_id",
+                "type": "<Fix:3:hex>",
+                "description": "The ID of the function section, which is fixed at 0x03."
+            },
+            {
+                "name": "section_content",
+                "type": "<Vec:typeidx>",
+                "description": "A vector of type indices that represent the type fields of the functions in the funcs component of a module."
+            }
+        ]
+    }
+]
+```
+
+In this JSON representation, the `function_section` is an array of two components. The first component is the `section_id` which is a fixed hexadecimal value of 3. The second component is `section_content` which is a vector of type indices (`typeidx`). These type indices represent the type fields of the functions in the funcs component of a module.

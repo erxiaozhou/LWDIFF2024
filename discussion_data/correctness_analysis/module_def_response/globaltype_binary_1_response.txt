@@ -1,0 +1,51 @@
+In natural language, the binary definition of **globaltype** in WebAssembly is a combination of a value type and a mutability flag. The value type, denoted as `t:valtype`, represents the type of the global variable. The mutability flag, denoted as `m:mut`, indicates whether the global variable is constant or variable. The mutability flag can have two values: `0x00` for constant and `0x01` for variable.
+
+In JSON format, the definition of **globaltype** and its components **valtype** and **mut** can be represented as follows:
+
+```json
+[
+    {
+        "globaltype": [
+            {
+                "name": "t",
+                "type": "valtype",
+                "description": "The type of the global variable."
+            },
+            {
+                "name": "m",
+                "type": "<Union:const:var>",
+                "description": "The mutability of the global variable, indicating whether it is constant or variable."
+            }
+        ]
+    },
+    {
+        "valtype": [
+            {
+                "name": "value type",
+                "type": "<Union:i32:i64:f32:f64>",
+                "description": "The type of the value, which can be one of the following: i32, i64, f32, or f64."
+            }
+        ]
+    },
+    {
+        "const": [
+            {
+                "name": "constant",
+                "type": "<Fix:00:hex>",
+                "description": "The mutability flag for a constant global variable, which is fixed at 0x00."
+            }
+        ]
+    },
+    {
+        "var": [
+            {
+                "name": "variable",
+                "type": "<Fix:01:hex>",
+                "description": "The mutability flag for a variable global variable, which is fixed at 0x01."
+            }
+        ]
+    }
+]
+```
+
+In the JSON representation, each key represents a definition, and the value is a list of the definition's components. Each component includes a `name`, a `type`, and a `description`. The `type` field uses a union representation to indicate that it can be one of multiple variants. For example, the `type` field of the `valtype` component can be `i32`, `i64`, `f32`, or `f64`, and the `type` field of the `m` component can be either `const` or `var`, which are further defined separately.

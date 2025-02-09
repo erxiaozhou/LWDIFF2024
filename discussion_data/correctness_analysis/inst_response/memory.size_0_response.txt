@@ -1,0 +1,65 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'memory.size', and the instruction format is 'memory.size'. Therefore, there are no placeholders in the instruction format.
+
+2. Replace Placeholders:
+
+Since there are no placeholders in the instruction format, the validation_description and execution_description remain the same.
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `memory.size` does not take any operands or immediate arguments.
+
+Result:
+```json
+{}
+```
+
+4. Summarize Validation Rules:
+
+The instruction is valid if the memory C.mems[0] is defined in the context.
+
+Result:
+```json
+{
+    "InputConstraint": [],
+    "ContextConstraint": [
+        {
+            "v1": "context.mems.length",
+            "v2": "1",
+            "relation": "ge"
+        }
+    ],
+    "Valid": true
+}
+```
+
+5. Summarize the type of the instruction:
+
+The instruction `memory.size` does not take any parameters and returns an i32.
+
+Result:
+```json
+[
+    {
+        "param": [],
+        "result": ["i32"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+The instruction `memory.size` pushes the current memory size (in pages) to the stack.
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction pushes the current memory size (in pages) to the stack.",
+        "WhetherTrap": false
+    }
+]
+```

@@ -1,0 +1,149 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'i64.load32_s', and the instruction format is 't.load~memarg and t.loadN_sx~memarg'. Therefore, the placeholder 't' in the instruction format represents a value type, 'N' represents the bit width of the value type, and 'sx' represents the sign extension.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Memory Instructions i64.load32_s~memarg
+The memory C.mems[0] must be defined in the context.
+
+The alignment 2^{memarg.align} must not be larger than the bit width of i64 divided by 8.
+
+Then the instruction is valid with type [i32] \rightarrow [i64].
+
+\frac{
+  C.mems[0] = memtype
+  \qquad
+  2^{memarg.align} \leq |i64|/8
+}{
+  C \vdash i64.load32_s~memarg : [i32] \rightarrow [i64]
+}
+```
+
+Execution Description:
+```
+exec instructions Instructions Memory Instructions i64.load32_s~memarg and i64.load32_s~memarg
+Let F be the current frame.
+
+Assert: due to validation, F.module.memaddrs[0] exists.
+
+Let a be the memory address F.module.memaddrs[0].
+
+Assert: due to validation, S.mems[a] exists.
+
+Let mem be the memory instance S.mems[a].
+
+Assert: due to validation, a value of value type i32 is on the top of the stack.
+
+Pop the value i32.const~i from the stack.
+
+Let ea be the integer i + memarg.offset.
+
+If N is not part of the instruction, then:
+
+Let N be the bit width |i64| of number type i64.
+
+If ea + N/8 is larger than the length of mem.data, then:
+
+Trap.
+
+Let b^* be the byte sequence mem.data[ea \mathrel{\mathbf:} N/8].
+
+If N and sx are part of the instruction, then:
+
+Let n be the integer for which bytes_{iN}(n) = b^*.
+
+Let c be the result of computing extend^{sx}_{N,|i64|}(n).
+
+Else:
+
+Let c be the constant for which bytes_i64(c) = b^*.
+
+Push the value i64.const~c to the stack.
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `i64.load32_s~memarg` takes a value from the stack (operand) and a memory argument (immediate argument). The type of the operand should be i32. The type of the immediate argument is a memory argument, which includes an alignment and an offset.
+
+Result:
+```json
+{
+    "op_0": "i32",
+    "imm_0": "align",
+    "imm_1": "offset"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "2^imm_0",
+                "v2": "8",
+                "relation": "le"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "v1": "0",
+                "v2": "context.mems.length",
+                "relation": "lt"
+            }
+        ],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["i32"],
+        "result": ["i64"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0 + imm_1 + 4",
+                "v2": "context.Mem[0].length",
+                "relation": "le"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The instruction loads a 32-bit integer from memory, sign-extends it to 64 bits, and pushes it onto the stack.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0 + imm_1 + 4",
+                "v2": "context.Mem[0].length",
+                "relation": "gt"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "Memory out-of-bounds, leading to a trap.",
+        "WhetherTrap": true
+    }
+]
+```

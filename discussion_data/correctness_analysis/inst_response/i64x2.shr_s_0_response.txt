@@ -1,0 +1,105 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'i64x2.shr_s', and the instruction format is 'txN.vishiftop'. Therefore, the placeholder 't' in the instruction format represents a value type 'i64x2', and 'N' represents the bit width of the value type 'x2'.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+exec instructions Instructions Vector Instructions i64x2.vishiftop
+Assert: due to validation, a value of value type i32 is on the top of the stack.
+
+Pop the value i32.const~s from the stack.
+
+Assert: due to validation, a value of value type v128 is on the top of the stack.
+
+Pop the value v128.const~c_1 from the stack.
+
+Let i^* be the sequence lanes_{i64x2}(c_1).
+
+Let c be lanes^{-1}_{i64x2}(vishiftop_{i64x2}(i^*, s^x2)).
+
+Push the value v128.const~c to the stack.
+```
+
+Execution Description:
+```
+exec instructions Instructions Vector Instructions i64x2.vishiftop
+Assert: due to validation, a value of value type i32 is on the top of the stack.
+
+Pop the value i32.const~s from the stack.
+
+Assert: due to validation, a value of value type v128 is on the top of the stack.
+
+Pop the value v128.const~c_1 from the stack.
+
+Let i^* be the sequence lanes_{i64x2}(c_1).
+
+Let c be lanes^{-1}_{i64x2}(vishiftop_{i64x2}(i^*, s^x2)).
+
+Push the value v128.const~c to the stack.
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `i64x2.shr_s` takes two values from the stack (operands). The first operand is of type i32 and the second operand is of type v128.
+
+Result:
+```json
+{
+    "op_0": "i32",
+    "op_1": "v128"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i32",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "v128",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["i32", "v128"],
+        "result": ["v128"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction performs a right shift operation on the second operand (a v128 value) by the number of bits specified by the first operand (an i32 value). The result is pushed onto the stack.",
+        "WhetherTrap": false
+    }
+]
+```

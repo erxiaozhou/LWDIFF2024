@@ -1,0 +1,105 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'i32x4.le_s', and the instruction format is 'txN.vrelop'. Therefore, the placeholder 't' in the instruction format represents a value type, and 'xN' represents a vector of 'x' number of elements of type 'N'. 'vrelop' represents a vector relational operation.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+exec instructions Instructions Vector Instructions i32x4.le_s
+Assert: due to validation, two values of value type v128 are on the top of the stack.
+
+Pop the value v128.const~c_2 from the stack.
+
+Pop the value v128.const~c_1 from the stack.
+
+Let i^* be the sequence lanes_{i32x4}(c_1).
+
+Let j^* be the sequence lanes_{i32x4}(c_2).
+
+Let c be the result of computing lanes^{-1}_{i32x4}(extend^{s}_{1,|i32|}(le_s(i^*, j^*))).
+
+Push the value v128.const~c to the stack.
+```
+
+Execution Description:
+```
+exec instructions Instructions Vector Instructions i32x4.le_s
+Assert: due to validation, two values of value type v128 are on the top of the stack.
+
+Pop the value v128.const~c_2 from the stack.
+
+Pop the value v128.const~c_1 from the stack.
+
+Let i^* be the sequence lanes_{i32x4}(c_1).
+
+Let j^* be the sequence lanes_{i32x4}(c_2).
+
+Let c be the result of computing lanes^{-1}_{i32x4}(extend^{s}_{1,|i32|}(le_s(i^*, j^*))).
+
+Push the value v128.const~c to the stack.
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `i32x4.le_s` takes two operands of type v128 from the stack and performs a less than or equal to operation on each pair of corresponding lanes. The result is a vector of boolean values, where each boolean value indicates whether the corresponding pair of lanes satisfies the less than or equal to condition.
+
+Result:
+```json
+{
+    "op_0": "v128",
+    "op_1": "v128"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "v128",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "v128",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["v128", "v128"],
+        "result": ["v128"]
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [],
+        "Description": "The instruction performs a less than or equal to operation on each pair of corresponding lanes in the two input vectors. The result is a vector of boolean values, where each boolean value indicates whether the corresponding pair of lanes satisfies the less than or equal to condition.",
+        "WhetherTrap": false
+    }
+]
+```

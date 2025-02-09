@@ -1,0 +1,18 @@
+{
+    "actions": [
+        "byte_mutate",
+        "module_byte_mutate",
+
+        "non_v128_block_mutate",
+        "block_mutate",
+        "no_return_deep_block",
+        "deep_block_mutate",
+        
+        "valid_module_mutate",
+        "special_imm_mutate",
+        "special_op_mutate",
+        "delete_return"
+    ],
+    "enable_log": true,
+    "tester_name_prefix": "ZRandomTester"
+}

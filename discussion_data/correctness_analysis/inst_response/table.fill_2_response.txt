@@ -1,0 +1,148 @@
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'table.fill', and the instruction format is 'table.fill~x'. Therefore, the placeholder 'x' in the instruction format represents a table index.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Table Instructions table.fill~table_idx
+The table C.tables[table_idx] must be defined in the context.
+
+Let limits~t be the table type C.tables[table_idx].
+
+Then the instruction is valid with type [i32~t~i32] \rightarrow [].
+
+\frac{
+  C.tables[table_idx] = limits~t
+}{
+  C \vdash table.fill~table_idx : [i32~t~i32] \rightarrow []
+}
+```
+
+Execution Description:
+```
+exec instructions Instructions Table Instructions table.fill~table_idx
+Let F be the current frame.
+
+Assert: due to validation, F.module.tableaddrs[table_idx] exists.
+
+Let ta be the table address F.module.tableaddrs[table_idx].
+
+Assert: due to validation, S.tables[ta] exists.
+
+Let tab be the table instance S.tables[ta].
+
+Assert: due to validation, a value of value type i32 is on the top of the stack.
+
+Pop the value i32.const~n from the stack.
+
+Assert: due to validation, a reference value is on the top of the stack.
+
+Pop the value val from the stack.
+
+Assert: due to validation, a value of value type i32 is on the top of the stack.
+
+Pop the value i32.const~i from the stack.
+
+If i + n is larger than the length of tab.elem, then:
+
+Trap.
+
+If n is 0, then:
+
+Return.
+
+Push the value i32.const~i to the stack.
+
+Push the value val to the stack.
+
+Execute the instruction table.set~table_idx.
+
+Push the value i32.const~(i+1) to the stack.
+
+Push the value val to the stack.
+
+Push the value i32.const~(n-1) to the stack.
+
+Execute the instruction table.fill~table_idx.
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `table.fill~table_idx` takes two values of type i32 and a reference value from the stack (operands) and a table index (immediate argument). 
+
+Result:
+```json
+{
+    "op_0": "i32",
+    "op_1": "funcref or externref",
+    "op_2": "i32",
+    "imm_0": "table_idx"
+}
+```
+
+4. Summarize Validation Rules:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [],
+        "ContextConstraint": [
+            {
+                "v1": "imm_0",
+                "v2": "context.tables.length",
+                "relation": "lt"
+            }
+        ],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+Result:
+```json
+[
+    {
+        "param": ["i32", "funcref or externref", "i32"],
+        "result": []
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0 + op_2",
+                "v2": "context.tables[imm_0].length",
+                "relation": "le"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The instruction fills a table with a given value.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0 + op_2",
+                "v2": "context.tables[imm_0].length",
+                "relation": "gt"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The instruction traps if the sum of the first and third operand is larger than the length of the table.",
+        "WhetherTrap": true
+    }
+]
+```

@@ -1,0 +1,65 @@
+In natural language, the import section in WebAssembly binary format is identified by the id 2. It decodes into a vector of imports that represent the imports component of a module. Each import is defined by a module name, a name, and an import description. The import description can be one of four types: a function, a table, a memory, or a global, each identified by a specific byte (0x00 for function, 0x01 for table, 0x02 for memory, and 0x03 for global) followed by a type index or type.
+
+In JSON format, the definition of the import section and its components can be represented as follows:
+
+```json
+[
+    {
+        "importsec": [
+            {
+                "name": "section_id",
+                "type": "<Fix:2:hex>",
+                "description": "The ID of the import section, which is fixed at 0x02."
+            },
+            {
+                "name": "imports",
+                "type": "<Vec:import>",
+                "description": "A vector of imports that represent the imports component of a module."
+            }
+        ]
+    },
+    {
+        "import": [
+            {
+                "name": "module",
+                "type": "utf8str",
+                "description": "The name of the module from which the import is made."
+            },
+            {
+                "name": "name",
+                "type": "utf8str",
+                "description": "The name of the import."
+            },
+            {
+                "name": "desc",
+                "type": "importdesc",
+                "description": "The description of the import, which can be a function, a table, a memory, or a global."
+            }
+        ]
+    },
+    {
+        "importdesc": [
+            {
+                "name": "func",
+                "type": "<Union:<Fix:00:hex>:typeidx>",
+                "description": "A function import, identified by the byte 0x00 followed by a type index."
+            },
+            {
+                "name": "table",
+                "type": "<Union:<Fix:01:hex>:tabletype>",
+                "description": "A table import, identified by the byte 0x01 followed by a table type."
+            },
+            {
+                "name": "mem",
+                "type": "<Union:<Fix:02:hex>:memtype>",
+                "description": "A memory import, identified by the byte 0x02 followed by a memory type."
+            },
+            {
+                "name": "global",
+                "type": "<Union:<Fix:03:hex>:globaltype>",
+                "description": "A global import, identified by the byte 0x03 followed by a global type."
+            }
+        ]
+    }
+]
+```

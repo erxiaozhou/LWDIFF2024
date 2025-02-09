@@ -1,0 +1,125 @@
+From 279e92439fc5998735c4bd2ec317b6130465f55a Mon Sep 17 00:00:00 2001
+From: xxxx <xxxx@xxxx>
+Date: Mon, 15 Jan 2024 12:01:54 +0800
+Subject: [PATCH 1/2] add hook
+
+---
+ lib/cli/src/commands/run.rs |  9 +++++-
+ lib/cli/src/lib.rs          |  1 +
+ lib/cli/src/z_dump.rs       | 63 +++++++++++++++++++++++++++++++++++++
+ 3 files changed, 72 insertions(+), 1 deletion(-)
+ create mode 100644 lib/cli/src/z_dump.rs
+
+diff --git a/lib/cli/src/commands/run.rs b/lib/cli/src/commands/run.rs
+index fc52814bc9..aee8942157 100644
+--- a/lib/cli/src/commands/run.rs
++++ b/lib/cli/src/commands/run.rs
+@@ -53,6 +53,7 @@ use webc::{metadata::Manifest, Container};
+ use crate::{commands::run::wasi::Wasi, error::PrettyError, logging::Output, store::StoreOptions};
+ 
+ const TICK: Duration = Duration::from_millis(250);
++use crate::z_dump::{dump_vstack};
+ 
+ /// The unstable `wasmer run` subcommand.
+ #[derive(Debug, Parser)]
+@@ -275,8 +276,14 @@ impl Run {
+             }
+         };
+ 
++        // add z
++        let has_inst_path = "/home/std_runtime_test/lastest_runtimes/ld_wasmer_lastest/dump_instantiation";
++        let mut file = std::fs::File::create(has_inst_path).expect("create failed");
++        let has_visited_num: u32 = 0xFFFFFFFF;
++        std::io::Write::write_all(&mut file, &has_visited_num.to_le_bytes()).expect("write failed");
++        // 
+         let return_values = invoke_function(&instance, store, entrypoint, &self.args)?;
+-
++        dump_vstack(&return_values);
+         println!(
+             "{}",
+             return_values
+diff --git a/lib/cli/src/lib.rs b/lib/cli/src/lib.rs
+index 485e3e5391..f164328867 100644
+--- a/lib/cli/src/lib.rs
++++ b/lib/cli/src/lib.rs
+@@ -31,6 +31,7 @@ pub mod package_source;
+ pub mod store;
+ pub mod suggestions;
+ pub mod utils;
++mod z_dump;
+ 
+ /// Version number of this crate.
+ pub const VERSION: &str = env!("CARGO_PKG_VERSION");
+diff --git a/lib/cli/src/z_dump.rs b/lib/cli/src/z_dump.rs
+new file mode 100644
+index 0000000000..0aa5d77966
+--- /dev/null
++++ b/lib/cli/src/z_dump.rs
+@@ -0,0 +1,63 @@
++use wasmer::{Value};
++
++/// dump the value stack
++pub fn dump_vstack(result: &Box<[Value]>) {
++    let _path = "/home/std_runtime_test/lastest_runtimes/ld_wasmer_lastest/dump_vstack";
++    let mut file = std::fs::File::create(_path).expect("create failed");
++    std::io::Write::write_all(&mut file, &result.len().to_le_bytes()).expect("write failed");
++    for v in result.as_ref() {
++        match v {
++            Value::I32(value_content) => {
++                let cur_ty:u8 = 0x7F;
++                std::io::Write::write_all(&mut file, &cur_ty.to_le_bytes()).expect("write failed");
++                std::io::Write::write_all(&mut file, &value_content.to_le_bytes()).expect("write failed");
++            },
++            Value::I64(value_content) => {
++                let cur_ty:u8 = 0x7E;
++                std::io::Write::write_all(&mut file, &cur_ty.to_le_bytes()).expect("write failed");
++                std::io::Write::write_all(&mut file, &value_content.to_le_bytes()).expect("write failed");
++            },
++            Value::F32(value_content) => {
++                let cur_ty:u8 = 0x7D;
++                std::io::Write::write_all(&mut file, &cur_ty.to_le_bytes()).expect("write failed");
++                std::io::Write::write_all(&mut file, &value_content.to_le_bytes()).expect("write failed");
++            },
++            Value::F64(value_content) => {
++                let cur_ty:u8 = 0x7C;
++                std::io::Write::write_all(&mut file, &cur_ty.to_le_bytes()).expect("write failed");
++                std::io::Write::write_all(&mut file, &value_content.to_le_bytes()).expect("write failed");
++            },
++            Value::V128(value_content) => {
++                let cur_ty:u8 = 0x7B;
++                std::io::Write::write_all(&mut file, &cur_ty.to_le_bytes()).expect("write failed");
++                std::io::Write::write_all(&mut file, &value_content.to_le_bytes()).expect("write failed");
++            },
++            Value::ExternRef(Some(ref _f)) => {
++                let cur_ty:u8 = 0x6F;
++                // let some_extern = u64::from(f.handle.store_id().0);
++                // let some_extern: u32= 0;
++                std::io::Write::write_all(&mut file, &cur_ty.to_le_bytes()).expect("write failed");
++                // std::io::Write::write_all(&mut file, &some_extern.to_le_bytes()).expect("write failed");
++            },
++            Value::FuncRef(Some(ref _f)) => {
++                let cur_ty:u8 = 0x70;
++                // let some_function = u64::from(f.handle.store_id().0);
++                std::io::Write::write_all(&mut file, &cur_ty.to_le_bytes()).expect("write failed");
++                // std::io::Write::write_all(&mut file, &some_function.to_le_bytes()).expect("write failed");
++            },
++            Value::FuncRef(None) => {
++                
++                let cur_ty:u8 = 0x70;
++                let ref_null_val: u64= 0xffffffff;
++                std::io::Write::write_all(&mut file, &cur_ty.to_le_bytes()).expect("write failed");
++                std::io::Write::write_all(&mut file, &ref_null_val.to_le_bytes()).expect("write failed");
++            },
++            Value::ExternRef(None) => {
++                let cur_ty:u8 = 0x6F;
++                let ref_null_val: u64= 0xffffffff;
++                std::io::Write::write_all(&mut file, &cur_ty.to_le_bytes()).expect("write failed");
++                std::io::Write::write_all(&mut file, &ref_null_val.to_le_bytes()).expect("write failed");
++            },
++        }
++    }
++}
+\ No newline at end of file
+-- 
+2.25.1
+
