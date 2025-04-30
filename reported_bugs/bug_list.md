@@ -1,0 +1,37 @@
+We list the links to fixes for the bugs we identified.
+
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/3115
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/3081
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/3112
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/3101
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/3100
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/3135
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/3169
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/3146
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/3058
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/3031
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/2969
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/2972
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/2971
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/2974
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/3192
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/3290
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/3482
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/3340
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/3492
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/3397
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/3374
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/3434
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/3404
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/2798
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/4039
+- https://github.com/WasmEdge/WasmEdge/pull/3320
+- https://github.com/WasmEdge/WasmEdge/pull/3395
+- https://github.com/WasmEdge/WasmEdge/pull/3577
+- https://github.com/WasmEdge/WasmEdge/pull/3566
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/2806 (Not first found by us)
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/2864 (Not first found by us)
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/3352 (Not first found by us)
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/2866 (Not first found by us)
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/2793 (Not first found by us)
+- https://github.com/bytecodealliance/wasm-micro-runtime/pull/3317 (Not first found by us)

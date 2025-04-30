@@ -1,0 +1,165 @@
+From 0ac7658aa93083b6d3d2a8881eb737f105d1c365 Mon Sep 17 00:00:00 2001
+From: xxxx <xxxx@xxxx>
+Date: Sat, 3 Aug 2024 04:14:16 +0800
+Subject: [PATCH] add hook
+
+---
+ core/iwasm/common/wasm_application.c | 124 ++++++++++++++++++++++++++-
+ 1 file changed, 121 insertions(+), 3 deletions(-)
+
+diff --git a/core/iwasm/common/wasm_application.c b/core/iwasm/common/wasm_application.c
+index bcd0a6d0..2b528766 100644
+--- a/core/iwasm/common/wasm_application.c
++++ b/core/iwasm/common/wasm_application.c
+@@ -2,7 +2,11 @@
+  * Copyright (C) 2019 Intel Corporation.  All rights reserved.
+  * SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+  */
+-
++#include <unistd.h>
++#include <stdlib.h>
++#include <stdio.h>
++#include <libgen.h>
++#include <string.h>
+ #include "bh_platform.h"
+ #if WASM_ENABLE_INTERP != 0
+ #include "../interpreter/wasm_runtime.h"
+@@ -78,7 +82,121 @@ check_main_func_type(const WASMType *type)
+ 
+     return true;
+ }
++char *
++get_dump_dir()
++{
++    static char path[1024];
++    ssize_t len = readlink("/proc/self/exe", path, sizeof(path) - 1);
++    path[len] = '\0';
++    char *parent_dir = dirname(dirname(path));
++    return path;
++}
++void
++dump_instantiation()
++{
++    char has_inst_path[1024];
++    strcpy(has_inst_path, get_dump_dir());
++    strcat(has_inst_path, "/dump_instantiation");
++    __uint32_t has_visited_here = 0xFFFFFFFF;
++    FILE *fp_has_inst = fopen(has_inst_path, "wb");
++    fwrite(&has_visited_here, 4, 1, fp_has_inst);
++    fclose(fp_has_inst);
++}
+ 
++void dump_vstack(uint32 *argv1, WASMType *type){
++    char vstack_path[1024];
++    strcpy(vstack_path, get_dump_dir());
++    strcat(vstack_path, "/dump_vstack");
++    char ty_to_store;
++    int j;
++    int k=0;
++
++    FILE *fp = fopen(vstack_path, "wb");
++    size_t result_count = type->result_count;
++    fwrite(&result_count, sizeof(result_count), 1, fp);
++    for (j=0;j<type->result_count;j++){
++        
++        switch (type->types[type->param_count + j]) {
++            case VALUE_TYPE_I32:
++            {
++                ty_to_store = VALUE_TYPE_I32;
++                fwrite(&ty_to_store, sizeof(char), 1, fp);
++                fwrite(&argv1[k], 4, 1, fp);
++                k++;
++                break;
++            }
++            case VALUE_TYPE_I64:
++            {
++                ty_to_store = VALUE_TYPE_I64;
++                fwrite(&ty_to_store, sizeof(char), 1, fp);
++                fwrite(&argv1[k], 4, 2, fp);
++                k += 2;
++                break;
++            }
++            case VALUE_TYPE_F32:
++            {
++                ty_to_store = VALUE_TYPE_F32;
++                fwrite(&ty_to_store, sizeof(char), 1, fp);
++                fwrite(&argv1[k], 4, 1, fp);
++                k++;
++                break;
++            }
++            case VALUE_TYPE_F64:
++            {
++                ty_to_store = VALUE_TYPE_F64;
++                fwrite(&ty_to_store, sizeof(char), 1, fp);
++                union {
++                    float64 val;
++                    uint32 parts[2];
++                } u;
++                fwrite(&argv1[k], 4, 2, fp);
++                k += 2;
++                break;
++            }
++            case VALUE_TYPE_FUNCREF:
++            {
++                ty_to_store = VALUE_TYPE_FUNCREF;
++                fwrite(&ty_to_store, sizeof(char), 1, fp);
++                fwrite(&argv1[k], 4, 1, fp);
++                // 
++                uint32 is_null;
++                if(argv1[k] == NULL_REF)
++                    is_null = 1;
++                else
++                    is_null = 0;
++                fwrite(&is_null, 4, 1, fp);
++                // 
++                k++;
++                break;
++            }
++            case VALUE_TYPE_EXTERNREF:
++            {
++                ty_to_store = VALUE_TYPE_EXTERNREF;
++                fwrite(&ty_to_store, sizeof(char), 1, fp);
++                fwrite(&argv1[k], 4, 1, fp);
++                //
++                uint32 is_null;
++                if(argv1[k] == NULL_REF)
++                    is_null = 1;
++                else
++                    is_null = 0;
++                fwrite(&is_null, 4, 1, fp);
++                //
++                k++;
++                break;
++            }
++            case VALUE_TYPE_V128:
++            {
++                ty_to_store = VALUE_TYPE_V128;
++                fwrite(&ty_to_store, sizeof(char), 1, fp);
++                fwrite(&argv1[k], 16, 1, fp);
++                k += 4;
++                break;
++            }
++        }
++    }
++    fclose(fp);
++}
+ static bool
+ execute_main(WASMModuleInstanceCommon *module_inst, int32 argc, char *argv[])
+ {
+@@ -542,11 +660,11 @@ execute_func(WASMModuleInstanceCommon *module_inst, const char *name,
+                                    "create singleton exec_env failed");
+         goto fail;
+     }
+-
++    dump_instantiation();
+     if (!wasm_runtime_call_wasm(exec_env, target_func, argc1, argv1)) {
+         goto fail;
+     }
+-
++    dump_vstack(argv1, type);
+     /* print return value */
+     for (j = 0; j < type->result_count; j++) {
+         switch (type->types[type->param_count + j]) {
+-- 
+2.25.1
+
