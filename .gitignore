@@ -1,0 +1,6 @@
+*.pyc
+__pycache__/
+.env
+.vscode/
+runtime_tester
+to_remove
