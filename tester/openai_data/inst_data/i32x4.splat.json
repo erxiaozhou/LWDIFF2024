@@ -1,0 +1,34 @@
+{
+    "inst_name": "i32x4.splat",
+    "type_part": {
+        "op_0": "i32"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i32",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction takes an i32 value from the top of the stack, replicates it into a 128-bit value by repeating it four times, and pushes the result onto the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i32"
+            ],
+            "result": [
+                "v128"
+            ]
+        }
+    ]
+}

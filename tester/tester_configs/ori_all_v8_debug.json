@@ -1,0 +1,13 @@
+{
+    "actions": [
+        "special_op_mutate",
+        "deep_block_mutate",
+        "deep_block_mutate2",
+        "deep_block_mutate4",
+        "block_mutate",
+        "byte_mutate",
+        "valid_module_mutate"
+    ],
+    "enable_log": true,
+    "tester_name_prefix": "ZRandomTester"
+}

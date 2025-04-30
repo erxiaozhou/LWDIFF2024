@@ -1,0 +1,60 @@
+{
+    "exec_data": {
+        "ctgy": "Memory",
+        "raw_title": ":math:`\\MEMORYINIT~x`",
+        "name": "memory.init",
+        "steps_part": "1. Let :math:`F` be the :ref:`current <exec-notation-textual>` :ref:`frame <syntax-frame>`.\n2. Assert: due to :ref:`validation <valid-memory.init>`, :math:`F.\\AMODULE.\\MIMEMS[0]` exists.\n3. Let :math:`\\X{ma}` be the :ref:`memory address <syntax-memaddr>` :math:`F.\\AMODULE.\\MIMEMS[0]`.\n4. Assert: due to :ref:`validation <valid-memory.init>`, :math:`S.\\SMEMS[\\X{ma}]` exists.\n5. Let :math:`\\X{mem}` be the :ref:`memory instance <syntax-meminst>` :math:`S.\\SMEMS[\\X{ma}]`.\n6. Assert: due to :ref:`validation <valid-memory.init>`, :math:`F.\\AMODULE.\\MIDATAS[x]` exists.\n7. Let :math:`\\X{da}` be the :ref:`data address <syntax-dataaddr>` :math:`F.\\AMODULE.\\MIDATAS[x]`.\n8. Assert: due to :ref:`validation <valid-memory.init>`, :math:`S.\\SDATAS[\\X{da}]` exists.\n9. Let :math:`\\X{data}` be the  :ref:`data instance <syntax-datainst>` :math:`S.\\SDATAS[\\X{da}]`.\n10. Assert: due to :ref:`validation <valid-memory.init>`, a value of :ref:`value type <syntax-valtype>` |I32| is on the top of the stack.\n11. Pop the value :math:`\\I32.\\CONST~n` from the stack.\n12. Assert: due to :ref:`validation <valid-memory.init>`, a value of :ref:`value type <syntax-valtype>` |I32| is on the top of the stack.\n13. Pop the value :math:`\\I32.\\CONST~s` from the stack.\n14. Assert: due to :ref:`validation <valid-memory.init>`, a value of :ref:`value type <syntax-valtype>` |I32| is on the top of the stack.\n15. Pop the value :math:`\\I32.\\CONST~d` from the stack.\n16. If :math:`s + n` is larger than the length of :math:`\\X{data}.\\DIDATA` or :math:`d + n` is larger than the length of :math:`\\X{mem}.\\MIDATA`, then:\n    a. Trap.\n17. If :math:`n = 0`, then:\n    a. Return.\n18. Let :math:`b` be the byte :math:`\\X{data}.\\DIDATA[s]`.\n19. Push the value :math:`\\I32.\\CONST~d` to the stack.\n20. Push the value :math:`\\I32.\\CONST~b` to the stack.\n21. Execute the instruction :math:`\\I32\\K{.}\\STORE\\K{8}~\\{ \\OFFSET~0, \\ALIGN~0 \\}`.\n22. Assert: due to the earlier check against the memory size, :math:`d+1 < 2^{32}`.\n23. Push the value :math:`\\I32.\\CONST~(d+1)` to the stack.\n24. Assert: due to the earlier check against the memory size, :math:`s+1 < 2^{32}`.\n25. Push the value :math:`\\I32.\\CONST~(s+1)` to the stack.\n26. Push the value :math:`\\I32.\\CONST~(n-1)` to the stack.\n27. Execute the instruction :math:`\\MEMORYINIT~x`.",
+        "steps": [
+            "LET       : [(ValRefValue(Type(any::), F, 1), FrameInstance(Type(other:frame:), current frame, 1))]",
+            "ASSERT    : [ExistCondition(['exist', MemAddrInstance(F.\\AMODULE.\\MIMEMS[0]:Type(any::):constantValue(0:Type(u32::):0:False:0)::math:`F.\\AMODULE.\\MIMEMS[0]`)])]",
+            "LET       : [(ValRefValue(Type(any::), \\X{ma}, 1), MemAddrInstance(F.\\AMODULE.\\MIMEMS[0]:Type(other:memory address:):constantValue(0:Type(u32::):0:False:0):the :ref:`memory address <syntax-memaddr>` :math:`F.\\AMODULE.\\MIMEMS[0]`))]",
+            "ASSERT    : [ExistCondition(['exist', MemInstance(S.\\SMEMS[\\X{ma}]:Type(any::):ValRefValue(Type(u32::), \\X{ma}, 1)::math:`S.\\SMEMS[\\X{ma}]`)])]",
+            "LET       : [(ValRefValue(Type(any::), \\X{mem}, 1), MemInstance(S.\\SMEMS[\\X{ma}]:Type(other:memory instance:):ValRefValue(Type(u32::), \\X{ma}, 1):the :ref:`memory instance <syntax-meminst>` :math:`S.\\SMEMS[\\X{ma}]`))]",
+            "ASSERT    : [ExistCondition(['exist', DataAddrInstance(F.\\AMODULE.\\MIDATAS[x]:Type(any::):ValRefValue(Type(u32::), x, 1)::math:`F.\\AMODULE.\\MIDATAS[x]`)])]",
+            "LET       : [(ValRefValue(Type(any::), \\X{da}, 1), DataAddrInstance(F.\\AMODULE.\\MIDATAS[x]:Type(other:data address:):ValRefValue(Type(u32::), x, 1):the :ref:`data address <syntax-dataaddr>` :math:`F.\\AMODULE.\\MIDATAS[x]`))]",
+            "ASSERT    : [ExistCondition(['exist', DataInstance(S.\\SDATAS[\\X{da}]:Type(any::):ValRefValue(Type(u32::), \\X{da}, 1)::math:`S.\\SDATAS[\\X{da}]`)])]",
+            "LET       : [(ValRefValue(Type(any::), \\X{data}, 1), DataInstance(S.\\SDATAS[\\X{da}]:Type(other:data instance:):ValRefValue(Type(u32::), \\X{da}, 1):the  :ref:`data instance <syntax-datainst>` :math:`S.\\SDATAS[\\X{da}]`))]",
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(i32::), any, 1)])]",
+            "POP       : [ValRefValue(Type(i32::), n, 1)]",
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(i32::), any, 1)])]",
+            "POP       : [ValRefValue(Type(i32::), s, 1)]",
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(i32::), any, 1)])]",
+            "POP       : [ValRefValue(Type(i32::), d, 1)]",
+            "IF        : [[CompareCondition(['compare_condition', FormulaValue(Type(any::), s + n, 1), True, 'larger', LengthRefValue(the length of :math:`\\X{data}.\\DIDATA`:Type(u32::):\\X{data}:\\DIDATA:the length of :math:`\\X{data}.\\DIDATA`)]), CompareCondition(['compare_condition', FormulaValue(Type(any::), d + n, 1), True, 'larger', LengthRefValue(the length of :math:`\\X{mem}.\\MIDATA`:Type(u32::):\\X{mem}:\\MIDATA:the length of :math:`\\X{mem}.\\MIDATA`)])]]",
+            "  TRAP      : []",
+            "IF        : [[FormulaCondition(['formula_condition', FormulaValue(Type(any::), n = 0, 1)])]]",
+            "  RETURN    : []",
+            "LET       : [(ValRefValue(Type(any::), b, 1), FormulaValue(Type(other:byte:), \\X{data}.\\DIDATA[s], 1))]",
+            "PUSH      : [ValRefValue(Type(i32::), d, 1)]",
+            "PUSH      : [ValRefValue(Type(i32::), b, 1)]",
+            "EXECUTE   : [FormulaValue(Type(any::), \\I32\\K{.}\\STORE\\K{8}~\\{ \\OFFSET~0, \\ALIGN~0 \\}, 1)]",
+            "ASSERT    : [FormulaCondition(['formula_condition', FormulaValue(Type(any::), d+1 < 2^{32}, 1)])]",
+            "PUSH      : [FormulaValue(Type(i32::), d+1, 1)]",
+            "ASSERT    : [FormulaCondition(['formula_condition', FormulaValue(Type(any::), s+1 < 2^{32}, 1)])]",
+            "PUSH      : [FormulaValue(Type(i32::), s+1, 1)]",
+            "PUSH      : [FormulaValue(Type(i32::), n-1, 1)]",
+            "EXECUTE   : [FormulaValue(Type(any::), \\MEMORYINIT~x, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(i32::), 1), -1], [(Type(i32::), 1), -1], [(Type(i32::), 1), -1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\MEMORYINIT~x`",
+        "name": "memory.init",
+        "ctgy": "Memory",
+        "steps": [
+            "MUST_EXIST: [ExistCondition(['valid_define_condition', MemAddrInstance(C.\\CMEMS[0]:Type(any::):constantValue(0:Type(u32::):0:False:0)::math:`C.\\CMEMS[0]`)])]",
+            "MUST_EXIST: [ExistCondition(['valid_define_condition', DataAddrInstance(C.\\CDATAS[x]:Type(any::):ValRefValue(Type(u32::), x, 1)::math:`C.\\CDATAS[x]`)])]",
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(i32::), any, 1), StackValue(Type(i32::), any, 1), StackValue(Type(i32::), any, 1)], []])]"
+        ]
+    },
+    "imms": {
+        "x": "<x: dataidx>"
+    },
+    "exec_title_paras": {},
+    "binary_info": [
+        "<FC: hex>",
+        "<8: u32>",
+        "<x: dataidx>",
+        "<00: hex>"
+    ]
+}

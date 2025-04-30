@@ -1,0 +1,71 @@
+{
+    "inst_name": "br_table",
+    "type_part": {
+        "op_0": "i32",
+        "imm_0": "label_idx",
+        "imm_1": "label_idx"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i32",
+                "relation": "eq"
+            },
+            {
+                "v1": "imm_0.type",
+                "v2": "label_idx",
+                "relation": "eq"
+            },
+            {
+                "v1": "imm_1.type",
+                "v2": "label_idx",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "VariableName": "context.Labels[imm_0]",
+                "Exist": true
+            },
+            {
+                "VariableName": "context.Labels[imm_1]",
+                "Exist": true
+            }
+        ]
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "length of immediate arguments - 1",
+                    "relation": "le"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction branches to the label at the index specified by the operand from the list of labels provided as immediate arguments.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "length of immediate arguments - 1",
+                    "relation": "gt"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction branches to the default label provided as the last immediate argument.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i32"
+            ],
+            "result": []
+        }
+    ]
+}

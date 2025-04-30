@@ -1,0 +1,80 @@
+{
+    "inst_name": "memory.copy",
+    "type_part": {
+        "op_0": "i32",
+        "op_1": "i32",
+        "op_2": "i32"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i32",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "i32",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_2.type",
+                "v2": "i32",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "v1": "context.Mems.length",
+                "v2": "0",
+                "relation": "gt"
+            }
+        ]
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0 + op_2",
+                    "v2": "context.Mem[0].length",
+                    "relation": "le"
+                },
+                {
+                    "v1": "op_1 + op_2",
+                    "v2": "context.Mem[0].length",
+                    "relation": "le"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction copies op_2 bytes from the memory location op_1 to the memory location op_0. The memory locations can overlap.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0 + op_2",
+                    "v2": "context.Mem[0].length",
+                    "relation": "gt"
+                },
+                {
+                    "v1": "op_1 + op_2",
+                    "v2": "context.Mem[0].length",
+                    "relation": "gt"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "Memory out-of-bounds, leading to a trap.",
+            "WhetherTrap": true
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i32",
+                "i32",
+                "i32"
+            ],
+            "result": []
+        }
+    ]
+}

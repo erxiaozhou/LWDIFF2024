@@ -1,0 +1,34 @@
+{
+    "exec_data": {
+        "ctgy": "Memory",
+        "raw_title": ":math:`\\DATADROP~x`",
+        "name": "data.drop",
+        "steps_part": "1. Let :math:`F` be the :ref:`current <exec-notation-textual>` :ref:`frame <syntax-frame>`.\n2. Assert: due to :ref:`validation <valid-data.drop>`, :math:`F.\\AMODULE.\\MIDATAS[x]` exists.\n3. Let :math:`a` be the :ref:`data address <syntax-dataaddr>` :math:`F.\\AMODULE.\\MIDATAS[x]`.\n4. Assert: due to :ref:`validation <valid-data.drop>`, :math:`S.\\SDATAS[a]` exists.\n5. Replace :math:`S.\\SDATAS[a]` with the :ref:`data instance <syntax-datainst>` :math:`\\{\\DIDATA~\\epsilon\\}`.",
+        "steps": [
+            "LET       : [(ValRefValue(Type(any::), F, 1), FrameInstance(Type(other:frame:), current frame, 1))]",
+            "ASSERT    : [ExistCondition(['exist', DataAddrInstance(F.\\AMODULE.\\MIDATAS[x]:Type(any::):ValRefValue(Type(u32::), x, 1)::math:`F.\\AMODULE.\\MIDATAS[x]`)])]",
+            "LET       : [(ValRefValue(Type(any::), a, 1), DataAddrInstance(F.\\AMODULE.\\MIDATAS[x]:Type(other:data address:):ValRefValue(Type(u32::), x, 1):the :ref:`data address <syntax-dataaddr>` :math:`F.\\AMODULE.\\MIDATAS[x]`))]",
+            "ASSERT    : [ExistCondition(['exist', DataInstance(S.\\SDATAS[a]:Type(any::):ValRefValue(Type(u32::), a, 1)::math:`S.\\SDATAS[a]`)])]",
+            "REPLACE   : [(DataInstance(S.\\SDATAS[a]:Type(any::):ValRefValue(Type(u32::), a, 1)::math:`S.\\SDATAS[a]`), FormulaValue(Type(other:data instance:), \\{\\DIDATA~\\epsilon\\}, 1))]"
+        ],
+        "vstack_vt_num_seq": "[]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\DATADROP~x`",
+        "name": "data.drop",
+        "ctgy": "Memory",
+        "steps": [
+            "MUST_EXIST: [ExistCondition(['valid_define_condition', DataAddrInstance(C.\\CDATAS[x]:Type(any::):ValRefValue(Type(u32::), x, 1)::math:`C.\\CDATAS[x]`)])]",
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [], []])]"
+        ]
+    },
+    "imms": {
+        "x": "<x: dataidx>"
+    },
+    "exec_title_paras": {},
+    "binary_info": [
+        "<FC: hex>",
+        "<9: u32>",
+        "<x: dataidx>"
+    ]
+}

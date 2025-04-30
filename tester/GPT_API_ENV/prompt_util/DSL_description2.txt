@@ -1,0 +1,283 @@
+
+
+Here is the description of a WebAssembly Instruction.
+
+{data}
+
+The validation rules and execution behaviors are described in the `validation_description` part and `execution_description` part. Note that there are placeholders in these descriptions.
+
+You should finish the task with the help of the given information. Note it, given background maybe not related to the tasks. 
+
+# Your Task:
+
+1. **Infer Placeholder Values:**
+   - Infer the concrete values of the placeholders in the `exec_inst_name` part.
+
+2. **Replace Placeholders:**
+   - Replace the placeholders in `validation_description` and `execution_description` with the concrete values inferred in step 1.
+
+3. **Determine Operand and Immediate Argument Types:**
+   - Understand the `validation_description` and `execution_description` parts.
+   - Infer the expected types of operands and immediate arguments of the instruction.
+   - If an operand or immediate argument is optional, list all possible combinations.
+
+**Result Format:**
+- Represent the i_th operand as `op_i` and the i_th immediate argument as `imm_i`, starting from 0.
+- Operand type candidates: i32, i64, f32, f64, v128, funcref, externref
+- Immediate argument type candidates: i32, i64, f32, f64, funcref, externref, v128, local_idx, align, offset, lane_idx, table_idx, data_idx, elem_idx, func_idx, global_idx
+
+```json
+{
+    "op_1": "i32",
+    "op_2": "i32",
+    "imm_1": "global_idx",
+    "imm_2": "align"
+}
+```
+
+**Hints:**
+- Infer the semantics of the operand type 'any' and expand 'any' to suitable concrete operand types.
+- You can use other terms to represent a type if necessary.
+
+4. **Summarize Validation Rules:**
+   - Understand the validation part.
+   - Summarize the rules between the instruction input (immediate arguments, operands), context, and the validation result (valid or invalid).
+
+**Result Format:**
+- Organize the result in JSON format as a list of rules.
+- Each rule should include InputConstraint, ContextConstraint, and Result.
+
+```json
+{
+    "InputConstraint": [
+        {
+            "v1": "imm_1",
+            "v2": "4",
+            "relation": "le"
+        }
+    ],
+    "ContextConstraint": [],
+    "Valid": true
+}
+```
+
+5. **Describe Possible Behaviors:**
+   - Think about the possible behaviors of the instruction.
+   - Describe the requirements on the operands, immediate arguments, and context to trigger each behavior.
+   - Explain why the instruction input and context lead to the behavior and whether the execution will trap.
+
+**Result Format:**
+- Represent the expected behavior in JSON format as a list of rules.
+- Each rule should include InputConstraint, ContextConstraint, Description, and WhetherTrap.
+
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0 + memarg.offset + 4",
+                "v2": "context.Mem[0].length",
+                "relation": "le"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The instruction stores the operand op_1 to the memory.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0 + memarg.offset + 4",
+                "v2": "context.Mem[0].length",
+                "relation": "gt"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "Memory out-of-bounds, leading to a trap.",
+        "WhetherTrap": true
+    }
+]
+```
+
+# Example Instruction: `f32.store`
+The descriptions I will provide:
+
+
+{
+    "name": "f32.store",
+    "exec_inst_name": "t.store",
+    "category": "Memory",
+    "validation_description": "\n* The memory :math:`C.\\CMEMS[0]` must be defined in the context.\n\n* The alignment :math:`2^{\\memarg.\\ALIGN}` must not be larger than the :ref:`bit width <syntax-numtype>` of :math:`t` divided by :math:`8`.\n\n* Then the instruction is valid with type :math:`[\\I32~t] \\to []`.\n\n.. math::\n   \\frac{\n     C.\\CMEMS[0] = \\memtype\n     \\qquad\n     2^{\\memarg.\\ALIGN} \\leq |t|/8\n   }{\n     C \\vdashinstr t\\K{.store}~\\memarg : [\\I32~t] \\to []\n   }\n\n\n.. _valid-storen:\n",
+    "execution_description": "1. Let :math:`F` be the :ref:`current <exec-notation-textual>` :ref:`frame <syntax-frame>`.\n2. Assert: due to :ref:`validation <valid-storen>`, :math:`F.\\AMODULE.\\MIMEMS[0]` exists.\n3. Let :math:`a` be the :ref:`memory address <syntax-memaddr>` :math:`F.\\AMODULE.\\MIMEMS[0]`.\n4. Assert: due to :ref:`validation <valid-storen>`, :math:`S.\\SMEMS[a]` exists.\n5. Let :math:`\\X{mem}` be the :ref:`memory instance <syntax-meminst>` :math:`S.\\SMEMS[a]`.\n6. Assert: due to :ref:`validation <valid-storen>`, a value of :ref:`value type <syntax-valtype>` :math:`t` is on the top of the stack.\n7. Pop the value :math:`t.\\CONST~c` from the stack.\n8. Assert: due to :ref:`validation <valid-storen>`, a value of :ref:`value type <syntax-valtype>` |I32| is on the top of the stack.\n9. Pop the value :math:`\\I32.\\CONST~i` from the stack.\n10. Let :math:`\\X{ea}` be the integer :math:`i + \\memarg.\\OFFSET`.\n11. If :math:`N` is not part of the instruction, then:\n    a. Let :math:`N` be the :ref:`bit width <syntax-numtype>` :math:`|t|` of :ref:`number type <syntax-numtype>` :math:`t`.\n12. If :math:`\\X{ea} + N/8` is larger than the length of :math:`\\X{mem}.\\MIDATA`, then:\n    a. Trap.\n13. If :math:`N` is part of the instruction, then:\n    a. Let :math:`n` be the result of computing :math:`\\wrap_{|t|,N}(c)`.\n    b. Let :math:`b^\\ast` be the byte sequence :math:`\\bytes_{\\iN}(n)`.\n14. Else:\n    a. Let :math:`b^\\ast` be the byte sequence :math:`\\bytes_t(c)`.\n15. Replace the bytes :math:`\\X{mem}.\\MIDATA[\\X{ea} \\slice N/8]` with :math:`b^\\ast`."
+}
+
+
+
+1. **Concrete Values of Placeholders:**
+   - The concrete values of the placeholders in the `exec_inst_name` part are `f32.store`.
+
+2. **Replace Placeholders:**
+   - Replaced placeholders in `validation_description` and `execution_description` with `f32.store`.
+
+3. **Expected Types of Operands and Immediate Arguments:**
+
+```json
+{
+    "op_0": "i32",
+    "op_1": "f32"
+}
+```
+
+4. **Validation Rules:**
+
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i32",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "f32",
+                "relation": "eq"
+            },
+            {
+                "v1": "memarg.align",
+                "v2": "4",
+                "relation": "le"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "VariableName": "context.Mem[0]",
+                "Exist": true
+            }
+        ],
+        "Valid": true
+    }
+]
+```
+
+5. **Possible Behaviors:**
+
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0 + memarg.offset + 4",
+                "v2": "context.Mem[0].length",
+                "relation": "le"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The instruction stores the operand op_1 to the memory.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0 + memarg.offset + 4",
+                "v2": "context.Mem[0].length",
+                "relation": "gt"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "Memory out-of-bounds, leading to a trap.",
+        "WhetherTrap": true
+    }
+]
+```
+
+
+Example2: for the instruction typed select instruction, which requires an immediate
+
+The  description is 
+{
+    "name": "select",
+    "exec_inst_name": ":math:`\\SELECT~(t^\\ast)^?`",
+    "category": "Parametric",
+    "validation_description": "\n* If :math:`t^\\ast` is present, then:\n\n  * The length of :math:`t^\\ast` must be :math:`1`.\n\n  * Then the instruction is valid with type :math:`[t^\\ast~t^\\ast~\\I32] \\to [t^\\ast]`.\n\n* Else:\n\n  * The instruction is valid with type :math:`[t~t~\\I32] \\to [t]`, for any :ref:`operand type <syntax-opdtype>` :math:`t` that :ref:`matches <match-opdtype>` some :ref:`number type <syntax-numtype>` or :ref:`vector type <syntax-vectype>`.\n\n.. math::\n   \\frac{\n   }{\n     C \\vdashinstr \\SELECT~t : [t~t~\\I32] \\to [t]\n   }\n   \\qquad\n   \\frac{\n     \\vdash t \\leq \\numtype\n   }{\n     C \\vdashinstr \\SELECT : [t~t~\\I32] \\to [t]\n   }\n   \\qquad\n   \\frac{\n     \\vdash t \\leq \\vectype\n   }{\n     C \\vdashinstr \\SELECT : [t~t~\\I32] \\to [t]\n   }\n\n.. note::\n   In future versions of WebAssembly, |SELECT| may allow more than one value per choice.\n\n\n.. index:: variable instructions, local index, global index, context\n   pair: validation; instruction\n   single: abstract syntax; instruction\n.. _valid-instr-variable:",
+    "execution_description": "1. Assert: due to :ref:`validation <valid-select>`, a value of :ref:`value type <syntax-valtype>` |I32| is on the top of the stack.\n2. Pop the value :math:`\\I32.\\CONST~c` from the stack.\n3. Assert: due to :ref:`validation <valid-select>`, two more values (of the same :ref:`value type <syntax-valtype>`) are on the top of the stack.\n4. Pop the value :math:`\\val_2` from the stack.\n5. Pop the value :math:`\\val_1` from the stack.\n6. If :math:`c` is not :math:`0`, then:\n   a. Push the value :math:`\\val_1` back to the stack.\n7. Else:\n   a. Push the value :math:`\\val_2` back to the stack."
+}
+
+The answer example:
+
+
+1. The concrete values of the placeholders in the `exec_inst_name` part is `select`.
+
+2. Replace the placeholders in `validation_description` part and `execution_description` part with the concrete value inferred from the step 1.
+
+3. The expected types of operands and immediate arguments of the instruction are:
+
+    ```json
+    {
+        "op_0": "any",
+        "op_1": "any",
+        "op_2": "i32"
+    }
+    ```
+    The operand of type 'any' can be expanded to the suitable concrete operand types: i32, i64, f32, f64, v128, funcref, externref.
+
+4. The rules between the instruction input, context, and the validation result are:
+
+    ```json
+    [
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0.type",
+                    "v2": "op_1.type",
+                    "relation": "eq"
+                },
+                {
+                    "v1": "op_2.type",
+                    "v2": "i32",
+                    "relation": "eq"
+                },
+                {
+                    "v1": "op_0.type",
+                    "v2": ["i32", "i64", "f32", "f64", "v128", "externref", "funcref"],
+                    "relation": "in"
+                }
+            ],
+            "ContextConstraint": [],
+            "Valid": True
+        }
+    ]
+    ```
+    Hint: If a type is 'any', remeber to utilize the relation "in" to display all possible types. 
+5. The possible behaviors of the instruction are:
+
+    ```json
+    [
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_2",
+                    "v2": "0",
+                    "relation": "neq"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction selects the first operand (op_0) and pushes it back to the stack.",
+            "WhetherTrap": False
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_2",
+                    "v2": "0",
+                    "relation": "eq"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction selects the second operand (op_1) and pushes it back to the stack.",
+            "WhetherTrap": False
+        }
+    ]
+    ```
+    

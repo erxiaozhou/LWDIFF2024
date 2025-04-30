@@ -1,0 +1,82 @@
+{
+    "inst_name": "i64.trunc_sat_f64_u",
+    "type_part": {
+        "op_0": "f64"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "f64",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction truncates a 64-bit floating-point number to an unsigned 64-bit integer using saturation (clamping within the target range). If the conversion is within range, the result is pushed onto the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "NaN",
+                    "relation": "eq"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction attempts to truncate a NaN floating-point number. The result is 0, which is pushed onto the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "infinity",
+                    "relation": "eq"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction attempts to truncate an infinite floating-point number. The result is the maximum unsigned 64-bit integer value, which is pushed onto the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "2**64",
+                    "relation": "ge"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction attempts to truncate a floating-point number that is too large to be represented as an unsigned 64-bit integer. The result is the maximum unsigned 64-bit integer value, which is pushed onto the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "-1",
+                    "relation": "ls"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction attempts to truncate a negative floating-point number. The result is 0, which is pushed onto the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "f64"
+            ],
+            "result": [
+                "i64"
+            ]
+        }
+    ]
+}

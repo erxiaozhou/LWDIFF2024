@@ -1,0 +1,32 @@
+{
+    "inst_name": "table.size",
+    "type_part": {
+        "imm_0": "table_idx"
+    },
+    "validate_part": {
+        "InputConstraint": [],
+        "ContextConstraint": [
+            {
+                "v1": "context.Tables.length",
+                "v2": "imm_0",
+                "relation": "gt"
+            }
+        ]
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction gets the size of the table at the index specified by the immediate argument and pushes it onto the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [],
+            "result": [
+                "i32"
+            ]
+        }
+    ]
+}

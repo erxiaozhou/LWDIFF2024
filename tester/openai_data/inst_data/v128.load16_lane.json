@@ -1,0 +1,87 @@
+{
+    "inst_name": "v128.load16_lane",
+    "type_part": {
+        "op_0": "i32",
+        "op_1": "v128",
+        "imm_0": "offset",
+        "imm_1": "align",
+        "imm_2": "lane_idx"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "imm_2",
+                "v2": "8",
+                "relation": "ls"
+            },
+            {
+                "v1": "2^imm_1",
+                "v2": "2",
+                "relation": "ls"
+            },
+            {
+                "v1": "2^imm_1",
+                "v2": "0",
+                "relation": "gt"
+            },
+            {
+                "v1": "2^imm_1",
+                "v2": [
+                    "1",
+                    "2",
+                    "4",
+                    "8",
+                    "16",
+                    "32",
+                    "64",
+                    "128"
+                ],
+                "relation": "in"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "v1": "context.Mems.length",
+                "v2": "0",
+                "relation": "gt"
+            }
+        ]
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0 + imm_0 + 2",
+                    "v2": "context.Mem[0].length",
+                    "relation": "le"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction loads a lane from memory into a v128 vector. The lane is determined by the immediate argument imm_2. The memory address is computed from the operand op_0 and the offset in the immediate argument imm_0.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0 + imm_0 + 2",
+                    "v2": "context.Mem[0].length",
+                    "relation": "gt"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "Memory out-of-bounds, leading to a trap.",
+            "WhetherTrap": true
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i32",
+                "v128"
+            ],
+            "result": [
+                "v128"
+            ]
+        }
+    ]
+}

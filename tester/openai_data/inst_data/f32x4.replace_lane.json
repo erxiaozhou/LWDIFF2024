@@ -1,0 +1,47 @@
+{
+    "inst_name": "f32x4.replace_lane",
+    "type_part": {
+        "op_0": "v128",
+        "op_1": "f32",
+        "imm_0": "lane_idx"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "v128",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "f32",
+                "relation": "eq"
+            },
+            {
+                "v1": "imm_0",
+                "v2": "4",
+                "relation": "ls"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction replaces the lane in the first operand (a v128 value) specified by the immediate argument with the second operand (a f32 value) and pushes the result onto the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "v128",
+                "f32"
+            ],
+            "result": [
+                "v128"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "inst_name": "i8x16.add_sat_s",
+    "type_part": {
+        "op_0": "v128",
+        "op_1": "v128"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "v128",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "v128",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction performs a saturated addition of two i8x16 vectors. If the addition does not overflow, the result is pushed onto the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0 + op_1",
+                    "v2": "255",
+                    "relation": "gt"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction performs a saturated addition of two i8x16 vectors. If the addition overflows, the maximum representable value (255) is pushed onto the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "v128",
+                "v128"
+            ],
+            "result": [
+                "v128"
+            ]
+        }
+    ]
+}

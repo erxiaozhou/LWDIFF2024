@@ -1,0 +1,46 @@
+{
+    "inst_name": "local.get",
+    "type_part": {
+        "imm_0": "local_idx"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "imm_0",
+                "v2": "context.locals.length",
+                "relation": "ls"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [
+                {
+                    "v1": "context.locals[imm_0].type",
+                    "v2": [
+                        "i32",
+                        "i64",
+                        "f32",
+                        "f64",
+                        "v128",
+                        "externref",
+                        "funcref"
+                    ],
+                    "relation": "in"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction gets the value of the local variable at the index specified by the immediate argument and pushes it onto the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [],
+            "result": [
+                "context.locals[local_idx].type"
+            ]
+        }
+    ]
+}

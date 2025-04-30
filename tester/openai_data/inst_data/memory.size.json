@@ -1,0 +1,30 @@
+{
+    "inst_name": "memory.size",
+    "type_part": {},
+    "validate_part": {
+        "InputConstraint": [],
+        "ContextConstraint": [
+            {
+                "v1": "context.Mems.length",
+                "v2": "0",
+                "relation": "gt"
+            }
+        ]
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction returns the current size of the memory in units of pages and pushes it onto the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [],
+            "result": [
+                "i32"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "inst_name": "f32x4.convert_i32x4_s",
+    "type_part": {
+        "op_0": "v128"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "v128",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction converts a vector of four 32-bit signed integers to a vector of four 32-bit floating-point numbers.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "v128"
+            ],
+            "result": [
+                "v128"
+            ]
+        }
+    ]
+}

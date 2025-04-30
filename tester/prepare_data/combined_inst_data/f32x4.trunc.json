@@ -1,0 +1,32 @@
+{
+    "exec_data": {
+        "ctgy": "Vector",
+        "raw_title": ":math:`\\shape\\K{.}\\vunop`",
+        "name": "shape.vunop",
+        "steps_part": "1. Assert: due to :ref:`validation <valid-vunop>`, a value of :ref:`value type <syntax-valtype>` |V128| is on the top of the stack.\n2. Pop the value :math:`\\V128.\\VCONST~c_1` from the stack.\n3. Let :math:`c` be the result of computing :math:`\\vunop_{\\shape}(c_1)`.\n4. Push the value :math:`\\V128.\\VCONST~c` to the stack.",
+        "steps": [
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(v128::), any, 1)])]",
+            "POP       : [ValRefValue(Type(v128::), c_1, 1)]",
+            "LET       : [(ValRefValue(Type(any::), c, 1), FormulaValue(Type(v128:{shape}:), \\vunop_{\\shape}(c_1), 1))]",
+            "PUSH      : [ValRefValue(Type(v128::), c, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(v128::), 1), -1], [(Type(v128::), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\shape\\K{.}\\vunop`",
+        "name": "shape.vunop",
+        "ctgy": "Vector",
+        "steps": [
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(v128::), any, 1)], [StackValue(Type(v128::), any, 1)]])]"
+        ]
+    },
+    "imms": {},
+    "exec_title_paras": {
+        "shape": "f32x4",
+        "vunop": "trunc"
+    },
+    "binary_info": [
+        "<FD: hex>",
+        "<105: u32>"
+    ]
+}

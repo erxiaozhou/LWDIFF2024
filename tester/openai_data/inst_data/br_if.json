@@ -1,0 +1,61 @@
+{
+    "inst_name": "br_if",
+    "type_part": {
+        "op_0": "i32",
+        "imm_0": "label_idx"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i32",
+                "relation": "eq"
+            },
+            {
+                "v1": "imm_0.type",
+                "v2": "label_idx",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "VariableName": "context.Labels[imm_0]",
+                "Exist": true
+            }
+        ]
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "0",
+                    "relation": "neq"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction branches to the label at index imm_0 if the value of op_0 is non-zero.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "0",
+                    "relation": "eq"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction does nothing if the value of op_0 is zero.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i32"
+            ],
+            "result": []
+        }
+    ]
+}

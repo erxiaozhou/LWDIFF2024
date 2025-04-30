@@ -1,0 +1,46 @@
+{
+    "inst_name": "f64.convert_i64_u",
+    "type_part": {
+        "op_0": "i64"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i64",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction converts an unsigned 64-bit integer to a 64-bit floating-point number. If the conversion is successful, the result is pushed onto the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "2**64",
+                    "relation": "ge"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction attempts to convert a value that cannot be represented as a 64-bit floating-point number. This leads to a trap.",
+            "WhetherTrap": true
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i64"
+            ],
+            "result": [
+                "f64"
+            ]
+        }
+    ]
+}

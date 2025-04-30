@@ -1,0 +1,22 @@
+{
+    "inst_name": "nop",
+    "type_part": {},
+    "validate_part": {
+        "InputConstraint": [],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction does nothing.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [],
+            "result": []
+        }
+    ]
+}

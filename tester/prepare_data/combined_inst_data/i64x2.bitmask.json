@@ -1,0 +1,35 @@
+{
+    "exec_data": {
+        "ctgy": "Vector",
+        "raw_title": ":math:`t\\K{x}N\\K{.}\\BITMASK`",
+        "name": "txN.bitmask",
+        "steps_part": "1. Assert: due to :ref:`validation <valid-vec-bitmask>`, a value of :ref:`value type <syntax-valtype>` |V128| is on the top of the stack.\n2. Pop the value :math:`\\V128.\\VCONST~c_1` from the stack.\n3. Let :math:`i_1^N` be the sequence :math:`\\lanes_{t\\K{x}N}(c)`.\n4. Let :math:`B` be the :ref:`bit width <syntax-valtype>` :math:`|t|` of :ref:`value type <syntax-valtype>` :math:`t`.\n5. Let :math:`i_2^N` be the sequence as a result of computing :math:`\\ilts_{B}(i_1^N, 0^N)`.\n6. Let :math:`c` be the integer :math:`\\ibits_{32}^{-1}(i_2^N~0^{32-N})`.\n7. Push the value :math:`\\I32.\\CONST~c` onto the stack.",
+        "steps": [
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(v128::), any, 1)])]",
+            "POP       : [ValRefValue(Type(v128::), c_1, 1)]",
+            "LET       : [(ValRefValue(Type(any::), i_1^N, 1), FormulaValue(Type(other:byte_seq:), \\lanes_{t\\K{x}N}(c), 1))]",
+            "LET       : [(ValRefValue(Type(any::), B, 1), constantValue(:math:`|t|` of :ref:`value type <syntax-valtype>` :math:`t`:Type(other:bit width:):None:True:the :ref:`bit width <syntax-valtype>` :math:`|t|` of :ref:`value type <syntax-valtype>` :math:`t`))]",
+            "LET       : [(ValRefValue(Type(any::), i_2^N, 1), FormulaValue(Type(any::), \\ilts_{B}(i_1^N, 0^N), 1))]",
+            "LET       : [(ValRefValue(Type(any::), c, 1), FormulaValue(Type(i32::), \\ibits_{32}^{-1}(i_2^N~0^{32-N}), 1))]",
+            "PUSH      : [ValRefValue(Type(i32::), c, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(v128::), 1), -1], [(Type(i32::), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\ishape\\K{.}\\BITMASK`",
+        "name": "ishape.bitmask",
+        "ctgy": "Vector",
+        "steps": [
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(v128::), any, 1)], [StackValue(Type(i32::), any, 1)]])]"
+        ]
+    },
+    "imms": {},
+    "exec_title_paras": {
+        "t": "i64",
+        "N": "2"
+    },
+    "binary_info": [
+        "<FD: hex>",
+        "<196: u32>"
+    ]
+}

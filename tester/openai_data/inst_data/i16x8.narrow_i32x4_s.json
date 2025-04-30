@@ -1,0 +1,41 @@
+{
+    "inst_name": "i16x8.narrow_i32x4_s",
+    "type_part": {
+        "op_0": "v128",
+        "op_1": "v128"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "v128",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "v128",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction narrows two i32x4 vectors to an i16x8 vector by taking the lower 16 bits of each lane, and pushes the result onto the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "v128",
+                "v128"
+            ],
+            "result": [
+                "v128"
+            ]
+        }
+    ]
+}

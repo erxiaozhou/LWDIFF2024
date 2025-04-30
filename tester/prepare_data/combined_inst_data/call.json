@@ -1,0 +1,32 @@
+{
+    "exec_data": {
+        "ctgy": "Control",
+        "raw_title": ":math:`\\CALL~x`",
+        "name": "call",
+        "steps_part": "1. Let :math:`F` be the :ref:`current <exec-notation-textual>` :ref:`frame <syntax-frame>`.\n2. Assert: due to :ref:`validation <valid-call>`, :math:`F.\\AMODULE.\\MIFUNCS[x]` exists.\n3. Let :math:`a` be the :ref:`function address <syntax-funcaddr>` :math:`F.\\AMODULE.\\MIFUNCS[x]`.\n4. :ref:`Invoke <exec-invoke>` the function instance at address :math:`a`.",
+        "steps": [
+            "LET       : [(ValRefValue(Type(any::), F, 1), FrameInstance(Type(other:frame:), current frame, 1))]",
+            "ASSERT    : [ExistCondition(['exist', FuncAddrInstance(F.\\AMODULE.\\MIFUNCS[x]:Type(any::):ValRefValue(Type(u32::), x, 1)::math:`F.\\AMODULE.\\MIFUNCS[x]`)])]",
+            "LET       : [(ValRefValue(Type(any::), a, 1), FuncAddrInstance(F.\\AMODULE.\\MIFUNCS[x]:Type(other:function address:):ValRefValue(Type(u32::), x, 1):the :ref:`function address <syntax-funcaddr>` :math:`F.\\AMODULE.\\MIFUNCS[x]`))]",
+            "INVOKE    : [ValRefValue(Type(other:function instance:), a, 1)]"
+        ],
+        "vstack_vt_num_seq": "[]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\CALL~x`",
+        "name": "call",
+        "ctgy": "Control",
+        "steps": [
+            "MUST_EXIST: [ExistCondition(['valid_define_condition', FuncAddrInstance(C.\\CFUNCS[x]:Type(any::):ValRefValue(Type(u32::), x, 1)::math:`C.\\CFUNCS[x]`)])]",
+            "MUST_TY   : [fromStoreValidTypeCond(['inst_ty_direct_cond', FuncAddrInstance(C.\\CFUNCS[x]:Type(any::):ValRefValue(Type(u32::), x, 1)::math:`C.\\CFUNCS[x]`)])]"
+        ]
+    },
+    "imms": {
+        "x": "<x: funcidx>"
+    },
+    "exec_title_paras": {},
+    "binary_info": [
+        "<10: hex>",
+        "<x: funcidx>"
+    ]
+}

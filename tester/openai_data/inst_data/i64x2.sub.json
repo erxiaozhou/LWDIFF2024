@@ -1,0 +1,36 @@
+{
+    "inst_name": "i64x2.sub",
+    "type_part": {
+        "op_0": "v128",
+        "op_1": "v128"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "v128",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction truncates a floating-point number to an unsigned 64-bit integer. If the conversion is successful, the result is pushed onto the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "v128",
+                "v128"
+            ],
+            "result": [
+                "v128"
+            ]
+        }
+    ]
+}

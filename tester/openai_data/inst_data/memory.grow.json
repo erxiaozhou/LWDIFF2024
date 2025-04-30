@@ -1,0 +1,52 @@
+{
+    "inst_name": "memory.grow",
+    "type_part": {
+        "op_0": "i32"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i32",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "v1": "context.Mems.length",
+                "v2": "0",
+                "relation": "gt"
+            }
+        ]
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction attempts to grow the memory by the number of pages specified by the operand. If the operation is successful, the previous size of the memory (in pages) is pushed onto the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "context.Mem[0].max",
+                    "relation": "gt"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction attempts to grow the memory beyond its maximum limit. This results in a failure, and a special value (-1) is pushed onto the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i32"
+            ],
+            "result": [
+                "i32"
+            ]
+        }
+    ]
+}

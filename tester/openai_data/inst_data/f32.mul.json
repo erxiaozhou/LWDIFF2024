@@ -1,0 +1,75 @@
+{
+    "inst_name": "f32.mul",
+    "type_part": {
+        "op_0": "f32",
+        "op_1": "f32"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "f32",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "f32",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction multiplies two floating-point numbers. If the multiplication is successful, the result is pushed onto the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "NaN",
+                    "relation": "eq"
+                },
+                {
+                    "v1": "op_1",
+                    "v2": "NaN",
+                    "relation": "eq"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction attempts to multiply two floating-point numbers, but one or both of them are NaN. This leads to a trap.",
+            "WhetherTrap": true
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "infinity",
+                    "relation": "eq"
+                },
+                {
+                    "v1": "op_1",
+                    "v2": "0",
+                    "relation": "eq"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction attempts to multiply a floating-point number with infinity and zero. This leads to a trap.",
+            "WhetherTrap": true
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "f32",
+                "f32"
+            ],
+            "result": [
+                "f32"
+            ]
+        }
+    ]
+}

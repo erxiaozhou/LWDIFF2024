@@ -1,0 +1,834 @@
+{
+    "block": "block~blocktype~instr^\\ast~end",
+    "br": [
+        "br~l"
+    ],
+    "br_if": "br\\_if~l",
+    "br_table": "br\\_table~l^\\ast~l_N",
+    "call": "call~x",
+    "call_indirect": "call\\_indirect~x~y",
+    "data.drop": "data.drop~x",
+    "drop": "drop",
+    "elem.drop": "elem.drop~x",
+    "f32.abs": "t.unop",
+    "f32.add": "t.binop",
+    "f32.ceil": "t.unop",
+    "f32.const": "t.const~c",
+    "f32.convert_i32_s": "t_2.cvtop\\_t_1\\_sx^?",
+    "f32.convert_i32_u": "t_2.cvtop\\_t_1\\_sx^?",
+    "f32.convert_i64_s": "t_2.cvtop\\_t_1\\_sx^?",
+    "f32.convert_i64_u": "t_2.cvtop\\_t_1\\_sx^?",
+    "f32.copysign": "t.binop",
+    "f32.demote_f64": "t_2.cvtop\\_t_1\\_sx^?",
+    "f32.div": "t.binop",
+    "f32.eq": "t.relop",
+    "f32.floor": "t.unop",
+    "f32.ge": "t.relop",
+    "f32.gt": "t.relop",
+    "f32.le": "t.relop",
+    "f32.load": [
+        "t.load~memarg and t.load{N}\\_sx~memarg"
+    ],
+    "f32.lt": "t.relop",
+    "f32.max": "t.binop",
+    "f32.min": "t.binop",
+    "f32.mul": "t.binop",
+    "f32.ne": "t.relop",
+    "f32.nearest": "t.unop",
+    "f32.neg": "t.unop",
+    "f32.reinterpret_i32": "t_2.cvtop\\_t_1\\_sx^?",
+    "f32.sqrt": "t.unop",
+    "f32.store": [
+        "t.store~memarg and t.store{N}~memarg"
+    ],
+    "f32.sub": "t.binop",
+    "f32.trunc": "t.unop",
+    "f32x4.abs": "shape.vunop",
+    "f32x4.add": "shape.vbinop",
+    "f32x4.ceil": "shape.vunop",
+    "f32x4.convert_i32x4_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.vcvtop\\_t_1xM\\_sx"
+    ],
+    "f32x4.convert_i32x4_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.vcvtop\\_t_1xM\\_sx"
+    ],
+    "f32x4.demote_f64x2_zero": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.vcvtop\\_t_1xM\\_sx\\_zero"
+    ],
+    "f32x4.div": "shape.vbinop",
+    "f32x4.eq": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "f32x4.extract_lane": "t_1xN.extract\\_lane\\_sx^?~x",
+    "f32x4.floor": "shape.vunop",
+    "f32x4.ge": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "f32x4.gt": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "f32x4.le": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "f32x4.lt": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "f32x4.max": "shape.vbinop",
+    "f32x4.min": "shape.vbinop",
+    "f32x4.mul": "shape.vbinop",
+    "f32x4.ne": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "f32x4.nearest": "shape.vunop",
+    "f32x4.neg": "shape.vunop",
+    "f32x4.pmax": "shape.vbinop",
+    "f32x4.pmin": "shape.vbinop",
+    "f32x4.replace_lane": [
+        "shape.replace\\_lane~laneidx",
+        "shape.replace\\_lane~x"
+    ],
+    "f32x4.splat": "shape.splat",
+    "f32x4.sqrt": "shape.vunop",
+    "f32x4.sub": "shape.vbinop",
+    "f32x4.trunc": "shape.vunop",
+    "f64.abs": "t.unop",
+    "f64.add": "t.binop",
+    "f64.ceil": "t.unop",
+    "f64.const": "t.const~c",
+    "f64.convert_i32_s": "t_2.cvtop\\_t_1\\_sx^?",
+    "f64.convert_i32_u": "t_2.cvtop\\_t_1\\_sx^?",
+    "f64.convert_i64_s": "t_2.cvtop\\_t_1\\_sx^?",
+    "f64.convert_i64_u": "t_2.cvtop\\_t_1\\_sx^?",
+    "f64.copysign": "t.binop",
+    "f64.div": "t.binop",
+    "f64.eq": "t.relop",
+    "f64.floor": "t.unop",
+    "f64.ge": "t.relop",
+    "f64.gt": "t.relop",
+    "f64.le": "t.relop",
+    "f64.load": [
+        "t.load{N}\\_sx~memarg",
+        "t.load~memarg and t.load{N}\\_sx~memarg"
+    ],
+    "f64.lt": "t.relop",
+    "f64.max": "t.binop",
+    "f64.min": "t.binop",
+    "f64.mul": "t.binop",
+    "f64.ne": "t.relop",
+    "f64.nearest": "t.unop",
+    "f64.neg": "t.unop",
+    "f64.promote_f32": "t_2.cvtop\\_t_1\\_sx^?",
+    "f64.reinterpret_i64": "t_2.cvtop\\_t_1\\_sx^?",
+    "f64.sqrt": "t.unop",
+    "f64.store": [
+        "t.store{N}~memarg",
+        "t.store~memarg and t.store{N}~memarg"
+    ],
+    "f64.sub": "t.binop",
+    "f64.trunc": "t.unop",
+    "f64x2.abs": "shape.vunop",
+    "f64x2.add": "shape.vbinop",
+    "f64x2.ceil": "shape.vunop",
+    "f64x2.convert_low_i32x4_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?"
+    ],
+    "f64x2.convert_low_i32x4_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?"
+    ],
+    "f64x2.div": "shape.vbinop",
+    "f64x2.eq": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "f64x2.extract_lane": "t_1xN.extract\\_lane\\_sx^?~x",
+    "f64x2.floor": "shape.vunop",
+    "f64x2.ge": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "f64x2.gt": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "f64x2.le": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "f64x2.lt": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "f64x2.max": "shape.vbinop",
+    "f64x2.min": "shape.vbinop",
+    "f64x2.mul": "shape.vbinop",
+    "f64x2.ne": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "f64x2.nearest": "shape.vunop",
+    "f64x2.neg": "shape.vunop",
+    "f64x2.pmax": "shape.vbinop",
+    "f64x2.pmin": "shape.vbinop",
+    "f64x2.promote_low_f32x4": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?"
+    ],
+    "f64x2.replace_lane": [
+        "shape.replace\\_lane~laneidx",
+        "shape.replace\\_lane~x"
+    ],
+    "f64x2.splat": "shape.splat",
+    "f64x2.sqrt": "shape.vunop",
+    "f64x2.sub": "shape.vbinop",
+    "f64x2.trunc": "shape.vunop",
+    "global.get": "global.get~x",
+    "global.set": "global.set~x",
+    "i16x8.abs": "shape.vunop",
+    "i16x8.add": "shape.vbinop",
+    "i16x8.add_sat_s": "shape.vbinop",
+    "i16x8.add_sat_u": "shape.vbinop",
+    "i16x8.all_true": "shape.all\\_true",
+    "i16x8.avgr_u": "shape.vbinop",
+    "i16x8.bitmask": "txN.bitmask",
+    "i16x8.eq": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i16x8.extadd_pairwise_i8x16_s": "t_2xN.extadd\\_pairwise\\_t_1xM\\_sx",
+    "i16x8.extadd_pairwise_i8x16_u": "t_2xN.extadd\\_pairwise\\_t_1xM\\_sx",
+    "i16x8.extend_high_i8x16_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?"
+    ],
+    "i16x8.extend_high_i8x16_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?"
+    ],
+    "i16x8.extend_low_i8x16_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?"
+    ],
+    "i16x8.extend_low_i8x16_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?"
+    ],
+    "i16x8.extmul_high_i8x16_s": "t_2xN.extmul\\_half\\_t_1xM\\_sx",
+    "i16x8.extmul_high_i8x16_u": "t_2xN.extmul\\_half\\_t_1xM\\_sx",
+    "i16x8.extmul_low_i8x16_s": "t_2xN.extmul\\_half\\_t_1xM\\_sx",
+    "i16x8.extmul_low_i8x16_u": "t_2xN.extmul\\_half\\_t_1xM\\_sx",
+    "i16x8.extract_lane_s": "t_1xN.extract\\_lane\\_sx^?~x",
+    "i16x8.extract_lane_u": "t_1xN.extract\\_lane\\_sx^?~x",
+    "i16x8.ge_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i16x8.ge_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i16x8.gt_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i16x8.gt_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i16x8.le_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i16x8.le_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i16x8.lt_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i16x8.lt_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i16x8.max_s": "shape.vbinop",
+    "i16x8.max_u": "shape.vbinop",
+    "i16x8.min_s": "shape.vbinop",
+    "i16x8.min_u": "shape.vbinop",
+    "i16x8.mul": "shape.vbinop",
+    "i16x8.narrow_i32x4_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.narrow\\_t_1xM\\_sx"
+    ],
+    "i16x8.narrow_i32x4_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.narrow\\_t_1xM\\_sx"
+    ],
+    "i16x8.ne": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i16x8.neg": "shape.vunop",
+    "i16x8.q15mulr_sat_s": "shape.vbinop",
+    "i16x8.replace_lane": [
+        "shape.replace\\_lane~laneidx",
+        "shape.replace\\_lane~x"
+    ],
+    "i16x8.shl": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vishiftop"
+    ],
+    "i16x8.shr_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vishiftop"
+    ],
+    "i16x8.shr_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vishiftop"
+    ],
+    "i16x8.splat": "shape.splat",
+    "i16x8.sub": "shape.vbinop",
+    "i16x8.sub_sat_s": "shape.vbinop",
+    "i16x8.sub_sat_u": "shape.vbinop",
+    "i32.add": "t.binop",
+    "i32.and": "t.binop",
+    "i32.clz": "t.unop",
+    "i32.const": "t.const~c",
+    "i32.ctz": "t.unop",
+    "i32.div_s": "t.binop",
+    "i32.div_u": "t.binop",
+    "i32.eq": "t.relop",
+    "i32.eqz": "t.testop",
+    "i32.extend16_s": "t.unop",
+    "i32.extend8_s": "t.unop",
+    "i32.ge_s": "t.relop",
+    "i32.ge_u": "t.relop",
+    "i32.gt_s": "t.relop",
+    "i32.gt_u": "t.relop",
+    "i32.le_s": "t.relop",
+    "i32.le_u": "t.relop",
+    "i32.load": [
+        "t.load{N}\\_sx~memarg",
+        "t.load~memarg and t.load{N}\\_sx~memarg"
+    ],
+    "i32.load16_s": [
+        "t.load{N}\\_sx~memarg",
+        "t.load~memarg and t.load{N}\\_sx~memarg"
+    ],
+    "i32.load16_u": [
+        "t.load{N}\\_sx~memarg",
+        "t.load~memarg and t.load{N}\\_sx~memarg"
+    ],
+    "i32.load8_s": [
+        "t.load{N}\\_sx~memarg",
+        "t.load~memarg and t.load{N}\\_sx~memarg"
+    ],
+    "i32.load8_u": [
+        "t.load{N}\\_sx~memarg",
+        "t.load~memarg and t.load{N}\\_sx~memarg"
+    ],
+    "i32.lt_s": "t.relop",
+    "i32.lt_u": "t.relop",
+    "i32.mul": "t.binop",
+    "i32.ne": "t.relop",
+    "i32.or": "t.binop",
+    "i32.popcnt": "t.unop",
+    "i32.reinterpret_f32": "t_2.cvtop\\_t_1\\_sx^?",
+    "i32.rem_s": "t.binop",
+    "i32.rem_u": "t.binop",
+    "i32.rotl": "t.binop",
+    "i32.rotr": "t.binop",
+    "i32.shl": "t.binop",
+    "i32.shr_s": "t.binop",
+    "i32.shr_u": "t.binop",
+    "i32.store": [
+        "t.store{N}~memarg",
+        "t.store~memarg and t.store{N}~memarg"
+    ],
+    "i32.store16": [
+        "t.store{N}~memarg",
+        "t.store~memarg and t.store{N}~memarg"
+    ],
+    "i32.store8": [
+        "t.store{N}~memarg",
+        "t.store~memarg and t.store{N}~memarg"
+    ],
+    "i32.sub": "t.binop",
+    "i32.trunc_f32_s": "t_2.cvtop\\_t_1\\_sx^?",
+    "i32.trunc_f32_u": "t_2.cvtop\\_t_1\\_sx^?",
+    "i32.trunc_f64_s": "t_2.cvtop\\_t_1\\_sx^?",
+    "i32.trunc_f64_u": "t_2.cvtop\\_t_1\\_sx^?",
+    "i32.trunc_sat_f32_s": "t_2.cvtop\\_t_1\\_sx^?",
+    "i32.trunc_sat_f32_u": "t_2.cvtop\\_t_1\\_sx^?",
+    "i32.trunc_sat_f64_s": "t_2.cvtop\\_t_1\\_sx^?",
+    "i32.trunc_sat_f64_u": "t_2.cvtop\\_t_1\\_sx^?",
+    "i32.wrap_i64": "t_2.cvtop\\_t_1\\_sx^?",
+    "i32.xor": "t.binop",
+    "i32x4.abs": "shape.vunop",
+    "i32x4.add": "shape.vbinop",
+    "i32x4.all_true": "shape.all\\_true",
+    "i32x4.bitmask": "txN.bitmask",
+    "i32x4.dot_i16x8_s": "i32x4.dot\\_i16x8\\_s",
+    "i32x4.eq": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i32x4.extadd_pairwise_i16x8_s": "t_2xN.extadd\\_pairwise\\_t_1xM\\_sx",
+    "i32x4.extadd_pairwise_i16x8_u": "t_2xN.extadd\\_pairwise\\_t_1xM\\_sx",
+    "i32x4.extend_high_i16x8_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?"
+    ],
+    "i32x4.extend_high_i16x8_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?"
+    ],
+    "i32x4.extend_low_i16x8_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?"
+    ],
+    "i32x4.extend_low_i16x8_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?"
+    ],
+    "i32x4.extmul_high_i16x8_s": "t_2xN.extmul\\_half\\_t_1xM\\_sx",
+    "i32x4.extmul_high_i16x8_u": "t_2xN.extmul\\_half\\_t_1xM\\_sx",
+    "i32x4.extmul_low_i16x8_s": "t_2xN.extmul\\_half\\_t_1xM\\_sx",
+    "i32x4.extmul_low_i16x8_u": "t_2xN.extmul\\_half\\_t_1xM\\_sx",
+    "i32x4.extract_lane": "t_1xN.extract\\_lane\\_sx^?~x",
+    "i32x4.ge_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i32x4.ge_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i32x4.gt_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i32x4.gt_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i32x4.le_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i32x4.le_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i32x4.lt_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i32x4.lt_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i32x4.max_s": "shape.vbinop",
+    "i32x4.max_u": "shape.vbinop",
+    "i32x4.min_s": "shape.vbinop",
+    "i32x4.min_u": "shape.vbinop",
+    "i32x4.mul": "shape.vbinop",
+    "i32x4.ne": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i32x4.neg": "shape.vunop",
+    "i32x4.replace_lane": [
+        "shape.replace\\_lane~laneidx",
+        "shape.replace\\_lane~x"
+    ],
+    "i32x4.shl": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vishiftop"
+    ],
+    "i32x4.shr_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vishiftop"
+    ],
+    "i32x4.shr_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vishiftop"
+    ],
+    "i32x4.splat": "shape.splat",
+    "i32x4.sub": "shape.vbinop",
+    "i32x4.trunc_sat_f32x4_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.vcvtop\\_t_1xM\\_sx"
+    ],
+    "i32x4.trunc_sat_f32x4_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.vcvtop\\_t_1xM\\_sx"
+    ],
+    "i32x4.trunc_sat_f64x2_s_zero": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.vcvtop\\_t_1xM\\_sx\\_zero"
+    ],
+    "i32x4.trunc_sat_f64x2_u_zero": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.vcvtop\\_t_1xM\\_sx\\_zero"
+    ],
+    "i64.add": "t.binop",
+    "i64.and": "t.binop",
+    "i64.clz": "t.unop",
+    "i64.const": "t.const~c",
+    "i64.ctz": "t.unop",
+    "i64.div_s": "t.binop",
+    "i64.div_u": "t.binop",
+    "i64.eq": "t.relop",
+    "i64.eqz": "t.testop",
+    "i64.extend16_s": "t.unop",
+    "i64.extend32_s": "t.unop",
+    "i64.extend8_s": "t.unop",
+    "i64.extend_i32_s": "t_2.cvtop\\_t_1\\_sx^?",
+    "i64.extend_i32_u": "t_2.cvtop\\_t_1\\_sx^?",
+    "i64.ge_s": "t.relop",
+    "i64.ge_u": "t.relop",
+    "i64.gt_s": "t.relop",
+    "i64.gt_u": "t.relop",
+    "i64.le_s": "t.relop",
+    "i64.le_u": "t.relop",
+    "i64.load": [
+        "t.load{N}\\_sx~memarg",
+        "t.load~memarg and t.load{N}\\_sx~memarg"
+    ],
+    "i64.load16_s": [
+        "t.load{N}\\_sx~memarg",
+        "t.load~memarg and t.load{N}\\_sx~memarg"
+    ],
+    "i64.load16_u": [
+        "t.load{N}\\_sx~memarg",
+        "t.load~memarg and t.load{N}\\_sx~memarg"
+    ],
+    "i64.load32_s": [
+        "t.load{N}\\_sx~memarg",
+        "t.load~memarg and t.load{N}\\_sx~memarg"
+    ],
+    "i64.load32_u": [
+        "t.load{N}\\_sx~memarg",
+        "t.load~memarg and t.load{N}\\_sx~memarg"
+    ],
+    "i64.load8_s": [
+        "t.load{N}\\_sx~memarg",
+        "t.load~memarg and t.load{N}\\_sx~memarg"
+    ],
+    "i64.load8_u": [
+        "t.load{N}\\_sx~memarg",
+        "t.load~memarg and t.load{N}\\_sx~memarg"
+    ],
+    "i64.lt_s": "t.relop",
+    "i64.lt_u": "t.relop",
+    "i64.mul": "t.binop",
+    "i64.ne": "t.relop",
+    "i64.or": "t.binop",
+    "i64.popcnt": "t.unop",
+    "i64.reinterpret_f64": "t_2.cvtop\\_t_1\\_sx^?",
+    "i64.rem_s": "t.binop",
+    "i64.rem_u": "t.binop",
+    "i64.rotl": "t.binop",
+    "i64.rotr": "t.binop",
+    "i64.shl": "t.binop",
+    "i64.shr_s": "t.binop",
+    "i64.shr_u": "t.binop",
+    "i64.store": [
+        "t.store{N}~memarg",
+        "t.store~memarg and t.store{N}~memarg"
+    ],
+    "i64.store16": [
+        "t.store{N}~memarg",
+        "t.store~memarg and t.store{N}~memarg"
+    ],
+    "i64.store32": [
+        "t.store{N}~memarg",
+        "t.store~memarg and t.store{N}~memarg"
+    ],
+    "i64.store8": [
+        "t.store{N}~memarg",
+        "t.store~memarg and t.store{N}~memarg"
+    ],
+    "i64.sub": "t.binop",
+    "i64.trunc_f32_s": "t_2.cvtop\\_t_1\\_sx^?",
+    "i64.trunc_f32_u": "t_2.cvtop\\_t_1\\_sx^?",
+    "i64.trunc_f64_s": "t_2.cvtop\\_t_1\\_sx^?",
+    "i64.trunc_f64_u": "t_2.cvtop\\_t_1\\_sx^?",
+    "i64.trunc_sat_f32_s": "t_2.cvtop\\_t_1\\_sx^?",
+    "i64.trunc_sat_f32_u": "t_2.cvtop\\_t_1\\_sx^?",
+    "i64.trunc_sat_f64_s": "t_2.cvtop\\_t_1\\_sx^?",
+    "i64.trunc_sat_f64_u": "t_2.cvtop\\_t_1\\_sx^?",
+    "i64.xor": "t.binop",
+    "i64x2.abs": "shape.vunop",
+    "i64x2.add": "shape.vbinop",
+    "i64x2.all_true": "shape.all\\_true",
+    "i64x2.bitmask": "txN.bitmask",
+    "i64x2.eq": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i64x2.extend_high_i32x4_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?"
+    ],
+    "i64x2.extend_high_i32x4_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?"
+    ],
+    "i64x2.extend_low_i32x4_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?"
+    ],
+    "i64x2.extend_low_i32x4_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?"
+    ],
+    "i64x2.extmul_high_i32x4_s": "t_2xN.extmul\\_half\\_t_1xM\\_sx",
+    "i64x2.extmul_high_i32x4_u": "t_2xN.extmul\\_half\\_t_1xM\\_sx",
+    "i64x2.extmul_low_i32x4_s": "t_2xN.extmul\\_half\\_t_1xM\\_sx",
+    "i64x2.extmul_low_i32x4_u": "t_2xN.extmul\\_half\\_t_1xM\\_sx",
+    "i64x2.extract_lane": "t_1xN.extract\\_lane\\_sx^?~x",
+    "i64x2.ge_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i64x2.gt_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i64x2.le_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i64x2.lt_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i64x2.mul": "shape.vbinop",
+    "i64x2.ne": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i64x2.neg": "shape.vunop",
+    "i64x2.replace_lane": [
+        "shape.replace\\_lane~laneidx",
+        "shape.replace\\_lane~x"
+    ],
+    "i64x2.shl": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vishiftop"
+    ],
+    "i64x2.shr_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vishiftop"
+    ],
+    "i64x2.shr_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vishiftop"
+    ],
+    "i64x2.splat": "shape.splat",
+    "i64x2.sub": "shape.vbinop",
+    "i8x16.abs": "shape.vunop",
+    "i8x16.add": "shape.vbinop",
+    "i8x16.add_sat_s": "shape.vbinop",
+    "i8x16.add_sat_u": "shape.vbinop",
+    "i8x16.all_true": "shape.all\\_true",
+    "i8x16.avgr_u": "shape.vbinop",
+    "i8x16.bitmask": "txN.bitmask",
+    "i8x16.eq": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i8x16.extract_lane_s": "t_1xN.extract\\_lane\\_sx^?~x",
+    "i8x16.extract_lane_u": "t_1xN.extract\\_lane\\_sx^?~x",
+    "i8x16.ge_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i8x16.ge_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i8x16.gt_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i8x16.gt_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i8x16.le_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i8x16.le_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i8x16.lt_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i8x16.lt_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i8x16.max_s": "shape.vbinop",
+    "i8x16.max_u": "shape.vbinop",
+    "i8x16.min_s": "shape.vbinop",
+    "i8x16.min_u": "shape.vbinop",
+    "i8x16.narrow_i16x8_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.narrow\\_t_1xM\\_sx"
+    ],
+    "i8x16.narrow_i16x8_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "t_2xN.narrow\\_t_1xM\\_sx"
+    ],
+    "i8x16.ne": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vrelop"
+    ],
+    "i8x16.neg": "shape.vunop",
+    "i8x16.popcnt": "shape.vunop",
+    "i8x16.replace_lane": [
+        "shape.replace\\_lane~laneidx",
+        "shape.replace\\_lane~x"
+    ],
+    "i8x16.shl": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vishiftop"
+    ],
+    "i8x16.shr_s": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vishiftop"
+    ],
+    "i8x16.shr_u": [
+        "t_2.cvtop\\_t_1\\_sx^?",
+        "txN.vishiftop"
+    ],
+    "i8x16.shuffle": [
+        "i8x16.shuffle~laneidx^{16}",
+        "i8x16.shuffle~x^\\ast"
+    ],
+    "i8x16.splat": "shape.splat",
+    "i8x16.sub": "shape.vbinop",
+    "i8x16.sub_sat_s": "shape.vbinop",
+    "i8x16.sub_sat_u": "shape.vbinop",
+    "i8x16.swizzle": "i8x16.swizzle",
+    "if": "if~blocktype~instr_1^\\ast~else~instr_2^\\ast~end",
+    "if_04~bt~in_1~05~in_2~0B": "if~blocktype~instr_1^\\ast~else~instr_2^\\ast~end",
+    "local.get": "local.get~x",
+    "local.set": "local.set~x",
+    "local.tee": "local.tee~x",
+    "loop": "loop~blocktype~instr^\\ast~end",
+    "memory.copy": "memory.copy",
+    "memory.fill": "memory.fill",
+    "memory.grow": "memory.grow",
+    "memory.init": "memory.init~x",
+    "memory.size": "memory.size",
+    "nop": "nop",
+    "ref.func": "ref{.func}~x",
+    "ref.is_null": "ref{.is\\_null}",
+    "ref.null": "ref{.null}~t",
+    "return": "return",
+    "select": "select~(t^\\ast)^?",
+    "select_1C~t": "select~(t^\\ast)^?",
+    "table.copy": "table.copy~x~y",
+    "table.fill": "table.fill~x",
+    "table.get": "table.get~x",
+    "table.grow": "table.grow~x",
+    "table.init": "table.init~x~y",
+    "table.set": "table.set~x",
+    "table.size": "table.size~x",
+    "unreachable": "unreachable",
+    "v128.and": "v128.vvbinop",
+    "v128.andnot": "v128.vvbinop",
+    "v128.any_true": "v128.any\\_true",
+    "v128.bitselect": "v128.vvternop",
+    "v128.const": "v128.const~c",
+    "v128.load": [
+        "t.load{N}\\_sx~memarg",
+        "t.load~memarg and t.load{N}\\_sx~memarg"
+    ],
+    "v128.load16x4_s": [
+        "v128.load{N}xM\\_sx~memarg",
+        "v128.load{M}xN\\_sx~memarg"
+    ],
+    "v128.load16x4_u": [
+        "v128.load{N}xM\\_sx~memarg",
+        "v128.load{M}xN\\_sx~memarg"
+    ],
+    "v128.load16_lane": [
+        "v128.load{N}\\_lane~memarg~laneidx",
+        "v128.load{N}\\_lane~memarg~x"
+    ],
+    "v128.load16_splat": "v128.load{N}\\_splat~memarg",
+    "v128.load32x2_s": [
+        "v128.load{N}xM\\_sx~memarg",
+        "v128.load{M}xN\\_sx~memarg"
+    ],
+    "v128.load32x2_u": [
+        "v128.load{N}xM\\_sx~memarg",
+        "v128.load{M}xN\\_sx~memarg"
+    ],
+    "v128.load32_lane": [
+        "v128.load{N}\\_lane~memarg~laneidx",
+        "v128.load{N}\\_lane~memarg~x"
+    ],
+    "v128.load32_splat": "v128.load{N}\\_splat~memarg",
+    "v128.load32_zero": "v128.load{N}\\_zero~memarg",
+    "v128.load64_lane": [
+        "v128.load{N}\\_lane~memarg~laneidx",
+        "v128.load{N}\\_lane~memarg~x"
+    ],
+    "v128.load64_splat": "v128.load{N}\\_splat~memarg",
+    "v128.load64_zero": "v128.load{N}\\_zero~memarg",
+    "v128.load8x8_s": [
+        "v128.load{N}xM\\_sx~memarg",
+        "v128.load{M}xN\\_sx~memarg"
+    ],
+    "v128.load8x8_u": [
+        "v128.load{N}xM\\_sx~memarg",
+        "v128.load{M}xN\\_sx~memarg"
+    ],
+    "v128.load8_lane": [
+        "v128.load{N}\\_lane~memarg~laneidx",
+        "v128.load{N}\\_lane~memarg~x"
+    ],
+    "v128.load8_splat": "v128.load{N}\\_splat~memarg",
+    "v128.not": "v128.vvunop",
+    "v128.or": "v128.vvbinop",
+    "v128.store": [
+        "t.store{N}~memarg",
+        "t.store~memarg and t.store{N}~memarg"
+    ],
+    "v128.store16_lane": [
+        "v128.store{N}\\_lane~memarg~laneidx",
+        "v128.store{N}\\_lane~memarg~x"
+    ],
+    "v128.store32_lane": [
+        "v128.store{N}\\_lane~memarg~laneidx",
+        "v128.store{N}\\_lane~memarg~x"
+    ],
+    "v128.store64_lane": [
+        "v128.store{N}\\_lane~memarg~laneidx",
+        "v128.store{N}\\_lane~memarg~x"
+    ],
+    "v128.store8_lane": [
+        "v128.store{N}\\_lane~memarg~laneidx",
+        "v128.store{N}\\_lane~memarg~x"
+    ],
+    "v128.xor": "v128.vvbinop"
+}

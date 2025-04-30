@@ -1,0 +1,32 @@
+{
+    "inst_name": "v128.const",
+    "type_part": {
+        "imm_0": "v128"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "imm_0.type",
+                "v2": "v128",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction pushes a v128 constant to the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [],
+            "result": [
+                "v128"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "inst_name": "i8x16.min_s",
+    "type_part": {
+        "op_0": "v128",
+        "op_1": "v128"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "v128",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "v128",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction performs a pairwise minimum operation on two vectors. If the operation is successful, the result is pushed onto the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "undefined",
+                    "relation": "eq"
+                },
+                {
+                    "v1": "op_1",
+                    "v2": "undefined",
+                    "relation": "eq"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction attempts to perform a pairwise minimum operation on two vectors, but the operation is not defined. This leads to a trap.",
+            "WhetherTrap": true
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "v128",
+                "v128"
+            ],
+            "result": [
+                "v128"
+            ]
+        }
+    ]
+}

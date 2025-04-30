@@ -1,0 +1,41 @@
+{
+    "exec_data": {
+        "ctgy": "Control",
+        "raw_title": ":math:`\\BR~l`",
+        "name": "br",
+        "steps_part": "1. Assert: due to :ref:`validation <valid-br>`, the stack contains at least :math:`l+1` labels.\n2. Let :math:`L` be the :math:`l`-th label appearing on the stack, starting from the top and counting from zero.\n3. Let :math:`n` be the arity of :math:`L`.\n4. Assert: due to :ref:`validation <valid-br>`, there are at least :math:`n` values on the top of the stack.\n5. Pop the values :math:`\\val^n` from the stack.\n6. Repeat :math:`l+1` times:\n   a. While the top of the stack is a value, do:\n      i. Pop the value from the stack.\n   b. Assert: due to :ref:`validation <valid-br>`, the top of the stack now is a label.\n   c. Pop the label from the stack.\n7. Push the values :math:`\\val^n` to the stack.\n8. Jump to the continuation of :math:`L`.",
+        "steps": [
+            "ASSERT    : [StackContainCondition(['stack_contain', Label(Type(other:label:), any, at least :math:`l+1`, )])]",
+            "LET       : [(ValRefValue(Type(any::), L, 1), Label(Type(other:label:), any, 1, idx=l))]",
+            "LET       : [(ValRefValue(Type(any::), n, 1), Arity(Type(i32:arity:), the arity of :math:`L`, 1))]",
+            "ASSERT    : [StackCondition(['thereb_stack_top', True, Value(Type(any::), any, at least :math:`n`)])]",
+            "POP       : [ValRefValue(Type(any::), \\val, n)]",
+            "REPEAT    : [FormulaValue(Type(any::), l+1, 1)]",
+            "  WHILE     : [StackCondition(['stack_top_be', True, Value(Type(any::), any, 1)])]",
+            "    POP       : [Value(Type(any::), any, 1)]",
+            "  ASSERT    : [StackCondition(['stack_top_be', True, Label(Type(other:label:), any, 1, )])]",
+            "  POP       : [Label(Type(other:label:), any, 1, )]",
+            "PUSH      : [ValRefValue(Type(any::), \\val, n)]",
+            "JUMP      : [the continuation of :math:`L`]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(any::), 'n'), -1], [(Type(any::), 'n'), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\BR~l`",
+        "name": "br",
+        "ctgy": "Control",
+        "steps": [
+            "MUST_EXIST: [ExistCondition(['valid_define_condition', LabelAddrInstance(C.\\CLABELS[l]:Type(any::):ValRefValue(Type(u32::), l, 1)::math:`C.\\CLABELS[l]`)])]",
+            "LET       : [(ValRefValue(Type(any::), [t^\\ast], 1), LabelAddrInstance(C.\\CLABELS[l]:Type(other:result type:):ValRefValue(Type(u32::), l, 1):the :ref:`result type <syntax-resulttype>` :math:`C.\\CLABELS[l]`))]",
+            "MUST_TY   : [inferedValidTypeCond(['inst_ty_infered_cond', [StackValue(Type(any::t_1^\\ast), any, 1), StackValue(Type(any::t^\\ast), any, 1)], [StackValue(Type(any::t_2^\\ast), any, 1)], True, 'value type', ['t_1^\\\\ast', 't_2^\\\\ast']])]"
+        ]
+    },
+    "imms": {
+        "l": "<l: labelidx>"
+    },
+    "exec_title_paras": {},
+    "binary_info": [
+        "<0C: hex>",
+        "<l: labelidx>"
+    ]
+}

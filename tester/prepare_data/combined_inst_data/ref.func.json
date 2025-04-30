@@ -1,0 +1,33 @@
+{
+    "exec_data": {
+        "ctgy": "Reference",
+        "raw_title": ":math:`\\REFFUNC~x`",
+        "name": "ref.func",
+        "steps_part": "1. Let :math:`F` be the :ref:`current <exec-notation-textual>` :ref:`frame <syntax-frame>`.\n2. Assert: due to :ref:`validation <valid-ref.func>`, :math:`F.\\AMODULE.\\MIFUNCS[x]` exists.\n3. Let :math:`a` be the :ref:`function address <syntax-funcaddr>` :math:`F.\\AMODULE.\\MIFUNCS[x]`.\n4. Push the value :math:`\\REFFUNCADDR~a` to the stack.",
+        "steps": [
+            "LET       : [(ValRefValue(Type(any::), F, 1), FrameInstance(Type(other:frame:), current frame, 1))]",
+            "ASSERT    : [ExistCondition(['exist', FuncAddrInstance(F.\\AMODULE.\\MIFUNCS[x]:Type(any::):ValRefValue(Type(u32::), x, 1)::math:`F.\\AMODULE.\\MIFUNCS[x]`)])]",
+            "LET       : [(ValRefValue(Type(any::), a, 1), FuncAddrInstance(F.\\AMODULE.\\MIFUNCS[x]:Type(other:function address:):ValRefValue(Type(u32::), x, 1):the :ref:`function address <syntax-funcaddr>` :math:`F.\\AMODULE.\\MIFUNCS[x]`))]",
+            "PUSH      : [FormulaValue(Type(ref:ref_func:), a, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(ref:ref_func:), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\REFFUNC~x`",
+        "name": "ref.func",
+        "ctgy": "Reference",
+        "steps": [
+            "MUST_EXIST: [ExistCondition(['valid_define_condition', FuncAddrInstance(C.\\CFUNCS[x]:Type(any::):ValRefValue(Type(u32::), x, 1)::math:`C.\\CFUNCS[x]`)])]",
+            "MUST_BE   : [validExistCond(['valid_exist_condition', ValRefValue(Type(other:function index:), x, 1), RefsInstance(Type(any::), C.\\CREFS, 1)])]",
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [], [StackValue(Type(funcref::), any, 1)]])]"
+        ]
+    },
+    "imms": {
+        "x": "<x: funcidx>"
+    },
+    "exec_title_paras": {},
+    "binary_info": [
+        "<D2: hex>",
+        "<x: funcidx>"
+    ]
+}

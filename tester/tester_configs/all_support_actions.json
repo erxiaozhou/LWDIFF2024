@@ -1,0 +1,11 @@
+{
+    "actions": [
+        "non_v128_insts_mutate",
+        "non_v128_block_mutate",
+        "no_return_deep_block",
+        "deep_block_mutate",
+        "valid_module_mutate",
+        "delete_block",
+        "delete_return"
+    ]
+}

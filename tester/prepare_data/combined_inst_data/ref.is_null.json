@@ -1,0 +1,30 @@
+{
+    "exec_data": {
+        "ctgy": "Reference",
+        "raw_title": ":math:`\\REFISNULL`",
+        "name": "ref.is_null",
+        "steps_part": "1. Assert: due to :ref:`validation <valid-ref.is_null>`, a :ref:`reference value <syntax-ref>` is on the top of the stack.\n2. Pop the value :math:`\\val` from the stack.\n3. If :math:`\\val` is :math:`\\REFNULL~t`, then:\n   a. Push the value :math:`\\I32.\\CONST~1` to the stack.\n4. Else:\n   a. Push the value :math:`\\I32.\\CONST~0` to the stack.",
+        "steps": [
+            "ASSERT    : [StackCondition(['ref_stack_top', True, StackValue(Type(other:reference value:), any, 1)])]",
+            "POP       : [ValRefValue(Type(any::), \\val, 1)]",
+            "IF        : [[IsCondition(['is_condition', ValRefValue(Type(any::), \\val, 1), True, constantValue(t:Type(ref:ref_null:):ref_null:False::math:`\\REFNULL~t`)])]]",
+            "  PUSH      : [constantValue(1:Type(i32::):1:False::math:`\\I32.\\CONST~1`)]",
+            "ELSE      : []",
+            "  PUSH      : [constantValue(0:Type(i32::):0:False::math:`\\I32.\\CONST~0`)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(any::), 1), -1], [(Type(i32::), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\REFISNULL`",
+        "name": "ref.is_null",
+        "ctgy": "Reference",
+        "steps": [
+            "MUST_TY   : [inferedValidTypeCond(['inst_ty_infered_cond', [StackValue(Type(any::t), any, 1)], [StackValue(Type(i32::), any, 1)], False, 'reference type', ['t']])]"
+        ]
+    },
+    "imms": {},
+    "exec_title_paras": {},
+    "binary_info": [
+        "<D1: hex>"
+    ]
+}

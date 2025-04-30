@@ -1,0 +1,34 @@
+{
+    "inst_name": "i32x4.extend_high_i16x8_s",
+    "type_part": {
+        "op_0": "v128"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "v128",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction extends the high half (upper 8 lanes) of a 16x8 vector to a 32x4 vector with sign extension.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "v128"
+            ],
+            "result": [
+                "v128"
+            ]
+        }
+    ]
+}

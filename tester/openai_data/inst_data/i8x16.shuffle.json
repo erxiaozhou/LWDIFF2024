@@ -1,0 +1,137 @@
+{
+    "inst_name": "i8x16.shuffle",
+    "type_part": {
+        "op_0": "v128",
+        "op_1": "v128",
+        "imm_0": "lane_idx",
+        "imm_1": "lane_idx",
+        "imm_2": "lane_idx",
+        "imm_3": "lane_idx",
+        "imm_4": "lane_idx",
+        "imm_5": "lane_idx",
+        "imm_6": "lane_idx",
+        "imm_7": "lane_idx",
+        "imm_8": "lane_idx",
+        "imm_9": "lane_idx",
+        "imm_10": "lane_idx",
+        "imm_11": "lane_idx",
+        "imm_12": "lane_idx",
+        "imm_13": "lane_idx",
+        "imm_14": "lane_idx",
+        "imm_15": "lane_idx"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "v128",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "v128",
+                "relation": "eq"
+            },
+            {
+                "v1": "imm_0",
+                "v2": "32",
+                "relation": "ls"
+            },
+            {
+                "v1": "imm_1",
+                "v2": "32",
+                "relation": "ls"
+            },
+            {
+                "v1": "imm_2",
+                "v2": "32",
+                "relation": "ls"
+            },
+            {
+                "v1": "imm_3",
+                "v2": "32",
+                "relation": "ls"
+            },
+            {
+                "v1": "imm_4",
+                "v2": "32",
+                "relation": "ls"
+            },
+            {
+                "v1": "imm_5",
+                "v2": "32",
+                "relation": "ls"
+            },
+            {
+                "v1": "imm_6",
+                "v2": "32",
+                "relation": "ls"
+            },
+            {
+                "v1": "imm_7",
+                "v2": "32",
+                "relation": "ls"
+            },
+            {
+                "v1": "imm_8",
+                "v2": "32",
+                "relation": "ls"
+            },
+            {
+                "v1": "imm_9",
+                "v2": "32",
+                "relation": "ls"
+            },
+            {
+                "v1": "imm_10",
+                "v2": "32",
+                "relation": "ls"
+            },
+            {
+                "v1": "imm_11",
+                "v2": "32",
+                "relation": "ls"
+            },
+            {
+                "v1": "imm_12",
+                "v2": "32",
+                "relation": "ls"
+            },
+            {
+                "v1": "imm_13",
+                "v2": "32",
+                "relation": "ls"
+            },
+            {
+                "v1": "imm_14",
+                "v2": "32",
+                "relation": "ls"
+            },
+            {
+                "v1": "imm_15",
+                "v2": "32",
+                "relation": "ls"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction shuffles bytes from two v128 operands according to the lane indices provided by the immediate argument. The result is pushed onto the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "v128",
+                "v128"
+            ],
+            "result": [
+                "v128"
+            ]
+        }
+    ]
+}

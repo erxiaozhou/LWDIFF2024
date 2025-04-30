@@ -1,0 +1,32 @@
+{
+    "exec_data": {
+        "ctgy": "Numeric",
+        "raw_title": ":math:`t\\K{.}\\relop`",
+        "name": "t.relop",
+        "steps_part": "1. Assert: due to :ref:`validation <valid-relop>`, two values of :ref:`value type <syntax-valtype>` :math:`t` are on the top of the stack.\n2. Pop the value :math:`t.\\CONST~c_2` from the stack.\n3. Pop the value :math:`t.\\CONST~c_1` from the stack.\n4. Let :math:`c` be the result of computing :math:`\\relop_t(c_1, c_2)`.\n5. Push the value :math:`\\I32.\\CONST~c` to the stack.",
+        "steps": [
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(any::t), any, 2)])]",
+            "POP       : [ValRefValue(Type(any::t), c_2, 1)]",
+            "POP       : [ValRefValue(Type(any::t), c_1, 1)]",
+            "LET       : [(ValRefValue(Type(any::), c, 1), FormulaValue(Type(any::t), \\relop_t(c_1, c_2), 1))]",
+            "PUSH      : [ValRefValue(Type(i32::), c, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(any::t), 1), -1], [(Type(any::t), 1), -1], [(Type(i32::), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`t\\K{.}\\relop`",
+        "name": "t.relop",
+        "ctgy": "Numeric",
+        "steps": [
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(any::t), any, 1), StackValue(Type(any::t), any, 1)], [StackValue(Type(i32::), any, 1)]])]"
+        ]
+    },
+    "imms": {},
+    "exec_title_paras": {
+        "relop": "le",
+        "t": "i32"
+    },
+    "binary_info": [
+        "<4D: hex>"
+    ]
+}

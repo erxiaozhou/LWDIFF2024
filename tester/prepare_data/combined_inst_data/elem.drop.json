@@ -1,0 +1,34 @@
+{
+    "exec_data": {
+        "ctgy": "Table",
+        "raw_title": ":math:`\\ELEMDROP~x`",
+        "name": "elem.drop",
+        "steps_part": "1. Let :math:`F` be the :ref:`current <exec-notation-textual>` :ref:`frame <syntax-frame>`.\n2. Assert: due to :ref:`validation <valid-elem.drop>`, :math:`F.\\AMODULE.\\MIELEMS[x]` exists.\n3. Let :math:`a` be the :ref:`element address <syntax-elemaddr>` :math:`F.\\AMODULE.\\MIELEMS[x]`.\n4. Assert: due to :ref:`validation <valid-elem.drop>`, :math:`S.\\SELEMS[a]` exists.\n5. Replace :math:`S.\\SELEMS[a]` with the :ref:`element instance <syntax-eleminst>` :math:`\\{\\EIELEM~\\epsilon\\}`.",
+        "steps": [
+            "LET       : [(ValRefValue(Type(any::), F, 1), FrameInstance(Type(other:frame:), current frame, 1))]",
+            "ASSERT    : [ExistCondition(['exist', ElemAddrInstance(F.\\AMODULE.\\MIELEMS[x]:Type(any::):ValRefValue(Type(u32::), x, 1)::math:`F.\\AMODULE.\\MIELEMS[x]`)])]",
+            "LET       : [(ValRefValue(Type(any::), a, 1), ElemAddrInstance(F.\\AMODULE.\\MIELEMS[x]:Type(other:element address:):ValRefValue(Type(u32::), x, 1):the :ref:`element address <syntax-elemaddr>` :math:`F.\\AMODULE.\\MIELEMS[x]`))]",
+            "ASSERT    : [ExistCondition(['exist', ElemInstance(S.\\SELEMS[a]:Type(any::):ValRefValue(Type(u32::), a, 1)::math:`S.\\SELEMS[a]`)])]",
+            "REPLACE   : [(ElemInstance(S.\\SELEMS[a]:Type(any::):ValRefValue(Type(u32::), a, 1)::math:`S.\\SELEMS[a]`), FormulaValue(Type(other:element instance:), \\{\\EIELEM~\\epsilon\\}, 1))]"
+        ],
+        "vstack_vt_num_seq": "[]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\ELEMDROP~x`",
+        "name": "elem.drop",
+        "ctgy": "Table",
+        "steps": [
+            "MUST_EXIST: [ExistCondition(['valid_define_condition', ElemAddrInstance(C.\\CELEMS[x]:Type(any::):ValRefValue(Type(u32::), x, 1)::math:`C.\\CELEMS[x]`)])]",
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [], []])]"
+        ]
+    },
+    "imms": {
+        "x": "<x: elemidx>"
+    },
+    "exec_title_paras": {},
+    "binary_info": [
+        "<FC: hex>",
+        "<13: u32>",
+        "<x: elemidx>"
+    ]
+}

@@ -1,0 +1,216 @@
+
+
+Here is the description of the validation and execution behavior of a WebAssembly Instruction.
+
+{data}
+
+The validation rules and execution behaviors are described in the `validation_description` part and `execution_description` part. Note that there are placeholders in these descriptions.
+
+
+
+# Your Task:
+
+## 1. Infer Placeholder Values:
+   - Infer the concrete values of the placeholders in the `instruction format` part, according to the `concrete instruciton name`.
+
+## 2. Replace Placeholders:
+   - Replace the placeholders in `validation_description` and `execution_description` with the concrete values inferred in step 1.
+
+## 3. Determine Operand and Immediate Argument Types:
+   - Understand the `validation_description` and `execution_description` parts.
+   - Infer the expected types of operands and immediate arguments of the instruction.
+   - If an operand or immediate argument is optional, list all possible combinations.
+
+Result Format:
+- The Result should be a mapping of the representation of an operand / immediate argument to its type.
+- Represent the i_th operand as `op_i` and the i_th immediate argument as `imm_i`, starting from 0.
+- Operand type candidates: i32, i64, f32, f64, v128, funcref, externref, any
+- Immediate argument type candidates: i32, i64, f32, f64, funcref, externref, v128, local_idx, align, offset, lane_idx, table_idx, data_idx, elem_idx, func_idx, global_idx
+
+Result example:
+```json
+{
+    "op_1": "i32",
+    "op_2": "i32",
+    "imm_1": "global_idx",
+    "imm_2": "align"
+}
+```
+
+Hints:
+- Infer the semantics of the operand type 'any' and expand 'any' to suitable concrete operand types.
+- You can use other terms to represent a type if necessary.
+
+## 4. Summarize Validation Rules:
+   - Understand the validation part.
+   - Summarize the rules between the instruction input (immediate arguments, operands), context, and the validation result (valid or invalid).
+
+Result Format:
+- First describe the result as natural language and then organize the result in JSON format as a list of rules.
+- Each rule should include InputConstraint, ContextConstraint, and Result.
+- An example of the output
+
+```json
+{
+    "InputConstraint": [
+        {
+            "v1": "imm_1",
+            "v2": "4",
+            "relation": "le"
+        }
+    ],
+    "ContextConstraint": [],
+    "Valid": true
+}
+```
+
+## 5. Summarize the type of the instruction.
+  You should display the possible parameter types and its corresponding return type.
+  First describt the result as natural language and then summarize it as the JSON format. 
+
+Example 1:
+```json
+[
+    {
+        "param": ["i32", "i32"],
+        "result": ["i32]
+    }
+]
+```
+
+Example 2:
+The followed JSON indicates that the instruction has four possible types
+```json
+[
+    {
+        "param": ["i32", "i32"],
+        "result": ["i32]
+    },
+    {
+        "param": ["f32", "f32"],
+        "result": ["f32]
+    },
+    {
+        "param": ["i64", "i64"],
+        "result": ["i64]
+    },
+    {
+        "param": ["f32", "f32"],
+        "result": ["f32]
+    }
+]
+```
+
+Example 3:
+You can also use the type of other variables to represent the instruction type. For example, for the instruciton `global.get~imm_0`, whose parameter type is the type of the global variable (i.e., global[imm_0]) it takes, you can represent it as 
+```json
+[
+    {
+        "param": [],
+        "result": ["global[imm_0].type"]
+    }
+]
+```
+
+## 6. Describe Possible Behaviors:
+   - Think about the possible behaviors of the instruction.
+        - Note it, consideriing operations used in the instruction, which is attached in the `op_background_info` part. You should cover the different branches in the description of the operations.
+        - Note it, consider the attributes of the context variables related to the instruciton. If the instruciton can interactive a context variable of attributes `attr1` and `attr2`, you should distinguish them as different behaviors.
+   - Describe the requirements on the operands, immediate arguments, and context to trigger each behavior.
+   - Explain why the instruction input and context lead to the behavior and whether the execution will trap.
+
+Result Format:
+- First describe the result as natural language and then organize the result in JSON format as a list of rules.
+- Each rule should include InputConstraint, ContextConstraint, Description, and WhetherTrap.
+
+Example 1: 
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0 + memarg.offset + 4",
+                "v2": "context.Mem[0].length",
+                "relation": "le"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The instruction stores the operand op_1 to the memory.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0 + memarg.offset + 4",
+                "v2": "context.Mem[0].length",
+                "relation": "gt"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "Memory out-of-bounds, leading to a trap.",
+        "WhetherTrap": true
+    }
+]
+```
+
+Example 2:
+For another example, for the instruciton `elem.drop`, the behaviors can be described as the following, becuase the context.DATA[imm_0] can be `passive` or `active`.
+
+
+```json
+"execution_part": [
+    {
+        "InputConstraint": [
+            {
+                "v1": "context.DATA[imm_0].attr",
+                "v2": [
+                    "passive",
+                    "active"
+                ],
+                "relation": "in"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The dropped element segment can be passive or active.",
+        "WhetherTrap": false
+    }
+]
+```
+
+Example 3:
+For the instruction `i32.eq`, which detect whether the taken operands are equal, 
+
+```json
+"execution_part": [
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0",
+                "v2": "op_1",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The two operands are equal.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_0",
+                "v2": "op_1",
+                "relation": "neq"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The two operands are not equal.",
+        "WhetherTrap": false
+    }
+]
+```
+
+
+{example}
+
+
+Please re-check your answer, checking whether you consider the operations taken by the instruction and describe the possible execution behavior of the instruction in detail. For example, if a behavior is described by the text `The instruction traps if the absolute value computation is not defined.`, you should try to point out the conditions of instruciton input clearly, avoiding leaving the  field `InputConstraint` empty.

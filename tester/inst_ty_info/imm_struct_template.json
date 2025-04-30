@@ -1,0 +1,324 @@
+{
+    "i32.const": [
+        "<i32>"
+    ],
+    "local.set": [
+        "<i32>:range(0:local_num)"
+    ],
+    "f32.const": [
+        "<f32>"
+    ],
+    "i64.const": [
+        "<i64>"
+    ],
+    "f64.const": [
+        "<f64>"
+    ],
+    "local.get": [
+        "<i32>:range(0:local_num)"
+    ],
+    "global.set": [
+        "<i32>:range(0:global_num)"
+    ],
+    "memory.init": [
+        "<??>"
+    ],
+    "table.fill": [
+        "<??>"
+    ],
+    "ref.null": [
+        "<reftype>"
+    ],
+    "ref.func": [
+        "<i32>::range(0:func_num)"
+    ],
+    "local.tee": [
+        "<i32>:range(0:local_num)"
+    ],
+    "f32x4.replace_lane": [
+        "<i32>:range(0,4)"
+    ],
+    "f64x2.extract_lane": [
+        "<i32>:range(0,2)"
+    ],
+    "table.set": [
+        "<??>"
+    ],
+    "table.grow": [
+        "<??>"
+    ],
+    "i32x4.replace_lane": [
+        "<i32>:range(0,4)"
+    ],
+    "i16x8.replace_lane": [
+        "<i32>:range(0,8)"
+    ],
+    "i64x2.replace_lane": [
+        "<i32>:range(0,2)"
+    ],
+    "i8x16.replace_lane": [
+        "<i32>:range(0,16)"
+    ],
+    "f64x2.replace_lane": [
+        "<i32>:range(0,2)"
+    ],
+    "i16x8.extract_lane_s": [
+        "<i32>:range(0,8)"
+    ],
+    "elem.drop": [
+        "<??>"
+    ],
+    "i32x4.extract_lane": [
+        "<i32>:range(0,4)"
+    ],
+    "i8x16.extract_lane_u": [
+        "<i32>:range(0,16)"
+    ],
+    "i64x2.extract_lane": [
+        "<i32>:range(0,2)"
+    ],
+    "f32x4.extract_lane": [
+        "<i32>:range(0,4)"
+    ],
+    "i16x8.extract_lane_u": [
+        "<i32>:range(0,8)"
+    ],
+    "table.get": [
+        "<??>"
+    ],
+    "i8x16.extract_lane_s": [
+        "<i32>:range(0,16)"
+    ],
+    "global.get": [
+        "<i32>:range(0:global_num)"
+    ],
+    "data.drop": [
+        "<i32>"
+    ],
+    "table.size": [
+        "<??>"
+    ],
+    "call": [
+        "<i32>:func_num"
+    ],
+    "v128.const": [
+        "<v128>"
+    ],
+    "v128.store16_lane": [
+        "<offset>",
+        "<align>",
+        "<i32>:range(0,8)"
+    ],
+    "v128.load16_lane": [
+        "<offset>",
+        "<align>",
+        "<i32>:range(0,8)"
+    ],
+    "v128.load8_lane": [
+        "<offset>",
+        "<align>",
+        "<i32>:range(0,16)"
+    ],
+    "v128.store64_lane": [
+        "<offset>",
+        "<align>",
+        "<i32>:range(0,2)"
+    ],
+    "v128.store8_lane": [
+        "<offset>",
+        "<align>",
+        "<i32>:range(0,16)"
+    ],
+    "v128.load32_lane": [
+        "<offset>",
+        "<align>",
+        "<i32>:range(0,4)"
+    ],
+    "v128.store32_lane": [
+        "<offset>",
+        "<align>",
+        "<i32>:range(0,4)"
+    ],
+    "v128.load64_lane": [
+        "<offset>",
+        "<align>",
+        "<i32>:range(0,2)"
+    ],
+    "table.copy": [
+        "<??>",
+        "<??>"
+    ],
+    "select": [
+        "<operand type>"
+    ],
+    "i32.store16": [
+        "<offset>",
+        "<align>"
+    ],
+    "i32.load8_s": [
+        "<offset>",
+        "<align>"
+    ],
+    "table.init": [
+        "<??>",
+        "<??>"
+    ],
+    "i64.store8": [
+        "<offset>",
+        "<align>"
+    ],
+    "i64.store32": [
+        "<offset>",
+        "<align>"
+    ],
+    "i32.store": [
+        "<offset>",
+        "<align>"
+    ],
+    "i64.store": [
+        "<offset>",
+        "<align>"
+    ],
+    "v128.load64_splat": [
+        "<offset>",
+        "<align>"
+    ],
+    "f64.store": [
+        "<offset>",
+        "<align>"
+    ],
+    "i32.load16_s": [
+        "<offset>",
+        "<align>"
+    ],
+    "v128.store": [
+        "<offset>",
+        "<align>"
+    ],
+    "v128.load32x2_u": [
+        "<offset>",
+        "<align>"
+    ],
+    "f32.store": [
+        "<offset>",
+        "<align>"
+    ],
+    "i64.store16": [
+        "<offset>",
+        "<align>"
+    ],
+    "v128.load64_zero": [
+        "<offset>",
+        "<align>"
+    ],
+    "v128.load": [
+        "<offset>",
+        "<align>"
+    ],
+    "i32.store8": [
+        "<offset>",
+        "<align>"
+    ],
+    "v128.load8_splat": [
+        "<offset>",
+        "<align>"
+    ],
+    "v128.load16x4_s": [
+        "<offset>",
+        "<align>"
+    ],
+    "i64.load": [
+        "<offset>",
+        "<align>"
+    ],
+    "i64.load16_s": [
+        "<offset>",
+        "<align>"
+    ],
+    "i64.load8_s": [
+        "<offset>",
+        "<align>"
+    ],
+    "v128.load16_splat": [
+        "<offset>",
+        "<align>"
+    ],
+    "v128.load8x8_s": [
+        "<offset>",
+        "<align>"
+    ],
+    "i32.load": [
+        "<offset>",
+        "<align>"
+    ],
+    "i64.load8_u": [
+        "<offset>",
+        "<align>"
+    ],
+    "v128.load8x8_u": [
+        "<offset>",
+        "<align>"
+    ],
+    "i64.load32_u": [
+        "<offset>",
+        "<align>"
+    ],
+    "f64.load": [
+        "<offset>",
+        "<align>"
+    ],
+    "i64.load32_s": [
+        "<offset>",
+        "<align>"
+    ],
+    "i32.load8_u": [
+        "<offset>",
+        "<align>"
+    ],
+    "v128.load32_splat": [
+        "<offset>",
+        "<align>"
+    ],
+    "v128.load32x2_s": [
+        "<offset>",
+        "<align>"
+    ],
+    "v128.load16x4_u": [
+        "<offset>",
+        "<align>"
+    ],
+    "f32.load": [
+        "<offset>",
+        "<align>"
+    ],
+    "i32.load16_u": [
+        "<offset>",
+        "<align>"
+    ],
+    "v128.load32_zero": [
+        "<offset>",
+        "<align>"
+    ],
+    "i64.load16_u": [
+        "<offset>",
+        "<align>"
+    ],
+    "i8x16.shuffle": [
+        "<i32>:range(0,32)",
+        "<i32>:range(0,32)",
+        "<i32>:range(0,32)",
+        "<i32>:range(0,32)",
+        "<i32>:range(0,32)",
+        "<i32>:range(0,32)",
+        "<i32>:range(0,32)",
+        "<i32>:range(0,32)",
+        "<i32>:range(0,32)",
+        "<i32>:range(0,32)",
+        "<i32>:range(0,32)",
+        "<i32>:range(0,32)",
+        "<i32>:range(0,32)",
+        "<i32>:range(0,32)",
+        "<i32>:range(0,32)",
+        "<i32>:range(0,32)"
+    ]
+}

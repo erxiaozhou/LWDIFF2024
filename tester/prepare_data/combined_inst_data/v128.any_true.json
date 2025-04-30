@@ -1,0 +1,29 @@
+{
+    "exec_data": {
+        "ctgy": "Vector",
+        "raw_title": ":math:`\\V128\\K{.}\\ANYTRUE`",
+        "name": "v128.any_true",
+        "steps_part": "1. Assert: due to :ref:`validation <valid-vvtestop>`, a value of :ref:`value type <syntax-valtype>` |V128| is on the top of the stack.\n2. Pop the value :math:`\\V128.\\VCONST~c_1` from the stack.\n3. Let :math:`i` be the result of computing :math:`\\ine_{128}(c_1, 0)`.\n4. Push the value :math:`\\I32.\\CONST~i` onto the stack.",
+        "steps": [
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(v128::), any, 1)])]",
+            "POP       : [ValRefValue(Type(v128::), c_1, 1)]",
+            "LET       : [(ValRefValue(Type(any::), i, 1), FormulaValue(Type(v128::), \\ine_{128}(c_1, 0), 1))]",
+            "PUSH      : [ValRefValue(Type(i32::), i, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(v128::), 1), -1], [(Type(i32::), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\V128\\K{.}\\vvtestop`",
+        "name": "v128.vvtestop",
+        "ctgy": "Vector",
+        "steps": [
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(v128::), any, 1)], [StackValue(Type(i32::), any, 1)]])]"
+        ]
+    },
+    "imms": {},
+    "exec_title_paras": {},
+    "binary_info": [
+        "<FD: hex>",
+        "<83: u32>"
+    ]
+}

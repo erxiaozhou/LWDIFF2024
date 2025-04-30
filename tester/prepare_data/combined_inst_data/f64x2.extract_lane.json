@@ -1,0 +1,40 @@
+{
+    "exec_data": {
+        "ctgy": "Vector",
+        "raw_title": ":math:`t_1\\K{x}N\\K{.}\\EXTRACTLANE\\K{\\_}\\sx^?~x`",
+        "name": "t_1xN.extract_lane_sx",
+        "steps_part": "1. Assert: due to :ref:`validation <valid-vec-extract_lane>`, :math:`x < N`.\n2. Assert: due to :ref:`validation <valid-vec-extract_lane>`, a value of :ref:`value type <syntax-valtype>` |V128| is on the top of the stack.\n3. Pop the value :math:`\\V128.\\VCONST~c_1` from the stack.\n4. Let :math:`i^\\ast` be the sequence :math:`\\lanes_{t_1\\K{x}N}(c_1)`.\n5. Let :math:`t_2` be the type :math:`\\unpacked(t_1\\K{x}N)`.\n6. Let :math:`c_2` be the result of computing :math:`\\extend^{sx^?}_{t_1,t_2}(i^\\ast[x])`.\n7. Push the value :math:`t_2.\\CONST~c_2` to the stack.",
+        "steps": [
+            "ASSERT    : [FormulaCondition(['formula_condition', FormulaValue(Type(any::), x < N, 1)])]",
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(v128::), any, 1)])]",
+            "POP       : [ValRefValue(Type(v128::), c_1, 1)]",
+            "LET       : [(ValRefValue(Type(any::), i^\\ast, 1), FormulaValue(Type(other:byte_seq:), \\lanes_{t_1\\K{x}N}(c_1), 1))]",
+            "LET       : [(ValRefValue(Type(any::), t_2, 1), constType(\\unpacked(t_1\\K{x}N):Type(other:type:\\unpacked(t_1\\K{x}N)):None:True:the type :math:`\\unpacked(t_1\\K{x}N)`))]",
+            "LET       : [(ValRefValue(Type(any::), c_2, 1), FormulaValue(Type(any::), \\extend^{sx^?}_{t_1,t_2}(i^\\ast[x]), 1))]",
+            "PUSH      : [ValRefValue(Type(any::t_2), c_2, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(v128::), 1), -1], [(Type(any::t_2), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\shape\\K{.}\\EXTRACTLANE\\K{\\_}\\sx^?~\\laneidx`",
+        "name": "shape.extract_lane_sx",
+        "ctgy": "Vector",
+        "steps": [
+            "MUST_BE   : [validCompareCond(['compare_condition', ValRefValue(Type(any::), \\laneidx, 1), constantValue(\\dim(\\shape):Type(any::):None:True::math:`\\dim(\\shape)`), True, 'smaller than'])]",
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(v128::), any, 1)], [StackValue(Type(other:type:\\unpacked(\\shape)), any, 1)]])]"
+        ]
+    },
+    "imms": {
+        "x": "<x: laneidx>"
+    },
+    "exec_title_paras": {
+        "sx": "",
+        "t_1": "f64",
+        "N": "2"
+    },
+    "binary_info": [
+        "<FD: hex>",
+        "<33: u32>",
+        "<l: laneidx>"
+    ]
+}

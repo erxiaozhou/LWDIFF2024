@@ -1,0 +1,29 @@
+{
+    "exec_data": {
+        "ctgy": "Vector",
+        "raw_title": ":math:`\\V128\\K{.}\\VCONST~c`",
+        "name": "v128.const",
+        "steps_part": "1. Push the value :math:`\\V128.\\VCONST~c` to the stack.",
+        "steps": [
+            "PUSH      : [ValRefValue(Type(v128::), c, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(v128::), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\V128\\K{.}\\VCONST~c`",
+        "name": "v128.const",
+        "ctgy": "Vector",
+        "steps": [
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [], [StackValue(Type(v128::), any, 1)]])]"
+        ]
+    },
+    "imms": {
+        "c": "<c: byte: 16>"
+    },
+    "exec_title_paras": {},
+    "binary_info": [
+        "<FD: hex>",
+        "<12: u32>",
+        "<b: byte: 16>"
+    ]
+}

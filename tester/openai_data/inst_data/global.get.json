@@ -1,0 +1,32 @@
+{
+    "inst_name": "global.get",
+    "type_part": {
+        "imm_0": "global_idx"
+    },
+    "validate_part": {
+        "InputConstraint": [],
+        "ContextConstraint": [
+            {
+                "v1": "context.Globals.length",
+                "v2": "imm_0",
+                "relation": "gt"
+            }
+        ]
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction gets the value of the global variable at the index specified by the immediate argument and pushes it onto the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [],
+            "result": [
+                "context.globals[global_idx].type"
+            ]
+        }
+    ]
+}

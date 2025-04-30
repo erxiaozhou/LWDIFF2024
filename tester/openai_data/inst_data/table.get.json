@@ -1,0 +1,64 @@
+{
+    "inst_name": "table.get",
+    "type_part": {
+        "op_0": "i32",
+        "imm_0": "table_idx"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i32",
+                "relation": "eq"
+            },
+            {
+                "v1": "imm_0.type",
+                "v2": "table_idx",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "v1": "context.Tables.length",
+                "v2": "imm_0",
+                "relation": "gt"
+            }
+        ]
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "context.Table[imm_0].length",
+                    "relation": "ls"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction retrieves the value at the index specified by the operand from the table specified by the immediate argument and pushes it onto the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "context.Table[imm_0].length",
+                    "relation": "ge"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction attempts to retrieve a value from an out-of-bounds index in the table, leading to a trap.",
+            "WhetherTrap": true
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i32"
+            ],
+            "result": [
+                "context.tables[imm_0].type"
+            ]
+        }
+    ]
+}

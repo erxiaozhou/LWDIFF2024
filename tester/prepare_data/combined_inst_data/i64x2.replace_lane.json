@@ -1,0 +1,41 @@
+{
+    "exec_data": {
+        "ctgy": "Vector",
+        "raw_title": ":math:`\\shape\\K{.}\\REPLACELANE~x`",
+        "name": "shape.replace_lane",
+        "steps_part": "1. Assert: due to :ref:`validation <valid-vec-replace_lane>`, :math:`x < \\dim(\\shape)`.\n2. Let :math:`t_1` be the type :math:`\\unpacked(\\shape)`.\n3. Assert: due to :ref:`validation <valid-vec-replace_lane>`, a value of :ref:`value type <syntax-valtype>` :math:`t_1` is on the top of the stack.\n4. Pop the value :math:`t_1.\\CONST~c_1` from the stack.\n5. Assert: due to :ref:`validation <valid-vec-replace_lane>`, a value of :ref:`value type <syntax-valtype>` |V128| is on the top of the stack.\n6. Pop the value :math:`\\V128.\\VCONST~c_2` from the stack.\n7. Let :math:`i^\\ast` be the sequence :math:`\\lanes_{\\shape}(c_2)`.\n8. Let :math:`c` be the result of computing :math:`\\lanes^{-1}_{\\shape}(i^\\ast \\with [x] = c_1)`\n9. Push :math:`\\V128.\\VCONST~c` on the stack.",
+        "steps": [
+            "ASSERT    : [FormulaCondition(['formula_condition', FormulaValue(Type(any::), x < \\dim(\\shape), 1)])]",
+            "LET       : [(ValRefValue(Type(any::), t_1, 1), constType(\\unpacked(\\shape):Type(other:type:\\unpacked(\\shape)):None:True:the type :math:`\\unpacked(\\shape)`))]",
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(any::t_1), any, 1)])]",
+            "POP       : [ValRefValue(Type(any::t_1), c_1, 1)]",
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(v128::), any, 1)])]",
+            "POP       : [ValRefValue(Type(v128::), c_2, 1)]",
+            "LET       : [(ValRefValue(Type(any::), i^\\ast, 1), FormulaValue(Type(other:byte_seq:), \\lanes_{\\shape}(c_2), 1))]",
+            "LET       : [(ValRefValue(Type(any::), c, 1), FormulaValue(Type(other:byte_seq:), \\lanes^{-1}_{\\shape}(i^\\ast \\with [x] = c_1), 1))]",
+            "PUSH      : [ValRefValue(Type(v128::), c, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(any::t_1), 1), -1], [(Type(v128::), 1), -1], [(Type(v128::), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\shape\\K{.}\\REPLACELANE~\\laneidx`",
+        "name": "shape.replace_lane",
+        "ctgy": "Vector",
+        "steps": [
+            "MUST_BE   : [validCompareCond(['compare_condition', ValRefValue(Type(any::), \\laneidx, 1), constantValue(\\dim(\\shape):Type(any::):None:True::math:`\\dim(\\shape)`), True, 'smaller than'])]",
+            "LET       : [(ValRefValue(Type(any::), t, 1), FormulaValue(Type(any::), \\unpacked(\\shape), 1))]",
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(v128::), any, 1), StackValue(Type(any::t), any, 1)], [StackValue(Type(v128::), any, 1)]])]"
+        ]
+    },
+    "imms": {
+        "x": "<x: laneidx>"
+    },
+    "exec_title_paras": {
+        "shape": "i64x2"
+    },
+    "binary_info": [
+        "<FD: hex>",
+        "<30: u32>",
+        "<l: laneidx>"
+    ]
+}

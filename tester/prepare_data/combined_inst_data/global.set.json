@@ -1,0 +1,38 @@
+{
+    "exec_data": {
+        "ctgy": "Variable",
+        "raw_title": ":math:`\\GLOBALSET~x`",
+        "name": "global.set",
+        "steps_part": "1. Let :math:`F` be the :ref:`current <exec-notation-textual>` :ref:`frame <syntax-frame>`.\n2. Assert: due to :ref:`validation <valid-global.set>`, :math:`F.\\AMODULE.\\MIGLOBALS[x]` exists.\n3. Let :math:`a` be the :ref:`global address <syntax-globaladdr>` :math:`F.\\AMODULE.\\MIGLOBALS[x]`.\n4. Assert: due to :ref:`validation <valid-global.set>`, :math:`S.\\SGLOBALS[a]` exists.\n5. Let :math:`\\X{glob}` be the :ref:`global instance <syntax-globalinst>` :math:`S.\\SGLOBALS[a]`.\n6. Assert: due to :ref:`validation <valid-global.set>`, a value is on the top of the stack.\n7. Pop the value :math:`\\val` from the stack.\n8. Replace :math:`\\X{glob}.\\GIVALUE` with the value :math:`\\val`.",
+        "steps": [
+            "LET       : [(ValRefValue(Type(any::), F, 1), FrameInstance(Type(other:frame:), current frame, 1))]",
+            "ASSERT    : [ExistCondition(['exist', GlobalAddrInstance(F.\\AMODULE.\\MIGLOBALS[x]:Type(any::):ValRefValue(Type(u32::), x, 1)::math:`F.\\AMODULE.\\MIGLOBALS[x]`)])]",
+            "LET       : [(ValRefValue(Type(any::), a, 1), GlobalAddrInstance(F.\\AMODULE.\\MIGLOBALS[x]:Type(other:global address:):ValRefValue(Type(u32::), x, 1):the :ref:`global address <syntax-globaladdr>` :math:`F.\\AMODULE.\\MIGLOBALS[x]`))]",
+            "ASSERT    : [ExistCondition(['exist', GlobalInstance(S.\\SGLOBALS[a]:Type(any::):ValRefValue(Type(u32::), a, 1)::math:`S.\\SGLOBALS[a]`)])]",
+            "LET       : [(ValRefValue(Type(any::), \\X{glob}, 1), GlobalInstance(S.\\SGLOBALS[a]:Type(other:global instance:):ValRefValue(Type(u32::), a, 1):the :ref:`global instance <syntax-globalinst>` :math:`S.\\SGLOBALS[a]`))]",
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(any::), any, 1)])]",
+            "POP       : [ValRefValue(Type(any::), \\val, 1)]",
+            "REPLACE   : [(globalItem(Type(any::), \\X{glob}.\\GIVALUE, 1), ValRefValue(Type(any::), \\val, 1))]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(any::), 1), -1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\GLOBALSET~x`",
+        "name": "global.set",
+        "ctgy": "Variable",
+        "steps": [
+            "MUST_EXIST: [ExistCondition(['valid_define_condition', GlobalAddrInstance(C.\\CGLOBALS[x]:Type(any::):ValRefValue(Type(u32::), x, 1)::math:`C.\\CGLOBALS[x]`)])]",
+            "LET       : [(ValRefValue(Type(any::), \\mut~t, 1), GlobalAddrInstance(C.\\CGLOBALS[x]:Type(other:global type:):ValRefValue(Type(u32::), x, 1):the :ref:`global type <syntax-globaltype>` :math:`C.\\CGLOBALS[x]`))]",
+            "MUST_BE   : [validIsCondition(['valid_must_be_condition', ValRefValue(Type(other:mutability:), \\mut, 1), constantValue(|MVAR|:Type(other:constant:):None:True:|MVAR|)])]",
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(any::t), any, 1)], []])]"
+        ]
+    },
+    "imms": {
+        "x": "<x: globalidx>"
+    },
+    "exec_title_paras": {},
+    "binary_info": [
+        "<24: hex>",
+        "<x: globalidx>"
+    ]
+}

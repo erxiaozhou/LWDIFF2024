@@ -1,0 +1,30 @@
+{
+    "exec_data": {
+        "ctgy": "Numeric",
+        "raw_title": ":math:`t\\K{.}\\CONST~c`",
+        "name": "t.const",
+        "steps_part": "1. Push the value :math:`t.\\CONST~c` to the stack.",
+        "steps": [
+            "PUSH      : [ValRefValue(Type(any::t), c, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(any::t), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`t\\K{.}\\CONST~c`",
+        "name": "t.const",
+        "ctgy": "Numeric",
+        "steps": [
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [], [StackValue(Type(any::t), any, 1)]])]"
+        ]
+    },
+    "imms": {
+        "c": "<c: i64>"
+    },
+    "exec_title_paras": {
+        "t": "i64"
+    },
+    "binary_info": [
+        "<42: hex>",
+        "<n: i64>"
+    ]
+}

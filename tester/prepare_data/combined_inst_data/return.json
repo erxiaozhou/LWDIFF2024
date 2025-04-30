@@ -1,0 +1,37 @@
+{
+    "exec_data": {
+        "ctgy": "Control",
+        "raw_title": ":math:`\\RETURN`",
+        "name": "return",
+        "steps_part": "1. Let :math:`F` be the :ref:`current <exec-notation-textual>` :ref:`frame <syntax-frame>`.\n2. Let :math:`n` be the arity of :math:`F`.\n3. Assert: due to :ref:`validation <valid-return>`, there are at least :math:`n` values on the top of the stack.\n4. Pop the results :math:`\\val^n` from the stack.\n5. Assert: due to :ref:`validation <valid-return>`, the stack contains at least one :ref:`frame <syntax-frame>`.\n6. While the top of the stack is not a frame, do:\n   a. Pop the top element from the stack.\n7. Assert: the top of the stack is the frame :math:`F`.\n8. Pop the frame from the stack.\n9. Push :math:`\\val^n` to the stack.\n10. Jump to the instruction after the original call that pushed the frame.",
+        "steps": [
+            "LET       : [(ValRefValue(Type(any::), F, 1), FrameInstance(Type(other:frame:), current frame, 1))]",
+            "LET       : [(ValRefValue(Type(any::), n, 1), Arity(Type(i32:arity:), the arity of :math:`F`, 1))]",
+            "ASSERT    : [StackCondition(['thereb_stack_top', True, Value(Type(any::), any, at least :math:`n`)])]",
+            "POP       : [ValRefValue(Type(any::), \\val, n)]",
+            "ASSERT    : [StackContainCondition(['stack_contain', Value(Type(other:frame:), any, 1)])]",
+            "WHILE     : [StackCondition(['stack_top_be', False, Value(Type(other:frame:), any, 1)])]",
+            "  POP       : [FormulaValue(Type(any::), the top content, 1)]",
+            "ASSERT    : [StackCondition(['stack_top_be', True, FormulaValue(Type(other:frame:), `F`, 1)])]",
+            "POP       : [Value(Type(other:frame:), any, 1)]",
+            "PUSH      : [ValRefValue(Type(any::), \\val, n)]",
+            "JUMP      : [the instruction after the original call that pushed the frame]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(any::), 'n'), -1], [(Type(any::), 'n'), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\RETURN`",
+        "name": "return",
+        "ctgy": "Control",
+        "steps": [
+            "MUST_EXIST: [ExistCondition(['valid_define_condition', ReturnInstance(Type(any::), C.\\CRETURN, 1)])]",
+            "LET       : [(ValRefValue(Type(any::), [t^\\ast], 1), FormulaValue(Type(other:result type:), of :math:`C.\\CRETURN`, 1))]",
+            "MUST_TY   : [inferedValidTypeCond(['inst_ty_infered_cond', [StackValue(Type(any::t_1^\\ast), any, 1), StackValue(Type(any::t^\\ast), any, 1)], [StackValue(Type(any::t_2^\\ast), any, 1)], True, 'value type', ['t_1^\\\\ast', 't_2^\\\\ast']])]"
+        ]
+    },
+    "imms": {},
+    "exec_title_paras": {},
+    "binary_info": [
+        "<0F: hex>"
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "inst_name": "f64.sqrt",
+    "type_part": {
+        "op_0": "f64"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "f64",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "18446744073709551616",
+                    "relation": "ls"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The floating-point number is successfully converted to an unsigned 64-bit integer and the result is pushed on to the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "18446744073709551616",
+                    "relation": "ge"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The floating-point number cannot be represented as an unsigned 64-bit integer and the operation attempts to convert, a trap is initiated.",
+            "WhetherTrap": true
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "f64"
+            ],
+            "result": [
+                "f64"
+            ]
+        }
+    ]
+}

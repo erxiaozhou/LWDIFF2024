@@ -1,0 +1,34 @@
+{
+    "inst_name": "i16x8.extadd_pairwise_i8x16_s",
+    "type_part": {
+        "op_0": "v128"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "v128",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction extends pairwise the 8-bit signed integers in a 128-bit vector to 16-bit signed integers, and the result is pushed onto the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "v128"
+            ],
+            "result": [
+                "v128"
+            ]
+        }
+    ]
+}

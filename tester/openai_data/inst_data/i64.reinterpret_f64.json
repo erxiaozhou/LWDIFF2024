@@ -1,0 +1,34 @@
+{
+    "inst_name": "i64.reinterpret_f64",
+    "type_part": {
+        "op_0": "f64"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "f64",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction reinterprets the bits of a 64-bit floating-point number as a 64-bit integer and pushes the result onto the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "f64"
+            ],
+            "result": [
+                "i64"
+            ]
+        }
+    ]
+}

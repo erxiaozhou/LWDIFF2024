@@ -1,0 +1,32 @@
+{
+    "exec_data": {
+        "ctgy": "Vector",
+        "raw_title": ":math:`\\K{i32x4.}\\DOT\\K{\\_i16x8\\_s}`",
+        "name": "i32x4.dot_i16x8_s",
+        "steps_part": "1. Assert: due to :ref:`validation <valid-vec-dot>`, two values of :ref:`value type <syntax-valtype>` |V128| are on the top of the stack.\n2. Pop the value :math:`\\V128.\\VCONST~c_2` from the stack.\n3. Pop the value :math:`\\V128.\\VCONST~c_1` from the stack.\n4. Let :math:`(i_1~i_2)^\\ast` be the result of computing :math:`\\imul_{32}(\\extends_{16,32}(\\lanes_{\\I16X8}(c_1)), \\extends_{16,32}(\\lanes_{\\I16X8}(c_2)))`\n5. Let :math:`j^\\ast` be the result of computing :math:`\\iadd_{32}(i_1, i_2)^\\ast`.\n6. Let :math:`c` be the result of computing :math:`\\lanes^{-1}_{\\I32X4}(j^\\ast)`.\n7. Push the value :math:`\\V128.\\VCONST~c` onto the stack.",
+        "steps": [
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(v128::), any, 2)])]",
+            "POP       : [ValRefValue(Type(v128::), c_2, 1)]",
+            "POP       : [ValRefValue(Type(v128::), c_1, 1)]",
+            "LET       : [(ValRefValue(Type(any::), (i_1~i_2)^\\ast, 1), FormulaValue(Type(any::), \\imul_{32}(\\extends_{16,32}(\\lanes_{\\I16X8}(c_1)), \\extends_{16,32}(\\lanes_{\\I16X8}(c_2))), 1))]",
+            "LET       : [(ValRefValue(Type(any::), j^\\ast, 1), FormulaValue(Type(any::), \\iadd_{32}(i_1, i_2)^\\ast, 1))]",
+            "LET       : [(ValRefValue(Type(any::), c, 1), FormulaValue(Type(other:byte_seq:), \\lanes^{-1}_{\\I32X4}(j^\\ast), 1))]",
+            "PUSH      : [ValRefValue(Type(v128::), c, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(v128::), 1), -1], [(Type(v128::), 1), -1], [(Type(v128::), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\ishape_1\\K{.}\\DOT\\K{\\_}\\ishape_2\\K{\\_s}`",
+        "name": "ishape_1.dot_ishape_2_s",
+        "ctgy": "Vector",
+        "steps": [
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(v128::), any, 1), StackValue(Type(v128::), any, 1)], [StackValue(Type(v128::), any, 1)]])]"
+        ]
+    },
+    "imms": {},
+    "exec_title_paras": {},
+    "binary_info": [
+        "<FD: hex>",
+        "<186: u32>"
+    ]
+}

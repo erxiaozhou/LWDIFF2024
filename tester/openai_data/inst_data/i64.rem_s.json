@@ -1,0 +1,53 @@
+{
+    "inst_name": "i64.rem_s",
+    "type_part": {
+        "op_0": "i64",
+        "op_1": "i64"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i64",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "i64",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction computes the remainder of the division of the first operand by the second operand. The result is pushed onto the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_1",
+                    "v2": "0",
+                    "relation": "eq"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction attempts to compute the remainder of the division by zero. This leads to a trap.",
+            "WhetherTrap": true
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i64",
+                "i64"
+            ],
+            "result": [
+                "i64"
+            ]
+        }
+    ]
+}

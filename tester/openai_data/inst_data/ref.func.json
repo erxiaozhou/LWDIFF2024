@@ -1,0 +1,42 @@
+{
+    "inst_name": "ref.func",
+    "type_part": {
+        "imm_0": "func_idx"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "imm_0.type",
+                "v2": "funcref",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "v1": "imm_0",
+                "v2": "context.CFUNCS.length",
+                "relation": "lt"
+            },
+            {
+                "VariableName": "context.CREFS[imm_0]",
+                "Exist": true
+            }
+        ]
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction pushes the function reference to the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [],
+            "result": [
+                "funcref"
+            ]
+        }
+    ]
+}

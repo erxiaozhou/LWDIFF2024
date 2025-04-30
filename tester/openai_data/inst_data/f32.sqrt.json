@@ -1,0 +1,58 @@
+{
+    "inst_name": "f32.sqrt",
+    "type_part": {
+        "op_0": "f32"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "f32",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction computes the square root of a floating-point number. If the computation is successful, the result is pushed onto the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "NaN",
+                    "relation": "eq"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction attempts to compute the square root of a NaN value. This leads to a trap.",
+            "WhetherTrap": true
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "0",
+                    "relation": "ls"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction attempts to compute the square root of a negative number. This leads to a trap.",
+            "WhetherTrap": true
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "f32"
+            ],
+            "result": [
+                "f32"
+            ]
+        }
+    ]
+}

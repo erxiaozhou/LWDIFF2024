@@ -1,0 +1,28 @@
+{
+    "exec_data": {
+        "ctgy": "Reference",
+        "raw_title": ":math:`\\REFNULL~t`",
+        "name": "ref.null",
+        "steps_part": "1. Push the value :math:`\\REFNULL~t` to the stack.",
+        "steps": [
+            "PUSH      : [constantValue(t:Type(ref:ref_null:):ref_null:False::math:`\\REFNULL~t`)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(ref:ref_null:), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\REFNULL~t`",
+        "name": "ref.null",
+        "ctgy": "Reference",
+        "steps": [
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [], [StackValue(Type(any::t), any, 1)]])]"
+        ]
+    },
+    "imms": {
+        "t": "<t: reftype>"
+    },
+    "exec_title_paras": {},
+    "binary_info": [
+        "<D0: hex>",
+        "<t: reftype>"
+    ]
+}

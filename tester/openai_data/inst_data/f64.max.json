@@ -1,0 +1,92 @@
+{
+    "inst_name": "f64.max",
+    "type_part": {
+        "op_0": "f64",
+        "op_1": "f64"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "f64",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "f64",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction computes the maximum of two f64 values. If both operands are not NaN, the maximum value is pushed onto the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "NaN",
+                    "relation": "eq"
+                },
+                {
+                    "v1": "op_1",
+                    "v2": "NaN",
+                    "relation": "neq"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "If the first operand is NaN and the second is not, the second operand is pushed onto the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "NaN",
+                    "relation": "neq"
+                },
+                {
+                    "v1": "op_1",
+                    "v2": "NaN",
+                    "relation": "eq"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "If the second operand is NaN and the first is not, the first operand is pushed onto the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "NaN",
+                    "relation": "eq"
+                },
+                {
+                    "v1": "op_1",
+                    "v2": "NaN",
+                    "relation": "eq"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "If both operands are NaN, canonical NaN is pushed onto the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "f64",
+                "f64"
+            ],
+            "result": [
+                "f64"
+            ]
+        }
+    ]
+}

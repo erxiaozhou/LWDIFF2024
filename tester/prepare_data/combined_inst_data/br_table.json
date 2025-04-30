@@ -1,0 +1,41 @@
+{
+    "exec_data": {
+        "ctgy": "Control",
+        "raw_title": ":math:`\\BRTABLE~l^\\ast~l_N`",
+        "name": "br_table",
+        "steps_part": "1. Assert: due to :ref:`validation <valid-if>`, a value of :ref:`value type <syntax-valtype>` |I32| is on the top of the stack.\n2. Pop the value :math:`\\I32.\\CONST~i` from the stack.\n3. If :math:`i` is smaller than the length of :math:`l^\\ast`, then:\n   a. Let :math:`l_i` be the label :math:`l^\\ast[i]`.\n   b. :ref:`Execute <exec-br>` the instruction :math:`(\\BR~l_i)`.\n4. Else:\n   a. :ref:`Execute <exec-br>` the instruction :math:`(\\BR~l_N)`.",
+        "steps": [
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(i32::), any, 1)])]",
+            "POP       : [ValRefValue(Type(i32::), i, 1)]",
+            "IF        : [[CompareCondition(['compare_condition', ValRefValue(Type(any::), i, 1), True, 'smaller', FormulaValue(Type(i32:length:), the length of :math:`l^\\ast`, 1)])]]",
+            "  LET       : [(ValRefValue(Type(any::), l_i, 1), Label(Type(other:label:), l^\\ast[i], 1, ))]",
+            "  EXECUTE   : [FormulaValue(Type(any::), \\BR~l_i, 1)]",
+            "ELSE      : []",
+            "  EXECUTE   : [FormulaValue(Type(any::), \\BR~l_N, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(i32::), 1), -1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\BRTABLE~l^\\ast~l_N`",
+        "name": "br_table",
+        "ctgy": "Control",
+        "steps": [
+            "MUST_EXIST: [ExistCondition(['valid_define_condition', LabelAddrInstance(C.\\CLABELS[l_N]:Type(any::):ValRefValue(Type(u32::), l_N, 1)::math:`C.\\CLABELS[l_N]`)])]",
+            "FOR_EACH  : ['for each step is not implemented yet']",
+            "SUCH_THAT : ['such that is not implemented yet']",
+            "  FOR_EACH  : ['for each step is not implemented yet']",
+            "  FOR_EACH  : ['for each step is not implemented yet']",
+            "MUST_TY   : [inferedValidTypeCond(['inst_ty_infered_cond', [StackValue(Type(any::t_1^\\ast), any, 1), StackValue(Type(any::t^\\ast), any, 1), StackValue(Type(i32::), any, 1)], [StackValue(Type(any::t_2^\\ast), any, 1)], True, 'value type', ['t_1^\\\\ast', 't_2^\\\\ast']])]"
+        ]
+    },
+    "imms": {
+        "l^\\ast": "<l^\\ast: vec(labelidx) *>",
+        "l_N": "<l_N: labelidx>"
+    },
+    "exec_title_paras": {},
+    "binary_info": [
+        "<0E: hex>",
+        "<l: vec(labelidx) *>",
+        "<l_N: labelidx>"
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "inst_name": "f32.const",
+    "type_part": {
+        "imm_0": "f32"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "imm_0.type",
+                "v2": "f32",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction pushes the immediate argument imm_0 to the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [],
+            "result": [
+                "f32"
+            ]
+        }
+    ]
+}

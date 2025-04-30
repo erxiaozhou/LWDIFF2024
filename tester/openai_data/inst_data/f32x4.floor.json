@@ -1,0 +1,34 @@
+{
+    "inst_name": "f32x4.floor",
+    "type_part": {
+        "op_0": "v128"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "v128",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction applies the floor operation to each lane of the v128 operand. The result is pushed onto the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "v128"
+            ],
+            "result": [
+                "v128"
+            ]
+        }
+    ]
+}

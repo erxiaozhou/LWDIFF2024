@@ -1,0 +1,78 @@
+Please summarize the binary definition of **{module_name}** in both natural language and JSON format. Use the attached background information, which includes the binary definition syntax and other relevant details from the WebAssembly specification, to ensure accuracy and completeness.
+
+**Formatting Requirements**:  
+You are tasked with identifying and describing each part of the definition in detail. The output should be provided in JSON format, following these guidelines:
+
+1. Each key in the JSON represents the name of a definition.
+2. The value is a **list** of the definition's components.  
+3. Each component in the list must include the following fields:
+   - **`name`**: Specifies the name of the component.
+   - **`type`**: Specifies the type of the component. If a type has multiple varaints, you must explicitly define it as a union using `<Union:...>`.
+   - **`description`**: Provides a detailed description of the component.
+4. **You must first point out all variantions of the definitions and include all of them in the JSON and represent the definition using <Union:Variant1:...:VariantN>**
+
+### Rules for Representing Types
+
+1. **Basic Types**: Use a single token such as `u32`, `i32`, `blocktype`, `valtype`, `utf8str`, `byte`, etc.
+2. **Constant Values**: Represent fixed values using `<Fix:<val>:<type1>>`, where `val` is the constant value and `type1` is the type. For example, a constant `0x60` of type `hex` is written as `<Fix:60:hex>`.
+3. **Complex Types**:
+   - `<Union:<type1>:<type2>:...>`: Represents a type that can be one of multiple varaints (`type1`, `type2`, etc.).
+   - `<Array:<type1>:<n>>`: Represents an array of `n` elements, all of type `type1`.
+   - `<Vec:<type1>>`: Represents a vector of elements, all of type `type1`.
+   - `<Optional:<type1>>`: Represents an optional type `type1`.
+
+### Structured and Hierarchical Descriptions
+
+1. **Hierarchical Relationships**: If a component `<type1>` is described using another type `<type2>`, and the description for `<type2>` is included in the provided information, the LLM must:
+   - First describe `<type1>` as a single component.
+   - Provide the descriptions of `<type2>` and `<type3>` in subsequent entries, explicitly detailing their structure.
+
+For example:
+
+
+- If a type `<type1>` can be represented as either `<type2>` or `<type3>`, and these definitions have distinct formats, the output should:
+  - Include a union representation of `<type1>` that combines `<type2>` and `<type3>`.
+  - Provide detailed descriptions of `<type2>` and `<type3>` separately, immediately following the description of `<type1>`.
+
+The JSON output must adhere to the following structure:
+
+```json
+[
+    {
+        "<type1>": [
+            {
+                "name": "...",
+                "type": "<Union:<type2>:<type3>>",
+                "description": "A description explaining that <type1> can be either <type2> or <type3>."
+            }
+        ]
+    },
+    {
+        "<type2>": [
+            {
+                "name": "...",
+                "type": "...",
+                "description": "A detailed description of <type2>."
+            },
+            ...
+        ]
+    },
+    {
+        "<type3>": [
+            {
+                "name": "...",
+                "type": "...",
+                "description": "A detailed description of <type3>."
+            },
+            ...
+        ]
+    }
+]
+```
+Please ensure the response is correct and complete. The response should include all variations of the definition. Ensure the response does not misuse the `list` and (misuse meaning represent a Union as a list).
+
+**Background Information**:  
+{background_info}
+
+**Example of a Definition**:  
+{example_info}

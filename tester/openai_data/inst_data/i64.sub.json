@@ -1,0 +1,53 @@
+{
+    "inst_name": "i64.sub",
+    "type_part": {
+        "op_0": "i64",
+        "op_1": "i64"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i64",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "i64",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction subtracts the second operand from the first operand. The result is pushed onto the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "op_1",
+                    "relation": "ls"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction attempts to subtract a larger integer from a smaller one. This leads to a trap.",
+            "WhetherTrap": true
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i64",
+                "i64"
+            ],
+            "result": [
+                "i64"
+            ]
+        }
+    ]
+}

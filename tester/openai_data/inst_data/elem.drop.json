@@ -1,0 +1,30 @@
+{
+    "inst_name": "elem.drop",
+    "type_part": {
+        "imm_0": "elem_idx"
+    },
+    "validate_part": {
+        "InputConstraint": [],
+        "ContextConstraint": [
+            {
+                "v1": "context.Elem.length",
+                "v2": "imm_0",
+                "relation": "gt"
+            }
+        ]
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction drops the element segment referenced by the immediate argument from the context. The element segment is replaced with an empty segment.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [],
+            "result": []
+        }
+    ]
+}

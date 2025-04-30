@@ -1,0 +1,108 @@
+{
+    "inst_name": "table.init",
+    "type_part": {
+        "op_0": "i32",
+        "op_1": "i32",
+        "op_2": "i32",
+        "imm_0": "table_idx",
+        "imm_1": "elem_idx"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i32",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "i32",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_2.type",
+                "v2": "i32",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "v1": "context.Tables.length",
+                "v2": "imm_0",
+                "relation": "gt"
+            },
+            {
+                "v1": "context.Elem.length",
+                "v2": "imm_1",
+                "relation": "gt"
+            },
+            {
+                "v1": "context.Table[imm_0].type",
+                "v2": "context.Elem[imm_1].type",
+                "relation": "eq"
+            }
+        ]
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0 + op_1",
+                    "v2": "context.Table[imm_0].length",
+                    "relation": "le"
+                },
+                {
+                    "v1": "op_0 + op_2",
+                    "v2": "context.Elem[imm_1].length",
+                    "relation": "le"
+                },
+                {
+                    "v1": "context.Table[imm_0].type",
+                    "v2": [
+                        "funcref",
+                        "externref"
+                    ],
+                    "relation": "in"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction initializes a portion of a table with elements from an element segment. The operation is atomic and leaves the table in a valid state even when interrupted.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0 + op_1",
+                    "v2": "context.Table[imm_0].length",
+                    "relation": "gt"
+                },
+                {
+                    "v1": "op_0 + op_2",
+                    "v2": "context.Elem[imm_1].length",
+                    "relation": "gt"
+                },
+                {
+                    "v1": "context.Table[imm_0].type",
+                    "v2": [
+                        "funcref",
+                        "externref"
+                    ],
+                    "relation": "in"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction attempts to initialize a portion of a table that is out-of-bounds. This leads to a trap.",
+            "WhetherTrap": true
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i32",
+                "i32",
+                "i32"
+            ],
+            "result": []
+        }
+    ]
+}

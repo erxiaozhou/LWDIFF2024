@@ -1,0 +1,89 @@
+{
+    "inst_name": "i64.store",
+    "type_part": {
+        "op_0": "i32",
+        "op_1": "i64",
+        "imm_0": "align",
+        "imm_1": "offset"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i32",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "i64",
+                "relation": "eq"
+            },
+            {
+                "v1": "2^imm_0",
+                "v2": "64/8",
+                "relation": "le"
+            },
+            {
+                "v1": "2^imm_0",
+                "v2": "0",
+                "relation": "gt"
+            },
+            {
+                "v1": "2^imm_0",
+                "v2": [
+                    "1",
+                    "2",
+                    "4",
+                    "8",
+                    "16",
+                    "32",
+                    "64",
+                    "128"
+                ],
+                "relation": "in"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "v1": "context.Mems.length",
+                "v2": "0",
+                "relation": "gt"
+            }
+        ]
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0 + imm_1 + 64/8",
+                    "v2": "context.Mem[0].length",
+                    "relation": "le"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction stores the 64-bit integer operand op_1 to the memory at the address calculated by adding the 32-bit integer operand op_0 and the offset immediate argument imm_1. The stored value is aligned according to the align immediate argument imm_0.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0 + imm_1 + 64/8",
+                    "v2": "context.Mem[0].length",
+                    "relation": "gt"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction attempts to store the 64-bit integer operand op_1 to the memory at an address that is out-of-bounds, leading to a trap.",
+            "WhetherTrap": true
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i32",
+                "i64"
+            ],
+            "result": []
+        }
+    ]
+}

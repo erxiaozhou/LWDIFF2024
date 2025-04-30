@@ -1,0 +1,79 @@
+{
+    "inst_name": "table.fill",
+    "type_part": {
+        "op_0": "i32",
+        "op_1": "funcref or externref",
+        "op_2": "i32",
+        "imm_0": "table_idx"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i32",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": [
+                    "funcref",
+                    "externref"
+                ],
+                "relation": "in"
+            },
+            {
+                "v1": "op_2.type",
+                "v2": "i32",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "context.Table[imm_0].type",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "v1": "context.Tables.length",
+                "v2": "imm_0",
+                "relation": "gt"
+            }
+        ]
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0 + op_2",
+                    "v2": "context.Table[imm_0].length",
+                    "relation": "le"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction fills a table with a reference value. The start index is op_0, the count is op_2, and the value is op_1.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0 + op_2",
+                    "v2": "context.Table[imm_0].length",
+                    "relation": "gt"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction attempts to fill a table with a reference value, but the range is out-of-bounds. This leads to a trap.",
+            "WhetherTrap": true
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i32",
+                "context.tables[imm_0].type",
+                "i32"
+            ],
+            "result": []
+        }
+    ]
+}

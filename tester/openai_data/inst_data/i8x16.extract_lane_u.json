@@ -1,0 +1,58 @@
+{
+    "inst_name": "i8x16.extract_lane_u",
+    "type_part": {
+        "op_0": "v128",
+        "imm_0": "lane_idx"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "imm_0",
+                "v2": "16",
+                "relation": "ls"
+            },
+            {
+                "v1": "op_0.type",
+                "v2": "v128",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [
+                {
+                    "v1": "imm_0",
+                    "v2": "16",
+                    "relation": "ls"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction extracts an unsigned 8-bit integer from the specified lane of a v128 vector and zero-extends it to a 64-bit integer.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "imm_0",
+                    "v2": "16",
+                    "relation": "ge"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The lane index is out of bounds, leading to a trap.",
+            "WhetherTrap": true
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "v128"
+            ],
+            "result": [
+                "i32"
+            ]
+        }
+    ]
+}

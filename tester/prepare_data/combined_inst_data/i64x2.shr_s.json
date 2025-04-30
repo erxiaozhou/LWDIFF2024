@@ -1,0 +1,36 @@
+{
+    "exec_data": {
+        "ctgy": "Vector",
+        "raw_title": ":math:`t\\K{x}N\\K{.}\\vishiftop`",
+        "name": "txN.vishiftop",
+        "steps_part": "1. Assert: due to :ref:`validation <valid-vishiftop>`, a value of :ref:`value type <syntax-valtype>` |I32| is on the top of the stack.\n2. Pop the value :math:`\\I32.\\CONST~s` from the stack.\n3. Assert: due to :ref:`validation <valid-vishiftop>`, a value of :ref:`value type <syntax-valtype>` |V128| is on the top of the stack.\n4. Pop the value :math:`\\V128.\\VCONST~c_1` from the stack.\n5. Let :math:`i^\\ast` be the sequence :math:`\\lanes_{t\\K{x}N}(c_1)`.\n6. Let :math:`c` be :math:`\\lanes^{-1}_{t\\K{x}N}(\\vishiftop_{t}(i^\\ast, s^N))`.\n7. Push the value :math:`\\V128.\\VCONST~c` to the stack.",
+        "steps": [
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(i32::), any, 1)])]",
+            "POP       : [ValRefValue(Type(i32::), s, 1)]",
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(v128::), any, 1)])]",
+            "POP       : [ValRefValue(Type(v128::), c_1, 1)]",
+            "LET       : [(ValRefValue(Type(any::), i^\\ast, 1), FormulaValue(Type(other:byte_seq:), \\lanes_{t\\K{x}N}(c_1), 1))]",
+            "LET       : [(ValRefValue(Type(any::), c, 1), FormulaValue(Type(other:byte_seq:), \\lanes^{-1}_{t\\K{x}N}(\\vishiftop_{t}(i^\\ast, s^N)), 1))]",
+            "PUSH      : [ValRefValue(Type(v128::), c, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(i32::), 1), -1], [(Type(v128::), 1), -1], [(Type(v128::), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\ishape\\K{.}\\vishiftop`",
+        "name": "ishape.vishiftop",
+        "ctgy": "Vector",
+        "steps": [
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(v128::), any, 1), StackValue(Type(i32::), any, 1)], [StackValue(Type(v128::), any, 1)]])]"
+        ]
+    },
+    "imms": {},
+    "exec_title_paras": {
+        "vishiftop": "shr_s",
+        "t": "i64",
+        "N": "2"
+    },
+    "binary_info": [
+        "<FD: hex>",
+        "<204: u32>"
+    ]
+}

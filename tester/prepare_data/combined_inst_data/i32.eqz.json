@@ -1,0 +1,31 @@
+{
+    "exec_data": {
+        "ctgy": "Numeric",
+        "raw_title": ":math:`t\\K{.}\\testop`",
+        "name": "t.testop",
+        "steps_part": "1. Assert: due to :ref:`validation <valid-testop>`, a value of :ref:`value type <syntax-valtype>` :math:`t` is on the top of the stack.\n2. Pop the value :math:`t.\\CONST~c_1` from the stack.\n3. Let :math:`c` be the result of computing :math:`\\testop_t(c_1)`.\n4. Push the value :math:`\\I32.\\CONST~c` to the stack.",
+        "steps": [
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(any::t), any, 1)])]",
+            "POP       : [ValRefValue(Type(any::t), c_1, 1)]",
+            "LET       : [(ValRefValue(Type(any::), c, 1), FormulaValue(Type(any::t), \\testop_t(c_1), 1))]",
+            "PUSH      : [ValRefValue(Type(i32::), c, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(any::t), 1), -1], [(Type(i32::), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`t\\K{.}\\testop`",
+        "name": "t.testop",
+        "ctgy": "Numeric",
+        "steps": [
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(any::t), any, 1)], [StackValue(Type(i32::), any, 1)]])]"
+        ]
+    },
+    "imms": {},
+    "exec_title_paras": {
+        "testop": "eqz",
+        "t": "i32"
+    },
+    "binary_info": [
+        "<45: hex>"
+    ]
+}

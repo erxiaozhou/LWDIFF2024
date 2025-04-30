@@ -1,0 +1,34 @@
+{
+    "exec_data": {
+        "ctgy": "Vector",
+        "raw_title": ":math:`\\shape\\K{.}\\SPLAT`",
+        "name": "shape.splat",
+        "steps_part": "1. Let :math:`t` be the type :math:`\\unpacked(\\shape)`.\n2. Assert: due to :ref:`validation <valid-vec-splat>`, a value of :ref:`value type <syntax-valtype>` :math:`t` is on the top of the stack.\n3. Pop the value :math:`t.\\CONST~c_1` from the stack.\n4. Let :math:`N` be the integer :math:`\\dim(\\shape)`.\n5. Let :math:`c` be the result of :math:`\\lanes^{-1}_{\\shape}(c_1^N)`.\n6. Push the value :math:`\\V128.\\VCONST~c` to the stack.",
+        "steps": [
+            "LET       : [(ValRefValue(Type(any::), t, 1), constType(\\unpacked(\\shape):Type(other:type:\\unpacked(\\shape)):None:True:the type :math:`\\unpacked(\\shape)`))]",
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(any::t), any, 1)])]",
+            "POP       : [ValRefValue(Type(any::t), c_1, 1)]",
+            "LET       : [(ValRefValue(Type(any::), N, 1), constantValue(\\dim(\\shape):Type(i32::):None:True:the integer :math:`\\dim(\\shape)`))]",
+            "LET       : [(ValRefValue(Type(any::), c, 1), FormulaValue(Type(other:byte_seq:), \\lanes^{-1}_{\\shape}(c_1^N), 1))]",
+            "PUSH      : [ValRefValue(Type(v128::), c, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(any::t), 1), -1], [(Type(v128::), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\shape\\K{.}\\SPLAT`",
+        "name": "shape.splat",
+        "ctgy": "Vector",
+        "steps": [
+            "LET       : [(ValRefValue(Type(any::), t, 1), FormulaValue(Type(any::), \\unpacked(\\shape), 1))]",
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(any::t), any, 1)], [StackValue(Type(v128::), any, 1)]])]"
+        ]
+    },
+    "imms": {},
+    "exec_title_paras": {
+        "shape": "i32x4"
+    },
+    "binary_info": [
+        "<FD: hex>",
+        "<17: u32>"
+    ]
+}

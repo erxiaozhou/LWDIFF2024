@@ -1,0 +1,36 @@
+{
+    "exec_data": {
+        "ctgy": "Vector",
+        "raw_title": ":math:`\\shape\\K{.}\\vbinop`",
+        "name": "shape.vbinop",
+        "steps_part": "1. Assert: due to :ref:`validation <valid-vbinop>`, two values of :ref:`value type <syntax-valtype>` |V128| are on the top of the stack.\n2. Pop the value :math:`\\V128.\\VCONST~c_2` from the stack.\n3. Pop the value :math:`\\V128.\\VCONST~c_1` from the stack.\n4. If :math:`\\vbinop_{\\shape}(c_1, c_2)` is defined:\n   a. Let :math:`c` be a possible result of computing :math:`\\vbinop_{\\shape}(c_1, c_2)`.\n   b. Push the value :math:`\\V128.\\VCONST~c` to the stack.\n5. Else:\n   a. Trap.",
+        "steps": [
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(v128::), any, 2)])]",
+            "POP       : [ValRefValue(Type(v128::), c_2, 1)]",
+            "POP       : [ValRefValue(Type(v128::), c_1, 1)]",
+            "IF        : [[IsDefinedCondition(['is_defined_condition', FormulaValue(Type(v128:{shape}:), \\vbinop_{\\shape}(c_1, c_2), 1)])]]",
+            "  LET       : [(ValRefValue(Type(any::), c, 1), FormulaValue(Type(v128:{shape}:), \\vbinop_{\\shape}(c_1, c_2), 1))]",
+            "  PUSH      : [ValRefValue(Type(v128::), c, 1)]",
+            "ELSE      : []",
+            "  TRAP      : []"
+        ],
+        "vstack_vt_num_seq": "[[(Type(v128::), 1), -1], [(Type(v128::), 1), -1], [(Type(v128::), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\shape\\K{.}\\vbinop`",
+        "name": "shape.vbinop",
+        "ctgy": "Vector",
+        "steps": [
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(v128::), any, 1), StackValue(Type(v128::), any, 1)], [StackValue(Type(v128::), any, 1)]])]"
+        ]
+    },
+    "imms": {},
+    "exec_title_paras": {
+        "vbinop": "max_s",
+        "shape": "i32x4"
+    },
+    "binary_info": [
+        "<FD: hex>",
+        "<184: u32>"
+    ]
+}

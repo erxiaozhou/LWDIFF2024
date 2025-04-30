@@ -1,0 +1,43 @@
+{
+    "inst_name": "return",
+    "type_part": {
+        "op_0": "any"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": [
+                    "i32",
+                    "i64",
+                    "f32",
+                    "f64",
+                    "v128",
+                    "funcref",
+                    "externref"
+                ],
+                "relation": "in"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "VariableName": "context.CRETURN",
+                "Exist": true
+            }
+        ]
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction pops the top value from the stack, pops the current frame from the stack, and then pushes the popped value back onto the stack. The execution then jumps to the instruction after the original call that pushed the frame.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [],
+            "result": []
+        }
+    ]
+}

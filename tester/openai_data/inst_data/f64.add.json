@@ -1,0 +1,47 @@
+{
+    "inst_name": "f64.add",
+    "type_part": {
+        "op_0": "f64",
+        "op_1": "f64"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "f64",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "f64",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction adds two f64 values. If the operation is defined, the result is pushed onto the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction attempts to add two f64 values, but the operation is not defined, leading to a trap.",
+            "WhetherTrap": true
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "f64",
+                "f64"
+            ],
+            "result": [
+                "f64"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "inst_name": "i64.popcnt",
+    "type_part": {
+        "op_0": "i64"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i64",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction counts the number of set bits in the operand and pushes the result onto the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i64"
+            ],
+            "result": [
+                "i64"
+            ]
+        }
+    ]
+}

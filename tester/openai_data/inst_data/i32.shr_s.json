@@ -1,0 +1,53 @@
+{
+    "inst_name": "i32.shr_s",
+    "type_part": {
+        "op_0": "i32",
+        "op_1": "i32"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i32",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "i32",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction performs a bitwise shift right operation on the first operand (op_0) by the number of bits specified in the second operand (op_1). The result is pushed onto the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_1",
+                    "v2": "32",
+                    "relation": "ge"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction attempts to perform a bitwise shift right operation with a shift count that is greater than or equal to the number of bits in the first operand. This leads to a trap.",
+            "WhetherTrap": true
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i32",
+                "i32"
+            ],
+            "result": [
+                "i32"
+            ]
+        }
+    ]
+}

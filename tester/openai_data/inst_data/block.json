@@ -1,0 +1,41 @@
+{
+    "inst_name": "block",
+    "type_part": {
+        "op_0": "blocktype",
+        "op_1": "instr*"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "blocktype",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "instr*",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "VariableName": "context.CLABELS",
+                "Exist": true
+            }
+        ]
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction enters a block with a certain blocktype and executes a sequence of instructions. If the blocktype is valid and the instruction sequence is valid under the context with the result type of the blocktype, the instruction is valid and will not trap.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [],
+            "result": []
+        }
+    ]
+}

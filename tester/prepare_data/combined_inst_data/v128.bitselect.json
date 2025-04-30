@@ -1,0 +1,33 @@
+{
+    "exec_data": {
+        "ctgy": "Vector",
+        "raw_title": ":math:`\\V128\\K{.}\\vvternop`",
+        "name": "v128.vvternop",
+        "steps_part": "1. Assert: due to :ref:`validation <valid-vvternop>`, three values of :ref:`value type <syntax-valtype>` |V128| are on the top of the stack.\n2. Pop the value :math:`\\V128.\\VCONST~c_3` from the stack.\n3. Pop the value :math:`\\V128.\\VCONST~c_2` from the stack.\n4. Pop the value :math:`\\V128.\\VCONST~c_1` from the stack.\n5. Let :math:`c` be the result of computing :math:`\\vvternop_{\\I128}(c_1, c_2, c_3)`.\n6. Push the value :math:`\\V128.\\VCONST~c` to the stack.",
+        "steps": [
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(v128::), any, 3)])]",
+            "POP       : [ValRefValue(Type(v128::), c_3, 1)]",
+            "POP       : [ValRefValue(Type(v128::), c_2, 1)]",
+            "POP       : [ValRefValue(Type(v128::), c_1, 1)]",
+            "LET       : [(ValRefValue(Type(any::), c, 1), FormulaValue(Type(v128:{\\I128}:), \\vvternop_{\\I128}(c_1, c_2, c_3), 1))]",
+            "PUSH      : [ValRefValue(Type(v128::), c, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(v128::), 1), -1], [(Type(v128::), 1), -1], [(Type(v128::), 1), -1], [(Type(v128::), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\V128\\K{.}\\vvternop`",
+        "name": "v128.vvternop",
+        "ctgy": "Vector",
+        "steps": [
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(v128::), any, 1), StackValue(Type(v128::), any, 1), StackValue(Type(v128::), any, 1)], [StackValue(Type(v128::), any, 1)]])]"
+        ]
+    },
+    "imms": {},
+    "exec_title_paras": {
+        "vvternop": "bitselect"
+    },
+    "binary_info": [
+        "<FD: hex>",
+        "<82: u32>"
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "inst_name": "i64.and",
+    "type_part": {
+        "op_0": "i64",
+        "op_1": "i64"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i64",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "i64",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction computes the bitwise AND of two i64 values and pushes the result onto the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction cannot perform the bitwise AND operation due to undefined operands, leading to a trap.",
+            "WhetherTrap": true
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i64",
+                "i64"
+            ],
+            "result": [
+                "i64"
+            ]
+        }
+    ]
+}

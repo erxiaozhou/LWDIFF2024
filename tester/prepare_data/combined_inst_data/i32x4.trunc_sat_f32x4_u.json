@@ -1,0 +1,37 @@
+{
+    "exec_data": {
+        "ctgy": "Vector",
+        "raw_title": ":math:`t_2\\K{x}N\\K{.}\\vcvtop\\K{\\_}t_1\\K{x}M\\K{\\_}\\sx`",
+        "name": "t_2xN.vcvtop_t_1xM_sx",
+        "steps_part": "1. Assert: due to :ref:`validation <valid-vcvtop>`, a value of :ref:`value type <syntax-valtype>` |V128| is on the top of the stack.\n2. Pop the value :math:`\\V128.\\VCONST~c_1` from the stack.\n3. Let :math:`i^\\ast` be the sequence :math:`\\lanes_{t_1\\K{x}M}(c_1)`.\n4. Let :math:`c` be the result of computing :math:`\\lanes^{-1}_{t_2\\K{x}N}(\\vcvtop^{\\sx}_{|t_1|,|t_2|}(i^\\ast))`\n5. Push the value :math:`\\V128.\\VCONST~c` onto the stack.",
+        "steps": [
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(v128::), any, 1)])]",
+            "POP       : [ValRefValue(Type(v128::), c_1, 1)]",
+            "LET       : [(ValRefValue(Type(any::), i^\\ast, 1), FormulaValue(Type(other:byte_seq:), \\lanes_{t_1\\K{x}M}(c_1), 1))]",
+            "LET       : [(ValRefValue(Type(any::), c, 1), FormulaValue(Type(other:byte_seq:), \\lanes^{-1}_{t_2\\K{x}N}(\\vcvtop^{\\sx}_{|t_1|,|t_2|}(i^\\ast)), 1))]",
+            "PUSH      : [ValRefValue(Type(v128::), c, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(v128::), 1), -1], [(Type(v128::), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\shape\\K{.}\\vcvtop\\K{\\_}\\half^?\\K{\\_}\\shape\\K{\\_}\\sx^?\\K{\\_zero}^?`",
+        "name": "shape.vcvtop_half_shape_sx_zero",
+        "ctgy": "Vector",
+        "steps": [
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(v128::), any, 1)], [StackValue(Type(v128::), any, 1)]])]"
+        ]
+    },
+    "imms": {},
+    "exec_title_paras": {
+        "vcvtop": "trunc_sat",
+        "sx": "s",
+        "t_2": "i32",
+        "t_1": "f32",
+        "N": "4",
+        "M": "4"
+    },
+    "binary_info": [
+        "<FD: hex>",
+        "<249: u32>"
+    ]
+}

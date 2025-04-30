@@ -1,0 +1,26 @@
+{
+    "inst_name": "i32.const",
+    "type_part": {
+        "imm_0": "i32"
+    },
+    "validate_part": {
+        "InputConstraint": [],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction pushes the constant value to the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [],
+            "result": [
+                "i32"
+            ]
+        }
+    ]
+}

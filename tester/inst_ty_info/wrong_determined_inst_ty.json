@@ -1,0 +1,3463 @@
+{
+    "i16x8.le_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "v128.or": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "v128.load8x8_u": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i16x8.shr_u": {
+        "param": [
+            "i32",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32.convert_i32_u": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "f32"
+        ]
+    },
+    "i16x8.extract_lane_s": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i16x8.gt_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.trunc_f64_u": {
+        "param": [
+            "f64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "f32.nearest": {
+        "param": [
+            "f32"
+        ],
+        "result": [
+            "f32"
+        ]
+    },
+    "i16x8.max_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32x4.div": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32.ceil": {
+        "param": [
+            "f32"
+        ],
+        "result": [
+            "f32"
+        ]
+    },
+    "i32.load8_s": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i64x2.extend_high_i32x4_u": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "v128.andnot": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i8x16.avgr_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.add": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64.sqrt": {
+        "param": [
+            "f64"
+        ],
+        "result": [
+            "f64"
+        ]
+    },
+    "f64x2.replace_lane": {
+        "param": [
+            "f64",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.gt_s": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i8x16.shl": {
+        "param": [
+            "i32",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64x2.extract_lane": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "f64"
+        ]
+    },
+    "f64x2.gt": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64.promote_f32": {
+        "param": [
+            "f32"
+        ],
+        "result": [
+            "f64"
+        ]
+    },
+    "i16x8.eq": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64x2.ne": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "v128.load8_lane": {
+        "param": [
+            "v128",
+            "i32"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i16x8.min_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i16x8.ne": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i16x8.splat": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.load8_u": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i8x16.ge_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32x4.abs": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32.gt": {
+        "param": [
+            "f32",
+            "f32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i64.shr_u": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "f32x4.gt": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32.convert_i32_s": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "f32"
+        ]
+    },
+    "i32x4.shl": {
+        "param": [
+            "i32",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64.sub": {
+        "param": [
+            "f64",
+            "f64"
+        ],
+        "result": [
+            "f64"
+        ]
+    },
+    "i32.le_s": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i32.and": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i16x8.lt_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.store32": {
+        "param": [
+            "i64",
+            "i32"
+        ],
+        "result": []
+    },
+    "i32.or": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i16x8.bitmask": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i8x16.splat": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "data.drop": {
+        "param": [],
+        "result": []
+    },
+    "i16x8.sub": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i8x16.neg": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32.trunc_sat_f64_u": {
+        "param": [
+            "f64"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i32.lt_u": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i32x4.sub": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32.eqz": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i64.const": {
+        "param": [],
+        "result": [
+            "i64"
+        ]
+    },
+    "f64.gt": {
+        "param": [
+            "f64",
+            "f64"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i8x16.max_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i8x16.lt_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i16x8.ge_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64x2.abs": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "v128.load32_zero": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64.neg": {
+        "param": [
+            "f64"
+        ],
+        "result": [
+            "f64"
+        ]
+    },
+    "v128.load16x4_u": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32x4.pmax": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32.copysign": {
+        "param": [
+            "f32",
+            "f32"
+        ],
+        "result": [
+            "f32"
+        ]
+    },
+    "f32x4.min": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32.le": {
+        "param": [
+            "f32",
+            "f32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "v128.load64_splat": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.lt_u": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f32x4.eq": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i16x8.avgr_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i16x8.extmul_low_i8x16_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "v128.load16x4_s": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32x4.demote_f64x2_zero": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i8x16.shr_u": {
+        "param": [
+            "i32",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64.ne": {
+        "param": [
+            "f64",
+            "f64"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f32.eq": {
+        "param": [
+            "f32",
+            "f32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f32.load": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "f32"
+        ]
+    },
+    "i32.load16_u": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i8x16.shr_s": {
+        "param": [
+            "i32",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.extend8_s": {
+        "param": [
+            "i64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i8x16.replace_lane": {
+        "param": [
+            "i32",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.ge_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.shr_u": {
+        "param": [
+            "i32",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i16x8.extract_lane_u": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i32x4.trunc_sat_f32x4_u": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64x2.ge": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64.const": {
+        "param": [],
+        "result": [
+            "f64"
+        ]
+    },
+    "i8x16.eq": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32.popcnt": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i32x4.splat": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "table.init": {
+        "param": [
+            "i32",
+            "i32",
+            "i32"
+        ],
+        "result": []
+    },
+    "i64.sub": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i16x8.add": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64x2.convert_low_i32x4_u": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64x2.ceil": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64.ceil": {
+        "param": [
+            "f64"
+        ],
+        "result": [
+            "f64"
+        ]
+    },
+    "nop": {
+        "param": [],
+        "result": []
+    },
+    "f32x4.neg": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64x2.extend_low_i32x4_s": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.extend32_s": {
+        "param": [
+            "i64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "f32x4.ge": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.or": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "f64x2.convert_low_i32x4_s": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "v128.any_true": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f64.ge": {
+        "param": [
+            "f64",
+            "f64"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f64.nearest": {
+        "param": [
+            "f64"
+        ],
+        "result": [
+            "f64"
+        ]
+    },
+    "i32.le_u": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i8x16.sub_sat_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.ctz": {
+        "param": [
+            "i64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i32x4.extend_low_i16x8_s": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.le_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.max_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32.lt_s": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "v128.and": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64x2.div": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32.shl": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i16x8.mul": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32.neg": {
+        "param": [
+            "f32"
+        ],
+        "result": [
+            "f32"
+        ]
+    },
+    "f64.max": {
+        "param": [
+            "f64",
+            "f64"
+        ],
+        "result": [
+            "f64"
+        ]
+    },
+    "f64x2.promote_low_f32x4": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64.add": {
+        "param": [
+            "f64",
+            "f64"
+        ],
+        "result": [
+            "f64"
+        ]
+    },
+    "i32x4.replace_lane": {
+        "param": [
+            "i32",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i8x16.le_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32x4.sub": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "v128.bitselect": {
+        "param": [
+            "v128",
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "v128.load32_lane": {
+        "param": [
+            "v128",
+            "i32"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.trunc_sat_f32_u": {
+        "param": [
+            "f32"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i32.ge_u": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f32.min": {
+        "param": [
+            "f32",
+            "f32"
+        ],
+        "result": [
+            "f32"
+        ]
+    },
+    "i32x4.trunc_sat_f64x2_u_zero": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i16x8.extmul_high_i8x16_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "table.size": {
+        "param": [],
+        "result": [
+            "i32"
+        ]
+    },
+    "elem.drop": {
+        "param": [],
+        "result": []
+    },
+    "i64.rem_u": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i16x8.sub_sat_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32.trunc": {
+        "param": [
+            "f32"
+        ],
+        "result": [
+            "f32"
+        ]
+    },
+    "i64.lt_s": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i16x8.add_sat_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i16x8.extend_low_i8x16_s": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.trunc_f32_s": {
+        "param": [
+            "f32"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i32x4.ge_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "memory.copy": {
+        "param": [
+            "i32",
+            "i32",
+            "i32"
+        ],
+        "result": []
+    },
+    "i32.trunc_f32_s": {
+        "param": [
+            "f32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f64.store": {
+        "param": [
+            "f64",
+            "i32"
+        ],
+        "result": []
+    },
+    "i32x4.all_true": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i64.gt_u": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f32x4.splat": {
+        "param": [
+            "f32"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "v128.load8_splat": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "memory.grow": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "memory.fill": {
+        "param": [
+            "i32",
+            "i32",
+            "i32"
+        ],
+        "result": []
+    },
+    "v128.load64_lane": {
+        "param": [
+            "v128",
+            "i32"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.ge_u": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f32x4.ne": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.mul": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.eqz": {
+        "param": [
+            "i64"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f32.add": {
+        "param": [
+            "f32",
+            "f32"
+        ],
+        "result": [
+            "f32"
+        ]
+    },
+    "f32.demote_f64": {
+        "param": [
+            "f64"
+        ],
+        "result": [
+            "f32"
+        ]
+    },
+    "i64x2.extend_high_i32x4_s": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32x4.add": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64x2.pmin": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i16x8.shl": {
+        "param": [
+            "i32",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.lt_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.load8_s": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i64.store": {
+        "param": [
+            "i64",
+            "i32"
+        ],
+        "result": []
+    },
+    "f32.sqrt": {
+        "param": [
+            "f32"
+        ],
+        "result": [
+            "f32"
+        ]
+    },
+    "v128.load32x2_s": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i16x8.gt_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64x2.lt_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "v128.load8x8_s": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i16x8.narrow_i32x4_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.extract_lane": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i16x8.extmul_high_i8x16_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64x2.splat": {
+        "param": [
+            "f64"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64x2.neg": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32.xor": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i32.trunc_f64_u": {
+        "param": [
+            "f64"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f64x2.eq": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "v128.load32x2_u": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.shr_s": {
+        "param": [
+            "i32",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "v128.store64_lane": {
+        "param": [
+            "v128",
+            "i32"
+        ],
+        "result": []
+    },
+    "i16x8.q15mulr_sat_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i8x16.add_sat_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32x4.sqrt": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.load16_s": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i32x4.extend_low_i16x8_u": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32.rem_u": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f32.lt": {
+        "param": [
+            "f32",
+            "f32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f32.floor": {
+        "param": [
+            "f32"
+        ],
+        "result": [
+            "f32"
+        ]
+    },
+    "f32x4.nearest": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "v128.load32_splat": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64x2.add": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64.le": {
+        "param": [
+            "f64",
+            "f64"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i64.trunc_f32_u": {
+        "param": [
+            "f32"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i16x8.neg": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.min_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32.sub": {
+        "param": [
+            "f32",
+            "f32"
+        ],
+        "result": [
+            "f32"
+        ]
+    },
+    "f32x4.max": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64x2.max": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i16x8.all_true": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f64x2.lt": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32.gt_s": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i32.extend8_s": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f64x2.sub": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.ge_s": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i8x16.narrow_i16x8_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.rotr": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i8x16.min_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.rem_s": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i8x16.narrow_i16x8_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "v128.const": {
+        "param": [],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.extmul_high_i16x8_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.load16_u": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i8x16.gt_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i8x16.extract_lane_s": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i64x2.le_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32.rem_s": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i32.shr_s": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i32x4.extadd_pairwise_i16x8_s": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64x2.shr_s": {
+        "param": [
+            "i32",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.extmul_low_i16x8_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "v128.store": {
+        "param": [
+            "v128",
+            "i32"
+        ],
+        "result": []
+    },
+    "i32.trunc_f64_s": {
+        "param": [
+            "f64"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i8x16.add": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.and": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "f32x4.le": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32.add": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i16x8.add_sat_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.load32_s": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "f32.div": {
+        "param": [
+            "f32",
+            "f32"
+        ],
+        "result": [
+            "f32"
+        ]
+    },
+    "i32x4.lt_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64.load": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "f64"
+        ]
+    },
+    "i16x8.le_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32.eq": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i32.const": {
+        "param": [],
+        "result": [
+            "i32"
+        ]
+    },
+    "i64.shl": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i64.extend_i32_u": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i16x8.narrow_i32x4_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.extend_high_i16x8_s": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i16x8.abs": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32x4.convert_i32x4_s": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64x2.mul": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i16x8.extmul_low_i8x16_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.trunc_sat_f64_s": {
+        "param": [
+            "f64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i64.xor": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i32.wrap_i64": {
+        "param": [
+            "i64"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i64.ne": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i32.rotr": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f64x2.floor": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.gt_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.trunc_sat_f64x2_s_zero": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.mul": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i32x4.gt_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32.ne": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i8x16.shuffle": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32.convert_i64_s": {
+        "param": [
+            "i64"
+        ],
+        "result": [
+            "f32"
+        ]
+    },
+    "i64x2.extmul_low_i32x4_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.extmul_low_i16x8_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i8x16.popcnt": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.trunc_sat_f32_s": {
+        "param": [
+            "f32"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i64x2.eq": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i16x8.replace_lane": {
+        "param": [
+            "i32",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i16x8.extadd_pairwise_i8x16_s": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32x4.pmin": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32.const": {
+        "param": [],
+        "result": [
+            "f32"
+        ]
+    },
+    "i64x2.shl": {
+        "param": [
+            "i32",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.clz": {
+        "param": [
+            "i64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i32.load8_u": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i64.popcnt": {
+        "param": [
+            "i64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i32.load": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f64x2.trunc": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.rotl": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "f32x4.ceil": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64x2.sqrt": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32.div_s": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i32.reinterpret_f32": {
+        "param": [
+            "f32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i16x8.ge_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32.store16": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": []
+    },
+    "i32.sub": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i64.div_s": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "f32x4.replace_lane": {
+        "param": [
+            "f32",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.load32_u": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i32.extend16_s": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f32.ne": {
+        "param": [
+            "f32",
+            "f32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "memory.init": {
+        "param": [
+            "i32",
+            "i32",
+            "i32"
+        ],
+        "result": []
+    },
+    "i64.store16": {
+        "param": [
+            "i64",
+            "i32"
+        ],
+        "result": []
+    },
+    "i32x4.abs": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32.trunc_sat_f32_u": {
+        "param": [
+            "f32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i64x2.bitmask": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f64.lt": {
+        "param": [
+            "f64",
+            "f64"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i64.trunc_sat_f64_u": {
+        "param": [
+            "f64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i32.trunc_sat_f32_s": {
+        "param": [
+            "f32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "v128.store8_lane": {
+        "param": [
+            "v128",
+            "i32"
+        ],
+        "result": []
+    },
+    "f64.convert_i64_u": {
+        "param": [
+            "i64"
+        ],
+        "result": [
+            "f64"
+        ]
+    },
+    "f32.store": {
+        "param": [
+            "f32",
+            "i32"
+        ],
+        "result": []
+    },
+    "i64x2.extmul_high_i32x4_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i8x16.le_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64.min": {
+        "param": [
+            "f64",
+            "f64"
+        ],
+        "result": [
+            "f64"
+        ]
+    },
+    "v128.store32_lane": {
+        "param": [
+            "v128",
+            "i32"
+        ],
+        "result": []
+    },
+    "memory.size": {
+        "param": [],
+        "result": [
+            "i32"
+        ]
+    },
+    "i64x2.gt_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64.trunc": {
+        "param": [
+            "f64"
+        ],
+        "result": [
+            "f64"
+        ]
+    },
+    "i16x8.extend_high_i8x16_u": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i16x8.extend_high_i8x16_s": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i16x8.lt_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64.floor": {
+        "param": [
+            "f64"
+        ],
+        "result": [
+            "f64"
+        ]
+    },
+    "i8x16.bitmask": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i64x2.extend_low_i32x4_u": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32.convert_i64_u": {
+        "param": [
+            "i64"
+        ],
+        "result": [
+            "f32"
+        ]
+    },
+    "i8x16.max_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64x2.shr_u": {
+        "param": [
+            "i32",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.div_u": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "v128.xor": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32.ge_s": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "v128.not": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64x2.extmul_low_i32x4_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.bitmask": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i64x2.add": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i8x16.sub_sat_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.le_s": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i64x2.ne": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64.convert_i32_u": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "f64"
+        ]
+    },
+    "i64.extend_i32_s": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i64x2.extmul_high_i32x4_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64x2.le": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i16x8.min_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.min_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64x2.neg": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32.trunc_f32_u": {
+        "param": [
+            "f32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i64.eq": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f64x2.pmax": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i8x16.abs": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64x2.sub": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64x2.splat": {
+        "param": [
+            "i64"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.store8": {
+        "param": [
+            "i64",
+            "i32"
+        ],
+        "result": []
+    },
+    "i16x8.shr_s": {
+        "param": [
+            "i32",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64x2.mul": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.extadd_pairwise_i16x8_u": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32.rotl": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i64x2.all_true": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i32.store": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": []
+    },
+    "i32x4.eq": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.extmul_high_i16x8_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "v128.load64_zero": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64.eq": {
+        "param": [
+            "f64",
+            "f64"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i64x2.extract_lane": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "f64.div": {
+        "param": [
+            "f64",
+            "f64"
+        ],
+        "result": [
+            "f64"
+        ]
+    },
+    "f32x4.convert_i32x4_u": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64.convert_i64_s": {
+        "param": [
+            "i64"
+        ],
+        "result": [
+            "f64"
+        ]
+    },
+    "i32.mul": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i64.le_u": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f64.abs": {
+        "param": [
+            "f64"
+        ],
+        "result": [
+            "f64"
+        ]
+    },
+    "i32.div_u": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i32.shr_u": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f32x4.mul": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "v128.store16_lane": {
+        "param": [
+            "v128",
+            "i32"
+        ],
+        "result": []
+    },
+    "f64.reinterpret_i64": {
+        "param": [
+            "i64"
+        ],
+        "result": [
+            "f64"
+        ]
+    },
+    "i64x2.ge_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i8x16.ne": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.reinterpret_f64": {
+        "param": [
+            "f64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i32x4.extend_high_i16x8_u": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i8x16.extract_lane_u": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i32.trunc_sat_f64_s": {
+        "param": [
+            "f64"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f64.convert_i32_s": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "f64"
+        ]
+    },
+    "i64.load": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i8x16.swizzle": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64x2.nearest": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.trunc_sat_f32x4_s": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i8x16.add_sat_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i8x16.sub": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32.mul": {
+        "param": [
+            "f32",
+            "f32"
+        ],
+        "result": [
+            "f32"
+        ]
+    },
+    "f64.copysign": {
+        "param": [
+            "f64",
+            "f64"
+        ],
+        "result": [
+            "f64"
+        ]
+    },
+    "f32x4.trunc": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.neg": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i8x16.ge_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i8x16.min_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32.max": {
+        "param": [
+            "f32",
+            "f32"
+        ],
+        "result": [
+            "f32"
+        ]
+    },
+    "f32x4.floor": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64.mul": {
+        "param": [
+            "f64",
+            "f64"
+        ],
+        "result": [
+            "f64"
+        ]
+    },
+    "table.copy": {
+        "param": [
+            "i32",
+            "i32",
+            "i32"
+        ],
+        "result": []
+    },
+    "f32.ge": {
+        "param": [
+            "f32",
+            "f32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "v128.load16_lane": {
+        "param": [
+            "v128",
+            "i32"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.trunc_f64_s": {
+        "param": [
+            "f64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i32.ctz": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i32x4.le_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i16x8.extend_low_i8x16_u": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "v128.load": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f32x4.lt": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i8x16.all_true": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f32.abs": {
+        "param": [
+            "f32"
+        ],
+        "result": [
+            "f32"
+        ]
+    },
+    "i32.clz": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i64.shr_s": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "i8x16.gt_u": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.ne": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.max_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64x2.replace_lane": {
+        "param": [
+            "i64",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "v128.load16_splat": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32x4.dot_i16x8_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.extend16_s": {
+        "param": [
+            "i64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "f32x4.extract_lane": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "f32"
+        ]
+    },
+    "i16x8.sub_sat_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i32.load16_s": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "f64x2.abs": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i64.add": {
+        "param": [
+            "i64",
+            "i64"
+        ],
+        "result": [
+            "i64"
+        ]
+    },
+    "f32.reinterpret_i32": {
+        "param": [
+            "i32"
+        ],
+        "result": [
+            "f32"
+        ]
+    },
+    "i32.store8": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": []
+    },
+    "i32.gt_u": {
+        "param": [
+            "i32",
+            "i32"
+        ],
+        "result": [
+            "i32"
+        ]
+    },
+    "i16x8.extadd_pairwise_i8x16_u": {
+        "param": [
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "f64x2.min": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i16x8.max_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    },
+    "i8x16.lt_s": {
+        "param": [
+            "v128",
+            "v128"
+        ],
+        "result": [
+            "v128"
+        ]
+    }
+}

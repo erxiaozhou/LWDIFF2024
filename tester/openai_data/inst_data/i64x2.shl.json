@@ -1,0 +1,41 @@
+{
+    "inst_name": "i64x2.shl",
+    "type_part": {
+        "op_0": "v128",
+        "op_1": "i32"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "v128",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "i32",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction shifts the bits of a 128-bit vector to the left by a certain number of bits. The number of bits to shift is given by the second operand. The result is pushed onto the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "v128",
+                "i32"
+            ],
+            "result": [
+                "v128"
+            ]
+        }
+    ]
+}

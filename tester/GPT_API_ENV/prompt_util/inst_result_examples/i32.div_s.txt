@@ -1,0 +1,174 @@
+Take the instruction  global.set~x as an example,
+Given the following instruction information 
+
+
+{
+    "concrete instruciton name": "i32.div_s",
+    "instruction format": "t.binop",
+    "validation_description": "valid instructions Instructions Numeric Instructions t.binop\nThe instruction is valid with type [t~t] \\rightarrow [t].\n\n\\frac{\n}{\n  C \\vdash t.binop : [t~t] \\rightarrow [t]\n}",
+    "execution_description": "exec instructions Instructions Numeric Instructions t.binop\nAssert: due to validation, two values of value type t are on the top of the stack.\n\nPop the value t.const~c_2 from the stack.\n\nPop the value t.const~c_1 from the stack.\n\nIf binop_t(c_1, c_2) is defined, then:\n\nLet c be a possible result of computing binop_t(c_1, c_2).\n\nPush the value t.const~c to the stack.\n\nElse:\n\nTrap.\n\n\\begin{array}{lcl@{\\qquad}l}\n(t.const~c_1)~(t.const~c_2)~t.binop &\\hookrightarrow& (t.const~c)\n  & (\\mathrel{if} c \\in binop_t(c_1,c_2)) \\\\\n(t.const~c_1)~(t.const~c_2)~t.binop &\\hookrightarrow& trap\n  & (\\mathrel{if} binop_{t}(c_1,c_2) = \\{\\})\n\\end{array}",
+    "op_background_info": "The description of the operation idiv\\_s_N(i_1, i_2) is:\n\nLet j_1 be the signed interpretation of i_1.\n\nLet j_2 be the signed interpretation of i_2.\n\nIf j_2 is 0, then the result is undefined.\n\nElse if j_1 divided by j_2 is 2^{N-1}, then the result is undefined.\n\nElse, return the result of dividing j_1 by j_2, truncated toward zero.\n\n\\begin{array}{@lcll}\nidiv\\_s_N(i_1, 0) &=& \\{\\} \\\\\nidiv\\_s_N(i_1, i_2) &=& \\{\\} \\qquad\\qquad (\\mathrel{if} signed_N(i_1) / signed_N(i_2) = 2^{N-1}) \\\\\nidiv\\_s_N(i_1, i_2) &=& signed_N^{-1}(trunc(signed_N(i_1) / signed_N(i_2))) \\\\\n\\end{array}\n\n\n\nThis operator is partial.\nBesides division by 0, the result of (-2^{N-1})/(-1) = +2^{N-1} is not representable as an N-bit signed integer."
+}
+
+
+1. Infer Placeholder Values:
+
+The concrete instruction name is 'i32.store', and the instruction format is 't.store~memarg and t.storeN~memarg'. Therefore, the placeholder 't' in the instruction format represents a value type, and 'N' represents the bit width of the value type.
+
+2. Replace Placeholders:
+
+After replacing the placeholders in `validation_description` and `execution_description`, we get:
+
+Validation Description:
+```
+valid instructions Instructions Memory Instructions i32.store~memarg
+The memory C.mems[0] must be defined in the context.
+
+The alignment 2^{memarg.align} must not be larger than the bit width of i32 divided by 8.
+
+Then the instruction is valid with type [i32~i32] \rightarrow [].
+
+\frac{
+  C.mems[0] = memtype
+  \qquad
+  2^{memarg.align} \leq |i32|/8
+}{
+  C \vdash i32.store~memarg : [i32~i32] \rightarrow []
+}
+```
+
+Execution Description:
+```
+exec instructions Instructions Memory Instructions i32.store~memarg and i32.storeN~memarg
+Let F be the current frame.
+
+Assert: due to validation, F.module.memaddrs[0] exists.
+
+Let a be the memory address F.module.memaddrs[0].
+
+Assert: due to validation, S.mems[a] exists.
+
+Let mem be the memory instance S.mems[a].
+
+Assert: due to validation, a value of value type i32 is on the top of the stack.
+
+Pop the value i32.const~c from the stack.
+
+Assert: due to validation, a value of value type i32 is on the top of the stack.
+
+Pop the value i32.const~i from the stack.
+
+Let ea be the integer i + memarg.offset.
+
+If N is not part of the instruction, then:
+
+Let N be the bit width |i32| of number type i32.
+
+If ea + N/8 is larger than the length of mem.data, then:
+
+Trap.
+
+If N is part of the instruction, then:
+
+Let n be the result of computing wrap_{|i32|,N}(c).
+
+Let b^\\ast be the byte sequence bytes_{iN}(n).
+
+Else:
+
+Let b^\\ast be the byte sequence bytes_i32(c).
+
+Replace the bytes mem.data[ea \\mathrel{\\mathbf:} N/8] with b^\\ast.
+```
+
+3. Determine Operand and Immediate Argument Types:
+
+The instruction `i32.store~memarg` takes two operands from the stack and a memory argument. The first operand is an i32 value to be stored, the second operand is an i32 value representing the memory address, and the memory argument includes an alignment and an offset.
+
+Result:
+```json
+{
+    "op_0": "i32",
+    "op_1": "i32",
+    "imm_0": "align",
+    "imm_1": "offset"
+}
+```
+
+4. Summarize Validation Rules:
+
+The validation rules for the `i32.store~memarg` instruction are as follows:
+
+- The memory must be defined in the context.
+- The alignment must not be larger than the bit width of i32 divided by 8.
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "2^imm_0",
+                "v2": "4",
+                "relation": "le"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "v1": "0",
+                "v2": "context.mems.length",
+                "relation": "lt"
+            }
+        ],
+        "Valid": true
+    }
+]
+```
+
+5. Summarize the type of the instruction:
+
+The `i32.store~memarg` instruction takes two i32 values and does not return a value.
+
+Result:
+```json
+[
+    {
+        "param": ["i32", "i32"],
+        "result": []
+    }
+]
+```
+
+6. Describe Possible Behaviors:
+
+The `i32.store~memarg` instruction pops two i32 values from the stack, calculates the effective address, and stores the first value at the effective address in memory. The instruction will trap if the effective address plus the size of the value to be stored is larger than the size of the memory.
+
+Result:
+```json
+[
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_1 + imm_1 + 4",
+                "v2": "context.Mem[0].length",
+                "relation": "le"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "The instruction stores the operand op_0 to the memory.",
+        "WhetherTrap": false
+    },
+    {
+        "InputConstraint": [
+            {
+                "v1": "op_1 + imm_1 + 4",
+                "v2": "context.Mem[0].length",
+                "relation": "gt"
+            }
+        ],
+        "ContextConstraint": [],
+        "Description": "Memory out-of-bounds, leading to a trap.",
+        "WhetherTrap": true
+    }
+]
+```

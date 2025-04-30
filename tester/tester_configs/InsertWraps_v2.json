@@ -1,0 +1,8 @@
+[
+    "NONE",
+    "BLOCK",
+    "LOOP",
+    "IF",
+    "ELSE",
+    "ANYOP"
+]

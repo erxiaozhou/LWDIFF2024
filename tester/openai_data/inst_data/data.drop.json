@@ -1,0 +1,26 @@
+{
+    "inst_name": "data.drop",
+    "type_part": {
+        "imm_0": "data_idx"
+    },
+    "validate_part": {
+        "InputConstraint": [],
+        "ContextConstraint": [
+            {"v1": "imm_0", "v2": "context.datas.length", "relation": "lt"}
+        ]
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction drops the data segment associated with the immediate argument from the context. The data segment is replaced with an empty data instance.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [],
+            "result": []
+        }
+    ]
+}

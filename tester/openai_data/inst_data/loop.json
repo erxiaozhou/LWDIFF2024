@@ -1,0 +1,47 @@
+{
+    "inst_name": "loop",
+    "type_part": {
+        "op_0": "blocktype",
+        "op_1": "instr*"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "blocktype",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "instr*",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "VariableName": "context.CLABELS",
+                "Exist": true
+            }
+        ]
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction enters a loop block with the given blocktype and instruction sequence. The loop continues until an explicit control transfer (like a break or return) is encountered.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "blocktype.param[0]",
+                "blocktype.param[1]"
+            ],
+            "result": [
+                "blocktype.result[0]",
+                "blocktype.result[1]"
+            ]
+        }
+    ]
+}

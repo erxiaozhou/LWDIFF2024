@@ -1,0 +1,42 @@
+{
+    "exec_data": {
+        "ctgy": "Vector",
+        "raw_title": ":math:`t_2\\K{x}N\\K{.}\\vcvtop\\K{\\_}\\half\\K{\\_}t_1\\K{x}M\\K{\\_}\\sx^?`",
+        "name": "t_2xN.vcvtop_half_t_1xM_sx",
+        "steps_part": "1. Assert: due to :ref:`validation <valid-vcvtop>`, a value of :ref:`value type <syntax-valtype>` |V128| is on the top of the stack.\n2. Pop the value :math:`\\V128.\\VCONST~c_1` from the stack.\n3. If :math:`\\half` is :math:`\\K{low}`, then:\n   a. Let :math:`i^\\ast` be the sequence :math:`\\lanes_{t_1\\K{x}M}(c_1)[0 \\slice N]`.\n4. Else:\n   a. Let :math:`i^\\ast` be the sequence :math:`\\lanes_{t_1\\K{x}M}(c_1)[N \\slice N]`.\n5. Let :math:`j^\\ast` be the result of computing :math:`\\vcvtop^{\\sx^?}_{|t_1|,|t_2|}(i^\\ast)`.\n6. Let :math:`c` be the result of computing :math:`\\lanes^{-1}_{t_2\\K{x}N}(j^\\ast)`.\n7. Push the value :math:`\\V128.\\VCONST~c` onto the stack.",
+        "steps": [
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(v128::), any, 1)])]",
+            "POP       : [ValRefValue(Type(v128::), c_1, 1)]",
+            "IF        : [[IsCondition(['is_condition', ValRefValue(Type(any::), \\half, 1), True, ValRefValue(Type(any::), \\K{low}, 1)])]]",
+            "  LET       : [(ValRefValue(Type(any::), i^\\ast, 1), FormulaValue(Type(other:byte_seq:), \\lanes_{t_1\\K{x}M}(c_1)[0 \\slice N], 1))]",
+            "ELSE      : []",
+            "  LET       : [(ValRefValue(Type(any::), i^\\ast, 1), FormulaValue(Type(other:byte_seq:), \\lanes_{t_1\\K{x}M}(c_1)[N \\slice N], 1))]",
+            "LET       : [(ValRefValue(Type(any::), j^\\ast, 1), FormulaValue(Type(any::t_2), \\vcvtop^{\\sx^?}_{|t_1|,|t_2|}(i^\\ast), 1))]",
+            "LET       : [(ValRefValue(Type(any::), c, 1), FormulaValue(Type(other:byte_seq:), \\lanes^{-1}_{t_2\\K{x}N}(j^\\ast), 1))]",
+            "PUSH      : [ValRefValue(Type(v128::), c, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(v128::), 1), -1], [(Type(v128::), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\shape\\K{.}\\vcvtop\\K{\\_}\\half^?\\K{\\_}\\shape\\K{\\_}\\sx^?\\K{\\_zero}^?`",
+        "name": "shape.vcvtop_half_shape_sx_zero",
+        "ctgy": "Vector",
+        "steps": [
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(v128::), any, 1)], [StackValue(Type(v128::), any, 1)]])]"
+        ]
+    },
+    "imms": {},
+    "exec_title_paras": {
+        "vcvtop": "convert",
+        "half": "low",
+        "sx": "u",
+        "t_2": "f64",
+        "t_1": "i32",
+        "N": "2",
+        "M": "4"
+    },
+    "binary_info": [
+        "<FD: hex>",
+        "<255: u32>"
+    ]
+}

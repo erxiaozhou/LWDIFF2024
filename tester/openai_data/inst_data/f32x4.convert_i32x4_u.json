@@ -1,0 +1,34 @@
+{
+    "inst_name": "f32x4.convert_i32x4_u",
+    "type_part": {
+        "op_0": "v128"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "v128",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction converts an i32x4 to an f32x4. Conversions from i32 to f32 are exact and no errors occur for valid inputs.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "v128"
+            ],
+            "result": [
+                "v128"
+            ]
+        }
+    ]
+}

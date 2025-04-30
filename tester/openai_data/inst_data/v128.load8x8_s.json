@@ -1,0 +1,79 @@
+{
+    "inst_name": "v128.load8x8_s",
+    "type_part": {
+        "op_0": "i32",
+        "imm_0": "align",
+        "imm_1": "offset"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "imm_0",
+                "v2": "8",
+                "relation": "le"
+            },
+            {
+                "v1": "2^imm_0",
+                "v2": "0",
+                "relation": "gt"
+            },
+            {
+                "v1": "2^imm_0",
+                "v2": [
+                    "1",
+                    "2",
+                    "4",
+                    "8",
+                    "16",
+                    "32",
+                    "64",
+                    "128"
+                ],
+                "relation": "in"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "v1": "context.Mems.length",
+                "v2": "0",
+                "relation": "gt"
+            }
+        ]
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0 + imm_1 + 8",
+                    "v2": "context.Mem[0].length",
+                    "relation": "le"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction loads a 128-bit vector from memory after sign-extending 8-bit integers to 16-bit lanes.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0 + imm_1 + 8",
+                    "v2": "context.Mem[0].length",
+                    "relation": "gt"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "Memory out-of-bounds, leading to a trap.",
+            "WhetherTrap": true
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i32"
+            ],
+            "result": [
+                "v128"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+[
+    "NONE",
+    "BLOCK",
+    "IF",
+    "LOOP",
+    "ELSE",
+    "PREBLOCK",
+    "POSTBLOCK",
+    "ANYOP"
+]

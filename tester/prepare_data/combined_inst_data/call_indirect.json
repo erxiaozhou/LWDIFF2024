@@ -1,0 +1,56 @@
+{
+    "exec_data": {
+        "ctgy": "Control",
+        "raw_title": ":math:`\\CALLINDIRECT~x~y`",
+        "name": "call_indirect",
+        "steps_part": "1. Let :math:`F` be the :ref:`current <exec-notation-textual>` :ref:`frame <syntax-frame>`.\n2. Assert: due to :ref:`validation <valid-call_indirect>`, :math:`F.\\AMODULE.\\MITABLES[x]` exists.\n3. Let :math:`\\X{ta}` be the :ref:`table address <syntax-tableaddr>` :math:`F.\\AMODULE.\\MITABLES[x]`.\n4. Assert: due to :ref:`validation <valid-call_indirect>`, :math:`S.\\STABLES[\\X{ta}]` exists.\n5. Let :math:`\\X{tab}` be the :ref:`table instance <syntax-tableinst>` :math:`S.\\STABLES[\\X{ta}]`.\n6. Assert: due to :ref:`validation <valid-call_indirect>`, :math:`F.\\AMODULE.\\MITYPES[y]` exists.\n7. Let :math:`\\X{ft}_{\\F{expect}}` be the :ref:`function type <syntax-functype>` :math:`F.\\AMODULE.\\MITYPES[y]`.\n8. Assert: due to :ref:`validation <valid-call_indirect>`, a value with :ref:`value type <syntax-valtype>` |I32| is on the top of the stack.\n9. Pop the value :math:`\\I32.\\CONST~i` from the stack.\n10. If :math:`i` is not smaller than the length of :math:`\\X{tab}.\\TIELEM`, then:\n    a. Trap.\n11. Let :math:`r` be the :ref:`reference <syntax-ref>` :math:`\\X{tab}.\\TIELEM[i]`.\n12. If :math:`r` is :math:`\\REFNULL~t`, then:\n    a. Trap.\n13. Assert: due to :ref:`validation of table mutation <valid-table.set>`, :math:`r` is a :ref:`function reference <syntax-ref.func>`.\n14. Let :math:`\\REFFUNCADDR~a` be the :ref:`function reference <syntax-ref.func>` :math:`r`.\n15. Assert: due to :ref:`validation of table mutation <valid-table.set>`, :math:`S.\\SFUNCS[a]` exists.\n16. Let :math:`\\X{f}` be the :ref:`function instance <syntax-funcinst>` :math:`S.\\SFUNCS[a]`.\n17. Let :math:`\\X{ft}_{\\F{actual}}` be the :ref:`function type <syntax-functype>` :math:`\\X{f}.\\FITYPE`.\n18. If :math:`\\X{ft}_{\\F{actual}}` and :math:`\\X{ft}_{\\F{expect}}` differ, then:\n    a. Trap.\n19. :ref:`Invoke <exec-invoke>` the function instance at address :math:`a`.",
+        "steps": [
+            "LET       : [(ValRefValue(Type(any::), F, 1), FrameInstance(Type(other:frame:), current frame, 1))]",
+            "ASSERT    : [ExistCondition(['exist', TableAddrInstance(F.\\AMODULE.\\MITABLES[x]:Type(any::):ValRefValue(Type(u32::), x, 1)::math:`F.\\AMODULE.\\MITABLES[x]`)])]",
+            "LET       : [(ValRefValue(Type(any::), \\X{ta}, 1), TableAddrInstance(F.\\AMODULE.\\MITABLES[x]:Type(other:table address:):ValRefValue(Type(u32::), x, 1):the :ref:`table address <syntax-tableaddr>` :math:`F.\\AMODULE.\\MITABLES[x]`))]",
+            "ASSERT    : [ExistCondition(['exist', TableInstance(S.\\STABLES[\\X{ta}]:Type(any::):ValRefValue(Type(u32::), \\X{ta}, 1)::math:`S.\\STABLES[\\X{ta}]`)])]",
+            "LET       : [(ValRefValue(Type(any::), \\X{tab}, 1), TableInstance(S.\\STABLES[\\X{ta}]:Type(other:table instance:):ValRefValue(Type(u32::), \\X{ta}, 1):the :ref:`table instance <syntax-tableinst>` :math:`S.\\STABLES[\\X{ta}]`))]",
+            "ASSERT    : [ExistCondition(['exist', FormulaValue(Type(any::), F.\\AMODULE.\\MITYPES[y], 1)])]",
+            "LET       : [(ValRefValue(Type(any::), \\X{ft}_{\\F{expect}}, 1), FormulaValue(Type(other:function type:), F.\\AMODULE.\\MITYPES[y], 1))]",
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(i32::), any, 1)])]",
+            "POP       : [ValRefValue(Type(i32::), i, 1)]",
+            "IF        : [[CompareCondition(['compare_condition', ValRefValue(Type(any::), i, 1), False, 'smaller', LengthRefValue(the length of :math:`\\X{tab}.\\TIELEM`:Type(u32::):\\X{tab}:\\TIELEM:the length of :math:`\\X{tab}.\\TIELEM`)])]]",
+            "  TRAP      : []",
+            "LET       : [(ValRefValue(Type(any::), r, 1), OtherValue(Type(other:reference:), \\X{tab}.\\TIELEM[i], 1))]",
+            "IF        : [[IsCondition(['is_condition', ValRefValue(Type(any::), r, 1), True, constantValue(t:Type(ref:ref_null:):ref_null:False::math:`\\REFNULL~t`)])]]",
+            "  TRAP      : []",
+            "ASSERT    : [IsCondition(['is_condition', ValRefValue(Type(any::), r, 1), True, Value(Type(other:function reference:), any, 1)])]",
+            "LET       : [(ValRefValue(Type(ref:ref_func:), a, 1), ValRefValue(Type(other:function reference:), r, 1))]",
+            "ASSERT    : [ExistCondition(['exist', FormulaValue(Type(any::), S.\\SFUNCS[a], 1)])]",
+            "LET       : [(ValRefValue(Type(any::), \\X{f}, 1), FormulaValue(Type(other:function instance:), S.\\SFUNCS[a], 1))]",
+            "LET       : [(ValRefValue(Type(any::), \\X{ft}_{\\F{actual}}, 1), FormulaValue(Type(other:function type:), \\X{f}.\\FITYPE, 1))]",
+            "IF        : [[DifferCondition(['differ_condition', FormulaValue(Type(any::), \\X{ft}_{\\F{actual}}, 1), FormulaValue(Type(any::), \\X{ft}_{\\F{expect}}, 1)])]]",
+            "  TRAP      : []",
+            "INVOKE    : [ValRefValue(Type(other:function instance:), a, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(i32::), 1), -1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\CALLINDIRECT~x~y`",
+        "name": "call_indirect",
+        "ctgy": "Control",
+        "steps": [
+            "MUST_EXIST: [ExistCondition(['valid_define_condition', TableAddrInstance(C.\\CTABLES[x]:Type(any::):ValRefValue(Type(u32::), x, 1)::math:`C.\\CTABLES[x]`)])]",
+            "LET       : [(ValRefValue(Type(any::), \\limits~t, 1), TableAddrInstance(C.\\CTABLES[x]:Type(other:table type:):ValRefValue(Type(u32::), x, 1):the :ref:`table type <syntax-tabletype>` :math:`C.\\CTABLES[x]`))]",
+            "MUST_BE   : [validIsCondition(['valid_must_be_condition', ValRefValue(Type(other:reference type:), t, 1), Value(Type(funcref::), any, 1)])]",
+            "MUST_EXIST: [ExistCondition(['valid_define_condition', TypeInstance(C.\\CTYPES[y]:Type(any::):ValRefValue(Type(u32::), y, 1)::math:`C.\\CTYPES[y]`)])]",
+            "LET       : [(ValRefValue(Type(any::), [t_1^\\ast] \\to [t_2^\\ast], 1), TypeInstance(C.\\CTYPES[y]:Type(other:function type:):ValRefValue(Type(u32::), y, 1):the :ref:`function type <syntax-functype>` :math:`C.\\CTYPES[y]`))]",
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(any::t_1^\\ast), any, 1), StackValue(Type(i32::), any, 1)], [StackValue(Type(any::t_2^\\ast), any, 1)]])]"
+        ]
+    },
+    "imms": {
+        "x": "<x: tableidx>",
+        "y": "<y: typeidx>"
+    },
+    "exec_title_paras": {},
+    "binary_info": [
+        "<11: hex>",
+        "<y: typeidx>",
+        "<x: tableidx>"
+    ]
+}

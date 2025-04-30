@@ -1,0 +1,32 @@
+{
+    "inst_name": "f64.const",
+    "type_part": {
+        "imm_0": "f64"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "imm_0.type",
+                "v2": "f64",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction pushes the constant f64 value to the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [],
+            "result": [
+                "f64"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "inst_name": "i8x16.shl",
+    "type_part": {
+        "op_0": "v128",
+        "op_1": "i32"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "v128",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "i32",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction shifts each of the 16 packed 8-bit integers in a 128-bit vector to the left by a number of bits given by the i32 operand. The result is pushed onto the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "v128",
+                "i32"
+            ],
+            "result": [
+                "v128"
+            ]
+        }
+    ]
+}

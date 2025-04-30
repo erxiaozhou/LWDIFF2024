@@ -1,0 +1,87 @@
+{
+    "inst_name": "v128.load8_lane",
+    "type_part": {
+        "op_0": "i32",
+        "op_1": "v128",
+        "imm_0": "lane_idx",
+        "imm_1": "align",
+        "imm_2": "offset"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "imm_0",
+                "v2": "16",
+                "relation": "ls"
+            },
+            {
+                "v1": "2^imm_1",
+                "v2": "16",
+                "relation": "le"
+            },
+            {
+                "v1": "2^imm_1",
+                "v2": "0",
+                "relation": "gt"
+            },
+            {
+                "v1": "2^imm_1",
+                "v2": [
+                    "1",
+                    "2",
+                    "4",
+                    "8",
+                    "16",
+                    "32",
+                    "64",
+                    "128"
+                ],
+                "relation": "in"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "v1": "context.Mems.length",
+                "v2": "0",
+                "relation": "gt"
+            }
+        ]
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0 + imm_2 + 1",
+                    "v2": "context.Mem[0].length",
+                    "relation": "le"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction loads a byte from memory and inserts it into a lane of a v128 vector. The result is pushed onto the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0 + imm_2 + 1",
+                    "v2": "context.Mem[0].length",
+                    "relation": "gt"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "Memory out-of-bounds, leading to a trap.",
+            "WhetherTrap": true
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i32",
+                "v128"
+            ],
+            "result": [
+                "v128"
+            ]
+        }
+    ]
+}

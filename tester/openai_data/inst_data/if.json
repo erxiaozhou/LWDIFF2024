@@ -1,0 +1,63 @@
+{
+    "inst_name": "if",
+    "type_part": {
+        "op_0": "i32"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i32",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "VariableName": "context.blocktype",
+                "Exist": true
+            },
+            {
+                "VariableName": "context.instr_1*",
+                "Exist": true
+            },
+            {
+                "VariableName": "context.instr_2*",
+                "Exist": true
+            }
+        ]
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "0",
+                    "relation": "neq"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction executes the block `instr_1*` if the operand is non-zero.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "0",
+                    "relation": "eq"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction executes the block `instr_2*` if the operand is zero.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i32"
+            ],
+            "result": []
+        }
+    ]
+}

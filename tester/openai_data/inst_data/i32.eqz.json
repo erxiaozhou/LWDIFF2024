@@ -1,0 +1,52 @@
+{
+    "inst_name": "i32.eqz",
+    "type_part": {
+        "op_0": "i32"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i32",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "0",
+                    "relation": "eq"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction checks if the operand is zero and pushes 1 (True) onto the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "0",
+                    "relation": "neq"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction checks if the operand is not zero and pushes 0 (False) onto the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i32"
+            ],
+            "result": [
+                "i32"
+            ]
+        }
+    ]
+}

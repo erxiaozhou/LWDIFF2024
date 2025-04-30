@@ -1,0 +1,517 @@
+{
+    "funcType(['v128', 'v128'], ['v128'])": [
+        "i16x8.le_s",
+        "v128.or",
+        "i16x8.gt_s",
+        "i16x8.max_u",
+        "f32x4.div",
+        "v128.andnot",
+        "i8x16.avgr_u",
+        "i32x4.add",
+        "f64x2.gt",
+        "i16x8.eq",
+        "f64x2.ne",
+        "i16x8.min_u",
+        "i16x8.ne",
+        "i8x16.ge_s",
+        "f32x4.gt",
+        "i16x8.lt_s",
+        "i16x8.sub",
+        "i32x4.sub",
+        "i8x16.max_u",
+        "i8x16.lt_u",
+        "i16x8.ge_s",
+        "f32x4.pmax",
+        "f32x4.min",
+        "f32x4.eq",
+        "i16x8.avgr_u",
+        "i16x8.extmul_low_i8x16_s",
+        "i32x4.ge_s",
+        "f64x2.ge",
+        "i8x16.eq",
+        "i16x8.add",
+        "f32x4.ge",
+        "i8x16.sub_sat_u",
+        "i32x4.le_s",
+        "i32x4.max_u",
+        "v128.and",
+        "f64x2.div",
+        "i16x8.mul",
+        "i8x16.le_s",
+        "f32x4.sub",
+        "i16x8.extmul_high_i8x16_u",
+        "i16x8.sub_sat_u",
+        "i16x8.add_sat_u",
+        "i32x4.ge_u",
+        "f32x4.ne",
+        "i32x4.mul",
+        "f32x4.add",
+        "f64x2.pmin",
+        "i32x4.lt_u",
+        "i16x8.gt_u",
+        "i64x2.lt_s",
+        "i16x8.narrow_i32x4_s",
+        "i16x8.extmul_high_i8x16_s",
+        "f64x2.eq",
+        "i16x8.q15mulr_sat_s",
+        "i8x16.add_sat_s",
+        "f64x2.add",
+        "i32x4.min_u",
+        "f32x4.max",
+        "f64x2.max",
+        "f64x2.lt",
+        "f64x2.sub",
+        "i8x16.narrow_i16x8_u",
+        "i8x16.min_s",
+        "i8x16.narrow_i16x8_s",
+        "i32x4.extmul_high_i16x8_u",
+        "i8x16.gt_s",
+        "i64x2.le_s",
+        "i32x4.extmul_low_i16x8_s",
+        "i8x16.add",
+        "f32x4.le",
+        "i16x8.add_sat_s",
+        "i32x4.lt_s",
+        "i16x8.le_u",
+        "i16x8.narrow_i32x4_u",
+        "i64x2.mul",
+        "i16x8.extmul_low_i8x16_u",
+        "i32x4.gt_u",
+        "i32x4.gt_s",
+        "i8x16.shuffle",
+        "i64x2.extmul_low_i32x4_u",
+        "i32x4.extmul_low_i16x8_u",
+        "i64x2.eq",
+        "f32x4.pmin",
+        "i16x8.ge_u",
+        "i64x2.extmul_high_i32x4_s",
+        "i8x16.le_u",
+        "i64x2.gt_s",
+        "i16x8.lt_u",
+        "i8x16.max_s",
+        "v128.xor",
+        "i64x2.extmul_low_i32x4_s",
+        "i64x2.add",
+        "i8x16.sub_sat_s",
+        "i64x2.ne",
+        "i64x2.extmul_high_i32x4_u",
+        "f64x2.le",
+        "i16x8.min_s",
+        "i32x4.min_s",
+        "f64x2.pmax",
+        "i64x2.sub",
+        "f64x2.mul",
+        "i32x4.eq",
+        "i32x4.extmul_high_i16x8_s",
+        "f32x4.mul",
+        "i64x2.ge_s",
+        "i8x16.ne",
+        "i8x16.swizzle",
+        "i8x16.add_sat_u",
+        "i8x16.sub",
+        "i8x16.ge_u",
+        "i8x16.min_u",
+        "i32x4.le_u",
+        "f32x4.lt",
+        "i8x16.gt_u",
+        "i32x4.ne",
+        "i32x4.max_s",
+        "i32x4.dot_i16x8_s",
+        "i16x8.sub_sat_s",
+        "f64x2.min",
+        "i16x8.max_s",
+        "i8x16.lt_s"
+    ],
+    "funcType(['i32'], ['v128'])": [
+        "v128.load8x8_u",
+        "i16x8.splat",
+        "i8x16.splat",
+        "v128.load32_zero",
+        "v128.load16x4_u",
+        "v128.load64_splat",
+        "v128.load16x4_s",
+        "i32x4.splat",
+        "v128.load8_splat",
+        "v128.load32x2_s",
+        "v128.load8x8_s",
+        "v128.load32x2_u",
+        "v128.load32_splat",
+        "v128.load64_zero",
+        "v128.load",
+        "v128.load16_splat"
+    ],
+    "funcType(['v128', 'i32'], ['v128'])": [
+        "i16x8.shr_u",
+        "i8x16.shl",
+        "i32x4.shl",
+        "i8x16.shr_u",
+        "i8x16.shr_s",
+        "i8x16.replace_lane",
+        "i32x4.shr_u",
+        "i32x4.replace_lane",
+        "i16x8.shl",
+        "i32x4.shr_s",
+        "i64x2.shr_s",
+        "i16x8.replace_lane",
+        "i64x2.shl",
+        "i64x2.shr_u",
+        "i16x8.shr_s"
+    ],
+    "funcType(['i32'], ['f32'])": [
+        "f32.convert_i32_u",
+        "f32.convert_i32_s",
+        "f32.load",
+        "f32.reinterpret_i32"
+    ],
+    "funcType(['v128'], ['i32'])": [
+        "i32x4.extract_lane",
+        "i16x8.extract_lane_s",
+        "i16x8.bitmask",
+        "i16x8.extract_lane_u",
+        "v128.any_true",
+        "i32x4.all_true",
+        "i16x8.all_true",
+        "i8x16.extract_lane_s",
+        "i64x2.bitmask",
+        "i8x16.bitmask",
+        "i32x4.bitmask",
+        "i64x2.all_true",
+        "i8x16.extract_lane_u",
+        "i8x16.all_true"
+    ],
+    "funcType(['f64'], ['i64'])": [
+        "i64.trunc_f64_u",
+        "i64.trunc_sat_f64_s",
+        "i64.trunc_sat_f64_u",
+        "i64.reinterpret_f64",
+        "i64.trunc_f64_s"
+    ],
+    "funcType(['f32'], ['f32'])": [
+        "f32.nearest",
+        "f32.ceil",
+        "f32.neg",
+        "f32.trunc",
+        "f32.sqrt",
+        "f32.floor",
+        "f32.abs"
+    ],
+    "funcType(['i32'], ['i32'])": [
+        "i32.load8_s",
+        "i32.eqz",
+        "i32.load16_u",
+        "i32.popcnt",
+        "memory.grow",
+        "i32.extend8_s",
+        "i32.load8_u",
+        "i32.load",
+        "i32.extend16_s",
+        "i32.ctz",
+        "i32.clz",
+        "i32.load16_s"
+    ],
+    "funcType(['v128'], ['v128'])": [
+        "i64x2.extend_high_i32x4_u",
+        "f32x4.abs",
+        "i8x16.neg",
+        "i64x2.abs",
+        "f32x4.demote_f64x2_zero",
+        "i32x4.trunc_sat_f32x4_u",
+        "f64x2.convert_low_i32x4_u",
+        "f64x2.ceil",
+        "f32x4.neg",
+        "i64x2.extend_low_i32x4_s",
+        "f64x2.convert_low_i32x4_s",
+        "i32x4.extend_low_i16x8_s",
+        "f64x2.promote_low_f32x4",
+        "i32x4.trunc_sat_f64x2_u_zero",
+        "i16x8.extend_low_i8x16_s",
+        "i64x2.extend_high_i32x4_s",
+        "i64x2.neg",
+        "f32x4.sqrt",
+        "i32x4.extend_low_i16x8_u",
+        "f32x4.nearest",
+        "i16x8.neg",
+        "i32x4.extadd_pairwise_i16x8_s",
+        "i32x4.extend_high_i16x8_s",
+        "i16x8.abs",
+        "f32x4.convert_i32x4_s",
+        "f64x2.floor",
+        "i32x4.trunc_sat_f64x2_s_zero",
+        "i8x16.popcnt",
+        "i16x8.extadd_pairwise_i8x16_s",
+        "f64x2.trunc",
+        "f32x4.ceil",
+        "f64x2.sqrt",
+        "i32x4.abs",
+        "i16x8.extend_high_i8x16_u",
+        "i16x8.extend_high_i8x16_s",
+        "i64x2.extend_low_i32x4_u",
+        "v128.not",
+        "f64x2.neg",
+        "i8x16.abs",
+        "i32x4.extadd_pairwise_i16x8_u",
+        "f32x4.convert_i32x4_u",
+        "i32x4.extend_high_i16x8_u",
+        "f64x2.nearest",
+        "i32x4.trunc_sat_f32x4_s",
+        "f32x4.trunc",
+        "i32x4.neg",
+        "f32x4.floor",
+        "i16x8.extend_low_i8x16_u",
+        "f64x2.abs",
+        "i16x8.extadd_pairwise_i8x16_u"
+    ],
+    "funcType(['f64'], ['f64'])": [
+        "f64.sqrt",
+        "f64.neg",
+        "f64.ceil",
+        "f64.nearest",
+        "f64.trunc",
+        "f64.floor",
+        "f64.abs"
+    ],
+    "funcType(['v128', 'f64'], ['v128'])": [
+        "f64x2.replace_lane"
+    ],
+    "funcType(['i64', 'i64'], ['i32'])": [
+        "i64.gt_s",
+        "i64.lt_u",
+        "i64.lt_s",
+        "i64.gt_u",
+        "i64.ge_u",
+        "i64.ge_s",
+        "i64.ne",
+        "i64.le_s",
+        "i64.eq",
+        "i64.le_u"
+    ],
+    "funcType(['v128'], ['f64'])": [
+        "f64x2.extract_lane"
+    ],
+    "funcType(['f32'], ['f64'])": [
+        "f64.promote_f32"
+    ],
+    "funcType(['i32', 'v128'], ['v128'])": [
+        "v128.load8_lane",
+        "v128.load32_lane",
+        "v128.load64_lane",
+        "v128.load16_lane"
+    ],
+    "funcType(['i32'], ['i64'])": [
+        "i64.load8_u",
+        "i64.load8_s",
+        "i64.load16_s",
+        "i64.load16_u",
+        "i64.load32_s",
+        "i64.extend_i32_u",
+        "i64.load32_u",
+        "i64.extend_i32_s",
+        "i64.load"
+    ],
+    "funcType(['f32', 'f32'], ['i32'])": [
+        "f32.gt",
+        "f32.le",
+        "f32.eq",
+        "f32.lt",
+        "f32.ne",
+        "f32.ge"
+    ],
+    "funcType(['i64', 'i64'], ['i64'])": [
+        "i64.shr_u",
+        "i64.sub",
+        "i64.or",
+        "i64.rem_u",
+        "i64.rotr",
+        "i64.rem_s",
+        "i64.and",
+        "i64.shl",
+        "i64.xor",
+        "i64.mul",
+        "i64.rotl",
+        "i64.div_s",
+        "i64.div_u",
+        "i64.shr_s",
+        "i64.add"
+    ],
+    "funcType(['f64', 'f64'], ['f64'])": [
+        "f64.sub",
+        "f64.max",
+        "f64.add",
+        "f64.min",
+        "f64.div",
+        "f64.copysign",
+        "f64.mul"
+    ],
+    "funcType(['i32', 'i32'], ['i32'])": [
+        "i32.le_s",
+        "i32.and",
+        "i32.or",
+        "i32.lt_u",
+        "i32.le_u",
+        "i32.lt_s",
+        "i32.shl",
+        "i32.ge_u",
+        "i32.xor",
+        "i32.rem_u",
+        "i32.gt_s",
+        "i32.rem_s",
+        "i32.shr_s",
+        "i32.add",
+        "i32.eq",
+        "i32.rotr",
+        "i32.ne",
+        "i32.div_s",
+        "i32.sub",
+        "i32.ge_s",
+        "i32.rotl",
+        "i32.mul",
+        "i32.div_u",
+        "i32.shr_u",
+        "i32.gt_u"
+    ],
+    "funcType(['i32', 'i64'], [])": [
+        "i64.store32",
+        "i64.store",
+        "i64.store16",
+        "i64.store8"
+    ],
+    "funcType([], [])": [
+        "data.drop",
+        "nop",
+        "elem.drop"
+    ],
+    "funcType(['f64'], ['i32'])": [
+        "i32.trunc_sat_f64_u",
+        "i32.trunc_f64_u",
+        "i32.trunc_f64_s",
+        "i32.trunc_sat_f64_s"
+    ],
+    "funcType([], ['i64'])": [
+        "i64.const"
+    ],
+    "funcType(['f64', 'f64'], ['i32'])": [
+        "f64.gt",
+        "f64.ne",
+        "f64.ge",
+        "f64.le",
+        "f64.lt",
+        "f64.eq"
+    ],
+    "funcType(['f32', 'f32'], ['f32'])": [
+        "f32.copysign",
+        "f32.min",
+        "f32.add",
+        "f32.sub",
+        "f32.div",
+        "f32.mul",
+        "f32.max"
+    ],
+    "funcType(['i64'], ['i64'])": [
+        "i64.extend8_s",
+        "i64.extend32_s",
+        "i64.ctz",
+        "i64.clz",
+        "i64.popcnt",
+        "i64.extend16_s"
+    ],
+    "funcType([], ['f64'])": [
+        "f64.const"
+    ],
+    "funcType(['i32', 'i32', 'i32'], [])": [
+        "table.init",
+        "memory.copy",
+        "memory.fill",
+        "memory.init",
+        "table.copy"
+    ],
+    "funcType(['v128', 'v128', 'v128'], ['v128'])": [
+        "v128.bitselect"
+    ],
+    "funcType(['f32'], ['i64'])": [
+        "i64.trunc_sat_f32_u",
+        "i64.trunc_f32_s",
+        "i64.trunc_f32_u",
+        "i64.trunc_sat_f32_s"
+    ],
+    "funcType([], ['i32'])": [
+        "table.size",
+        "i32.const",
+        "memory.size"
+    ],
+    "funcType(['f32'], ['i32'])": [
+        "i32.trunc_f32_s",
+        "i32.reinterpret_f32",
+        "i32.trunc_sat_f32_u",
+        "i32.trunc_sat_f32_s",
+        "i32.trunc_f32_u"
+    ],
+    "funcType(['i32', 'f64'], [])": [
+        "f64.store"
+    ],
+    "funcType(['f32'], ['v128'])": [
+        "f32x4.splat"
+    ],
+    "funcType(['i64'], ['i32'])": [
+        "i64.eqz",
+        "i32.wrap_i64"
+    ],
+    "funcType(['f64'], ['f32'])": [
+        "f32.demote_f64"
+    ],
+    "funcType(['v128'], ['f32'])": [
+        "f32x4.extract_lane"
+    ],
+    "funcType(['f64'], ['v128'])": [
+        "f64x2.splat"
+    ],
+    "funcType(['i32', 'v128'], [])": [
+        "v128.store64_lane",
+        "v128.store",
+        "v128.store8_lane",
+        "v128.store32_lane",
+        "v128.store16_lane"
+    ],
+    "funcType([], ['v128'])": [
+        "v128.const"
+    ],
+    "funcType(['i32'], ['f64'])": [
+        "f64.load",
+        "f64.convert_i32_u",
+        "f64.convert_i32_s"
+    ],
+    "funcType(['i64'], ['f32'])": [
+        "f32.convert_i64_s",
+        "f32.convert_i64_u"
+    ],
+    "funcType([], ['f32'])": [
+        "f32.const"
+    ],
+    "funcType(['i32', 'i32'], [])": [
+        "i32.store16",
+        "i32.store",
+        "i32.store8"
+    ],
+    "funcType(['v128', 'f32'], ['v128'])": [
+        "f32x4.replace_lane"
+    ],
+    "funcType(['i64'], ['f64'])": [
+        "f64.convert_i64_u",
+        "f64.convert_i64_s",
+        "f64.reinterpret_i64"
+    ],
+    "funcType(['i32', 'f32'], [])": [
+        "f32.store"
+    ],
+    "funcType(['i64'], ['v128'])": [
+        "i64x2.splat"
+    ],
+    "funcType(['v128'], ['i64'])": [
+        "i64x2.extract_lane"
+    ],
+    "funcType(['v128', 'i64'], ['v128'])": [
+        "i64x2.replace_lane"
+    ],
+    "funcType([], ['funcref'])": [
+        "ref.func"
+    ]
+}

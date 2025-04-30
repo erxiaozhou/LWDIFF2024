@@ -1,0 +1,57 @@
+{
+    "inst_name": "local.set",
+    "type_part": {
+        "op_0": "any",
+        "imm_0": "local_idx"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": [
+                    "i32",
+                    "i64",
+                    "f32",
+                    "f64",
+                    "v128",
+                    "externref",
+                    "funcref"
+                ],
+                "relation": "in"
+            },
+            {
+                "v1": "op_0.type",
+                "v2": "context.locals[imm_0].type",
+                "relation": "eq"
+            },
+            {
+                "v1": "imm_0",
+                "v2": "context.locals.length",
+                "relation": "ls"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "v1": "context.locals.length",
+                "v2": "imm_0",
+                "relation": "gt"
+            }
+        ]
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction sets the value of a local variable. The value is popped from the stack and stored in the local variable specified by the immediate argument.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "context.locals[local_idx].type"
+            ],
+            "result": []
+        }
+    ]
+}

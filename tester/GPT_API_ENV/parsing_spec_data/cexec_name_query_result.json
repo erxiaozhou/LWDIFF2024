@@ -1,0 +1,2132 @@
+{
+    "\\BLOCK~\\blocktype~\\instr^\\ast~\\END": {
+        "valid_titles": [
+            "valid instructions Instructions Control Instructions block~blocktype~instr^\\ast~end",
+            "exec instructions Instructions Control Instructions block~blocktype~instr^\\ast~end",
+            "valid instructions Instructions Control Instructions loop~blocktype~instr^\\ast~end",
+            "valid instructions Instructions Control Instructions if~blocktype~instr_1^\\ast~else~instr_2^\\ast~end",
+            "exec instructions Instructions Control Instructions loop~blocktype~instr^\\ast~end"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Control Instructions block~blocktype~instr^\\ast~end",
+            "valid instructions Instructions Control Instructions block~blocktype~instr^\\ast~end",
+            "exec instructions Instructions Control Instructions loop~blocktype~instr^\\ast~end",
+            "valid instructions Instructions Control Instructions loop~blocktype~instr^\\ast~end",
+            "valid instructions Instructions Control Instructions if~blocktype~instr_1^\\ast~else~instr_2^\\ast~end"
+        ],
+        "valid_distances": [
+            0.7723388075828552,
+            0.7308725118637085,
+            0.7238055467605591,
+            0.7146516442298889,
+            0.6641187071800232
+        ],
+        "exec_distances": [
+            0.8132810592651367,
+            0.77378910779953,
+            0.7502936720848083,
+            0.7312873601913452,
+            0.72608482837677
+        ]
+    },
+    "\\BRIF~l": {
+        "valid_titles": [
+            "valid instructions Instructions Control Instructions br\\_if~l",
+            "exec instructions Instructions Control Instructions br\\_if~l",
+            "valid instructions Instructions Control Instructions br~l",
+            "valid instructions Instructions Control Instructions br\\_table~l^\\ast~l_N",
+            "exec instructions Instructions Control Instructions br~l"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Control Instructions br\\_if~l",
+            "exec instructions Instructions Control Instructions br~l",
+            "valid instructions Instructions Control Instructions br\\_if~l",
+            "exec instructions Instructions Control Instructions br\\_table~l^\\ast~l_N",
+            "valid instructions Instructions Control Instructions br~l"
+        ],
+        "valid_distances": [
+            0.6541463136672974,
+            0.6287243366241455,
+            0.6153382062911987,
+            0.5952426195144653,
+            0.5871981978416443
+        ],
+        "exec_distances": [
+            0.7466251850128174,
+            0.6894333362579346,
+            0.6663943529129028,
+            0.6488200426101685,
+            0.6106821298599243
+        ]
+    },
+    "\\BRTABLE~l^\\ast~l_N": {
+        "valid_titles": [
+            "valid instructions Instructions Control Instructions br\\_table~l^\\ast~l_N",
+            "exec instructions Instructions Control Instructions br\\_table~l^\\ast~l_N",
+            "valid instructions Instructions Control Instructions br\\_if~l",
+            "exec instructions Instructions Control Instructions br\\_if~l",
+            "valid instructions Instructions Control Instructions br~l"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Control Instructions br\\_table~l^\\ast~l_N",
+            "valid instructions Instructions Control Instructions br\\_table~l^\\ast~l_N",
+            "exec instructions Instructions Control Instructions br\\_if~l",
+            "exec instructions Instructions Control Instructions br~l",
+            "valid instructions Instructions Control Instructions br\\_if~l"
+        ],
+        "valid_distances": [
+            0.7531791925430298,
+            0.7113058567047119,
+            0.5652980208396912,
+            0.5210002064704895,
+            0.5194613933563232
+        ],
+        "exec_distances": [
+            0.8135110139846802,
+            0.7593820095062256,
+            0.6265244483947754,
+            0.603417158126831,
+            0.5851056575775146
+        ]
+    },
+    "\\BR~l": {
+        "valid_titles": [
+            "valid instructions Instructions Control Instructions br\\_if~l",
+            "valid instructions Instructions Control Instructions br~l",
+            "exec instructions Instructions Control Instructions br\\_if~l",
+            "valid instructions Instructions Control Instructions br\\_table~l^\\ast~l_N",
+            "exec instructions Instructions Control Instructions br~l"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Control Instructions br~l",
+            "exec instructions Instructions Control Instructions br\\_if~l",
+            "exec instructions Instructions Control Instructions br\\_table~l^\\ast~l_N",
+            "valid instructions Instructions Control Instructions br\\_if~l",
+            "valid instructions Instructions Control Instructions br~l"
+        ],
+        "valid_distances": [
+            0.6655367016792297,
+            0.6540836095809937,
+            0.6298865079879761,
+            0.6228713989257812,
+            0.6196573972702026
+        ],
+        "exec_distances": [
+            0.739361047744751,
+            0.7368524074554443,
+            0.6760218739509583,
+            0.6603245735168457,
+            0.6484888195991516
+        ]
+    },
+    "\\CALLINDIRECT~x~y": {
+        "valid_titles": [
+            "valid instructions Instructions Control Instructions call\\_indirect~x~y",
+            "exec instructions Instructions Control Instructions call\\_indirect~x~y",
+            "valid instructions Instructions Control Instructions call~x",
+            "exec instructions Instructions Control Instructions call~x",
+            "valid instructions Instructions Variable Instructions local.get~x"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Control Instructions call\\_indirect~x~y",
+            "valid instructions Instructions Control Instructions call\\_indirect~x~y",
+            "exec instructions Instructions Control Instructions call~x",
+            "valid instructions Instructions Control Instructions call~x",
+            "exec instructions Instructions Reference Instructions ref{.func}~x"
+        ],
+        "valid_distances": [
+            0.7936195135116577,
+            0.7532691955566406,
+            0.6299173831939697,
+            0.6144472360610962,
+            0.523285984992981
+        ],
+        "exec_distances": [
+            0.8408570289611816,
+            0.8275769948959351,
+            0.6683270931243896,
+            0.6178396344184875,
+            0.5580475330352783
+        ]
+    },
+    "\\CALL~x": {
+        "valid_titles": [
+            "valid instructions Instructions Control Instructions call~x",
+            "exec instructions Instructions Control Instructions call~x",
+            "valid instructions Instructions Control Instructions call\\_indirect~x~y",
+            "exec instructions Instructions Control Instructions call\\_indirect~x~y",
+            "valid instructions Instructions Reference Instructions ref{.func}~x"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Control Instructions call~x",
+            "valid instructions Instructions Control Instructions call~x",
+            "exec instructions Instructions Control Instructions call\\_indirect~x~y",
+            "valid instructions Instructions Control Instructions call\\_indirect~x~y",
+            "exec instructions Instructions Reference Instructions ref{.func}~x"
+        ],
+        "valid_distances": [
+            0.6981450319290161,
+            0.6804094314575195,
+            0.6532269716262817,
+            0.617624044418335,
+            0.5704785585403442
+        ],
+        "exec_distances": [
+            0.76016765832901,
+            0.6995947360992432,
+            0.6979326605796814,
+            0.6767531037330627,
+            0.6379156708717346
+        ]
+    },
+    "\\DATADROP~x": {
+        "valid_titles": [
+            "valid instructions Instructions Memory Instructions data.drop~x",
+            "exec instructions Instructions Memory Instructions data.drop~x",
+            "valid instructions Instructions Table Instructions elem.drop~x",
+            "valid instructions Instructions Parametric Instructions drop",
+            "exec instructions Instructions Parametric Instructions drop"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Memory Instructions data.drop~x",
+            "valid instructions Instructions Memory Instructions data.drop~x",
+            "exec instructions Instructions Table Instructions elem.drop~x",
+            "exec instructions Instructions Parametric Instructions drop",
+            "valid instructions Instructions Table Instructions elem.drop~x"
+        ],
+        "valid_distances": [
+            0.6845605373382568,
+            0.6366056203842163,
+            0.5995755195617676,
+            0.5941712260246277,
+            0.5683514475822449
+        ],
+        "exec_distances": [
+            0.7410745620727539,
+            0.6973447203636169,
+            0.6499931812286377,
+            0.6212953329086304,
+            0.616050124168396
+        ]
+    },
+    "\\DROP": {
+        "valid_titles": [
+            "valid instructions Instructions Parametric Instructions drop",
+            "exec instructions Instructions Parametric Instructions drop",
+            "valid instructions Instructions Memory Instructions data.drop~x",
+            "valid instructions Instructions Table Instructions elem.drop~x",
+            "exec instructions Instructions Memory Instructions data.drop~x"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Parametric Instructions drop",
+            "exec instructions Instructions Memory Instructions data.drop~x",
+            "valid instructions Instructions Parametric Instructions drop",
+            "valid instructions Instructions Memory Instructions data.drop~x",
+            "exec instructions Instructions Table Instructions elem.drop~x"
+        ],
+        "valid_distances": [
+            0.5706919431686401,
+            0.5305997133255005,
+            0.5300489068031311,
+            0.4900727868080139,
+            0.48992109298706055
+        ],
+        "exec_distances": [
+            0.6309838891029358,
+            0.6119637489318848,
+            0.5829696655273438,
+            0.563405454158783,
+            0.559866189956665
+        ]
+    },
+    "\\ELEMDROP~x": {
+        "valid_titles": [
+            "valid instructions Instructions Table Instructions elem.drop~x",
+            "exec instructions Instructions Table Instructions elem.drop~x",
+            "valid instructions Instructions Memory Instructions data.drop~x",
+            "exec instructions Instructions Memory Instructions data.drop~x",
+            "valid instructions Instructions Parametric Instructions drop"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Table Instructions elem.drop~x",
+            "valid instructions Instructions Table Instructions elem.drop~x",
+            "exec instructions Instructions Memory Instructions data.drop~x",
+            "valid instructions Instructions Memory Instructions data.drop~x",
+            "exec instructions Instructions Parametric Instructions drop"
+        ],
+        "valid_distances": [
+            0.681122899055481,
+            0.6506394147872925,
+            0.6210931539535522,
+            0.5946943759918213,
+            0.5576299428939819
+        ],
+        "exec_distances": [
+            0.7407231330871582,
+            0.7006601095199585,
+            0.6907967925071716,
+            0.6337218284606934,
+            0.612500786781311
+        ]
+    },
+    "\\GLOBALGET~x": {
+        "valid_titles": [
+            "valid instructions Instructions Variable Instructions global.get~x",
+            "exec instructions Instructions Variable Instructions global.get~x",
+            "valid instructions Instructions Variable Instructions local.get~x",
+            "valid instructions Instructions Variable Instructions global.set~x",
+            "exec instructions Instructions Variable Instructions global.set~x"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Variable Instructions global.get~x",
+            "valid instructions Instructions Variable Instructions global.get~x",
+            "exec instructions Instructions Variable Instructions global.set~x",
+            "exec instructions Instructions Variable Instructions local.get~x",
+            "valid instructions Instructions Variable Instructions global.set~x"
+        ],
+        "valid_distances": [
+            0.716721773147583,
+            0.6699545383453369,
+            0.6473599076271057,
+            0.6466750502586365,
+            0.601813554763794
+        ],
+        "exec_distances": [
+            0.7628421187400818,
+            0.7244080305099487,
+            0.690047562122345,
+            0.6829302906990051,
+            0.6583597660064697
+        ]
+    },
+    "\\GLOBALSET~x": {
+        "valid_titles": [
+            "valid instructions Instructions Variable Instructions global.set~x",
+            "exec instructions Instructions Variable Instructions global.set~x",
+            "valid instructions Instructions Variable Instructions global.get~x",
+            "valid instructions Instructions Variable Instructions local.set~x",
+            "valid instructions Instructions Table Instructions table.set~x"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Variable Instructions global.set~x",
+            "valid instructions Instructions Variable Instructions global.set~x",
+            "exec instructions Instructions Variable Instructions local.set~x",
+            "exec instructions Instructions Table Instructions table.set~x",
+            "exec instructions Instructions Variable Instructions global.get~x"
+        ],
+        "valid_distances": [
+            0.649359405040741,
+            0.6081829071044922,
+            0.5893507599830627,
+            0.5878579616546631,
+            0.552192747592926
+        ],
+        "exec_distances": [
+            0.716862678527832,
+            0.6925104856491089,
+            0.6502971649169922,
+            0.6477478742599487,
+            0.6473009586334229
+        ]
+    },
+    "\\IF~\\blocktype~\\instr_1^\\ast~\\ELSE~\\instr_2^\\ast~\\END": {
+        "valid_titles": [
+            "valid instructions Instructions Control Instructions if~blocktype~instr_1^\\ast~else~instr_2^\\ast~end",
+            "exec instructions Instructions Control Instructions if~blocktype~instr_1^\\ast~else~instr_2^\\ast~end",
+            "valid instructions Instructions Control Instructions block~blocktype~instr^\\ast~end",
+            "valid instructions Instructions Control Instructions loop~blocktype~instr^\\ast~end",
+            "exec instructions Instructions Control Instructions block~blocktype~instr^\\ast~end"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Control Instructions if~blocktype~instr_1^\\ast~else~instr_2^\\ast~end",
+            "valid instructions Instructions Control Instructions if~blocktype~instr_1^\\ast~else~instr_2^\\ast~end",
+            "exec instructions Instructions Control Instructions block~blocktype~instr^\\ast~end",
+            "valid instructions Instructions Control Instructions block~blocktype~instr^\\ast~end",
+            "exec instructions Instructions Control Instructions loop~blocktype~instr^\\ast~end"
+        ],
+        "valid_distances": [
+            0.7680789232254028,
+            0.7265031337738037,
+            0.6870889067649841,
+            0.6660863757133484,
+            0.663040280342102
+        ],
+        "exec_distances": [
+            0.7991342544555664,
+            0.7857857346534729,
+            0.720140814781189,
+            0.682386577129364,
+            0.6792305707931519
+        ]
+    },
+    "\\K{i32x4.}\\DOT\\K{\\_i16x8\\_s}": {
+        "valid_titles": [
+            "exec instructions Instructions Vector Instructions i32x4.dot\\_i16x8\\_s",
+            "valid instructions Instructions Vector Instructions i8x16.swizzle",
+            "valid instructions Instructions Vector Instructions v128.vvbinop",
+            "valid instructions Instructions Vector Instructions v128.vvternop",
+            "valid instructions Instructions Vector Instructions v128.vvunop"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Vector Instructions i32x4.dot\\_i16x8\\_s",
+            "exec instructions Instructions Vector Instructions i8x16.swizzle",
+            "exec instructions Instructions Vector Instructions i8x16.shuffle~x^\\ast",
+            "valid instructions Instructions Vector Instructions i8x16.swizzle",
+            "valid instructions Instructions Vector Instructions i8x16.shuffle~laneidx^{16}"
+        ],
+        "valid_distances": [
+            0.6788598895072937,
+            0.60883629322052,
+            0.5920828580856323,
+            0.5876141786575317,
+            0.5861783027648926
+        ],
+        "exec_distances": [
+            0.7526378631591797,
+            0.6240829229354858,
+            0.6168757677078247,
+            0.5948746204376221,
+            0.5777978897094727
+        ]
+    },
+    "\\K{i8x16.}\\SHUFFLE~x^\\ast": {
+        "valid_titles": [
+            "valid instructions Instructions Vector Instructions i8x16.shuffle~laneidx^{16}",
+            "exec instructions Instructions Vector Instructions i8x16.shuffle~x^\\ast",
+            "valid instructions Instructions Vector Instructions i8x16.swizzle",
+            "exec instructions Instructions Vector Instructions i8x16.swizzle",
+            "valid instructions Instructions Vector Instructions v128.const~c"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Vector Instructions i8x16.shuffle~x^\\ast",
+            "valid instructions Instructions Vector Instructions i8x16.shuffle~laneidx^{16}",
+            "exec instructions Instructions Vector Instructions i8x16.swizzle",
+            "valid instructions Instructions Vector Instructions i8x16.swizzle",
+            "exec instructions Instructions Vector Instructions i32x4.dot\\_i16x8\\_s"
+        ],
+        "valid_distances": [
+            0.7237260937690735,
+            0.7181159257888794,
+            0.6447296738624573,
+            0.5947736501693726,
+            0.5724520683288574
+        ],
+        "exec_distances": [
+            0.7864936590194702,
+            0.7259221076965332,
+            0.6439188718795776,
+            0.6337213516235352,
+            0.6007018685340881
+        ]
+    },
+    "\\K{i8x16.}\\SWIZZLE": {
+        "valid_titles": [
+            "valid instructions Instructions Vector Instructions i8x16.swizzle",
+            "exec instructions Instructions Vector Instructions i8x16.swizzle",
+            "valid instructions Instructions Vector Instructions i8x16.shuffle~laneidx^{16}",
+            "exec instructions Instructions Vector Instructions i8x16.shuffle~x^\\ast",
+            "valid instructions Instructions Vector Instructions v128.vvternop"
+        ],
+        "exec_titles": [
+            "valid instructions Instructions Vector Instructions i8x16.swizzle",
+            "exec instructions Instructions Vector Instructions i8x16.swizzle",
+            "exec instructions Instructions Vector Instructions i8x16.shuffle~x^\\ast",
+            "valid instructions Instructions Vector Instructions i8x16.shuffle~laneidx^{16}",
+            "exec instructions Instructions Vector Instructions i32x4.dot\\_i16x8\\_s"
+        ],
+        "valid_distances": [
+            0.752512514591217,
+            0.6824371814727783,
+            0.6246035099029541,
+            0.5928447246551514,
+            0.5563383102416992
+        ],
+        "exec_distances": [
+            0.7687695622444153,
+            0.7672697305679321,
+            0.6795605421066284,
+            0.6396331787109375,
+            0.6130512952804565
+        ]
+    },
+    "\\LOCALGET~x": {
+        "valid_titles": [
+            "valid instructions Instructions Variable Instructions local.get~x",
+            "exec instructions Instructions Variable Instructions local.get~x",
+            "valid instructions Instructions Variable Instructions global.get~x",
+            "valid instructions Instructions Variable Instructions local.set~x",
+            "valid instructions Instructions Variable Instructions local.tee~x"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Variable Instructions local.get~x",
+            "valid instructions Instructions Variable Instructions local.get~x",
+            "exec instructions Instructions Variable Instructions global.get~x",
+            "exec instructions Instructions Variable Instructions local.set~x",
+            "valid instructions Instructions Variable Instructions global.get~x"
+        ],
+        "valid_distances": [
+            0.7049144506454468,
+            0.6572476625442505,
+            0.6372365951538086,
+            0.6254374980926514,
+            0.6002100706100464
+        ],
+        "exec_distances": [
+            0.7453471422195435,
+            0.7078568935394287,
+            0.6886695623397827,
+            0.6687713861465454,
+            0.6447845697402954
+        ]
+    },
+    "\\LOCALSET~x": {
+        "valid_titles": [
+            "valid instructions Instructions Variable Instructions local.set~x",
+            "exec instructions Instructions Variable Instructions local.set~x",
+            "valid instructions Instructions Table Instructions table.set~x",
+            "valid instructions Instructions Variable Instructions global.set~x",
+            "valid instructions Instructions Variable Instructions local.get~x"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Variable Instructions local.set~x",
+            "valid instructions Instructions Variable Instructions local.set~x",
+            "exec instructions Instructions Table Instructions table.set~x",
+            "exec instructions Instructions Variable Instructions global.set~x",
+            "exec instructions Instructions Variable Instructions local.get~x"
+        ],
+        "valid_distances": [
+            0.6833056211471558,
+            0.6407834887504578,
+            0.6104426383972168,
+            0.6098856329917908,
+            0.6025409698486328
+        ],
+        "exec_distances": [
+            0.7308444380760193,
+            0.7006117105484009,
+            0.680492639541626,
+            0.6643929481506348,
+            0.6397970914840698
+        ]
+    },
+    "\\LOCALTEE~x": {
+        "valid_titles": [
+            "valid instructions Instructions Variable Instructions local.tee~x",
+            "exec instructions Instructions Variable Instructions local.tee~x",
+            "valid instructions Instructions Variable Instructions local.set~x",
+            "valid instructions Instructions Variable Instructions local.get~x",
+            "exec instructions Instructions Variable Instructions local.set~x"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Variable Instructions local.tee~x",
+            "valid instructions Instructions Variable Instructions local.tee~x",
+            "exec instructions Instructions Variable Instructions local.set~x",
+            "exec instructions Instructions Variable Instructions local.get~x",
+            "exec instructions Instructions Table Instructions table.set~x"
+        ],
+        "valid_distances": [
+            0.7508483529090881,
+            0.7122461795806885,
+            0.5743342041969299,
+            0.558703601360321,
+            0.5517982244491577
+        ],
+        "exec_distances": [
+            0.7832415103912354,
+            0.7393551468849182,
+            0.5905224084854126,
+            0.5634899139404297,
+            0.5369574427604675
+        ]
+    },
+    "\\LOOP~\\blocktype~\\instr^\\ast~\\END": {
+        "valid_titles": [
+            "valid instructions Instructions Control Instructions loop~blocktype~instr^\\ast~end",
+            "exec instructions Instructions Control Instructions loop~blocktype~instr^\\ast~end",
+            "valid instructions Instructions Control Instructions block~blocktype~instr^\\ast~end",
+            "exec instructions Instructions Control Instructions block~blocktype~instr^\\ast~end",
+            "valid instructions Instructions Control Instructions if~blocktype~instr_1^\\ast~else~instr_2^\\ast~end"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Control Instructions loop~blocktype~instr^\\ast~end",
+            "valid instructions Instructions Control Instructions loop~blocktype~instr^\\ast~end",
+            "exec instructions Instructions Control Instructions block~blocktype~instr^\\ast~end",
+            "valid instructions Instructions Control Instructions block~blocktype~instr^\\ast~end",
+            "exec instructions Instructions Control Instructions if~blocktype~instr_1^\\ast~else~instr_2^\\ast~end"
+        ],
+        "valid_distances": [
+            0.779771089553833,
+            0.7320210337638855,
+            0.6890599131584167,
+            0.6608092188835144,
+            0.6544966697692871
+        ],
+        "exec_distances": [
+            0.8265378475189209,
+            0.7952060699462891,
+            0.7561063766479492,
+            0.7035361528396606,
+            0.6838246583938599
+        ]
+    },
+    "\\MEMORYCOPY": {
+        "valid_titles": [
+            "valid instructions Instructions Memory Instructions memory.copy",
+            "exec instructions Instructions Memory Instructions memory.copy",
+            "valid instructions Instructions Memory Instructions memory.size",
+            "text instructions Instructions Memory Instructions",
+            "valid instructions Instructions Memory Instructions v128.load{N}\\_zero~memarg"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Memory Instructions memory.copy",
+            "valid instructions Instructions Memory Instructions memory.copy",
+            "text instructions Instructions Memory Instructions",
+            "exec instructions Instructions Memory Instructions memory.size",
+            "syntax instructions Instructions Memory Instructions"
+        ],
+        "valid_distances": [
+            0.6518807411193848,
+            0.5872825980186462,
+            0.5584594011306763,
+            0.5193060636520386,
+            0.5122019052505493
+        ],
+        "exec_distances": [
+            0.6940872669219971,
+            0.6893016695976257,
+            0.5934932827949524,
+            0.5902866125106812,
+            0.5685594081878662
+        ]
+    },
+    "\\MEMORYFILL": {
+        "valid_titles": [
+            "valid instructions Instructions Memory Instructions memory.fill",
+            "exec instructions Instructions Memory Instructions memory.fill",
+            "valid instructions Instructions Memory Instructions memory.size",
+            "valid instructions Instructions Memory Instructions memory.grow",
+            "valid instructions Instructions Memory Instructions memory.init~x"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Memory Instructions memory.fill",
+            "valid instructions Instructions Memory Instructions memory.fill",
+            "exec instructions Instructions Memory Instructions memory.size",
+            "exec instructions Instructions Table Instructions table.fill~x",
+            "exec instructions Instructions Memory Instructions memory.init~x"
+        ],
+        "valid_distances": [
+            0.6725538969039917,
+            0.6288737058639526,
+            0.5863573551177979,
+            0.5675588846206665,
+            0.542319118976593
+        ],
+        "exec_distances": [
+            0.7413442134857178,
+            0.7282775640487671,
+            0.607873797416687,
+            0.5975319147109985,
+            0.5961396098136902
+        ]
+    },
+    "\\MEMORYGROW": {
+        "valid_titles": [
+            "valid instructions Instructions Memory Instructions memory.grow",
+            "exec instructions Instructions Memory Instructions memory.grow",
+            "valid instructions Instructions Memory Instructions memory.size",
+            "exec instructions Instructions Memory Instructions memory.size",
+            "valid instructions Instructions Memory Instructions memory.init~x"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Memory Instructions memory.grow",
+            "valid instructions Instructions Memory Instructions memory.grow",
+            "exec instructions Instructions Memory Instructions memory.size",
+            "valid instructions Instructions Memory Instructions memory.size",
+            "exec instructions Instructions Table Instructions table.grow~x"
+        ],
+        "valid_distances": [
+            0.7163532376289368,
+            0.6643552184104919,
+            0.6062628626823425,
+            0.5620032548904419,
+            0.5106759071350098
+        ],
+        "exec_distances": [
+            0.7830120921134949,
+            0.7692127823829651,
+            0.6584500074386597,
+            0.6153906583786011,
+            0.5998835563659668
+        ]
+    },
+    "\\MEMORYINIT~x": {
+        "valid_titles": [
+            "valid instructions Instructions Memory Instructions memory.init~x",
+            "exec instructions Instructions Memory Instructions memory.init~x",
+            "valid instructions Instructions Memory Instructions memory.size",
+            "text instructions Instructions Memory Instructions",
+            "valid instructions Instructions Memory Instructions v128.load{N}\\_zero~memarg"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Memory Instructions memory.init~x",
+            "valid instructions Instructions Memory Instructions memory.init~x",
+            "exec instructions Instructions Table Instructions table.init~x~y",
+            "text instructions Instructions Memory Instructions",
+            "exec instructions Instructions Memory Instructions memory.size"
+        ],
+        "valid_distances": [
+            0.750074565410614,
+            0.6989963054656982,
+            0.6281285881996155,
+            0.607877790927887,
+            0.5938456058502197
+        ],
+        "exec_distances": [
+            0.7880089282989502,
+            0.7706625461578369,
+            0.6460660696029663,
+            0.6401102542877197,
+            0.6378653049468994
+        ]
+    },
+    "\\MEMORYSIZE": {
+        "valid_titles": [
+            "valid instructions Instructions Memory Instructions memory.size",
+            "exec instructions Instructions Memory Instructions memory.size",
+            "valid instructions Instructions Memory Instructions memory.grow",
+            "exec instructions Instructions Memory Instructions memory.grow",
+            "valid types Types Memory Types limits"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Memory Instructions memory.size",
+            "valid instructions Instructions Memory Instructions memory.size",
+            "exec instructions Instructions Memory Instructions memory.grow",
+            "valid instructions Instructions Memory Instructions memory.grow",
+            "text instructions Instructions Memory Instructions"
+        ],
+        "valid_distances": [
+            0.6987392902374268,
+            0.6390177011489868,
+            0.5895051956176758,
+            0.5267714262008667,
+            0.5229012966156006
+        ],
+        "exec_distances": [
+            0.777643084526062,
+            0.7381412982940674,
+            0.6525729894638062,
+            0.6438573598861694,
+            0.6106497049331665
+        ]
+    },
+    "\\NOP": {
+        "valid_titles": [
+            "valid instructions Instructions Control Instructions nop",
+            "exec instructions Instructions Control Instructions nop",
+            "valid instructions Instructions Instruction Sequences Empty Instruction Sequence: \\epsilon",
+            "valid instructions Instructions Instruction Sequences Non-empty Instruction Sequence: instr^\\ast~instr_N",
+            "valid instructions Instructions Vector Instructions v128.vvtestop"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Control Instructions nop",
+            "valid instructions Instructions Control Instructions nop",
+            "exec instructions Instructions Control Instructions unreachable",
+            "valid instructions Instructions Instruction Sequences Empty Instruction Sequence: \\epsilon",
+            "exec instructions Instructions Reference Instructions ref{.null}~t"
+        ],
+        "valid_distances": [
+            0.7117413878440857,
+            0.6441757678985596,
+            0.5370019674301147,
+            0.5179632306098938,
+            0.5059693455696106
+        ],
+        "exec_distances": [
+            0.7676098346710205,
+            0.7395540475845337,
+            0.5464326739311218,
+            0.5398694276809692,
+            0.527030885219574
+        ]
+    },
+    "\\REFFUNC~x": {
+        "valid_titles": [
+            "valid instructions Instructions Reference Instructions ref{.func}~x",
+            "exec instructions Instructions Reference Instructions ref{.func}~x",
+            "valid instructions Instructions Control Instructions call~x",
+            "valid instructions Instructions Control Instructions call\\_indirect~x~y",
+            "valid instructions Instructions Reference Instructions ref{.null}~t"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Reference Instructions ref{.func}~x",
+            "valid instructions Instructions Reference Instructions ref{.func}~x",
+            "exec instructions Instructions Control Instructions call~x",
+            "exec instructions Instructions Control Instructions call\\_indirect~x~y",
+            "valid instructions Instructions Control Instructions call\\_indirect~x~y"
+        ],
+        "valid_distances": [
+            0.6842139363288879,
+            0.666001558303833,
+            0.5784632563591003,
+            0.5597750544548035,
+            0.558040976524353
+        ],
+        "exec_distances": [
+            0.7482292652130127,
+            0.6805033683776855,
+            0.6448479890823364,
+            0.6208993196487427,
+            0.6008906364440918
+        ]
+    },
+    "\\REFISNULL": {
+        "valid_titles": [
+            "valid instructions Instructions Reference Instructions ref{.is\\_null}",
+            "exec instructions Instructions Reference Instructions ref{.is\\_null}",
+            "valid instructions Instructions Reference Instructions ref{.null}~t",
+            "exec instructions Instructions Reference Instructions ref{.null}~t",
+            "valid instructions Instructions Expressions Constant Expressions"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Reference Instructions ref{.is\\_null}",
+            "valid instructions Instructions Reference Instructions ref{.is\\_null}",
+            "exec instructions Instructions Reference Instructions ref{.null}~t",
+            "valid instructions Instructions Reference Instructions ref{.null}~t",
+            "exec instructions Instructions Numeric Instructions t.relop"
+        ],
+        "valid_distances": [
+            0.6493597030639648,
+            0.6388499140739441,
+            0.5316548347473145,
+            0.4913489520549774,
+            0.47969532012939453
+        ],
+        "exec_distances": [
+            0.6696474552154541,
+            0.5906867980957031,
+            0.5583814382553101,
+            0.5042214393615723,
+            0.5006634593009949
+        ]
+    },
+    "\\REFNULL~t": {
+        "valid_titles": [
+            "valid instructions Instructions Reference Instructions ref{.null}~t",
+            "exec instructions Instructions Reference Instructions ref{.null}~t",
+            "valid instructions Instructions Reference Instructions ref{.is\\_null}",
+            "exec instructions Instructions Reference Instructions ref{.is\\_null}",
+            "valid instructions Instructions Parametric Instructions select~(t^\\ast)^?"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Reference Instructions ref{.null}~t",
+            "valid instructions Instructions Reference Instructions ref{.null}~t",
+            "exec instructions Instructions Reference Instructions ref{.is\\_null}",
+            "valid instructions Instructions Reference Instructions ref{.is\\_null}",
+            "exec instructions Instructions Parametric Instructions select~(t^\\ast)^?"
+        ],
+        "valid_distances": [
+            0.6989306211471558,
+            0.6498386859893799,
+            0.6423259973526001,
+            0.6136060953140259,
+            0.5335019826889038
+        ],
+        "exec_distances": [
+            0.7462787628173828,
+            0.6915788650512695,
+            0.653976559638977,
+            0.5878123641014099,
+            0.5635993480682373
+        ]
+    },
+    "\\RETURN": {
+        "valid_titles": [
+            "valid instructions Instructions Control Instructions return",
+            "exec instructions Instructions Control Instructions return",
+            "valid instructions Instructions Expressions instr^\\ast~end",
+            "valid instructions Instructions Expressions Constant Expressions",
+            "valid instructions Instructions Control Instructions block~blocktype~instr^\\ast~end"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Control Instructions return",
+            "exec instructions Instructions Function Calls Returning from a function",
+            "valid instructions Instructions Control Instructions return",
+            "exec instructions Instructions Blocks Exiting instr^\\ast with label L",
+            "exec instructions Instructions Blocks Entering instr^\\ast with label L"
+        ],
+        "valid_distances": [
+            0.5904654860496521,
+            0.5512381792068481,
+            0.5162231922149658,
+            0.5002190470695496,
+            0.4907037615776062
+        ],
+        "exec_distances": [
+            0.6780707836151123,
+            0.5980553030967712,
+            0.590356707572937,
+            0.5572893619537354,
+            0.5497332811355591
+        ]
+    },
+    "\\SELECT~(t^\\ast)^?": {
+        "valid_titles": [
+            "valid instructions Instructions Parametric Instructions select~(t^\\ast)^?",
+            "exec instructions Instructions Parametric Instructions select~(t^\\ast)^?",
+            "valid instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "valid instructions Instructions Expressions instr^\\ast~end",
+            "valid instructions Instructions Reference Instructions ref{.null}~t"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Parametric Instructions select~(t^\\ast)^?",
+            "valid instructions Instructions Parametric Instructions select~(t^\\ast)^?",
+            "exec instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "exec instructions Instructions Reference Instructions ref{.null}~t",
+            "valid instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?"
+        ],
+        "valid_distances": [
+            0.777157187461853,
+            0.7314233183860779,
+            0.5579748153686523,
+            0.5427308082580566,
+            0.5411856174468994
+        ],
+        "exec_distances": [
+            0.8072431087493896,
+            0.7792699337005615,
+            0.5526430606842041,
+            0.5390803813934326,
+            0.5371567010879517
+        ]
+    },
+    "\\TABLECOPY~x~y": {
+        "valid_titles": [
+            "valid instructions Instructions Table Instructions table.copy~x~y",
+            "exec instructions Instructions Table Instructions table.copy~x~y",
+            "valid instructions Instructions Control Instructions br\\_table~l^\\ast~l_N",
+            "valid instructions Instructions Table Instructions table.init~x~y",
+            "valid instructions Instructions Table Instructions table.set~x"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Table Instructions table.copy~x~y",
+            "valid instructions Instructions Table Instructions table.copy~x~y",
+            "exec instructions Instructions Table Instructions table.init~x~y",
+            "exec instructions Instructions Control Instructions br\\_table~l^\\ast~l_N",
+            "exec instructions Instructions Table Instructions table.set~x"
+        ],
+        "valid_distances": [
+            0.6889015436172485,
+            0.6675732731819153,
+            0.5604214668273926,
+            0.5567998886108398,
+            0.549197256565094
+        ],
+        "exec_distances": [
+            0.7459648251533508,
+            0.7085317373275757,
+            0.6081209182739258,
+            0.6020036935806274,
+            0.5983256101608276
+        ]
+    },
+    "\\TABLEFILL~x": {
+        "valid_titles": [
+            "valid instructions Instructions Table Instructions table.fill~x",
+            "exec instructions Instructions Table Instructions table.fill~x",
+            "valid instructions Instructions Control Instructions br\\_table~l^\\ast~l_N",
+            "valid instructions Instructions Table Instructions table.set~x",
+            "valid instructions Instructions Table Instructions table.get~x"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Table Instructions table.fill~x",
+            "valid instructions Instructions Table Instructions table.fill~x",
+            "exec instructions Instructions Control Instructions br\\_table~l^\\ast~l_N",
+            "exec instructions Instructions Table Instructions table.set~x",
+            "exec instructions Instructions Table Instructions table.get~x"
+        ],
+        "valid_distances": [
+            0.6873780488967896,
+            0.6428365707397461,
+            0.6062147617340088,
+            0.6020383834838867,
+            0.5924813747406006
+        ],
+        "exec_distances": [
+            0.7208645939826965,
+            0.6911949515342712,
+            0.6390239000320435,
+            0.6384103298187256,
+            0.6269031763076782
+        ]
+    },
+    "\\TABLEGET~x": {
+        "valid_titles": [
+            "valid instructions Instructions Table Instructions table.get~x",
+            "exec instructions Instructions Table Instructions table.get~x",
+            "valid instructions Instructions Table Instructions table.set~x",
+            "exec instructions Instructions Table Instructions table.set~x",
+            "valid instructions Instructions Control Instructions br\\_table~l^\\ast~l_N"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Table Instructions table.get~x",
+            "valid instructions Instructions Table Instructions table.get~x",
+            "exec instructions Instructions Table Instructions table.set~x",
+            "valid instructions Instructions Table Instructions table.set~x",
+            "exec instructions Instructions Control Instructions br\\_table~l^\\ast~l_N"
+        ],
+        "valid_distances": [
+            0.6984734535217285,
+            0.6460784673690796,
+            0.6455058455467224,
+            0.6043140888214111,
+            0.6020969152450562
+        ],
+        "exec_distances": [
+            0.7422835826873779,
+            0.7080891728401184,
+            0.6959664821624756,
+            0.6570461988449097,
+            0.644531786441803
+        ]
+    },
+    "\\TABLEGROW~x": {
+        "valid_titles": [
+            "valid instructions Instructions Table Instructions table.grow~x",
+            "exec instructions Instructions Table Instructions table.grow~x",
+            "valid instructions Instructions Table Instructions table.size~x",
+            "valid instructions Instructions Control Instructions br\\_table~l^\\ast~l_N",
+            "valid instructions Instructions Table Instructions table.set~x"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Table Instructions table.grow~x",
+            "valid instructions Instructions Table Instructions table.grow~x",
+            "exec instructions Instructions Table Instructions table.size~x",
+            "exec instructions Instructions Control Instructions br\\_table~l^\\ast~l_N",
+            "valid instructions Instructions Table Instructions table.size~x"
+        ],
+        "valid_distances": [
+            0.7088242173194885,
+            0.6797271370887756,
+            0.6016234159469604,
+            0.5887260437011719,
+            0.5637560486793518
+        ],
+        "exec_distances": [
+            0.7589508891105652,
+            0.7145026922225952,
+            0.6432666778564453,
+            0.6125664710998535,
+            0.606985330581665
+        ]
+    },
+    "\\TABLEINIT~x~y": {
+        "valid_titles": [
+            "valid instructions Instructions Table Instructions table.init~x~y",
+            "exec instructions Instructions Table Instructions table.init~x~y",
+            "valid instructions Instructions Control Instructions br\\_table~l^\\ast~l_N",
+            "valid instructions Instructions Table Instructions table.set~x",
+            "valid instructions Instructions Table Instructions table.size~x"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Table Instructions table.init~x~y",
+            "valid instructions Instructions Table Instructions table.init~x~y",
+            "exec instructions Instructions Table Instructions table.set~x",
+            "exec instructions Instructions Control Instructions br\\_table~l^\\ast~l_N",
+            "exec instructions Instructions Table Instructions table.copy~x~y"
+        ],
+        "valid_distances": [
+            0.7239782810211182,
+            0.6838076114654541,
+            0.6185680627822876,
+            0.6177637577056885,
+            0.5865744352340698
+        ],
+        "exec_distances": [
+            0.7672176361083984,
+            0.7401788234710693,
+            0.6529049873352051,
+            0.6474287509918213,
+            0.6293457746505737
+        ]
+    },
+    "\\TABLESET~x": {
+        "valid_titles": [
+            "valid instructions Instructions Table Instructions table.set~x",
+            "exec instructions Instructions Table Instructions table.set~x",
+            "valid instructions Instructions Control Instructions br\\_table~l^\\ast~l_N",
+            "valid instructions Instructions Table Instructions table.get~x",
+            "valid instructions Instructions Table Instructions table.init~x~y"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Table Instructions table.set~x",
+            "valid instructions Instructions Table Instructions table.set~x",
+            "exec instructions Instructions Control Instructions br\\_table~l^\\ast~l_N",
+            "exec instructions Instructions Table Instructions table.get~x",
+            "exec instructions Instructions Table Instructions table.init~x~y"
+        ],
+        "valid_distances": [
+            0.6903988122940063,
+            0.6482906341552734,
+            0.6180770397186279,
+            0.5907100439071655,
+            0.5853832960128784
+        ],
+        "exec_distances": [
+            0.7470957040786743,
+            0.711768627166748,
+            0.6530662178993225,
+            0.6495418548583984,
+            0.6387197971343994
+        ]
+    },
+    "\\TABLESIZE~x": {
+        "valid_titles": [
+            "valid instructions Instructions Table Instructions table.size~x",
+            "exec instructions Instructions Table Instructions table.size~x",
+            "valid instructions Instructions Table Instructions table.set~x",
+            "valid instructions Instructions Control Instructions br\\_table~l^\\ast~l_N",
+            "valid instructions Instructions Table Instructions table.grow~x"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Table Instructions table.size~x",
+            "valid instructions Instructions Table Instructions table.size~x",
+            "exec instructions Instructions Table Instructions table.set~x",
+            "exec instructions Instructions Table Instructions table.grow~x",
+            "exec instructions Instructions Control Instructions br\\_table~l^\\ast~l_N"
+        ],
+        "valid_distances": [
+            0.7233282923698425,
+            0.671554446220398,
+            0.6039772629737854,
+            0.5949679613113403,
+            0.580718457698822
+        ],
+        "exec_distances": [
+            0.7686070203781128,
+            0.745461642742157,
+            0.6478220224380493,
+            0.6444439888000488,
+            0.6251837611198425
+        ]
+    },
+    "\\UNREACHABLE": {
+        "valid_titles": [
+            "valid instructions Instructions Control Instructions unreachable",
+            "exec instructions Instructions Control Instructions unreachable",
+            "valid instructions Instructions Reference Instructions ref{.null}~t",
+            "valid instructions Instructions Reference Instructions ref{.is\\_null}",
+            "exec instructions Instructions Reference Instructions ref{.is\\_null}"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Control Instructions unreachable",
+            "valid instructions Instructions Control Instructions unreachable",
+            "exec instructions Instructions Blocks Exiting instr^\\ast with label L",
+            "exec instructions Instructions Reference Instructions ref{.null}~t",
+            "exec instructions Instructions Blocks Entering instr^\\ast with label L"
+        ],
+        "valid_distances": [
+            0.7087914347648621,
+            0.6735128164291382,
+            0.5121244788169861,
+            0.5074821710586548,
+            0.49623382091522217
+        ],
+        "exec_distances": [
+            0.7774008512496948,
+            0.7048258185386658,
+            0.5427541732788086,
+            0.5270135998725891,
+            0.5174901485443115
+        ]
+    },
+    "\\V128\\K{.}\\ANYTRUE": {
+        "valid_titles": [
+            "exec instructions Instructions Vector Instructions v128.any\\_true",
+            "valid instructions Instructions Vector Instructions v128.vvtestop",
+            "valid instructions Instructions Vector Instructions v128.vvternop",
+            "valid instructions Instructions Vector Instructions v128.vvbinop",
+            "valid instructions Instructions Vector Instructions v128.vvunop"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Vector Instructions v128.any\\_true",
+            "valid instructions Instructions Vector Instructions v128.vvtestop",
+            "exec instructions Instructions Vector Instructions v128.vvternop",
+            "valid instructions Instructions Vector Instructions v128.vvternop",
+            "exec instructions Instructions Vector Instructions v128.vvbinop"
+        ],
+        "valid_distances": [
+            0.6595458984375,
+            0.6115580797195435,
+            0.5977014899253845,
+            0.5945243835449219,
+            0.5881156921386719
+        ],
+        "exec_distances": [
+            0.72428297996521,
+            0.5998319983482361,
+            0.585139811038971,
+            0.5850809812545776,
+            0.5763996839523315
+        ]
+    },
+    "\\V128\\K{.}\\LOAD{M}\\K{x}N\\_\\sx~\\memarg": {
+        "valid_titles": [
+            "valid instructions Instructions Memory Instructions v128.load{N}xM\\_sx~memarg",
+            "valid instructions Instructions Memory Instructions t.load{N}\\_sx~memarg",
+            "exec instructions Instructions Memory Instructions v128.load{M}xN\\_sx~memarg",
+            "valid instructions Instructions Memory Instructions v128.load{N}\\_zero~memarg",
+            "valid instructions Instructions Memory Instructions v128.load{N}\\_lane~memarg~laneidx"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Memory Instructions v128.load{M}xN\\_sx~memarg",
+            "valid instructions Instructions Memory Instructions v128.load{N}xM\\_sx~memarg",
+            "valid instructions Instructions Memory Instructions t.load{N}\\_sx~memarg",
+            "exec instructions Instructions Memory Instructions v128.load{N}\\_lane~memarg~x",
+            "exec instructions Instructions Memory Instructions t.load~memarg and t.load{N}\\_sx~memarg"
+        ],
+        "valid_distances": [
+            0.759616494178772,
+            0.7229605913162231,
+            0.7145426273345947,
+            0.675230860710144,
+            0.666556715965271
+        ],
+        "exec_distances": [
+            0.7801539897918701,
+            0.7738569974899292,
+            0.7333770990371704,
+            0.7058172225952148,
+            0.6948025226593018
+        ]
+    },
+    "\\V128\\K{.}\\LOAD{N}\\K{\\_lane}~\\memarg~x": {
+        "valid_titles": [
+            "valid instructions Instructions Memory Instructions v128.load{N}\\_lane~memarg~laneidx",
+            "exec instructions Instructions Memory Instructions v128.load{N}\\_lane~memarg~x",
+            "valid instructions Instructions Memory Instructions v128.store{N}\\_lane~memarg~laneidx",
+            "exec instructions Instructions Memory Instructions v128.store{N}\\_lane~memarg~x",
+            "valid instructions Instructions Memory Instructions v128.load{N}xM\\_sx~memarg"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Memory Instructions v128.load{N}\\_lane~memarg~x",
+            "valid instructions Instructions Memory Instructions v128.load{N}\\_lane~memarg~laneidx",
+            "exec instructions Instructions Memory Instructions v128.store{N}\\_lane~memarg~x",
+            "valid instructions Instructions Memory Instructions v128.store{N}\\_lane~memarg~laneidx",
+            "valid instructions Instructions Memory Instructions v128.load{N}xM\\_sx~memarg"
+        ],
+        "valid_distances": [
+            0.7828840613365173,
+            0.7552264928817749,
+            0.7295534610748291,
+            0.7243552207946777,
+            0.6907673478126526
+        ],
+        "exec_distances": [
+            0.8265392780303955,
+            0.8039352893829346,
+            0.7921330332756042,
+            0.7474061250686646,
+            0.7018047571182251
+        ]
+    },
+    "\\V128\\K{.}\\LOAD{N}\\K{\\_splat}~\\memarg": {
+        "valid_titles": [
+            "valid instructions Instructions Memory Instructions v128.load{N}\\_splat~memarg",
+            "exec instructions Instructions Memory Instructions v128.load{N}\\_splat~memarg",
+            "valid instructions Instructions Memory Instructions v128.load{N}xM\\_sx~memarg",
+            "valid instructions Instructions Memory Instructions t.load{N}\\_sx~memarg",
+            "valid instructions Instructions Memory Instructions v128.load{N}\\_zero~memarg"
+        ],
+        "exec_titles": [
+            "valid instructions Instructions Memory Instructions v128.load{N}\\_splat~memarg",
+            "exec instructions Instructions Memory Instructions v128.load{N}\\_splat~memarg",
+            "valid instructions Instructions Memory Instructions v128.load{N}xM\\_sx~memarg",
+            "valid instructions Instructions Memory Instructions t.load{N}\\_sx~memarg",
+            "exec instructions Instructions Memory Instructions v128.load{M}xN\\_sx~memarg"
+        ],
+        "valid_distances": [
+            0.7706758975982666,
+            0.7146649956703186,
+            0.6646866798400879,
+            0.6570090055465698,
+            0.6545442342758179
+        ],
+        "exec_distances": [
+            0.8039357662200928,
+            0.7908831834793091,
+            0.6672031283378601,
+            0.6664775609970093,
+            0.6556280851364136
+        ]
+    },
+    "\\V128\\K{.}\\LOAD{N}\\K{\\_zero}~\\memarg": {
+        "valid_titles": [
+            "valid instructions Instructions Memory Instructions v128.load{N}\\_zero~memarg",
+            "exec instructions Instructions Memory Instructions v128.load{N}\\_zero~memarg",
+            "valid instructions Instructions Memory Instructions v128.load{N}xM\\_sx~memarg",
+            "valid instructions Instructions Memory Instructions v128.load{N}\\_lane~memarg~laneidx",
+            "valid instructions Instructions Memory Instructions t.load{N}\\_sx~memarg"
+        ],
+        "exec_titles": [
+            "valid instructions Instructions Memory Instructions v128.load{N}\\_zero~memarg",
+            "exec instructions Instructions Memory Instructions v128.load{N}\\_zero~memarg",
+            "valid instructions Instructions Memory Instructions v128.load{N}xM\\_sx~memarg",
+            "exec instructions Instructions Memory Instructions v128.load{M}xN\\_sx~memarg",
+            "exec instructions Instructions Memory Instructions v128.load{N}\\_splat~memarg"
+        ],
+        "valid_distances": [
+            0.7679316997528076,
+            0.7080907225608826,
+            0.6655790209770203,
+            0.6447556614875793,
+            0.641875147819519
+        ],
+        "exec_distances": [
+            0.7839117646217346,
+            0.7829576730728149,
+            0.653796911239624,
+            0.6429696679115295,
+            0.6355177164077759
+        ]
+    },
+    "\\V128\\K{.}\\STORE{N}\\K{\\_lane}~\\memarg~x": {
+        "valid_titles": [
+            "valid instructions Instructions Memory Instructions v128.store{N}\\_lane~memarg~laneidx",
+            "exec instructions Instructions Memory Instructions v128.store{N}\\_lane~memarg~x",
+            "valid instructions Instructions Memory Instructions v128.load{N}\\_lane~memarg~laneidx",
+            "exec instructions Instructions Memory Instructions v128.load{N}\\_lane~memarg~x",
+            "valid instructions Instructions Memory Instructions v128.load{N}xM\\_sx~memarg"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Memory Instructions v128.store{N}\\_lane~memarg~x",
+            "valid instructions Instructions Memory Instructions v128.store{N}\\_lane~memarg~laneidx",
+            "exec instructions Instructions Memory Instructions v128.load{N}\\_lane~memarg~x",
+            "valid instructions Instructions Memory Instructions v128.load{N}\\_lane~memarg~laneidx",
+            "valid instructions Instructions Memory Instructions t.store{N}~memarg"
+        ],
+        "valid_distances": [
+            0.7990756034851074,
+            0.7748435735702515,
+            0.7428085803985596,
+            0.7102161645889282,
+            0.6578463912010193
+        ],
+        "exec_distances": [
+            0.8393265008926392,
+            0.8112057447433472,
+            0.7735503911972046,
+            0.7536895871162415,
+            0.6646082997322083
+        ]
+    },
+    "\\V128\\K{.}\\VCONST~c": {
+        "valid_titles": [
+            "valid instructions Instructions Vector Instructions v128.const~c",
+            "valid instructions Instructions Numeric Instructions t.const~c",
+            "exec instructions Instructions Vector Instructions v128.const~c",
+            "exec instructions Instructions Numeric Instructions t.const~c",
+            "valid instructions Instructions Vector Instructions v128.vvternop"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Vector Instructions v128.const~c",
+            "valid instructions Instructions Vector Instructions v128.const~c",
+            "exec instructions Instructions Numeric Instructions t.const~c",
+            "valid instructions Instructions Numeric Instructions t.const~c",
+            "exec instructions Instructions Vector Instructions v128.vvternop"
+        ],
+        "valid_distances": [
+            0.699397087097168,
+            0.6394850015640259,
+            0.6277744770050049,
+            0.585910439491272,
+            0.5610358715057373
+        ],
+        "exec_distances": [
+            0.7044997215270996,
+            0.6867772340774536,
+            0.6560837030410767,
+            0.6413764357566833,
+            0.5741209387779236
+        ]
+    },
+    "\\V128\\K{.}\\vvbinop": {
+        "valid_titles": [
+            "valid instructions Instructions Vector Instructions v128.vvbinop",
+            "valid instructions Instructions Vector Instructions v128.vvunop",
+            "valid instructions Instructions Vector Instructions v128.vvternop",
+            "exec instructions Instructions Vector Instructions v128.vvbinop",
+            "valid instructions Instructions Vector Instructions v128.vvtestop"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Vector Instructions v128.vvbinop",
+            "valid instructions Instructions Vector Instructions v128.vvbinop",
+            "exec instructions Instructions Vector Instructions v128.vvternop",
+            "exec instructions Instructions Vector Instructions v128.vvunop",
+            "valid instructions Instructions Vector Instructions v128.vvternop"
+        ],
+        "valid_distances": [
+            0.7275032997131348,
+            0.6815716028213501,
+            0.6734440326690674,
+            0.6552305817604065,
+            0.6495330333709717
+        ],
+        "exec_distances": [
+            0.7438079118728638,
+            0.7182068228721619,
+            0.7046175003051758,
+            0.697392463684082,
+            0.6761430501937866
+        ]
+    },
+    "\\V128\\K{.}\\vvternop": {
+        "valid_titles": [
+            "valid instructions Instructions Vector Instructions v128.vvternop",
+            "valid instructions Instructions Vector Instructions v128.vvtestop",
+            "valid instructions Instructions Vector Instructions v128.vvunop",
+            "valid instructions Instructions Vector Instructions v128.vvbinop",
+            "exec instructions Instructions Vector Instructions v128.vvternop"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Vector Instructions v128.vvternop",
+            "valid instructions Instructions Vector Instructions v128.vvternop",
+            "exec instructions Instructions Vector Instructions v128.vvunop",
+            "exec instructions Instructions Vector Instructions v128.vvbinop",
+            "valid instructions Instructions Vector Instructions v128.vvtestop"
+        ],
+        "valid_distances": [
+            0.7257475852966309,
+            0.6756865978240967,
+            0.6697616577148438,
+            0.6658511161804199,
+            0.6589114665985107
+        ],
+        "exec_distances": [
+            0.7457938194274902,
+            0.7226773500442505,
+            0.6773362159729004,
+            0.6755378246307373,
+            0.6684207916259766
+        ]
+    },
+    "\\V128\\K{.}\\vvunop": {
+        "valid_titles": [
+            "valid instructions Instructions Vector Instructions v128.vvunop",
+            "valid instructions Instructions Vector Instructions v128.vvternop",
+            "valid instructions Instructions Vector Instructions v128.vvbinop",
+            "exec instructions Instructions Vector Instructions v128.vvunop",
+            "valid instructions Instructions Vector Instructions v128.vvtestop"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Vector Instructions v128.vvunop",
+            "valid instructions Instructions Vector Instructions v128.vvunop",
+            "exec instructions Instructions Vector Instructions v128.vvternop",
+            "exec instructions Instructions Vector Instructions v128.vvbinop",
+            "valid instructions Instructions Vector Instructions v128.vvternop"
+        ],
+        "valid_distances": [
+            0.7510851621627808,
+            0.6983945369720459,
+            0.6960282921791077,
+            0.6758406758308411,
+            0.668311357498169
+        ],
+        "exec_distances": [
+            0.7657147645950317,
+            0.7467290163040161,
+            0.703830361366272,
+            0.6932657957077026,
+            0.689008355140686
+        ]
+    },
+    "\\shape\\K{.}\\ALLTRUE": {
+        "valid_titles": [
+            "exec instructions Instructions Vector Instructions shape.all\\_true",
+            "valid instructions Instructions Vector Instructions shape.vtestop",
+            "valid instructions Instructions Vector Instructions ishape_1.dot\\_ishape_2\\_s",
+            "valid instructions Instructions Vector Instructions shape.vcvtop\\_half^?\\_shape\\_sx^?\\_zero^?",
+            "valid instructions Instructions Vector Instructions ishape_1.narrow\\_ishape_2\\_sx"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Vector Instructions shape.all\\_true",
+            "valid instructions Instructions Vector Instructions shape.vtestop",
+            "valid instructions Instructions Vector Instructions ishape_1.dot\\_ishape_2\\_s",
+            "exec instructions Instructions Vector Instructions v128.any\\_true",
+            "valid instructions Instructions Vector Instructions shape.vcvtop\\_half^?\\_shape\\_sx^?\\_zero^?"
+        ],
+        "valid_distances": [
+            0.6334490776062012,
+            0.5522960424423218,
+            0.5413771271705627,
+            0.5374531745910645,
+            0.5209177732467651
+        ],
+        "exec_distances": [
+            0.6821545958518982,
+            0.5394501686096191,
+            0.5317764282226562,
+            0.5299202799797058,
+            0.5284954309463501
+        ]
+    },
+    "\\shape\\K{.}\\REPLACELANE~x": {
+        "valid_titles": [
+            "valid instructions Instructions Vector Instructions shape.replace\\_lane~laneidx",
+            "exec instructions Instructions Vector Instructions shape.replace\\_lane~x",
+            "valid instructions Instructions Vector Instructions shape.extract\\_lane\\_sx^?~laneidx",
+            "valid instructions Instructions Vector Instructions ishape_1.narrow\\_ishape_2\\_sx",
+            "valid instructions Instructions Vector Instructions shape.vcvtop\\_half^?\\_shape\\_sx^?\\_zero^?"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Vector Instructions shape.replace\\_lane~x",
+            "valid instructions Instructions Vector Instructions shape.replace\\_lane~laneidx",
+            "valid instructions Instructions Vector Instructions shape.extract\\_lane\\_sx^?~laneidx",
+            "exec instructions Instructions Control Instructions call~x",
+            "exec instructions Instructions Vector Instructions t_1xN.extract\\_lane\\_sx^?~x"
+        ],
+        "valid_distances": [
+            0.6483373641967773,
+            0.6288274526596069,
+            0.6163336634635925,
+            0.5557917952537537,
+            0.5533183217048645
+        ],
+        "exec_distances": [
+            0.701185941696167,
+            0.6510889530181885,
+            0.5899549126625061,
+            0.5615361928939819,
+            0.5524073243141174
+        ]
+    },
+    "\\shape\\K{.}\\SPLAT": {
+        "valid_titles": [
+            "valid instructions Instructions Vector Instructions shape.splat",
+            "exec instructions Instructions Vector Instructions shape.splat",
+            "valid instructions Instructions Vector Instructions ishape_1.dot\\_ishape_2\\_s",
+            "valid instructions Instructions Vector Instructions shape.vcvtop\\_half^?\\_shape\\_sx^?\\_zero^?",
+            "valid instructions Instructions Memory Instructions v128.load{N}\\_splat~memarg"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Vector Instructions shape.splat",
+            "valid instructions Instructions Vector Instructions shape.splat",
+            "exec instructions Instructions Memory Instructions v128.load{N}\\_splat~memarg",
+            "valid instructions Instructions Vector Instructions ishape_1.dot\\_ishape_2\\_s",
+            "valid instructions Instructions Memory Instructions v128.load{N}\\_splat~memarg"
+        ],
+        "valid_distances": [
+            0.6969391703605652,
+            0.6294527053833008,
+            0.5657327175140381,
+            0.5587177872657776,
+            0.5362989902496338
+        ],
+        "exec_distances": [
+            0.7159690260887146,
+            0.6902009844779968,
+            0.557537853717804,
+            0.5553827881813049,
+            0.5490366220474243
+        ]
+    },
+    "\\shape\\K{.}\\vbinop": {
+        "valid_titles": [
+            "valid instructions Instructions Vector Instructions shape.vbinop",
+            "exec instructions Instructions Vector Instructions shape.vbinop",
+            "valid instructions Instructions Vector Instructions shape.vcvtop\\_half^?\\_shape\\_sx^?\\_zero^?",
+            "valid instructions Instructions Vector Instructions ishape_1.dot\\_ishape_2\\_s",
+            "valid instructions Instructions Vector Instructions shape.vunop"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Vector Instructions shape.vbinop",
+            "valid instructions Instructions Vector Instructions shape.vbinop",
+            "exec instructions Instructions Vector Instructions shape.vunop",
+            "valid instructions Instructions Vector Instructions ishape_1.dot\\_ishape_2\\_s",
+            "valid instructions Instructions Vector Instructions shape.vcvtop\\_half^?\\_shape\\_sx^?\\_zero^?"
+        ],
+        "valid_distances": [
+            0.6691964864730835,
+            0.6232035160064697,
+            0.6093006730079651,
+            0.6069389581680298,
+            0.5942664742469788
+        ],
+        "exec_distances": [
+            0.6622799038887024,
+            0.6252658367156982,
+            0.6247173547744751,
+            0.597769021987915,
+            0.5963335633277893
+        ]
+    },
+    "\\shape\\K{.}\\vunop": {
+        "valid_titles": [
+            "valid instructions Instructions Vector Instructions shape.vunop",
+            "exec instructions Instructions Vector Instructions shape.vunop",
+            "valid instructions Instructions Vector Instructions shape.vbinop",
+            "valid instructions Instructions Numeric Instructions t.unop",
+            "valid instructions Instructions Vector Instructions shape.vtestop"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Vector Instructions shape.vunop",
+            "valid instructions Instructions Vector Instructions shape.vunop",
+            "exec instructions Instructions Vector Instructions shape.vbinop",
+            "valid instructions Instructions Vector Instructions shape.vbinop",
+            "exec instructions Instructions Numeric Instructions t.unop"
+        ],
+        "valid_distances": [
+            0.7059352397918701,
+            0.657986044883728,
+            0.6523443460464478,
+            0.6288906335830688,
+            0.611119270324707
+        ],
+        "exec_distances": [
+            0.7306397557258606,
+            0.7020993232727051,
+            0.6446284651756287,
+            0.6151735782623291,
+            0.6046663522720337
+        ]
+    },
+    "t\\K{.}\\CONST~c": {
+        "valid_titles": [
+            "valid instructions Instructions Numeric Instructions t.const~c",
+            "exec instructions Instructions Numeric Instructions t.const~c",
+            "valid instructions Instructions Vector Instructions v128.const~c",
+            "valid instructions Instructions Reference Instructions ref{.null}~t",
+            "valid instructions Instructions Expressions Constant Expressions"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Numeric Instructions t.const~c",
+            "valid instructions Instructions Numeric Instructions t.const~c",
+            "exec instructions Instructions Vector Instructions v128.const~c",
+            "valid instructions Instructions Vector Instructions v128.const~c",
+            "exec instructions Instructions Reference Instructions ref{.null}~t"
+        ],
+        "valid_distances": [
+            0.6367473006248474,
+            0.5895366668701172,
+            0.5724380016326904,
+            0.5236712694168091,
+            0.5205367207527161
+        ],
+        "exec_distances": [
+            0.6623849272727966,
+            0.6458553671836853,
+            0.5668289065361023,
+            0.5511415600776672,
+            0.5195485353469849
+        ]
+    },
+    "t\\K{.}\\LOAD~\\memarg` and :math:`t\\K{.}\\LOAD{N}\\K{\\_}\\sx~\\memarg": {
+        "valid_titles": [
+            "valid instructions Instructions Memory Instructions t.load{N}\\_sx~memarg",
+            "exec instructions Instructions Memory Instructions t.load~memarg and t.load{N}\\_sx~memarg",
+            "valid instructions Instructions Memory Instructions t.load~memarg",
+            "valid instructions Instructions Memory Instructions v128.load{N}xM\\_sx~memarg",
+            "valid instructions Instructions Memory Instructions v128.load{N}\\_zero~memarg"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Memory Instructions t.load~memarg and t.load{N}\\_sx~memarg",
+            "valid instructions Instructions Memory Instructions t.load{N}\\_sx~memarg",
+            "valid instructions Instructions Memory Instructions t.load~memarg",
+            "exec instructions Instructions Memory Instructions t.store~memarg and t.store{N}~memarg",
+            "valid instructions Instructions Memory Instructions t.store{N}~memarg"
+        ],
+        "valid_distances": [
+            0.7276427745819092,
+            0.7084176540374756,
+            0.6765866279602051,
+            0.6383761167526245,
+            0.6314281225204468
+        ],
+        "exec_distances": [
+            0.7697862982749939,
+            0.7471503019332886,
+            0.6774888634681702,
+            0.669143557548523,
+            0.6595140099525452
+        ]
+    },
+    "t\\K{.}\\STORE~\\memarg` and :math:`t\\K{.}\\STORE{N}~\\memarg": {
+        "valid_titles": [
+            "valid instructions Instructions Memory Instructions t.store{N}~memarg",
+            "exec instructions Instructions Memory Instructions t.store~memarg and t.store{N}~memarg",
+            "valid instructions Instructions Memory Instructions t.store~memarg",
+            "valid instructions Instructions Memory Instructions t.load{N}\\_sx~memarg",
+            "valid instructions Instructions Memory Instructions v128.store{N}\\_lane~memarg~laneidx"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Memory Instructions t.store~memarg and t.store{N}~memarg",
+            "valid instructions Instructions Memory Instructions t.store{N}~memarg",
+            "valid instructions Instructions Memory Instructions t.store~memarg",
+            "exec instructions Instructions Memory Instructions t.load~memarg and t.load{N}\\_sx~memarg",
+            "valid instructions Instructions Memory Instructions t.load{N}\\_sx~memarg"
+        ],
+        "valid_distances": [
+            0.7384978532791138,
+            0.7097362279891968,
+            0.6946166753768921,
+            0.6293588280677795,
+            0.6256575584411621
+        ],
+        "exec_distances": [
+            0.7821033000946045,
+            0.76993328332901,
+            0.7028903961181641,
+            0.6737719774246216,
+            0.63991379737854
+        ]
+    },
+    "t\\K{.}\\binop": {
+        "valid_titles": [
+            "valid instructions Instructions Numeric Instructions t.binop",
+            "exec instructions Instructions Numeric Instructions t.binop",
+            "valid instructions Instructions Numeric Instructions t.unop",
+            "valid instructions Instructions Numeric Instructions t.testop",
+            "exec instructions Instructions Numeric Instructions t.unop"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Numeric Instructions t.binop",
+            "valid instructions Instructions Numeric Instructions t.binop",
+            "exec instructions Instructions Numeric Instructions t.unop",
+            "exec instructions Instructions Numeric Instructions t.testop",
+            "valid instructions Instructions Numeric Instructions t.unop"
+        ],
+        "valid_distances": [
+            0.6822339296340942,
+            0.6270642280578613,
+            0.6005833148956299,
+            0.5961805582046509,
+            0.5568129420280457
+        ],
+        "exec_distances": [
+            0.6805951595306396,
+            0.6519621014595032,
+            0.6043010354042053,
+            0.5842713117599487,
+            0.5668582916259766
+        ]
+    },
+    "t\\K{.}\\relop": {
+        "valid_titles": [
+            "valid instructions Instructions Numeric Instructions t.relop",
+            "exec instructions Instructions Numeric Instructions t.relop",
+            "valid instructions Instructions Numeric Instructions t.testop",
+            "valid instructions Instructions Numeric Instructions t.binop",
+            "valid instructions Instructions Numeric Instructions t.unop"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Numeric Instructions t.relop",
+            "valid instructions Instructions Numeric Instructions t.relop",
+            "exec instructions Instructions Numeric Instructions t.binop",
+            "exec instructions Instructions Numeric Instructions t.unop",
+            "exec instructions Instructions Numeric Instructions t.testop"
+        ],
+        "valid_distances": [
+            0.6869252324104309,
+            0.6403132677078247,
+            0.5659477710723877,
+            0.5657270550727844,
+            0.553458571434021
+        ],
+        "exec_distances": [
+            0.6919335126876831,
+            0.6560434103012085,
+            0.564794659614563,
+            0.5587294697761536,
+            0.5568157434463501
+        ]
+    },
+    "t\\K{.}\\testop": {
+        "valid_titles": [
+            "valid instructions Instructions Numeric Instructions t.testop",
+            "exec instructions Instructions Numeric Instructions t.testop",
+            "valid instructions Instructions Numeric Instructions t.unop",
+            "valid instructions Instructions Numeric Instructions t.binop",
+            "valid instructions Instructions Vector Instructions v128.vvtestop"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Numeric Instructions t.testop",
+            "valid instructions Instructions Numeric Instructions t.testop",
+            "exec instructions Instructions Numeric Instructions t.unop",
+            "exec instructions Instructions Numeric Instructions t.binop",
+            "exec instructions Instructions Numeric Instructions t.relop"
+        ],
+        "valid_distances": [
+            0.6896452903747559,
+            0.6589202880859375,
+            0.5682545304298401,
+            0.5597227215766907,
+            0.5532625317573547
+        ],
+        "exec_distances": [
+            0.7069785594940186,
+            0.6784616708755493,
+            0.5830658674240112,
+            0.5705526471138,
+            0.5580463409423828
+        ]
+    },
+    "t\\K{.}\\unop": {
+        "valid_titles": [
+            "valid instructions Instructions Numeric Instructions t.unop",
+            "exec instructions Instructions Numeric Instructions t.unop",
+            "valid instructions Instructions Numeric Instructions t.testop",
+            "valid instructions Instructions Reference Instructions ref{.null}~t",
+            "valid instructions Instructions Numeric Instructions t.binop"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Numeric Instructions t.unop",
+            "valid instructions Instructions Numeric Instructions t.unop",
+            "exec instructions Instructions Numeric Instructions t.testop",
+            "exec instructions Instructions Reference Instructions ref{.null}~t",
+            "exec instructions Instructions Numeric Instructions t.binop"
+        ],
+        "valid_distances": [
+            0.6358648538589478,
+            0.5899311900138855,
+            0.5815889239311218,
+            0.5671634674072266,
+            0.5615938305854797
+        ],
+        "exec_distances": [
+            0.6689080595970154,
+            0.6359549164772034,
+            0.5878428220748901,
+            0.5818475484848022,
+            0.5772698521614075
+        ]
+    },
+    "t\\K{x}N\\K{.}\\BITMASK": {
+        "valid_titles": [
+            "exec instructions Instructions Vector Instructions txN.bitmask",
+            "valid instructions Instructions Numeric Instructions t.binop",
+            "valid instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "valid instructions Instructions Vector Instructions ishape.bitmask",
+            "valid instructions Instructions Numeric Instructions t.unop"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Vector Instructions txN.bitmask",
+            "exec instructions Instructions Numeric Instructions t.binop",
+            "exec instructions Instructions Vector Instructions t_2xN.narrow\\_t_1xM\\_sx",
+            "exec instructions Instructions Vector Instructions t_2xN.extmul\\_half\\_t_1xM\\_sx",
+            "exec instructions Instructions Vector Instructions txN.vishiftop"
+        ],
+        "valid_distances": [
+            0.6082462072372437,
+            0.566441535949707,
+            0.5550119876861572,
+            0.5450884103775024,
+            0.5188079476356506
+        ],
+        "exec_distances": [
+            0.6734774708747864,
+            0.564245879650116,
+            0.5636329650878906,
+            0.5542237758636475,
+            0.5515335202217102
+        ]
+    },
+    "t\\K{x}N\\K{.}\\vishiftop": {
+        "valid_titles": [
+            "valid instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "exec instructions Instructions Vector Instructions txN.vishiftop",
+            "valid instructions Instructions Parametric Instructions select~(t^\\ast)^?",
+            "valid instructions Instructions Vector Instructions ishape.vishiftop",
+            "valid instructions Instructions Reference Instructions ref{.null}~t"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Vector Instructions txN.vishiftop",
+            "exec instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "valid instructions Instructions Vector Instructions ishape.vishiftop",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?",
+            "valid instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?"
+        ],
+        "valid_distances": [
+            0.5853564143180847,
+            0.5742583274841309,
+            0.5628876686096191,
+            0.5446939468383789,
+            0.5317990183830261
+        ],
+        "exec_distances": [
+            0.6828758716583252,
+            0.5944198966026306,
+            0.57393878698349,
+            0.5733619928359985,
+            0.5722141265869141
+        ]
+    },
+    "t\\K{x}N\\K{.}\\vrelop": {
+        "valid_titles": [
+            "valid instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "exec instructions Instructions Vector Instructions txN.vrelop",
+            "valid instructions Instructions Reference Instructions ref{.null}~t",
+            "valid instructions Instructions Parametric Instructions select~(t^\\ast)^?",
+            "valid instructions Instructions Variable Instructions local.tee~x"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Vector Instructions txN.vrelop",
+            "exec instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "exec instructions Instructions Parametric Instructions select~(t^\\ast)^?",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_t_1xM\\_sx",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?"
+        ],
+        "valid_distances": [
+            0.5576092600822449,
+            0.5470976829528809,
+            0.5396478176116943,
+            0.5338761210441589,
+            0.5192999839782715
+        ],
+        "exec_distances": [
+            0.6257432699203491,
+            0.5682212114334106,
+            0.5530086755752563,
+            0.549407958984375,
+            0.5460940599441528
+        ]
+    },
+    "t_1\\K{x}N\\K{.}\\EXTRACTLANE\\K{\\_}\\sx^?~x": {
+        "valid_titles": [
+            "exec instructions Instructions Vector Instructions t_1xN.extract\\_lane\\_sx^?~x",
+            "valid instructions Instructions Vector Instructions shape.extract\\_lane\\_sx^?~laneidx",
+            "valid instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "exec instructions Instructions Vector Instructions t_2xN.narrow\\_t_1xM\\_sx",
+            "exec instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Vector Instructions t_1xN.extract\\_lane\\_sx^?~x",
+            "valid instructions Instructions Vector Instructions shape.extract\\_lane\\_sx^?~laneidx",
+            "exec instructions Instructions Vector Instructions t_2xN.narrow\\_t_1xM\\_sx",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?",
+            "exec instructions Instructions Vector Instructions t_2xN.extmul\\_half\\_t_1xM\\_sx"
+        ],
+        "valid_distances": [
+            0.7183102369308472,
+            0.6770493984222412,
+            0.6047012805938721,
+            0.5666146278381348,
+            0.5564490556716919
+        ],
+        "exec_distances": [
+            0.7953392267227173,
+            0.6752975583076477,
+            0.6331329941749573,
+            0.6066086292266846,
+            0.5999934673309326
+        ]
+    },
+    "t_2\\K{.}\\cvtop\\K{\\_}t_1\\K{\\_}\\sx^?": {
+        "valid_titles": [
+            "valid instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "exec instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "valid instructions Instructions Parametric Instructions select~(t^\\ast)^?",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_t_1xM\\_sx"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "valid instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_t_1xM\\_sx",
+            "exec instructions Instructions Vector Instructions t_2xN.narrow\\_t_1xM\\_sx"
+        ],
+        "valid_distances": [
+            0.7357184290885925,
+            0.6832600831985474,
+            0.5922876000404358,
+            0.5917123556137085,
+            0.5644732713699341
+        ],
+        "exec_distances": [
+            0.7369728088378906,
+            0.7092711329460144,
+            0.6530143022537231,
+            0.6244791150093079,
+            0.6028134822845459
+        ]
+    },
+    "t_2\\K{x}N\\K{.}\\EXTADDPAIRWISE\\_t_1\\K{x}M\\_\\sx": {
+        "valid_titles": [
+            "exec instructions Instructions Vector Instructions t_2xN.extadd\\_pairwise\\_t_1xM\\_sx",
+            "valid instructions Instructions Vector Instructions ishape_1.extadd\\_pairwise\\_ishape_2\\_sx",
+            "exec instructions Instructions Vector Instructions t_2xN.extmul\\_half\\_t_1xM\\_sx",
+            "valid instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_t_1xM\\_sx"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Vector Instructions t_2xN.extadd\\_pairwise\\_t_1xM\\_sx",
+            "exec instructions Instructions Vector Instructions t_2xN.extmul\\_half\\_t_1xM\\_sx",
+            "exec instructions Instructions Vector Instructions t_2xN.narrow\\_t_1xM\\_sx",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_t_1xM\\_sx",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?"
+        ],
+        "valid_distances": [
+            0.7176246643066406,
+            0.631638765335083,
+            0.6237869262695312,
+            0.6090421676635742,
+            0.5850568413734436
+        ],
+        "exec_distances": [
+            0.791919469833374,
+            0.6950339078903198,
+            0.6591140627861023,
+            0.6461994647979736,
+            0.637412428855896
+        ]
+    },
+    "t_2\\K{x}N\\K{.}\\EXTMUL\\K{\\_}\\half\\K{\\_}t_1\\K{x}M\\K{\\_}\\sx": {
+        "valid_titles": [
+            "exec instructions Instructions Vector Instructions t_2xN.extmul\\_half\\_t_1xM\\_sx",
+            "valid instructions Instructions Vector Instructions ishape_1.extmul\\_half\\_ishape_2\\_sx",
+            "exec instructions Instructions Vector Instructions t_2xN.extadd\\_pairwise\\_t_1xM\\_sx",
+            "valid instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Vector Instructions t_2xN.extmul\\_half\\_t_1xM\\_sx",
+            "exec instructions Instructions Vector Instructions t_2xN.extadd\\_pairwise\\_t_1xM\\_sx",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?",
+            "exec instructions Instructions Vector Instructions t_2xN.narrow\\_t_1xM\\_sx",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_t_1xM\\_sx"
+        ],
+        "valid_distances": [
+            0.7008709907531738,
+            0.6258024573326111,
+            0.618701696395874,
+            0.6149706840515137,
+            0.6110894680023193
+        ],
+        "exec_distances": [
+            0.7747505307197571,
+            0.6806230545043945,
+            0.6612966060638428,
+            0.6582919359207153,
+            0.6336790919303894
+        ]
+    },
+    "t_2\\K{x}N\\K{.}\\NARROW\\K{\\_}t_1\\K{x}M\\K{\\_}\\sx": {
+        "valid_titles": [
+            "valid instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "exec instructions Instructions Vector Instructions t_2xN.narrow\\_t_1xM\\_sx",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_t_1xM\\_sx",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?",
+            "valid instructions Instructions Parametric Instructions select~(t^\\ast)^?"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Vector Instructions t_2xN.narrow\\_t_1xM\\_sx",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_t_1xM\\_sx",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?",
+            "exec instructions Instructions Vector Instructions t_2xN.extmul\\_half\\_t_1xM\\_sx",
+            "exec instructions Instructions Vector Instructions t_2xN.extadd\\_pairwise\\_t_1xM\\_sx"
+        ],
+        "valid_distances": [
+            0.6086692810058594,
+            0.5994260311126709,
+            0.552901029586792,
+            0.5503098964691162,
+            0.5478139519691467
+        ],
+        "exec_distances": [
+            0.6901081800460815,
+            0.6210331320762634,
+            0.6129202842712402,
+            0.6079174280166626,
+            0.6016972064971924
+        ]
+    },
+    "t_2\\K{x}N\\K{.}\\vcvtop\\K{\\_}\\half\\K{\\_}t_1\\K{x}M\\K{\\_}\\sx^?": {
+        "valid_titles": [
+            "valid instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?",
+            "exec instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_t_1xM\\_sx",
+            "valid instructions Instructions Parametric Instructions select~(t^\\ast)^?"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?",
+            "exec instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "valid instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_t_1xM\\_sx",
+            "exec instructions Instructions Vector Instructions t_2xN.extmul\\_half\\_t_1xM\\_sx"
+        ],
+        "valid_distances": [
+            0.6611684560775757,
+            0.611922562122345,
+            0.6017446517944336,
+            0.5744389295578003,
+            0.5672730207443237
+        ],
+        "exec_distances": [
+            0.7003048658370972,
+            0.6720242500305176,
+            0.6557070016860962,
+            0.6550233960151672,
+            0.6402285695075989
+        ]
+    },
+    "t_2\\K{x}N\\K{.}\\vcvtop\\K{\\_}t_1\\K{x}M\\K{\\_}\\sx": {
+        "valid_titles": [
+            "valid instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_t_1xM\\_sx",
+            "exec instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_t_1xM\\_sx\\_zero"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_t_1xM\\_sx",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?",
+            "exec instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "exec instructions Instructions Vector Instructions t_2xN.narrow\\_t_1xM\\_sx",
+            "valid instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?"
+        ],
+        "valid_distances": [
+            0.6579711437225342,
+            0.6019150018692017,
+            0.5997372269630432,
+            0.599371612071991,
+            0.5641580820083618
+        ],
+        "exec_distances": [
+            0.6838197708129883,
+            0.6788451671600342,
+            0.6710476875305176,
+            0.655916690826416,
+            0.6477769017219543
+        ]
+    },
+    "t_2\\K{x}N\\K{.}\\vcvtop\\K{\\_}t_1\\K{x}M\\K{\\_}\\sx\\K{\\_zero}": {
+        "valid_titles": [
+            "valid instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_t_1xM\\_sx\\_zero",
+            "exec instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_t_1xM\\_sx"
+        ],
+        "exec_titles": [
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_t_1xM\\_sx\\_zero",
+            "exec instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_half\\_t_1xM\\_sx^?",
+            "exec instructions Instructions Vector Instructions t_2xN.vcvtop\\_t_1xM\\_sx",
+            "valid instructions Instructions Numeric Instructions t_2.cvtop\\_t_1\\_sx^?"
+        ],
+        "valid_distances": [
+            0.6446590423583984,
+            0.6047612428665161,
+            0.5787421464920044,
+            0.5607007741928101,
+            0.5543660521507263
+        ],
+        "exec_distances": [
+            0.6899130344390869,
+            0.6641799807548523,
+            0.6558700799942017,
+            0.651434600353241,
+            0.650718629360199
+        ]
+    }
+}

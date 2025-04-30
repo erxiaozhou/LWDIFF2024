@@ -1,0 +1,41 @@
+{
+    "exec_data": {
+        "ctgy": "Table",
+        "raw_title": ":math:`\\TABLESET~x`",
+        "name": "table.set",
+        "steps_part": "1. Let :math:`F` be the :ref:`current <exec-notation-textual>` :ref:`frame <syntax-frame>`.\n2. Assert: due to :ref:`validation <valid-table.set>`, :math:`F.\\AMODULE.\\MITABLES[x]` exists.\n3. Let :math:`a` be the :ref:`table address <syntax-tableaddr>` :math:`F.\\AMODULE.\\MITABLES[x]`.\n4. Assert: due to :ref:`validation <valid-table.set>`, :math:`S.\\STABLES[a]` exists.\n5. Let :math:`\\X{tab}` be the :ref:`table instance <syntax-tableinst>` :math:`S.\\STABLES[a]`.\n6. Assert: due to :ref:`validation <valid-table.set>`, a :ref:`reference value <syntax-ref>` is on the top of the stack.\n7. Pop the value :math:`\\val` from the stack.\n8. Assert: due to :ref:`validation <valid-table.set>`, a value of :ref:`value type <syntax-valtype>` |I32| is on the top of the stack.\n9. Pop the value :math:`\\I32.\\CONST~i` from the stack.\n10. If :math:`i` is not smaller than the length of :math:`\\X{tab}.\\TIELEM`, then:\n    a. Trap.\n11. Replace the element :math:`\\X{tab}.\\TIELEM[i]` with :math:`\\val`.",
+        "steps": [
+            "LET       : [(ValRefValue(Type(any::), F, 1), FrameInstance(Type(other:frame:), current frame, 1))]",
+            "ASSERT    : [ExistCondition(['exist', TableAddrInstance(F.\\AMODULE.\\MITABLES[x]:Type(any::):ValRefValue(Type(u32::), x, 1)::math:`F.\\AMODULE.\\MITABLES[x]`)])]",
+            "LET       : [(ValRefValue(Type(any::), a, 1), TableAddrInstance(F.\\AMODULE.\\MITABLES[x]:Type(other:table address:):ValRefValue(Type(u32::), x, 1):the :ref:`table address <syntax-tableaddr>` :math:`F.\\AMODULE.\\MITABLES[x]`))]",
+            "ASSERT    : [ExistCondition(['exist', TableInstance(S.\\STABLES[a]:Type(any::):ValRefValue(Type(u32::), a, 1)::math:`S.\\STABLES[a]`)])]",
+            "LET       : [(ValRefValue(Type(any::), \\X{tab}, 1), TableInstance(S.\\STABLES[a]:Type(other:table instance:):ValRefValue(Type(u32::), a, 1):the :ref:`table instance <syntax-tableinst>` :math:`S.\\STABLES[a]`))]",
+            "ASSERT    : [StackCondition(['ref_stack_top', True, StackValue(Type(other:reference value:), any, 1)])]",
+            "POP       : [ValRefValue(Type(any::), \\val, 1)]",
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(i32::), any, 1)])]",
+            "POP       : [ValRefValue(Type(i32::), i, 1)]",
+            "IF        : [[CompareCondition(['compare_condition', ValRefValue(Type(any::), i, 1), False, 'smaller', LengthRefValue(the length of :math:`\\X{tab}.\\TIELEM`:Type(u32::):\\X{tab}:\\TIELEM:the length of :math:`\\X{tab}.\\TIELEM`)])]]",
+            "  TRAP      : []",
+            "REPLACE   : [(OtherValue(Type(other:element:), \\X{tab}.\\TIELEM[i], 1), ValRefValue(Type(any::), \\val, 1))]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(any::), 1), -1], [(Type(i32::), 1), -1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\TABLESET~x`",
+        "name": "table.set",
+        "ctgy": "Table",
+        "steps": [
+            "MUST_EXIST: [ExistCondition(['valid_define_condition', TableAddrInstance(C.\\CTABLES[x]:Type(any::):ValRefValue(Type(u32::), x, 1)::math:`C.\\CTABLES[x]`)])]",
+            "LET       : [(ValRefValue(Type(any::), \\limits~t, 1), TableAddrInstance(C.\\CTABLES[x]:Type(other:table type:):ValRefValue(Type(u32::), x, 1):the :ref:`table type <syntax-tabletype>` :math:`C.\\CTABLES[x]`))]",
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(i32::), any, 1), StackValue(Type(any::t), any, 1)], []])]"
+        ]
+    },
+    "imms": {
+        "x": "<x: tableidx>"
+    },
+    "exec_title_paras": {},
+    "binary_info": [
+        "<26: hex>",
+        "<x: tableidx>"
+    ]
+}

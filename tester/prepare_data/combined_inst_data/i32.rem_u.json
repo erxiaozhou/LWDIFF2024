@@ -1,0 +1,35 @@
+{
+    "exec_data": {
+        "ctgy": "Numeric",
+        "raw_title": ":math:`t\\K{.}\\binop`",
+        "name": "t.binop",
+        "steps_part": "1. Assert: due to :ref:`validation <valid-binop>`, two values of :ref:`value type <syntax-valtype>` :math:`t` are on the top of the stack.\n2. Pop the value :math:`t.\\CONST~c_2` from the stack.\n3. Pop the value :math:`t.\\CONST~c_1` from the stack.\n4. If :math:`\\binop_t(c_1, c_2)` is defined, then:\n   a. Let :math:`c` be a possible result of computing :math:`\\binop_t(c_1, c_2)`.\n   b. Push the value :math:`t.\\CONST~c` to the stack.\n5. Else:\n   a. Trap.",
+        "steps": [
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(any::t), any, 2)])]",
+            "POP       : [ValRefValue(Type(any::t), c_2, 1)]",
+            "POP       : [ValRefValue(Type(any::t), c_1, 1)]",
+            "IF        : [[IsDefinedCondition(['is_defined_condition', FormulaValue(Type(any::t), \\binop_t(c_1, c_2), 1)])]]",
+            "  LET       : [(ValRefValue(Type(any::), c, 1), FormulaValue(Type(any::t), \\binop_t(c_1, c_2), 1))]",
+            "  PUSH      : [ValRefValue(Type(any::t), c, 1)]",
+            "ELSE      : []",
+            "  TRAP      : []"
+        ],
+        "vstack_vt_num_seq": "[[(Type(any::t), 1), -1], [(Type(any::t), 1), -1], [(Type(any::t), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`t\\K{.}\\binop`",
+        "name": "t.binop",
+        "ctgy": "Numeric",
+        "steps": [
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(any::t), any, 1), StackValue(Type(any::t), any, 1)], [StackValue(Type(any::t), any, 1)]])]"
+        ]
+    },
+    "imms": {},
+    "exec_title_paras": {
+        "binop": "rem_u",
+        "t": "i32"
+    },
+    "binary_info": [
+        "<70: hex>"
+    ]
+}

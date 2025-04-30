@@ -1,0 +1,34 @@
+{
+    "exec_data": {
+        "ctgy": "Variable",
+        "raw_title": ":math:`\\LOCALTEE~x`",
+        "name": "local.tee",
+        "steps_part": "1. Assert: due to :ref:`validation <valid-local.tee>`, a value is on the top of the stack.\n2. Pop the value :math:`\\val` from the stack.\n3. Push the value :math:`\\val` to the stack.\n4. Push the value :math:`\\val` to the stack.\n5. :ref:`Execute <exec-local.set>` the instruction :math:`(\\LOCALSET~x)`.",
+        "steps": [
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(any::), any, 1)])]",
+            "POP       : [ValRefValue(Type(any::), \\val, 1)]",
+            "PUSH      : [ValRefValue(Type(any::), \\val, 1)]",
+            "PUSH      : [ValRefValue(Type(any::), \\val, 1)]",
+            "EXECUTE   : [FormulaValue(Type(any::), \\LOCALSET~x, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(any::), 1), -1], [(Type(any::), 1), 1], [(Type(any::), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\LOCALTEE~x`",
+        "name": "local.tee",
+        "ctgy": "Variable",
+        "steps": [
+            "MUST_EXIST: [ExistCondition(['valid_define_condition', LocalAddrInstance(C.\\CLOCALS[x]:Type(any::):ValRefValue(Type(u32::), x, 1)::math:`C.\\CLOCALS[x]`)])]",
+            "LET       : [(ValRefValue(Type(any::), t, 1), LocalAddrInstance(C.\\CLOCALS[x]:Type(other:value type:):ValRefValue(Type(u32::), x, 1):the :ref:`value type <syntax-valtype>` :math:`C.\\CLOCALS[x]`))]",
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(any::t), any, 1)], [StackValue(Type(any::t), any, 1)]])]"
+        ]
+    },
+    "imms": {
+        "x": "<x: localidx>"
+    },
+    "exec_title_paras": {},
+    "binary_info": [
+        "<22: hex>",
+        "<x: localidx>"
+    ]
+}

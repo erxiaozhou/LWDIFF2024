@@ -1,0 +1,41 @@
+{
+    "inst_name": "i32.ne",
+    "type_part": {
+        "op_0": "i32",
+        "op_1": "i32"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i32",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "i32",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction compares two i32 integers for inequality. If they are not equal, it pushes 1 to the stack, otherwise it pushes 0.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i32",
+                "i32"
+            ],
+            "result": [
+                "i32"
+            ]
+        }
+    ]
+}

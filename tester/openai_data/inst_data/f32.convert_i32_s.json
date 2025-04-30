@@ -1,0 +1,34 @@
+{
+    "inst_name": "f32.convert_i32_s",
+    "type_part": {
+        "op_0": "i32"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i32",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction attempts to convert a floating-point number that is NaN, infinity, or outside the valid conversion range for an unsigned 64-bit integer. This leads to a trap.",
+            "WhetherTrap": true
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i32"
+            ],
+            "result": [
+                "f32"
+            ]
+        }
+    ]
+}

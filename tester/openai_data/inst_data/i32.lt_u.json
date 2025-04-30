@@ -1,0 +1,35 @@
+{
+    "inst_name": "i32.lt_u",
+    "type_part": {
+        "op_0": "i32"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i32",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction truncates a floating-point number to an unsigned 64-bit integer. If the conversion is successful, the result is pushed onto the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i32",
+                "i32"
+            ],
+            "result": [
+                "i32"
+            ]
+        }
+    ]
+}

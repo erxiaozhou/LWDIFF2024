@@ -1,0 +1,54 @@
+{
+    "exec_data": {
+        "ctgy": "Memory",
+        "raw_title": ":math:`t\\K{.}\\STORE~\\memarg` and :math:`t\\K{.}\\STORE{N}~\\memarg`",
+        "name": "t.store",
+        "steps_part": "1. Let :math:`F` be the :ref:`current <exec-notation-textual>` :ref:`frame <syntax-frame>`.\n2. Assert: due to :ref:`validation <valid-storen>`, :math:`F.\\AMODULE.\\MIMEMS[0]` exists.\n3. Let :math:`a` be the :ref:`memory address <syntax-memaddr>` :math:`F.\\AMODULE.\\MIMEMS[0]`.\n4. Assert: due to :ref:`validation <valid-storen>`, :math:`S.\\SMEMS[a]` exists.\n5. Let :math:`\\X{mem}` be the :ref:`memory instance <syntax-meminst>` :math:`S.\\SMEMS[a]`.\n6. Assert: due to :ref:`validation <valid-storen>`, a value of :ref:`value type <syntax-valtype>` :math:`t` is on the top of the stack.\n7. Pop the value :math:`t.\\CONST~c` from the stack.\n8. Assert: due to :ref:`validation <valid-storen>`, a value of :ref:`value type <syntax-valtype>` |I32| is on the top of the stack.\n9. Pop the value :math:`\\I32.\\CONST~i` from the stack.\n10. Let :math:`\\X{ea}` be the integer :math:`i + \\memarg.\\OFFSET`.\n11. If :math:`N` is not part of the instruction, then:\n    a. Let :math:`N` be the :ref:`bit width <syntax-numtype>` :math:`|t|` of :ref:`number type <syntax-numtype>` :math:`t`.\n12. If :math:`\\X{ea} + N/8` is larger than the length of :math:`\\X{mem}.\\MIDATA`, then:\n    a. Trap.\n13. If :math:`N` is part of the instruction, then:\n    a. Let :math:`n` be the result of computing :math:`\\wrap_{|t|,N}(c)`.\n    b. Let :math:`b^\\ast` be the byte sequence :math:`\\bytes_{\\iN}(n)`.\n14. Else:\n    a. Let :math:`b^\\ast` be the byte sequence :math:`\\bytes_t(c)`.\n15. Replace the bytes :math:`\\X{mem}.\\MIDATA[\\X{ea} \\slice N/8]` with :math:`b^\\ast`.",
+        "steps": [
+            "LET       : [(ValRefValue(Type(any::), F, 1), FrameInstance(Type(other:frame:), current frame, 1))]",
+            "ASSERT    : [ExistCondition(['exist', MemAddrInstance(F.\\AMODULE.\\MIMEMS[0]:Type(any::):constantValue(0:Type(u32::):0:False:0)::math:`F.\\AMODULE.\\MIMEMS[0]`)])]",
+            "LET       : [(ValRefValue(Type(any::), a, 1), MemAddrInstance(F.\\AMODULE.\\MIMEMS[0]:Type(other:memory address:):constantValue(0:Type(u32::):0:False:0):the :ref:`memory address <syntax-memaddr>` :math:`F.\\AMODULE.\\MIMEMS[0]`))]",
+            "ASSERT    : [ExistCondition(['exist', MemInstance(S.\\SMEMS[a]:Type(any::):ValRefValue(Type(u32::), a, 1)::math:`S.\\SMEMS[a]`)])]",
+            "LET       : [(ValRefValue(Type(any::), \\X{mem}, 1), MemInstance(S.\\SMEMS[a]:Type(other:memory instance:):ValRefValue(Type(u32::), a, 1):the :ref:`memory instance <syntax-meminst>` :math:`S.\\SMEMS[a]`))]",
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(any::t), any, 1)])]",
+            "POP       : [ValRefValue(Type(any::t), c, 1)]",
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(i32::), any, 1)])]",
+            "POP       : [ValRefValue(Type(i32::), i, 1)]",
+            "LET       : [(ValRefValue(Type(any::), \\X{ea}, 1), FormulaValue(Type(i32::), i + \\memarg.\\OFFSET, 1))]",
+            "IF        : [[InstructionPartCondition(['instruction_part_condition', [ValRefValue(Type(any::), N, 1)], False])]]",
+            "  LET       : [(ValRefValue(Type(any::), N, 1), constantValue(:math:`|t|` of :ref:`number type <syntax-numtype>` :math:`t`:Type(other:bit width:):None:True:the :ref:`bit width <syntax-numtype>` :math:`|t|` of :ref:`number type <syntax-numtype>` :math:`t`))]",
+            "IF        : [[CompareCondition(['compare_condition', FormulaValue(Type(any::), \\X{ea} + N/8, 1), True, 'larger', LengthRefValue(the length of :math:`\\X{mem}.\\MIDATA`:Type(u32::):\\X{mem}:\\MIDATA:the length of :math:`\\X{mem}.\\MIDATA`)])]]",
+            "  TRAP      : []",
+            "IF        : [[InstructionPartCondition(['instruction_part_condition', [ValRefValue(Type(any::), N, 1)], True])]]",
+            "  LET       : [(ValRefValue(Type(any::), n, 1), FormulaValue(Type(any::), \\wrap_{|t|,N}(c), 1))]",
+            "  LET       : [(ValRefValue(Type(any::), b^\\ast, 1), FormulaValue(Type(other:byte sequence:), \\bytes_{\\iN}(n), 1))]",
+            "ELSE      : []",
+            "  LET       : [(ValRefValue(Type(any::), b^\\ast, 1), FormulaValue(Type(other:byte sequence:), \\bytes_t(c), 1))]",
+            "REPLACE   : [(FormulaValue(Type(other:bytes:), \\X{mem}.\\MIDATA[\\X{ea} \\slice N/8], 1), ValRefValue(Type(any::), b^\\ast, 1))]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(any::t), 1), -1], [(Type(i32::), 1), -1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`t\\K{.}\\STORE{N}~\\memarg`",
+        "name": "t.storeN",
+        "ctgy": "Memory",
+        "steps": [
+            "MUST_EXIST: [ExistCondition(['valid_define_condition', MemAddrInstance(C.\\CMEMS[0]:Type(any::):constantValue(0:Type(u32::):0:False:0)::math:`C.\\CMEMS[0]`)])]",
+            "MUST_BE   : [validCompareCond(['compare_condition', FormulaValue(Type(any::), 2^{\\memarg.\\ALIGN}, 1), FormulaValue(Type(any::), N/8, 1), False, 'larger than'])]",
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(i32::), any, 1), StackValue(Type(any::t), any, 1)], []])]"
+        ]
+    },
+    "imms": {
+        "\\X{memarg}.\\K{align}": "<\\X{memarg}.\\K{align}: memarg_align>",
+        "\\X{memarg}.\\K{offset}": "<\\X{memarg}.\\K{offset}: memarg_offset>"
+    },
+    "exec_title_paras": {
+        "t": "i64",
+        "N": "16"
+    },
+    "binary_info": [
+        "<3D: hex>",
+        "<\\X{memarg}.\\K{align}: memarg_align>",
+        "<\\X{memarg}.\\K{offset}: memarg_offset>"
+    ]
+}

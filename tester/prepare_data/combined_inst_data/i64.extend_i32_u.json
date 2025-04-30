@@ -1,0 +1,36 @@
+{
+    "exec_data": {
+        "ctgy": "Numeric",
+        "raw_title": ":math:`t_2\\K{.}\\cvtop\\K{\\_}t_1\\K{\\_}\\sx^?`",
+        "name": "t_2.cvtop_t_1_sx",
+        "steps_part": "1. Assert: due to :ref:`validation <valid-cvtop>`, a value of :ref:`value type <syntax-valtype>` :math:`t_1` is on the top of the stack.\n2. Pop the value :math:`t_1.\\CONST~c_1` from the stack.\n3. If :math:`\\cvtop^{\\sx^?}_{t_1,t_2}(c_1)` is defined:\n   a. Let :math:`c_2` be a possible result of computing :math:`\\cvtop^{\\sx^?}_{t_1,t_2}(c_1)`.\n   b. Push the value :math:`t_2.\\CONST~c_2` to the stack.\n4. Else:\n   a. Trap.",
+        "steps": [
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(any::t_1), any, 1)])]",
+            "POP       : [ValRefValue(Type(any::t_1), c_1, 1)]",
+            "IF        : [[IsDefinedCondition(['is_defined_condition', FormulaValue(Type(any::t_2), \\cvtop^{\\sx^?}_{t_1,t_2}(c_1), 1)])]]",
+            "  LET       : [(ValRefValue(Type(any::), c_2, 1), FormulaValue(Type(any::t_2), \\cvtop^{\\sx^?}_{t_1,t_2}(c_1), 1))]",
+            "  PUSH      : [ValRefValue(Type(any::t_2), c_2, 1)]",
+            "ELSE      : []",
+            "  TRAP      : []"
+        ],
+        "vstack_vt_num_seq": "[[(Type(any::t_1), 1), -1], [(Type(any::t_2), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`t_2\\K{.}\\cvtop\\K{\\_}t_1\\K{\\_}\\sx^?`",
+        "name": "t_2.cvtop_t_1_sx",
+        "ctgy": "Numeric",
+        "steps": [
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(any::t_1), any, 1)], [StackValue(Type(any::t_2), any, 1)]])]"
+        ]
+    },
+    "imms": {},
+    "exec_title_paras": {
+        "cvtop": "extend",
+        "sx": "u",
+        "t_2": "i64",
+        "t_1": "i32"
+    },
+    "binary_info": [
+        "<AD: hex>"
+    ]
+}

@@ -1,0 +1,4266 @@
+{
+    "i16x8.le_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:51:u32>"
+        ]
+    ],
+    "v128.or": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:80:u32>"
+        ]
+    ],
+    "v128.load8x8_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:2:u32>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i16x8.shr_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:141:u32>"
+        ]
+    ],
+    "f32.convert_i32_u": [
+        [
+            "prefix_0",
+            "<Fix:B3:hex>"
+        ]
+    ],
+    "i16x8.extract_lane_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:24:u32>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "i16x8.gt_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:49:u32>"
+        ]
+    ],
+    "i64.trunc_f64_u": [
+        [
+            "prefix_0",
+            "<Fix:B1:hex>"
+        ]
+    ],
+    "f32.nearest": [
+        [
+            "prefix_0",
+            "<Fix:90:hex>"
+        ]
+    ],
+    "i16x8.max_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:153:u32>"
+        ]
+    ],
+    "f32x4.div": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:231:u32>"
+        ]
+    ],
+    "loop": [
+        [
+            "prefix_0",
+            "<Fix:03:hex>"
+        ],
+        [
+            "bt",
+            "<blocktype>"
+        ]
+    ],
+    "f32.ceil": [
+        [
+            "prefix_0",
+            "<Fix:8D:hex>"
+        ]
+    ],
+    "i32.load8_s": [
+        [
+            "prefix_0",
+            "<Fix:2C:hex>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i64x2.extend_high_i32x4_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:202:u32>"
+        ]
+    ],
+    "v128.andnot": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:79:u32>"
+        ]
+    ],
+    "i8x16.avgr_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:123:u32>"
+        ]
+    ],
+    "i32x4.add": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:174:u32>"
+        ]
+    ],
+    "f64.sqrt": [
+        [
+            "prefix_0",
+            "<Fix:9F:hex>"
+        ]
+    ],
+    "f64x2.replace_lane": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:34:u32>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "i64.gt_s": [
+        [
+            "prefix_0",
+            "<Fix:55:hex>"
+        ]
+    ],
+    "i8x16.shl": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:107:u32>"
+        ]
+    ],
+    "f64x2.extract_lane": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:33:u32>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "f64x2.gt": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:74:u32>"
+        ]
+    ],
+    "f64.promote_f32": [
+        [
+            "prefix_0",
+            "<Fix:BB:hex>"
+        ]
+    ],
+    "i16x8.eq": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:45:u32>"
+        ]
+    ],
+    "f64x2.ne": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:72:u32>"
+        ]
+    ],
+    "v128.load8_lane": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:84:u32>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "select": [
+        [
+            "prefix_0",
+            "<Fix:1B:hex>"
+        ]
+    ],
+    "i16x8.min_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:151:u32>"
+        ]
+    ],
+    "i16x8.ne": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:46:u32>"
+        ]
+    ],
+    "i16x8.splat": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:16:u32>"
+        ]
+    ],
+    "i64.load8_u": [
+        [
+            "prefix_0",
+            "<Fix:31:hex>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i8x16.ge_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:43:u32>"
+        ]
+    ],
+    "call": [
+        [
+            "prefix_0",
+            "<Fix:10:hex>"
+        ],
+        [
+            "x",
+            "<u32>"
+        ]
+    ],
+    "f32x4.abs": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:224:u32>"
+        ]
+    ],
+    "f32.gt": [
+        [
+            "prefix_0",
+            "<Fix:5E:hex>"
+        ]
+    ],
+    "i64.shr_u": [
+        [
+            "prefix_0",
+            "<Fix:88:hex>"
+        ]
+    ],
+    "f32x4.gt": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:68:u32>"
+        ]
+    ],
+    "f32.convert_i32_s": [
+        [
+            "prefix_0",
+            "<Fix:B2:hex>"
+        ]
+    ],
+    "i32x4.shl": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:171:u32>"
+        ]
+    ],
+    "f64.sub": [
+        [
+            "prefix_0",
+            "<Fix:A1:hex>"
+        ]
+    ],
+    "i32.le_s": [
+        [
+            "prefix_0",
+            "<Fix:4C:hex>"
+        ]
+    ],
+    "i32.and": [
+        [
+            "prefix_0",
+            "<Fix:71:hex>"
+        ]
+    ],
+    "i16x8.lt_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:47:u32>"
+        ]
+    ],
+    "i64.store32": [
+        [
+            "prefix_0",
+            "<Fix:3E:hex>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i32.or": [
+        [
+            "prefix_0",
+            "<Fix:72:hex>"
+        ]
+    ],
+    "i16x8.bitmask": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:132:u32>"
+        ]
+    ],
+    "i8x16.splat": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:15:u32>"
+        ]
+    ],
+    "local.tee": [
+        [
+            "prefix_0",
+            "<Fix:22:hex>"
+        ],
+        [
+            "x",
+            "<u32>"
+        ]
+    ],
+    "data.drop": [
+        [
+            "prefix_0",
+            "<Fix:FC:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:9:u32>"
+        ],
+        [
+            "x",
+            "<u32>"
+        ]
+    ],
+    "i16x8.sub": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:145:u32>"
+        ]
+    ],
+    "i8x16.neg": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:97:u32>"
+        ]
+    ],
+    "i32.trunc_sat_f64_u": [
+        [
+            "prefix_0",
+            "<Fix:FC:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:3:u32>"
+        ]
+    ],
+    "i32.lt_u": [
+        [
+            "prefix_0",
+            "<Fix:49:hex>"
+        ]
+    ],
+    "i32x4.sub": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:177:u32>"
+        ]
+    ],
+    "i32.eqz": [
+        [
+            "prefix_0",
+            "<Fix:45:hex>"
+        ]
+    ],
+    "i64.const": [
+        [
+            "prefix_0",
+            "<Fix:42:hex>"
+        ],
+        [
+            "n",
+            "<i64>"
+        ]
+    ],
+    "f64.gt": [
+        [
+            "prefix_0",
+            "<Fix:64:hex>"
+        ]
+    ],
+    "i8x16.max_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:121:u32>"
+        ]
+    ],
+    "i8x16.lt_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:38:u32>"
+        ]
+    ],
+    "i16x8.ge_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:53:u32>"
+        ]
+    ],
+    "i64x2.abs": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:192:u32>"
+        ]
+    ],
+    "v128.load32_zero": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:92:u32>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "f64.neg": [
+        [
+            "prefix_0",
+            "<Fix:9A:hex>"
+        ]
+    ],
+    "v128.load16x4_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:4:u32>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "select_1C~t": [
+        [
+            "prefix_0",
+            "<Fix:1C:hex>"
+        ],
+        [
+            "t",
+            "<Union:<Vec:<valtype>>:<empty>>"
+        ]
+    ],
+    "f32x4.pmax": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:235:u32>"
+        ]
+    ],
+    "f32.copysign": [
+        [
+            "prefix_0",
+            "<Fix:98:hex>"
+        ]
+    ],
+    "f32x4.min": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:232:u32>"
+        ]
+    ],
+    "f32.le": [
+        [
+            "prefix_0",
+            "<Fix:5F:hex>"
+        ]
+    ],
+    "v128.load64_splat": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:10:u32>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i64.lt_u": [
+        [
+            "prefix_0",
+            "<Fix:54:hex>"
+        ]
+    ],
+    "f32x4.eq": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:65:u32>"
+        ]
+    ],
+    "i16x8.avgr_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:155:u32>"
+        ]
+    ],
+    "i16x8.extmul_low_i8x16_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:156:u32>"
+        ]
+    ],
+    "v128.load16x4_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:3:u32>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "f32x4.demote_f64x2_zero": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:94:u32>"
+        ]
+    ],
+    "i8x16.shr_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:109:u32>"
+        ]
+    ],
+    "f64.ne": [
+        [
+            "prefix_0",
+            "<Fix:62:hex>"
+        ]
+    ],
+    "f32.eq": [
+        [
+            "prefix_0",
+            "<Fix:5B:hex>"
+        ]
+    ],
+    "f32.load": [
+        [
+            "prefix_0",
+            "<Fix:2A:hex>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i32.load16_u": [
+        [
+            "prefix_0",
+            "<Fix:2F:hex>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i8x16.shr_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:108:u32>"
+        ]
+    ],
+    "i64.extend8_s": [
+        [
+            "prefix_0",
+            "<Fix:C2:hex>"
+        ]
+    ],
+    "i8x16.replace_lane": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:23:u32>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "i32x4.ge_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:63:u32>"
+        ]
+    ],
+    "i32x4.shr_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:173:u32>"
+        ]
+    ],
+    "i16x8.extract_lane_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:25:u32>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "i32x4.trunc_sat_f32x4_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:249:u32>"
+        ]
+    ],
+    "f64x2.ge": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:76:u32>"
+        ]
+    ],
+    "f64.const": [
+        [
+            "prefix_0",
+            "<Fix:44:hex>"
+        ],
+        [
+            "z",
+            "<f64>"
+        ]
+    ],
+    "i8x16.eq": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:35:u32>"
+        ]
+    ],
+    "i32.popcnt": [
+        [
+            "prefix_0",
+            "<Fix:69:hex>"
+        ]
+    ],
+    "i32x4.splat": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:17:u32>"
+        ]
+    ],
+    "table.init": [
+        [
+            "prefix_0",
+            "<Fix:FC:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:12:u32>"
+        ],
+        [
+            "y",
+            "<u32>"
+        ],
+        [
+            "x",
+            "<u32>"
+        ]
+    ],
+    "i64.sub": [
+        [
+            "prefix_0",
+            "<Fix:7D:hex>"
+        ]
+    ],
+    "i16x8.add": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:142:u32>"
+        ]
+    ],
+    "f64x2.convert_low_i32x4_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:255:u32>"
+        ]
+    ],
+    "f64x2.ceil": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:116:u32>"
+        ]
+    ],
+    "f64.ceil": [
+        [
+            "prefix_0",
+            "<Fix:9B:hex>"
+        ]
+    ],
+    "nop": [
+        [
+            "prefix_0",
+            "<Fix:01:hex>"
+        ]
+    ],
+    "f32x4.neg": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:225:u32>"
+        ]
+    ],
+    "i64x2.extend_low_i32x4_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:199:u32>"
+        ]
+    ],
+    "i64.extend32_s": [
+        [
+            "prefix_0",
+            "<Fix:C4:hex>"
+        ]
+    ],
+    "f32x4.ge": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:70:u32>"
+        ]
+    ],
+    "i64.or": [
+        [
+            "prefix_0",
+            "<Fix:84:hex>"
+        ]
+    ],
+    "f64x2.convert_low_i32x4_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:254:u32>"
+        ]
+    ],
+    "v128.any_true": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:83:u32>"
+        ]
+    ],
+    "f64.ge": [
+        [
+            "prefix_0",
+            "<Fix:66:hex>"
+        ]
+    ],
+    "f64.nearest": [
+        [
+            "prefix_0",
+            "<Fix:9E:hex>"
+        ]
+    ],
+    "i32.le_u": [
+        [
+            "prefix_0",
+            "<Fix:4D:hex>"
+        ]
+    ],
+    "i8x16.sub_sat_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:115:u32>"
+        ]
+    ],
+    "i64.ctz": [
+        [
+            "prefix_0",
+            "<Fix:7A:hex>"
+        ]
+    ],
+    "table.fill": [
+        [
+            "prefix_0",
+            "<Fix:FC:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:17:u32>"
+        ],
+        [
+            "x",
+            "<u32>"
+        ]
+    ],
+    "i32x4.extend_low_i16x8_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:167:u32>"
+        ]
+    ],
+    "i32x4.le_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:61:u32>"
+        ]
+    ],
+    "i32x4.max_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:185:u32>"
+        ]
+    ],
+    "i32.lt_s": [
+        [
+            "prefix_0",
+            "<Fix:48:hex>"
+        ]
+    ],
+    "v128.and": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:78:u32>"
+        ]
+    ],
+    "f64x2.div": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:243:u32>"
+        ]
+    ],
+    "i32.shl": [
+        [
+            "prefix_0",
+            "<Fix:74:hex>"
+        ]
+    ],
+    "i16x8.mul": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:149:u32>"
+        ]
+    ],
+    "f32.neg": [
+        [
+            "prefix_0",
+            "<Fix:8C:hex>"
+        ]
+    ],
+    "f64.max": [
+        [
+            "prefix_0",
+            "<Fix:A5:hex>"
+        ]
+    ],
+    "f64x2.promote_low_f32x4": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:95:u32>"
+        ]
+    ],
+    "f64.add": [
+        [
+            "prefix_0",
+            "<Fix:A0:hex>"
+        ]
+    ],
+    "global.set": [
+        [
+            "prefix_0",
+            "<Fix:24:hex>"
+        ],
+        [
+            "x",
+            "<u32>"
+        ]
+    ],
+    "i32x4.replace_lane": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:28:u32>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "i8x16.le_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:41:u32>"
+        ]
+    ],
+    "f32x4.sub": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:229:u32>"
+        ]
+    ],
+    "v128.bitselect": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:82:u32>"
+        ]
+    ],
+    "v128.load32_lane": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:86:u32>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "table.set": [
+        [
+            "prefix_0",
+            "<Fix:26:hex>"
+        ],
+        [
+            "x",
+            "<u32>"
+        ]
+    ],
+    "i64.trunc_sat_f32_u": [
+        [
+            "prefix_0",
+            "<Fix:FC:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:5:u32>"
+        ]
+    ],
+    "i32.ge_u": [
+        [
+            "prefix_0",
+            "<Fix:4F:hex>"
+        ]
+    ],
+    "f32.min": [
+        [
+            "prefix_0",
+            "<Fix:96:hex>"
+        ]
+    ],
+    "i32x4.trunc_sat_f64x2_u_zero": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:253:u32>"
+        ]
+    ],
+    "i16x8.extmul_high_i8x16_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:159:u32>"
+        ]
+    ],
+    "table.size": [
+        [
+            "prefix_0",
+            "<Fix:FC:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:16:u32>"
+        ],
+        [
+            "x",
+            "<u32>"
+        ]
+    ],
+    "elem.drop": [
+        [
+            "prefix_0",
+            "<Fix:FC:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:13:u32>"
+        ],
+        [
+            "x",
+            "<u32>"
+        ]
+    ],
+    "call_indirect": [
+        [
+            "prefix_0",
+            "<Fix:11:hex>"
+        ],
+        [
+            "y",
+            "<u32>"
+        ],
+        [
+            "x",
+            "<u32>"
+        ]
+    ],
+    "i64.rem_u": [
+        [
+            "prefix_0",
+            "<Fix:82:hex>"
+        ]
+    ],
+    "i16x8.sub_sat_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:147:u32>"
+        ]
+    ],
+    "f32.trunc": [
+        [
+            "prefix_0",
+            "<Fix:8F:hex>"
+        ]
+    ],
+    "i64.lt_s": [
+        [
+            "prefix_0",
+            "<Fix:53:hex>"
+        ]
+    ],
+    "i16x8.add_sat_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:144:u32>"
+        ]
+    ],
+    "i16x8.extend_low_i8x16_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:135:u32>"
+        ]
+    ],
+    "i64.trunc_f32_s": [
+        [
+            "prefix_0",
+            "<Fix:AE:hex>"
+        ]
+    ],
+    "i32x4.ge_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:64:u32>"
+        ]
+    ],
+    "memory.copy": [
+        [
+            "prefix_0",
+            "<Fix:FC:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:10:u32>"
+        ],
+        [
+            "prefix_2",
+            "<Fix:00:hex>"
+        ],
+        [
+            "prefix_3",
+            "<Fix:00:hex>"
+        ]
+    ],
+    "i32.trunc_f32_s": [
+        [
+            "prefix_0",
+            "<Fix:A8:hex>"
+        ]
+    ],
+    "f64.store": [
+        [
+            "prefix_0",
+            "<Fix:39:hex>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "br": [
+        [
+            "prefix_0",
+            "<Fix:0C:hex>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "i32x4.all_true": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:163:u32>"
+        ]
+    ],
+    "i64.gt_u": [
+        [
+            "prefix_0",
+            "<Fix:56:hex>"
+        ]
+    ],
+    "f32x4.splat": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:19:u32>"
+        ]
+    ],
+    "table.get": [
+        [
+            "prefix_0",
+            "<Fix:25:hex>"
+        ],
+        [
+            "x",
+            "<u32>"
+        ]
+    ],
+    "v128.load8_splat": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:7:u32>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "memory.grow": [
+        [
+            "prefix_0",
+            "<Fix:40:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:00:hex>"
+        ]
+    ],
+    "v128.load64_lane": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:87:u32>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "i64.ge_u": [
+        [
+            "prefix_0",
+            "<Fix:5A:hex>"
+        ]
+    ],
+    "f32x4.ne": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:66:u32>"
+        ]
+    ],
+    "i32x4.mul": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:181:u32>"
+        ]
+    ],
+    "i64.eqz": [
+        [
+            "prefix_0",
+            "<Fix:50:hex>"
+        ]
+    ],
+    "f32.add": [
+        [
+            "prefix_0",
+            "<Fix:92:hex>"
+        ]
+    ],
+    "f32.demote_f64": [
+        [
+            "prefix_0",
+            "<Fix:B6:hex>"
+        ]
+    ],
+    "i64x2.extend_high_i32x4_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:200:u32>"
+        ]
+    ],
+    "f32x4.add": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:228:u32>"
+        ]
+    ],
+    "f64x2.pmin": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:246:u32>"
+        ]
+    ],
+    "i16x8.shl": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:139:u32>"
+        ]
+    ],
+    "i32x4.lt_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:58:u32>"
+        ]
+    ],
+    "i64.load8_s": [
+        [
+            "prefix_0",
+            "<Fix:30:hex>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i64.store": [
+        [
+            "prefix_0",
+            "<Fix:37:hex>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "f32.sqrt": [
+        [
+            "prefix_0",
+            "<Fix:91:hex>"
+        ]
+    ],
+    "v128.load32x2_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:5:u32>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i16x8.gt_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:50:u32>"
+        ]
+    ],
+    "i64x2.lt_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:216:u32>"
+        ]
+    ],
+    "v128.load8x8_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:1:u32>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i16x8.narrow_i32x4_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:133:u32>"
+        ]
+    ],
+    "ref.func": [
+        [
+            "prefix_0",
+            "<Fix:D2:hex>"
+        ],
+        [
+            "x",
+            "<u32>"
+        ]
+    ],
+    "i32x4.extract_lane": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:27:u32>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "i16x8.extmul_high_i8x16_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:157:u32>"
+        ]
+    ],
+    "f64x2.splat": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:20:u32>"
+        ]
+    ],
+    "i64x2.neg": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:193:u32>"
+        ]
+    ],
+    "i32.xor": [
+        [
+            "prefix_0",
+            "<Fix:73:hex>"
+        ]
+    ],
+    "i32.trunc_f64_u": [
+        [
+            "prefix_0",
+            "<Fix:AB:hex>"
+        ]
+    ],
+    "f64x2.eq": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:71:u32>"
+        ]
+    ],
+    "v128.load32x2_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:6:u32>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i32x4.shr_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:172:u32>"
+        ]
+    ],
+    "v128.store64_lane": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:91:u32>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "i16x8.q15mulr_sat_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:130:u32>"
+        ]
+    ],
+    "i8x16.add_sat_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:111:u32>"
+        ]
+    ],
+    "f32x4.sqrt": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:227:u32>"
+        ]
+    ],
+    "i64.load16_s": [
+        [
+            "prefix_0",
+            "<Fix:32:hex>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i32x4.extend_low_i16x8_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:169:u32>"
+        ]
+    ],
+    "i32.rem_u": [
+        [
+            "prefix_0",
+            "<Fix:70:hex>"
+        ]
+    ],
+    "f32.lt": [
+        [
+            "prefix_0",
+            "<Fix:5D:hex>"
+        ]
+    ],
+    "f32.floor": [
+        [
+            "prefix_0",
+            "<Fix:8E:hex>"
+        ]
+    ],
+    "f32x4.nearest": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:106:u32>"
+        ]
+    ],
+    "v128.load32_splat": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:9:u32>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "f64x2.add": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:240:u32>"
+        ]
+    ],
+    "return": [
+        [
+            "prefix_0",
+            "<Fix:0F:hex>"
+        ]
+    ],
+    "f64.le": [
+        [
+            "prefix_0",
+            "<Fix:65:hex>"
+        ]
+    ],
+    "i64.trunc_f32_u": [
+        [
+            "prefix_0",
+            "<Fix:AF:hex>"
+        ]
+    ],
+    "i16x8.neg": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:129:u32>"
+        ]
+    ],
+    "local.get": [
+        [
+            "prefix_0",
+            "<Fix:20:hex>"
+        ],
+        [
+            "x",
+            "<u32>"
+        ]
+    ],
+    "i32x4.min_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:183:u32>"
+        ]
+    ],
+    "f32.sub": [
+        [
+            "prefix_0",
+            "<Fix:93:hex>"
+        ]
+    ],
+    "f32x4.max": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:233:u32>"
+        ]
+    ],
+    "f64x2.max": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:245:u32>"
+        ]
+    ],
+    "br_if": [
+        [
+            "prefix_0",
+            "<Fix:0D:hex>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "i16x8.all_true": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:131:u32>"
+        ]
+    ],
+    "f64x2.lt": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:73:u32>"
+        ]
+    ],
+    "if": [
+        [
+            "prefix_0",
+            "<Fix:04:hex>"
+        ],
+        [
+            "bt",
+            "<blocktype>"
+        ]
+    ],
+    "i32.gt_s": [
+        [
+            "prefix_0",
+            "<Fix:4A:hex>"
+        ]
+    ],
+    "br_table": [
+        [
+            "prefix_0",
+            "<Fix:0E:hex>"
+        ],
+        [
+            "l",
+            "<Union:<Vec:<u32>>:<empty>>"
+        ],
+        [
+            "l_N",
+            "<u32>"
+        ]
+    ],
+    "i32.extend8_s": [
+        [
+            "prefix_0",
+            "<Fix:C0:hex>"
+        ]
+    ],
+    "f64x2.sub": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:241:u32>"
+        ]
+    ],
+    "i64.ge_s": [
+        [
+            "prefix_0",
+            "<Fix:59:hex>"
+        ]
+    ],
+    "i8x16.narrow_i16x8_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:102:u32>"
+        ]
+    ],
+    "i64.rotr": [
+        [
+            "prefix_0",
+            "<Fix:8A:hex>"
+        ]
+    ],
+    "i8x16.min_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:118:u32>"
+        ]
+    ],
+    "i64.rem_s": [
+        [
+            "prefix_0",
+            "<Fix:81:hex>"
+        ]
+    ],
+    "i8x16.narrow_i16x8_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:101:u32>"
+        ]
+    ],
+    "v128.const": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:12:u32>"
+        ],
+        [
+            "b",
+            "<Array:<byte>:16>"
+        ]
+    ],
+    "i32x4.extmul_high_i16x8_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:191:u32>"
+        ]
+    ],
+    "local.set": [
+        [
+            "prefix_0",
+            "<Fix:21:hex>"
+        ],
+        [
+            "x",
+            "<u32>"
+        ]
+    ],
+    "i64.load16_u": [
+        [
+            "prefix_0",
+            "<Fix:33:hex>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i8x16.gt_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:39:u32>"
+        ]
+    ],
+    "i8x16.extract_lane_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:21:u32>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "i64x2.le_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:218:u32>"
+        ]
+    ],
+    "i32.rem_s": [
+        [
+            "prefix_0",
+            "<Fix:6F:hex>"
+        ]
+    ],
+    "i32.shr_s": [
+        [
+            "prefix_0",
+            "<Fix:75:hex>"
+        ]
+    ],
+    "i32x4.extadd_pairwise_i16x8_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:126:u32>"
+        ]
+    ],
+    "i64x2.shr_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:204:u32>"
+        ]
+    ],
+    "i32x4.extmul_low_i16x8_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:188:u32>"
+        ]
+    ],
+    "v128.store": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:11:u32>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i32.trunc_f64_s": [
+        [
+            "prefix_0",
+            "<Fix:AA:hex>"
+        ]
+    ],
+    "i8x16.add": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:110:u32>"
+        ]
+    ],
+    "i64.and": [
+        [
+            "prefix_0",
+            "<Fix:83:hex>"
+        ]
+    ],
+    "f32x4.le": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:69:u32>"
+        ]
+    ],
+    "i32.add": [
+        [
+            "prefix_0",
+            "<Fix:6A:hex>"
+        ]
+    ],
+    "i16x8.add_sat_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:143:u32>"
+        ]
+    ],
+    "i64.load32_s": [
+        [
+            "prefix_0",
+            "<Fix:34:hex>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "f32.div": [
+        [
+            "prefix_0",
+            "<Fix:95:hex>"
+        ]
+    ],
+    "i32x4.lt_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:57:u32>"
+        ]
+    ],
+    "f64.load": [
+        [
+            "prefix_0",
+            "<Fix:2B:hex>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i16x8.le_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:52:u32>"
+        ]
+    ],
+    "i32.eq": [
+        [
+            "prefix_0",
+            "<Fix:46:hex>"
+        ]
+    ],
+    "i32.const": [
+        [
+            "prefix_0",
+            "<Fix:41:hex>"
+        ],
+        [
+            "n",
+            "<i32>"
+        ]
+    ],
+    "i64.shl": [
+        [
+            "prefix_0",
+            "<Fix:86:hex>"
+        ]
+    ],
+    "i64.extend_i32_u": [
+        [
+            "prefix_0",
+            "<Fix:AD:hex>"
+        ]
+    ],
+    "i16x8.narrow_i32x4_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:134:u32>"
+        ]
+    ],
+    "i32x4.extend_high_i16x8_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:168:u32>"
+        ]
+    ],
+    "i16x8.abs": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:128:u32>"
+        ]
+    ],
+    "f32x4.convert_i32x4_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:250:u32>"
+        ]
+    ],
+    "i64x2.mul": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:213:u32>"
+        ]
+    ],
+    "i16x8.extmul_low_i8x16_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:158:u32>"
+        ]
+    ],
+    "i64.trunc_sat_f64_s": [
+        [
+            "prefix_0",
+            "<Fix:FC:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:6:u32>"
+        ]
+    ],
+    "i64.xor": [
+        [
+            "prefix_0",
+            "<Fix:85:hex>"
+        ]
+    ],
+    "i32.wrap_i64": [
+        [
+            "prefix_0",
+            "<Fix:A7:hex>"
+        ]
+    ],
+    "i64.ne": [
+        [
+            "prefix_0",
+            "<Fix:52:hex>"
+        ]
+    ],
+    "i32.rotr": [
+        [
+            "prefix_0",
+            "<Fix:78:hex>"
+        ]
+    ],
+    "f64x2.floor": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:117:u32>"
+        ]
+    ],
+    "i32x4.gt_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:60:u32>"
+        ]
+    ],
+    "drop": [
+        [
+            "prefix_0",
+            "<Fix:1A:hex>"
+        ]
+    ],
+    "i32x4.trunc_sat_f64x2_s_zero": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:252:u32>"
+        ]
+    ],
+    "i64.mul": [
+        [
+            "prefix_0",
+            "<Fix:7E:hex>"
+        ]
+    ],
+    "i32x4.gt_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:59:u32>"
+        ]
+    ],
+    "i32.ne": [
+        [
+            "prefix_0",
+            "<Fix:47:hex>"
+        ]
+    ],
+    "i8x16.shuffle": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:13:u32>"
+        ],
+        [
+            "l",
+            "<Array:<u32>:16>"
+        ]
+    ],
+    "f32.convert_i64_s": [
+        [
+            "prefix_0",
+            "<Fix:B4:hex>"
+        ]
+    ],
+    "i64x2.extmul_low_i32x4_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:222:u32>"
+        ]
+    ],
+    "i32x4.extmul_low_i16x8_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:190:u32>"
+        ]
+    ],
+    "i8x16.popcnt": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:98:u32>"
+        ]
+    ],
+    "i64.trunc_sat_f32_s": [
+        [
+            "prefix_0",
+            "<Fix:FC:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:4:u32>"
+        ]
+    ],
+    "i64x2.eq": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:214:u32>"
+        ]
+    ],
+    "i16x8.replace_lane": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:26:u32>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "i16x8.extadd_pairwise_i8x16_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:124:u32>"
+        ]
+    ],
+    "f32x4.pmin": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:234:u32>"
+        ]
+    ],
+    "ref.null": [
+        [
+            "prefix_0",
+            "<Fix:D0:hex>"
+        ],
+        [
+            "t",
+            "<valtype>"
+        ]
+    ],
+    "f32.const": [
+        [
+            "prefix_0",
+            "<Fix:43:hex>"
+        ],
+        [
+            "z",
+            "<f32>"
+        ]
+    ],
+    "i64x2.shl": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:203:u32>"
+        ]
+    ],
+    "i64.clz": [
+        [
+            "prefix_0",
+            "<Fix:79:hex>"
+        ]
+    ],
+    "i32.load8_u": [
+        [
+            "prefix_0",
+            "<Fix:2D:hex>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i64.popcnt": [
+        [
+            "prefix_0",
+            "<Fix:7B:hex>"
+        ]
+    ],
+    "i32.load": [
+        [
+            "prefix_0",
+            "<Fix:28:hex>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "f64x2.trunc": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:122:u32>"
+        ]
+    ],
+    "i64.rotl": [
+        [
+            "prefix_0",
+            "<Fix:89:hex>"
+        ]
+    ],
+    "f32x4.ceil": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:103:u32>"
+        ]
+    ],
+    "f64x2.sqrt": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:239:u32>"
+        ]
+    ],
+    "i32.div_s": [
+        [
+            "prefix_0",
+            "<Fix:6D:hex>"
+        ]
+    ],
+    "i32.reinterpret_f32": [
+        [
+            "prefix_0",
+            "<Fix:BC:hex>"
+        ]
+    ],
+    "i16x8.ge_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:54:u32>"
+        ]
+    ],
+    "i32.store16": [
+        [
+            "prefix_0",
+            "<Fix:3B:hex>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i32.sub": [
+        [
+            "prefix_0",
+            "<Fix:6B:hex>"
+        ]
+    ],
+    "i64.div_s": [
+        [
+            "prefix_0",
+            "<Fix:7F:hex>"
+        ]
+    ],
+    "f32x4.replace_lane": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:32:u32>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "i64.load32_u": [
+        [
+            "prefix_0",
+            "<Fix:35:hex>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i32.extend16_s": [
+        [
+            "prefix_0",
+            "<Fix:C1:hex>"
+        ]
+    ],
+    "f32.ne": [
+        [
+            "prefix_0",
+            "<Fix:5C:hex>"
+        ]
+    ],
+    "memory.init": [
+        [
+            "prefix_0",
+            "<Fix:FC:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:8:u32>"
+        ],
+        [
+            "x",
+            "<u32>"
+        ],
+        [
+            "prefix_3",
+            "<Fix:00:hex>"
+        ]
+    ],
+    "i64.store16": [
+        [
+            "prefix_0",
+            "<Fix:3D:hex>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i32x4.abs": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:160:u32>"
+        ]
+    ],
+    "i32.trunc_sat_f32_u": [
+        [
+            "prefix_0",
+            "<Fix:FC:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:1:u32>"
+        ]
+    ],
+    "i64x2.bitmask": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:196:u32>"
+        ]
+    ],
+    "f64.lt": [
+        [
+            "prefix_0",
+            "<Fix:63:hex>"
+        ]
+    ],
+    "i64.trunc_sat_f64_u": [
+        [
+            "prefix_0",
+            "<Fix:FC:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:7:u32>"
+        ]
+    ],
+    "i32.trunc_sat_f32_s": [
+        [
+            "prefix_0",
+            "<Fix:FC:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:0:u32>"
+        ]
+    ],
+    "v128.store8_lane": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:88:u32>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "f64.convert_i64_u": [
+        [
+            "prefix_0",
+            "<Fix:BA:hex>"
+        ]
+    ],
+    "f32.store": [
+        [
+            "prefix_0",
+            "<Fix:38:hex>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i64x2.extmul_high_i32x4_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:221:u32>"
+        ]
+    ],
+    "i8x16.le_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:42:u32>"
+        ]
+    ],
+    "f64.min": [
+        [
+            "prefix_0",
+            "<Fix:A4:hex>"
+        ]
+    ],
+    "v128.store32_lane": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:90:u32>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "ref.is_null": [
+        [
+            "prefix_0",
+            "<Fix:D1:hex>"
+        ]
+    ],
+    "memory.size": [
+        [
+            "prefix_0",
+            "<Fix:3F:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:00:hex>"
+        ]
+    ],
+    "i64x2.gt_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:217:u32>"
+        ]
+    ],
+    "f64.trunc": [
+        [
+            "prefix_0",
+            "<Fix:9D:hex>"
+        ]
+    ],
+    "i16x8.extend_high_i8x16_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:138:u32>"
+        ]
+    ],
+    "i16x8.extend_high_i8x16_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:136:u32>"
+        ]
+    ],
+    "i16x8.lt_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:48:u32>"
+        ]
+    ],
+    "f64.floor": [
+        [
+            "prefix_0",
+            "<Fix:9C:hex>"
+        ]
+    ],
+    "i8x16.bitmask": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:100:u32>"
+        ]
+    ],
+    "i64x2.extend_low_i32x4_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:201:u32>"
+        ]
+    ],
+    "f32.convert_i64_u": [
+        [
+            "prefix_0",
+            "<Fix:B5:hex>"
+        ]
+    ],
+    "i8x16.max_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:120:u32>"
+        ]
+    ],
+    "i64x2.shr_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:205:u32>"
+        ]
+    ],
+    "if_04~bt~in_1~05~in_2~0B": [
+        [
+            "prefix_0",
+            "<Fix:04:hex>"
+        ],
+        [
+            "bt",
+            "<blocktype>"
+        ]
+    ],
+    "i64.div_u": [
+        [
+            "prefix_0",
+            "<Fix:80:hex>"
+        ]
+    ],
+    "v128.xor": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:81:u32>"
+        ]
+    ],
+    "i32.ge_s": [
+        [
+            "prefix_0",
+            "<Fix:4E:hex>"
+        ]
+    ],
+    "v128.not": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:77:u32>"
+        ]
+    ],
+    "i64x2.extmul_low_i32x4_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:220:u32>"
+        ]
+    ],
+    "i32x4.bitmask": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:164:u32>"
+        ]
+    ],
+    "i64x2.add": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:206:u32>"
+        ]
+    ],
+    "i8x16.sub_sat_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:114:u32>"
+        ]
+    ],
+    "i64.le_s": [
+        [
+            "prefix_0",
+            "<Fix:57:hex>"
+        ]
+    ],
+    "i64x2.ne": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:215:u32>"
+        ]
+    ],
+    "table.grow": [
+        [
+            "prefix_0",
+            "<Fix:FC:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:15:u32>"
+        ],
+        [
+            "x",
+            "<u32>"
+        ]
+    ],
+    "f64.convert_i32_u": [
+        [
+            "prefix_0",
+            "<Fix:B8:hex>"
+        ]
+    ],
+    "i64.extend_i32_s": [
+        [
+            "prefix_0",
+            "<Fix:AC:hex>"
+        ]
+    ],
+    "i64x2.extmul_high_i32x4_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:223:u32>"
+        ]
+    ],
+    "f64x2.le": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:75:u32>"
+        ]
+    ],
+    "i16x8.min_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:150:u32>"
+        ]
+    ],
+    "i32x4.min_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:182:u32>"
+        ]
+    ],
+    "f64x2.neg": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:237:u32>"
+        ]
+    ],
+    "global.get": [
+        [
+            "prefix_0",
+            "<Fix:23:hex>"
+        ],
+        [
+            "x",
+            "<u32>"
+        ]
+    ],
+    "i32.trunc_f32_u": [
+        [
+            "prefix_0",
+            "<Fix:A9:hex>"
+        ]
+    ],
+    "i64.eq": [
+        [
+            "prefix_0",
+            "<Fix:51:hex>"
+        ]
+    ],
+    "f64x2.pmax": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:247:u32>"
+        ]
+    ],
+    "i8x16.abs": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:96:u32>"
+        ]
+    ],
+    "i64x2.sub": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:209:u32>"
+        ]
+    ],
+    "i64x2.splat": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:18:u32>"
+        ]
+    ],
+    "i64.store8": [
+        [
+            "prefix_0",
+            "<Fix:3C:hex>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i16x8.shr_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:140:u32>"
+        ]
+    ],
+    "f64x2.mul": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:242:u32>"
+        ]
+    ],
+    "i32x4.extadd_pairwise_i16x8_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:127:u32>"
+        ]
+    ],
+    "unreachable": [
+        [
+            "prefix_0",
+            "<Fix:00:hex>"
+        ]
+    ],
+    "i32.rotl": [
+        [
+            "prefix_0",
+            "<Fix:77:hex>"
+        ]
+    ],
+    "i64x2.all_true": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:195:u32>"
+        ]
+    ],
+    "i32.store": [
+        [
+            "prefix_0",
+            "<Fix:36:hex>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i32x4.eq": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:55:u32>"
+        ]
+    ],
+    "i32x4.extmul_high_i16x8_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:189:u32>"
+        ]
+    ],
+    "v128.load64_zero": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:93:u32>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "f64.eq": [
+        [
+            "prefix_0",
+            "<Fix:61:hex>"
+        ]
+    ],
+    "i64x2.extract_lane": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:29:u32>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "f64.div": [
+        [
+            "prefix_0",
+            "<Fix:A3:hex>"
+        ]
+    ],
+    "f32x4.convert_i32x4_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:251:u32>"
+        ]
+    ],
+    "f64.convert_i64_s": [
+        [
+            "prefix_0",
+            "<Fix:B9:hex>"
+        ]
+    ],
+    "i32.mul": [
+        [
+            "prefix_0",
+            "<Fix:6C:hex>"
+        ]
+    ],
+    "i64.le_u": [
+        [
+            "prefix_0",
+            "<Fix:58:hex>"
+        ]
+    ],
+    "f64.abs": [
+        [
+            "prefix_0",
+            "<Fix:99:hex>"
+        ]
+    ],
+    "i32.div_u": [
+        [
+            "prefix_0",
+            "<Fix:6E:hex>"
+        ]
+    ],
+    "block": [
+        [
+            "prefix_0",
+            "<Fix:02:hex>"
+        ],
+        [
+            "bt",
+            "<blocktype>"
+        ]
+    ],
+    "i32.shr_u": [
+        [
+            "prefix_0",
+            "<Fix:76:hex>"
+        ]
+    ],
+    "f32x4.mul": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:230:u32>"
+        ]
+    ],
+    "v128.store16_lane": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:89:u32>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "f64.reinterpret_i64": [
+        [
+            "prefix_0",
+            "<Fix:BF:hex>"
+        ]
+    ],
+    "i64x2.ge_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:219:u32>"
+        ]
+    ],
+    "i8x16.ne": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:36:u32>"
+        ]
+    ],
+    "i64.reinterpret_f64": [
+        [
+            "prefix_0",
+            "<Fix:BD:hex>"
+        ]
+    ],
+    "i32x4.extend_high_i16x8_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:170:u32>"
+        ]
+    ],
+    "i8x16.extract_lane_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:22:u32>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "i32.trunc_sat_f64_s": [
+        [
+            "prefix_0",
+            "<Fix:FC:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:2:u32>"
+        ]
+    ],
+    "f64.convert_i32_s": [
+        [
+            "prefix_0",
+            "<Fix:B7:hex>"
+        ]
+    ],
+    "i64.load": [
+        [
+            "prefix_0",
+            "<Fix:29:hex>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i8x16.swizzle": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:14:u32>"
+        ]
+    ],
+    "f64x2.nearest": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:148:u32>"
+        ]
+    ],
+    "i32x4.trunc_sat_f32x4_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:248:u32>"
+        ]
+    ],
+    "i8x16.add_sat_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:112:u32>"
+        ]
+    ],
+    "i8x16.sub": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:113:u32>"
+        ]
+    ],
+    "f32.mul": [
+        [
+            "prefix_0",
+            "<Fix:94:hex>"
+        ]
+    ],
+    "f64.copysign": [
+        [
+            "prefix_0",
+            "<Fix:A6:hex>"
+        ]
+    ],
+    "f32x4.trunc": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:105:u32>"
+        ]
+    ],
+    "i32x4.neg": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:161:u32>"
+        ]
+    ],
+    "i8x16.ge_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:44:u32>"
+        ]
+    ],
+    "i8x16.min_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:119:u32>"
+        ]
+    ],
+    "f32.max": [
+        [
+            "prefix_0",
+            "<Fix:97:hex>"
+        ]
+    ],
+    "f32x4.floor": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:104:u32>"
+        ]
+    ],
+    "f64.mul": [
+        [
+            "prefix_0",
+            "<Fix:A2:hex>"
+        ]
+    ],
+    "table.copy": [
+        [
+            "prefix_0",
+            "<Fix:FC:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:14:u32>"
+        ],
+        [
+            "x",
+            "<u32>"
+        ],
+        [
+            "y",
+            "<u32>"
+        ]
+    ],
+    "f32.ge": [
+        [
+            "prefix_0",
+            "<Fix:60:hex>"
+        ]
+    ],
+    "v128.load16_lane": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:85:u32>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "i64.trunc_f64_s": [
+        [
+            "prefix_0",
+            "<Fix:B0:hex>"
+        ]
+    ],
+    "i32.ctz": [
+        [
+            "prefix_0",
+            "<Fix:68:hex>"
+        ]
+    ],
+    "i32x4.le_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:62:u32>"
+        ]
+    ],
+    "i16x8.extend_low_i8x16_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:137:u32>"
+        ]
+    ],
+    "v128.load": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:0:u32>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "f32x4.lt": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:67:u32>"
+        ]
+    ],
+    "i8x16.all_true": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:99:u32>"
+        ]
+    ],
+    "f32.abs": [
+        [
+            "prefix_0",
+            "<Fix:8B:hex>"
+        ]
+    ],
+    "i32.clz": [
+        [
+            "prefix_0",
+            "<Fix:67:hex>"
+        ]
+    ],
+    "i64.shr_s": [
+        [
+            "prefix_0",
+            "<Fix:87:hex>"
+        ]
+    ],
+    "i8x16.gt_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:40:u32>"
+        ]
+    ],
+    "i32x4.ne": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:56:u32>"
+        ]
+    ],
+    "i32x4.max_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:184:u32>"
+        ]
+    ],
+    "memory.fill": [
+        [
+            "prefix_0",
+            "<Fix:FC:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:11:u32>"
+        ],
+        [
+            "prefix_2",
+            "<Fix:00:hex>"
+        ]
+    ],
+    "i64x2.replace_lane": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:30:u32>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "v128.load16_splat": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:8:u32>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i32x4.dot_i16x8_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:186:u32>"
+        ]
+    ],
+    "i64.extend16_s": [
+        [
+            "prefix_0",
+            "<Fix:C3:hex>"
+        ]
+    ],
+    "f32x4.extract_lane": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:31:u32>"
+        ],
+        [
+            "l",
+            "<u32>"
+        ]
+    ],
+    "i16x8.sub_sat_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:146:u32>"
+        ]
+    ],
+    "i32.load16_s": [
+        [
+            "prefix_0",
+            "<Fix:2E:hex>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "f64x2.abs": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:236:u32>"
+        ]
+    ],
+    "i64.add": [
+        [
+            "prefix_0",
+            "<Fix:7C:hex>"
+        ]
+    ],
+    "f32.reinterpret_i32": [
+        [
+            "prefix_0",
+            "<Fix:BE:hex>"
+        ]
+    ],
+    "i32.store8": [
+        [
+            "prefix_0",
+            "<Fix:3A:hex>"
+        ],
+        [
+            "align",
+            "<u32>"
+        ],
+        [
+            "offset",
+            "<u32>"
+        ]
+    ],
+    "i32.gt_u": [
+        [
+            "prefix_0",
+            "<Fix:4B:hex>"
+        ]
+    ],
+    "i16x8.extadd_pairwise_i8x16_u": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:125:u32>"
+        ]
+    ],
+    "f64x2.min": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:244:u32>"
+        ]
+    ],
+    "i16x8.max_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:152:u32>"
+        ]
+    ],
+    "i8x16.lt_s": [
+        [
+            "prefix_0",
+            "<Fix:FD:hex>"
+        ],
+        [
+            "prefix_1",
+            "<Fix:37:u32>"
+        ]
+    ],
+    "end": [
+        [
+            "prefix_0",
+            "<Fix:0B:hex>"
+        ]
+    ],
+    "else": [
+        [
+            "prefix_0",
+            "<Fix:05:hex>"
+        ]
+    ]
+}

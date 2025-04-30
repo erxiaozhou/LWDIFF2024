@@ -1,0 +1,25 @@
+{
+    "exec_data": {
+        "ctgy": "Control",
+        "raw_title": ":math:`\\NOP`",
+        "name": "nop",
+        "steps_part": "1. Do nothing.",
+        "steps": [
+            "DO_NOTHING: []"
+        ],
+        "vstack_vt_num_seq": "[]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\NOP`",
+        "name": "nop",
+        "ctgy": "Control",
+        "steps": [
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [], []])]"
+        ]
+    },
+    "imms": {},
+    "exec_title_paras": {},
+    "binary_info": [
+        "<01: hex>"
+    ]
+}

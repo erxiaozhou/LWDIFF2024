@@ -1,0 +1,33 @@
+{
+    "exec_data": {
+        "ctgy": "Variable",
+        "raw_title": ":math:`\\LOCALGET~x`",
+        "name": "local.get",
+        "steps_part": "1. Let :math:`F` be the :ref:`current <exec-notation-textual>` :ref:`frame <syntax-frame>`.\n2. Assert: due to :ref:`validation <valid-local.get>`, :math:`F.\\ALOCALS[x]` exists.\n3. Let :math:`\\val` be the value :math:`F.\\ALOCALS[x]`.\n4. Push the value :math:`\\val` to the stack.",
+        "steps": [
+            "LET       : [(ValRefValue(Type(any::), F, 1), FrameInstance(Type(other:frame:), current frame, 1))]",
+            "ASSERT    : [ExistCondition(['exist', LocalAddrInstance(F.\\ALOCALS[x]:Type(any::):ValRefValue(Type(u32::), x, 1)::math:`F.\\ALOCALS[x]`)])]",
+            "LET       : [(ValRefValue(Type(any::), \\val, 1), LocalAddrInstance(F.\\ALOCALS[x]:Type(any::):ValRefValue(Type(u32::), x, 1):the value :math:`F.\\ALOCALS[x]`))]",
+            "PUSH      : [ValRefValue(Type(any::), \\val, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(any::), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\LOCALGET~x`",
+        "name": "local.get",
+        "ctgy": "Variable",
+        "steps": [
+            "MUST_EXIST: [ExistCondition(['valid_define_condition', LocalAddrInstance(C.\\CLOCALS[x]:Type(any::):ValRefValue(Type(u32::), x, 1)::math:`C.\\CLOCALS[x]`)])]",
+            "LET       : [(ValRefValue(Type(any::), t, 1), LocalAddrInstance(C.\\CLOCALS[x]:Type(other:value type:):ValRefValue(Type(u32::), x, 1):the :ref:`value type <syntax-valtype>` :math:`C.\\CLOCALS[x]`))]",
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [], [StackValue(Type(any::t), any, 1)]])]"
+        ]
+    },
+    "imms": {
+        "x": "<x: localidx>"
+    },
+    "exec_title_paras": {},
+    "binary_info": [
+        "<20: hex>",
+        "<x: localidx>"
+    ]
+}

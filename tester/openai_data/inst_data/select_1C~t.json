@@ -1,0 +1,67 @@
+{
+    "inst_name": "select",
+    "type_part": {
+        "op_0": "any",
+        "op_1": "any",
+        "op_2": "i32",
+        "imm_0": "type"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "imm_0",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "imm_0",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_2.type",
+                "v2": "i32",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_2",
+                    "v2": "0",
+                    "relation": "neq"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction selects the first operand (op_0) and pushes it back to the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_2",
+                    "v2": "0",
+                    "relation": "eq"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction selects the second operand (op_1) and pushes it back to the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "imm_0",
+                "imm_0",
+                "i32"
+            ],
+            "result": [
+                "imm_0"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "inst_name": "i8x16.shr_u",
+    "type_part": {
+        "op_0": "v128",
+        "op_1": "i32"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "v128",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "i32",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction performs an unsigned right shift operation on a v128 value. The shift amount is given by an i32 value. The result is pushed onto the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "v128",
+                "i32"
+            ],
+            "result": [
+                "v128"
+            ]
+        }
+    ]
+}

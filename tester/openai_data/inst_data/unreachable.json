@@ -1,0 +1,22 @@
+{
+    "inst_name": "unreachable",
+    "type_part": {},
+    "validate_part": {
+        "InputConstraint": [],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction causes the program to trap.",
+            "WhetherTrap": true
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [],
+            "result": []
+        }
+    ]
+}

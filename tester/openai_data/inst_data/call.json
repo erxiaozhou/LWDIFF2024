@@ -1,0 +1,43 @@
+{
+    "inst_name": "call",
+    "type_part": {
+        "op_0": "funcref",
+        "imm_0": "func_idx"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "funcref",
+                "relation": "eq"
+            },
+            {
+                "v1": "imm_0.type",
+                "v2": "func_idx",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": [
+            {
+                "VariableName": "context.CFUNCS[imm_0]",
+                "Exist": true
+            }
+        ]
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction calls the function at the function index `imm_0` in the current module's function table. The function's return values, if any, are pushed onto the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [],
+            "result": [
+                "context.funcs[imm_0].result"
+            ]
+        }
+    ]
+}

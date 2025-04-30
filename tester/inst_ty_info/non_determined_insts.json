@@ -1,0 +1,29 @@
+[
+    "loop",
+    "call",
+    "call_indirect",
+    "br",
+    "br_if",
+    "if",
+    "return",
+    "block",
+    "br_table",
+    "end",
+    "else",
+    "unreachable",
+    
+    "ref.null",
+    "local.get",
+    "global.get",
+    "table.get",
+    
+    "select",
+    "local.tee",
+    "table.fill",
+    "global.set",
+    "table.set",
+    "local.set",
+    "drop",
+    "ref.is_null",
+    "table.grow"
+]

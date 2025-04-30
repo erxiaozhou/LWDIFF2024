@@ -1,0 +1,41 @@
+{
+    "inst_name": "i32.le_s",
+    "type_part": {
+        "op_0": "i32",
+        "op_1": "i32"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i32",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "i32",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "The instruction compares two i32 integers. If the first integer is less than or equal to the second integer, it pushes 1 (True) to the stack. Otherwise, it pushes 0 (False) to the stack.",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i32",
+                "i32"
+            ],
+            "result": [
+                "i32"
+            ]
+        }
+    ]
+}

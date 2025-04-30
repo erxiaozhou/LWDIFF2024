@@ -1,0 +1,34 @@
+{
+    "exec_data": {
+        "ctgy": "Numeric",
+        "raw_title": ":math:`t\\K{.}\\unop`",
+        "name": "t.unop",
+        "steps_part": "1. Assert: due to :ref:`validation <valid-unop>`, a value of :ref:`value type <syntax-valtype>` :math:`t` is on the top of the stack.\n2. Pop the value :math:`t.\\CONST~c_1` from the stack.\n3. If :math:`\\unop_t(c_1)` is defined, then:\n   a. Let :math:`c` be a possible result of computing :math:`\\unop_t(c_1)`.\n   b. Push the value :math:`t.\\CONST~c` to the stack.\n4. Else:\n   a. Trap.",
+        "steps": [
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(any::t), any, 1)])]",
+            "POP       : [ValRefValue(Type(any::t), c_1, 1)]",
+            "IF        : [[IsDefinedCondition(['is_defined_condition', FormulaValue(Type(any::t), \\unop_t(c_1), 1)])]]",
+            "  LET       : [(ValRefValue(Type(any::), c, 1), FormulaValue(Type(any::t), \\unop_t(c_1), 1))]",
+            "  PUSH      : [ValRefValue(Type(any::t), c, 1)]",
+            "ELSE      : []",
+            "  TRAP      : []"
+        ],
+        "vstack_vt_num_seq": "[[(Type(any::t), 1), -1], [(Type(any::t), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`t\\K{.}\\unop`",
+        "name": "t.unop",
+        "ctgy": "Numeric",
+        "steps": [
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(any::t), any, 1)], [StackValue(Type(any::t), any, 1)]])]"
+        ]
+    },
+    "imms": {},
+    "exec_title_paras": {
+        "unop": "trunc",
+        "t": "f64"
+    },
+    "binary_info": [
+        "<9D: hex>"
+    ]
+}

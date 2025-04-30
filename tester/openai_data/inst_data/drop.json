@@ -1,0 +1,68 @@
+{
+    "inst_name": "drop",
+    "type_part": {
+        "op_0": "any"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "any",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [],
+            "ContextConstraint": [],
+            "Description": "",
+            "WhetherTrap": false
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i32"
+            ],
+            "result": []
+        },
+        {
+            "param": [
+                "i64"
+            ],
+            "result": []
+        },
+        {
+            "param": [
+                "f32"
+            ],
+            "result": []
+        },
+        {
+            "param": [
+                "f64"
+            ],
+            "result": []
+        },
+        {
+            "param": [
+                "v128"
+            ],
+            "result": []
+        },
+        {
+            "param": [
+                "funcref"
+            ],
+            "result": []
+        },
+        {
+            "param": [
+                "externref"
+            ],
+            "result": []
+        }
+    ]
+}

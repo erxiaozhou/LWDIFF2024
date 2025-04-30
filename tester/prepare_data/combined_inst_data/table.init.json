@@ -1,0 +1,64 @@
+{
+    "exec_data": {
+        "ctgy": "Table",
+        "raw_title": ":math:`\\TABLEINIT~x~y`",
+        "name": "table.init",
+        "steps_part": "1. Let :math:`F` be the :ref:`current <exec-notation-textual>` :ref:`frame <syntax-frame>`.\n2. Assert: due to :ref:`validation <valid-table.init>`, :math:`F.\\AMODULE.\\MITABLES[x]` exists.\n3. Let :math:`\\X{ta}` be the :ref:`table address <syntax-tableaddr>` :math:`F.\\AMODULE.\\MITABLES[x]`.\n4. Assert: due to :ref:`validation <valid-table.init>`, :math:`S.\\STABLES[\\X{ta}]` exists.\n5. Let :math:`\\X{tab}` be the :ref:`table instance <syntax-tableinst>` :math:`S.\\STABLES[\\X{ta}]`.\n6. Assert: due to :ref:`validation <valid-table.init>`, :math:`F.\\AMODULE.\\MIELEMS[y]` exists.\n7. Let :math:`\\X{ea}` be the :ref:`element address <syntax-elemaddr>` :math:`F.\\AMODULE.\\MIELEMS[y]`.\n8. Assert: due to :ref:`validation <valid-table.init>`, :math:`S.\\SELEMS[\\X{ea}]` exists.\n9. Let :math:`\\X{elem}` be the :ref:`element instance <syntax-eleminst>` :math:`S.\\SELEMS[\\X{ea}]`.\n10. Assert: due to :ref:`validation <valid-table.init>`, a value of :ref:`value type <syntax-valtype>` |I32| is on the top of the stack.\n11. Pop the value :math:`\\I32.\\CONST~n` from the stack.\n12. Assert: due to :ref:`validation <valid-table.init>`, a value of :ref:`value type <syntax-valtype>` |I32| is on the top of the stack.\n13. Pop the value :math:`\\I32.\\CONST~s` from the stack.\n14. Assert: due to :ref:`validation <valid-table.init>`, a value of :ref:`value type <syntax-valtype>` |I32| is on the top of the stack.\n15. Pop the value :math:`\\I32.\\CONST~d` from the stack.\n16. If :math:`s + n` is larger than the length of :math:`\\X{elem}.\\EIELEM` or :math:`d + n` is larger than the length of :math:`\\X{tab}.\\TIELEM`, then:\n    a. Trap.\n17. If :math:`n = 0`, then:\n    a. Return.\n18. Let :math:`\\val` be the :ref:`reference value <syntax-ref>` :math:`\\X{elem}.\\EIELEM[s]`.\n19. Push the value :math:`\\I32.\\CONST~d` to the stack.\n20. Push the value :math:`\\val` to the stack.\n21. Execute the instruction :math:`\\TABLESET~x`.\n22. Assert: due to the earlier check against the table size, :math:`d+1 < 2^{32}`.\n23. Push the value :math:`\\I32.\\CONST~(d+1)` to the stack.\n24. Assert: due to the earlier check against the segment size, :math:`s+1 < 2^{32}`.\n25. Push the value :math:`\\I32.\\CONST~(s+1)` to the stack.\n26. Push the value :math:`\\I32.\\CONST~(n-1)` to the stack.\n27. Execute the instruction :math:`\\TABLEINIT~x~y`.",
+        "steps": [
+            "LET       : [(ValRefValue(Type(any::), F, 1), FrameInstance(Type(other:frame:), current frame, 1))]",
+            "ASSERT    : [ExistCondition(['exist', TableAddrInstance(F.\\AMODULE.\\MITABLES[x]:Type(any::):ValRefValue(Type(u32::), x, 1)::math:`F.\\AMODULE.\\MITABLES[x]`)])]",
+            "LET       : [(ValRefValue(Type(any::), \\X{ta}, 1), TableAddrInstance(F.\\AMODULE.\\MITABLES[x]:Type(other:table address:):ValRefValue(Type(u32::), x, 1):the :ref:`table address <syntax-tableaddr>` :math:`F.\\AMODULE.\\MITABLES[x]`))]",
+            "ASSERT    : [ExistCondition(['exist', TableInstance(S.\\STABLES[\\X{ta}]:Type(any::):ValRefValue(Type(u32::), \\X{ta}, 1)::math:`S.\\STABLES[\\X{ta}]`)])]",
+            "LET       : [(ValRefValue(Type(any::), \\X{tab}, 1), TableInstance(S.\\STABLES[\\X{ta}]:Type(other:table instance:):ValRefValue(Type(u32::), \\X{ta}, 1):the :ref:`table instance <syntax-tableinst>` :math:`S.\\STABLES[\\X{ta}]`))]",
+            "ASSERT    : [ExistCondition(['exist', ElemAddrInstance(F.\\AMODULE.\\MIELEMS[y]:Type(any::):ValRefValue(Type(u32::), y, 1)::math:`F.\\AMODULE.\\MIELEMS[y]`)])]",
+            "LET       : [(ValRefValue(Type(any::), \\X{ea}, 1), ElemAddrInstance(F.\\AMODULE.\\MIELEMS[y]:Type(other:element address:):ValRefValue(Type(u32::), y, 1):the :ref:`element address <syntax-elemaddr>` :math:`F.\\AMODULE.\\MIELEMS[y]`))]",
+            "ASSERT    : [ExistCondition(['exist', ElemInstance(S.\\SELEMS[\\X{ea}]:Type(any::):ValRefValue(Type(u32::), \\X{ea}, 1)::math:`S.\\SELEMS[\\X{ea}]`)])]",
+            "LET       : [(ValRefValue(Type(any::), \\X{elem}, 1), ElemInstance(S.\\SELEMS[\\X{ea}]:Type(other:element instance:):ValRefValue(Type(u32::), \\X{ea}, 1):the :ref:`element instance <syntax-eleminst>` :math:`S.\\SELEMS[\\X{ea}]`))]",
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(i32::), any, 1)])]",
+            "POP       : [ValRefValue(Type(i32::), n, 1)]",
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(i32::), any, 1)])]",
+            "POP       : [ValRefValue(Type(i32::), s, 1)]",
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(i32::), any, 1)])]",
+            "POP       : [ValRefValue(Type(i32::), d, 1)]",
+            "IF        : [[CompareCondition(['compare_condition', FormulaValue(Type(any::), s + n, 1), True, 'larger', LengthRefValue(the length of :math:`\\X{elem}.\\EIELEM`:Type(u32::):\\X{elem}:\\EIELEM:the length of :math:`\\X{elem}.\\EIELEM`)]), CompareCondition(['compare_condition', FormulaValue(Type(any::), d + n, 1), True, 'larger', LengthRefValue(the length of :math:`\\X{tab}.\\TIELEM`:Type(u32::):\\X{tab}:\\TIELEM:the length of :math:`\\X{tab}.\\TIELEM`)])]]",
+            "  TRAP      : []",
+            "IF        : [[FormulaCondition(['formula_condition', FormulaValue(Type(any::), n = 0, 1)])]]",
+            "  RETURN    : []",
+            "LET       : [(ValRefValue(Type(any::), \\val, 1), FormulaValue(Type(other:reference value:), \\X{elem}.\\EIELEM[s], 1))]",
+            "PUSH      : [ValRefValue(Type(i32::), d, 1)]",
+            "PUSH      : [ValRefValue(Type(any::), \\val, 1)]",
+            "EXECUTE   : [FormulaValue(Type(any::), \\TABLESET~x, 1)]",
+            "ASSERT    : [FormulaCondition(['formula_condition', FormulaValue(Type(any::), d+1 < 2^{32}, 1)])]",
+            "PUSH      : [FormulaValue(Type(i32::), d+1, 1)]",
+            "ASSERT    : [FormulaCondition(['formula_condition', FormulaValue(Type(any::), s+1 < 2^{32}, 1)])]",
+            "PUSH      : [FormulaValue(Type(i32::), s+1, 1)]",
+            "PUSH      : [FormulaValue(Type(i32::), n-1, 1)]",
+            "EXECUTE   : [FormulaValue(Type(any::), \\TABLEINIT~x~y, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(i32::), 1), -1], [(Type(i32::), 1), -1], [(Type(i32::), 1), -1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\TABLEINIT~x~y`",
+        "name": "table.init",
+        "ctgy": "Table",
+        "steps": [
+            "MUST_EXIST: [ExistCondition(['valid_define_condition', TableAddrInstance(C.\\CTABLES[x]:Type(any::):ValRefValue(Type(u32::), x, 1)::math:`C.\\CTABLES[x]`)])]",
+            "LET       : [(ValRefValue(Type(any::), \\limits~t_1, 1), TableAddrInstance(C.\\CTABLES[x]:Type(other:table type:):ValRefValue(Type(u32::), x, 1):the :ref:`table type <syntax-tabletype>` :math:`C.\\CTABLES[x]`))]",
+            "MUST_EXIST: [ExistCondition(['valid_define_condition', ElemAddrInstance(C.\\CELEMS[y]:Type(any::):ValRefValue(Type(u32::), y, 1)::math:`C.\\CELEMS[y]`)])]",
+            "LET       : [(ValRefValue(Type(any::), t_2, 1), ElemAddrInstance(C.\\CELEMS[y]:Type(other:reference type:):ValRefValue(Type(u32::), y, 1):the :ref:`reference type <syntax-reftype>` :math:`C.\\CELEMS[y]`))]",
+            "MUST_BE   : [validCompareCond(['compare_condition', ValRefValue(Type(any::), t_1, 1), ValRefValue(Type(any::), t_2, 1), True, 'the same as'])]",
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(i32::), any, 1), StackValue(Type(i32::), any, 1), StackValue(Type(i32::), any, 1)], []])]"
+        ]
+    },
+    "imms": {
+        "x": "<x: tableidx>",
+        "y": "<y: elemidx>"
+    },
+    "exec_title_paras": {},
+    "binary_info": [
+        "<FC: hex>",
+        "<12: u32>",
+        "<y: elemidx>",
+        "<x: tableidx>"
+    ]
+}

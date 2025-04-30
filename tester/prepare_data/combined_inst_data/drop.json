@@ -1,0 +1,26 @@
+{
+    "exec_data": {
+        "ctgy": "Parametric",
+        "raw_title": ":math:`\\DROP`",
+        "name": "drop",
+        "steps_part": "1. Assert: due to :ref:`validation <valid-drop>`, a value is on the top of the stack.\n2. Pop the value :math:`\\val` from the stack.",
+        "steps": [
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(any::), any, 1)])]",
+            "POP       : [ValRefValue(Type(any::), \\val, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(any::), 1), -1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\DROP`",
+        "name": "drop",
+        "ctgy": "Parametric",
+        "steps": [
+            "MUST_TY   : [inferedValidTypeCond(['inst_ty_infered_cond', [StackValue(Type(any::t), any, 1)], [], False, 'value type', ['t']])]"
+        ]
+    },
+    "imms": {},
+    "exec_title_paras": {},
+    "binary_info": [
+        "<1A: hex>"
+    ]
+}

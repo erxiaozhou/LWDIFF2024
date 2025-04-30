@@ -1,0 +1,76 @@
+{
+    "inst_name": "i32.div_s",
+    "type_part": {
+        "op_0": "i32",
+        "op_1": "i32"
+    },
+    "validate_part": {
+        "InputConstraint": [
+            {
+                "v1": "op_0.type",
+                "v2": "i32",
+                "relation": "eq"
+            },
+            {
+                "v1": "op_1.type",
+                "v2": "i32",
+                "relation": "eq"
+            }
+        ],
+        "ContextConstraint": []
+    },
+    "execution_part": [
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_1",
+                    "v2": "0",
+                    "relation": "ne"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The instruction divides op_0 by op_1 assuming they are both signed. The result is pushed onto the stack.",
+            "WhetherTrap": false
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_1",
+                    "v2": "0",
+                    "relation": "eq"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The division is attempted by zero, causing the execution to trap.",
+            "WhetherTrap": true
+        },
+        {
+            "InputConstraint": [
+                {
+                    "v1": "op_0",
+                    "v2": "-2147483648",
+                    "relation": "eq"
+                },
+                {
+                    "v1": "op_1",
+                    "v2": "-1",
+                    "relation": "eq"
+                }
+            ],
+            "ContextConstraint": [],
+            "Description": "The division of minimum negative value of i32 by -1 results in overflow of i32, causing the execution to trap.",
+            "WhetherTrap": true
+        }
+    ],
+    "full_type_part": [
+        {
+            "param": [
+                "i32",
+                "i32"
+            ],
+            "result": [
+                "i32"
+            ]
+        }
+    ]
+}

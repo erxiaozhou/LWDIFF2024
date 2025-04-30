@@ -1,0 +1,37 @@
+{
+    "exec_data": {
+        "ctgy": "Vector",
+        "raw_title": ":math:`t_2\\K{x}N\\K{.}\\EXTADDPAIRWISE\\_t_1\\K{x}M\\_\\sx`",
+        "name": "t_2xN.extadd_pairwise_t_1xM_sx",
+        "steps_part": "1. Assert: due to :ref:`validation <valid-vec-extadd_pairwise>`, a value of :ref:`value type <syntax-valtype>` |V128| is on the top of the stack.\n2. Pop the value :math:`\\V128.\\VCONST~c_1` from the stack.\n3. Let :math:`(i_1~i_2)^\\ast` be the sequence :math:`\\extend^{\\sx}_{|t_1|,|t_2|}(\\lanes_{t_1\\K{x}M}(c_1))`.\n4. Let :math:`j^\\ast` be the result of computing :math:`\\iadd_{N}(i_1, i_2)^\\ast`.\n5. Let `c` be the result of computing :math:`\\lanes^{-1}_{t_2\\K{x}N}(j^\\ast)`.\n6. Push the value :math:`\\V128.\\VCONST~c` to the stack.",
+        "steps": [
+            "ASSERT    : [StackCondition(['stack_top', True, StackValue(Type(v128::), any, 1)])]",
+            "POP       : [ValRefValue(Type(v128::), c_1, 1)]",
+            "LET       : [(ValRefValue(Type(any::), (i_1~i_2)^\\ast, 1), FormulaValue(Type(other:byte_seq:), \\extend^{\\sx}_{|t_1|,|t_2|}(\\lanes_{t_1\\K{x}M}(c_1)), 1))]",
+            "LET       : [(ValRefValue(Type(any::), j^\\ast, 1), FormulaValue(Type(any::), \\iadd_{N}(i_1, i_2)^\\ast, 1))]",
+            "LET       : [(ValRefValue(Type(any::), c, 1), FormulaValue(Type(other:byte_seq:), \\lanes^{-1}_{t_2\\K{x}N}(j^\\ast), 1))]",
+            "PUSH      : [ValRefValue(Type(v128::), c, 1)]"
+        ],
+        "vstack_vt_num_seq": "[[(Type(v128::), 1), -1], [(Type(v128::), 1), 1]]"
+    },
+    "valid_data": {
+        "raw_title": ":math:`\\ishape_1\\K{.}\\EXTADDPAIRWISE\\K{\\_}\\ishape_2\\K{\\_}\\sx`",
+        "name": "ishape_1.extadd_pairwise_ishape_2_sx",
+        "ctgy": "Vector",
+        "steps": [
+            "MUST_TY   : [directValidTypeCond(['inst_ty_direct_cond', [StackValue(Type(v128::), any, 1)], [StackValue(Type(v128::), any, 1)]])]"
+        ]
+    },
+    "imms": {},
+    "exec_title_paras": {
+        "sx": "s",
+        "t_2": "i32",
+        "t_1": "i16",
+        "N": "4",
+        "M": "8"
+    },
+    "binary_info": [
+        "<FD: hex>",
+        "<126: u32>"
+    ]
+}

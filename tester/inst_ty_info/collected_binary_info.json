@@ -1,0 +1,1729 @@
+{
+    "i16x8.le_s": [
+        "<FD: hex>",
+        "<51: u32>"
+    ],
+    "v128.or": [
+        "<FD: hex>",
+        "<80: u32>"
+    ],
+    "v128.load8x8_u": [
+        "<FD: hex>",
+        "<2: u32>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i16x8.shr_u": [
+        "<FD: hex>",
+        "<141: u32>"
+    ],
+    "f32.convert_i32_u": [
+        "<B3: hex>"
+    ],
+    "i16x8.extract_lane_s": [
+        "<FD: hex>",
+        "<24: u32>",
+        "<l: laneidx>"
+    ],
+    "i16x8.gt_s": [
+        "<FD: hex>",
+        "<49: u32>"
+    ],
+    "i64.trunc_f64_u": [
+        "<B1: hex>"
+    ],
+    "f32.nearest": [
+        "<90: hex>"
+    ],
+    "i16x8.max_u": [
+        "<FD: hex>",
+        "<153: u32>"
+    ],
+    "f32x4.div": [
+        "<FD: hex>",
+        "<231: u32>"
+    ],
+    "loop": [
+        "<03: hex>",
+        "<bt: blocktype>",
+        "<in: instr *>",
+        "<0B: hex>"
+    ],
+    "f32.ceil": [
+        "<8D: hex>"
+    ],
+    "i32.load8_s": [
+        "<2C: hex>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i64x2.extend_high_i32x4_u": [
+        "<FD: hex>",
+        "<202: u32>"
+    ],
+    "v128.andnot": [
+        "<FD: hex>",
+        "<79: u32>"
+    ],
+    "i8x16.avgr_u": [
+        "<FD: hex>",
+        "<123: u32>"
+    ],
+    "i32x4.add": [
+        "<FD: hex>",
+        "<174: u32>"
+    ],
+    "f64.sqrt": [
+        "<9F: hex>"
+    ],
+    "f64x2.replace_lane": [
+        "<FD: hex>",
+        "<34: u32>",
+        "<l: laneidx>"
+    ],
+    "i64.gt_s": [
+        "<55: hex>"
+    ],
+    "i8x16.shl": [
+        "<FD: hex>",
+        "<107: u32>"
+    ],
+    "f64x2.extract_lane": [
+        "<FD: hex>",
+        "<33: u32>",
+        "<l: laneidx>"
+    ],
+    "f64x2.gt": [
+        "<FD: hex>",
+        "<74: u32>"
+    ],
+    "f64.promote_f32": [
+        "<BB: hex>"
+    ],
+    "i16x8.eq": [
+        "<FD: hex>",
+        "<45: u32>"
+    ],
+    "f64x2.ne": [
+        "<FD: hex>",
+        "<72: u32>"
+    ],
+    "v128.load8_lane": [
+        "<FD: hex>",
+        "<84: u32>",
+        "<align: align>",
+        "<offset: offset>",
+        "<l: laneidx>"
+    ],
+    "select": [
+        "<1B: hex>"
+    ],
+    "i16x8.min_u": [
+        "<FD: hex>",
+        "<151: u32>"
+    ],
+    "i16x8.ne": [
+        "<FD: hex>",
+        "<46: u32>"
+    ],
+    "i16x8.splat": [
+        "<FD: hex>",
+        "<16: u32>"
+    ],
+    "i64.load8_u": [
+        "<31: hex>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i8x16.ge_s": [
+        "<FD: hex>",
+        "<43: u32>"
+    ],
+    "call": [
+        "<10: hex>",
+        "<x: funcidx>"
+    ],
+    "f32x4.abs": [
+        "<FD: hex>",
+        "<224: u32>"
+    ],
+    "f32.gt": [
+        "<5E: hex>"
+    ],
+    "i64.shr_u": [
+        "<88: hex>"
+    ],
+    "f32x4.gt": [
+        "<FD: hex>",
+        "<68: u32>"
+    ],
+    "f32.convert_i32_s": [
+        "<B2: hex>"
+    ],
+    "i32x4.shl": [
+        "<FD: hex>",
+        "<171: u32>"
+    ],
+    "f64.sub": [
+        "<A1: hex>"
+    ],
+    "i32.le_s": [
+        "<4C: hex>"
+    ],
+    "i32.and": [
+        "<71: hex>"
+    ],
+    "i16x8.lt_s": [
+        "<FD: hex>",
+        "<47: u32>"
+    ],
+    "i64.store32": [
+        "<3E: hex>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i32.or": [
+        "<72: hex>"
+    ],
+    "i16x8.bitmask": [
+        "<FD: hex>",
+        "<132: u32>"
+    ],
+    "i8x16.splat": [
+        "<FD: hex>",
+        "<15: u32>"
+    ],
+    "local.tee": [
+        "<22: hex>",
+        "<x: localidx>"
+    ],
+    "data.drop": [
+        "<FC: hex>",
+        "<9: u32>",
+        "<x: dataidx>"
+    ],
+    "i16x8.sub": [
+        "<FD: hex>",
+        "<145: u32>"
+    ],
+    "i8x16.neg": [
+        "<FD: hex>",
+        "<97: u32>"
+    ],
+    "i32.trunc_sat_f64_u": [
+        "<FC: hex>",
+        "<3: u32>"
+    ],
+    "i32.lt_u": [
+        "<49: hex>"
+    ],
+    "i32x4.sub": [
+        "<FD: hex>",
+        "<177: u32>"
+    ],
+    "i32.eqz": [
+        "<45: hex>"
+    ],
+    "i64.const": [
+        "<42: hex>",
+        "<n: i64>"
+    ],
+    "f64.gt": [
+        "<64: hex>"
+    ],
+    "i8x16.max_u": [
+        "<FD: hex>",
+        "<121: u32>"
+    ],
+    "i8x16.lt_u": [
+        "<FD: hex>",
+        "<38: u32>"
+    ],
+    "i16x8.ge_s": [
+        "<FD: hex>",
+        "<53: u32>"
+    ],
+    "i64x2.abs": [
+        "<FD: hex>",
+        "<192: u32>"
+    ],
+    "v128.load32_zero": [
+        "<FD: hex>",
+        "<92: u32>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "f64.neg": [
+        "<9A: hex>"
+    ],
+    "v128.load16x4_u": [
+        "<FD: hex>",
+        "<4: u32>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "select_1C~t": [
+        "<1C: hex>",
+        "<t: vec(valtype) *>"
+    ],
+    "f32x4.pmax": [
+        "<FD: hex>",
+        "<235: u32>"
+    ],
+    "f32.copysign": [
+        "<98: hex>"
+    ],
+    "f32x4.min": [
+        "<FD: hex>",
+        "<232: u32>"
+    ],
+    "f32.le": [
+        "<5F: hex>"
+    ],
+    "v128.load64_splat": [
+        "<FD: hex>",
+        "<10: u32>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i64.lt_u": [
+        "<54: hex>"
+    ],
+    "f32x4.eq": [
+        "<FD: hex>",
+        "<65: u32>"
+    ],
+    "i16x8.avgr_u": [
+        "<FD: hex>",
+        "<155: u32>"
+    ],
+    "i16x8.extmul_low_i8x16_s": [
+        "<FD: hex>",
+        "<156: u32>"
+    ],
+    "v128.load16x4_s": [
+        "<FD: hex>",
+        "<3: u32>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "f32x4.demote_f64x2_zero": [
+        "<FD: hex>",
+        "<94: u32>"
+    ],
+    "i8x16.shr_u": [
+        "<FD: hex>",
+        "<109: u32>"
+    ],
+    "f64.ne": [
+        "<62: hex>"
+    ],
+    "f32.eq": [
+        "<5B: hex>"
+    ],
+    "f32.load": [
+        "<2A: hex>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i32.load16_u": [
+        "<2F: hex>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i8x16.shr_s": [
+        "<FD: hex>",
+        "<108: u32>"
+    ],
+    "i64.extend8_s": [
+        "<C2: hex>"
+    ],
+    "i8x16.replace_lane": [
+        "<FD: hex>",
+        "<23: u32>",
+        "<l: laneidx>"
+    ],
+    "i32x4.ge_s": [
+        "<FD: hex>",
+        "<63: u32>"
+    ],
+    "i32x4.shr_u": [
+        "<FD: hex>",
+        "<173: u32>"
+    ],
+    "i16x8.extract_lane_u": [
+        "<FD: hex>",
+        "<25: u32>",
+        "<l: laneidx>"
+    ],
+    "i32x4.trunc_sat_f32x4_u": [
+        "<FD: hex>",
+        "<249: u32>"
+    ],
+    "f64x2.ge": [
+        "<FD: hex>",
+        "<76: u32>"
+    ],
+    "f64.const": [
+        "<44: hex>",
+        "<z: f64>"
+    ],
+    "i8x16.eq": [
+        "<FD: hex>",
+        "<35: u32>"
+    ],
+    "i32.popcnt": [
+        "<69: hex>"
+    ],
+    "i32x4.splat": [
+        "<FD: hex>",
+        "<17: u32>"
+    ],
+    "table.init": [
+        "<FC: hex>",
+        "<12: u32>",
+        "<y: elemidx>",
+        "<x: tableidx>"
+    ],
+    "i64.sub": [
+        "<7D: hex>"
+    ],
+    "i16x8.add": [
+        "<FD: hex>",
+        "<142: u32>"
+    ],
+    "f64x2.convert_low_i32x4_u": [
+        "<FD: hex>",
+        "<255: u32>"
+    ],
+    "f64x2.ceil": [
+        "<FD: hex>",
+        "<116: u32>"
+    ],
+    "f64.ceil": [
+        "<9B: hex>"
+    ],
+    "nop": [
+        "<01: hex>"
+    ],
+    "f32x4.neg": [
+        "<FD: hex>",
+        "<225: u32>"
+    ],
+    "i64x2.extend_low_i32x4_s": [
+        "<FD: hex>",
+        "<199: u32>"
+    ],
+    "i64.extend32_s": [
+        "<C4: hex>"
+    ],
+    "f32x4.ge": [
+        "<FD: hex>",
+        "<70: u32>"
+    ],
+    "i64.or": [
+        "<84: hex>"
+    ],
+    "f64x2.convert_low_i32x4_s": [
+        "<FD: hex>",
+        "<254: u32>"
+    ],
+    "v128.any_true": [
+        "<FD: hex>",
+        "<83: u32>"
+    ],
+    "f64.ge": [
+        "<66: hex>"
+    ],
+    "f64.nearest": [
+        "<9E: hex>"
+    ],
+    "i32.le_u": [
+        "<4D: hex>"
+    ],
+    "i8x16.sub_sat_u": [
+        "<FD: hex>",
+        "<115: u32>"
+    ],
+    "i64.ctz": [
+        "<7A: hex>"
+    ],
+    "table.fill": [
+        "<FC: hex>",
+        "<17: u32>",
+        "<x: tableidx>"
+    ],
+    "i32x4.extend_low_i16x8_s": [
+        "<FD: hex>",
+        "<167: u32>"
+    ],
+    "i32x4.le_s": [
+        "<FD: hex>",
+        "<61: u32>"
+    ],
+    "i32x4.max_u": [
+        "<FD: hex>",
+        "<185: u32>"
+    ],
+    "i32.lt_s": [
+        "<48: hex>"
+    ],
+    "v128.and": [
+        "<FD: hex>",
+        "<78: u32>"
+    ],
+    "f64x2.div": [
+        "<FD: hex>",
+        "<243: u32>"
+    ],
+    "i32.shl": [
+        "<74: hex>"
+    ],
+    "i16x8.mul": [
+        "<FD: hex>",
+        "<149: u32>"
+    ],
+    "f32.neg": [
+        "<8C: hex>"
+    ],
+    "f64.max": [
+        "<A5: hex>"
+    ],
+    "f64x2.promote_low_f32x4": [
+        "<FD: hex>",
+        "<95: u32>"
+    ],
+    "f64.add": [
+        "<A0: hex>"
+    ],
+    "global.set": [
+        "<24: hex>",
+        "<x: globalidx>"
+    ],
+    "i32x4.replace_lane": [
+        "<FD: hex>",
+        "<28: u32>",
+        "<l: laneidx>"
+    ],
+    "i8x16.le_s": [
+        "<FD: hex>",
+        "<41: u32>"
+    ],
+    "f32x4.sub": [
+        "<FD: hex>",
+        "<229: u32>"
+    ],
+    "v128.bitselect": [
+        "<FD: hex>",
+        "<82: u32>"
+    ],
+    "v128.load32_lane": [
+        "<FD: hex>",
+        "<86: u32>",
+        "<align: align>",
+        "<offset: offset>",
+        "<l: laneidx>"
+    ],
+    "table.set": [
+        "<26: hex>",
+        "<x: tableidx>"
+    ],
+    "i64.trunc_sat_f32_u": [
+        "<FC: hex>",
+        "<5: u32>"
+    ],
+    "i32.ge_u": [
+        "<4F: hex>"
+    ],
+    "f32.min": [
+        "<96: hex>"
+    ],
+    "i32x4.trunc_sat_f64x2_u_zero": [
+        "<FD: hex>",
+        "<253: u32>"
+    ],
+    "i16x8.extmul_high_i8x16_u": [
+        "<FD: hex>",
+        "<159: u32>"
+    ],
+    "table.size": [
+        "<FC: hex>",
+        "<16: u32>",
+        "<x: tableidx>"
+    ],
+    "elem.drop": [
+        "<FC: hex>",
+        "<13: u32>",
+        "<x: elemidx>"
+    ],
+    "call_indirect": [
+        "<11: hex>",
+        "<y: typeidx>",
+        "<x: tableidx>"
+    ],
+    "i64.rem_u": [
+        "<82: hex>"
+    ],
+    "i16x8.sub_sat_u": [
+        "<FD: hex>",
+        "<147: u32>"
+    ],
+    "f32.trunc": [
+        "<8F: hex>"
+    ],
+    "i64.lt_s": [
+        "<53: hex>"
+    ],
+    "i16x8.add_sat_u": [
+        "<FD: hex>",
+        "<144: u32>"
+    ],
+    "i16x8.extend_low_i8x16_s": [
+        "<FD: hex>",
+        "<135: u32>"
+    ],
+    "i64.trunc_f32_s": [
+        "<AE: hex>"
+    ],
+    "i32x4.ge_u": [
+        "<FD: hex>",
+        "<64: u32>"
+    ],
+    "memory.copy": [
+        "<FC: hex>",
+        "<10: u32>",
+        "<00: hex>",
+        "<00: hex>"
+    ],
+    "i32.trunc_f32_s": [
+        "<A8: hex>"
+    ],
+    "f64.store": [
+        "<39: hex>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "br": [
+        "<0C: hex>",
+        "<l: labelidx>"
+    ],
+    "i32x4.all_true": [
+        "<FD: hex>",
+        "<163: u32>"
+    ],
+    "i64.gt_u": [
+        "<56: hex>"
+    ],
+    "f32x4.splat": [
+        "<FD: hex>",
+        "<19: u32>"
+    ],
+    "table.get": [
+        "<25: hex>",
+        "<x: tableidx>"
+    ],
+    "v128.load8_splat": [
+        "<FD: hex>",
+        "<7: u32>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "memory.grow": [
+        "<40: hex>",
+        "<00: hex>"
+    ],
+    "v128.load64_lane": [
+        "<FD: hex>",
+        "<87: u32>",
+        "<align: align>",
+        "<offset: offset>",
+        "<l: laneidx>"
+    ],
+    "i64.ge_u": [
+        "<5A: hex>"
+    ],
+    "f32x4.ne": [
+        "<FD: hex>",
+        "<66: u32>"
+    ],
+    "i32x4.mul": [
+        "<FD: hex>",
+        "<181: u32>"
+    ],
+    "i64.eqz": [
+        "<50: hex>"
+    ],
+    "f32.add": [
+        "<92: hex>"
+    ],
+    "f32.demote_f64": [
+        "<B6: hex>"
+    ],
+    "i64x2.extend_high_i32x4_s": [
+        "<FD: hex>",
+        "<200: u32>"
+    ],
+    "f32x4.add": [
+        "<FD: hex>",
+        "<228: u32>"
+    ],
+    "f64x2.pmin": [
+        "<FD: hex>",
+        "<246: u32>"
+    ],
+    "i16x8.shl": [
+        "<FD: hex>",
+        "<139: u32>"
+    ],
+    "i32x4.lt_u": [
+        "<FD: hex>",
+        "<58: u32>"
+    ],
+    "i64.load8_s": [
+        "<30: hex>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i64.store": [
+        "<37: hex>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "f32.sqrt": [
+        "<91: hex>"
+    ],
+    "v128.load32x2_s": [
+        "<FD: hex>",
+        "<5: u32>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i16x8.gt_u": [
+        "<FD: hex>",
+        "<50: u32>"
+    ],
+    "i64x2.lt_s": [
+        "<FD: hex>",
+        "<216: u32>"
+    ],
+    "v128.load8x8_s": [
+        "<FD: hex>",
+        "<1: u32>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i16x8.narrow_i32x4_s": [
+        "<FD: hex>",
+        "<133: u32>"
+    ],
+    "ref.func": [
+        "<D2: hex>",
+        "<x: funcidx>"
+    ],
+    "i32x4.extract_lane": [
+        "<FD: hex>",
+        "<27: u32>",
+        "<l: laneidx>"
+    ],
+    "i16x8.extmul_high_i8x16_s": [
+        "<FD: hex>",
+        "<157: u32>"
+    ],
+    "f64x2.splat": [
+        "<FD: hex>",
+        "<20: u32>"
+    ],
+    "i64x2.neg": [
+        "<FD: hex>",
+        "<193: u32>"
+    ],
+    "i32.xor": [
+        "<73: hex>"
+    ],
+    "i32.trunc_f64_u": [
+        "<AB: hex>"
+    ],
+    "f64x2.eq": [
+        "<FD: hex>",
+        "<71: u32>"
+    ],
+    "v128.load32x2_u": [
+        "<FD: hex>",
+        "<6: u32>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i32x4.shr_s": [
+        "<FD: hex>",
+        "<172: u32>"
+    ],
+    "v128.store64_lane": [
+        "<FD: hex>",
+        "<91: u32>",
+        "<align: align>",
+        "<offset: offset>",
+        "<l: laneidx>"
+    ],
+    "i16x8.q15mulr_sat_s": [
+        "<FD: hex>",
+        "<130: u32>"
+    ],
+    "i8x16.add_sat_s": [
+        "<FD: hex>",
+        "<111: u32>"
+    ],
+    "f32x4.sqrt": [
+        "<FD: hex>",
+        "<227: u32>"
+    ],
+    "i64.load16_s": [
+        "<32: hex>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i32x4.extend_low_i16x8_u": [
+        "<FD: hex>",
+        "<169: u32>"
+    ],
+    "i32.rem_u": [
+        "<70: hex>"
+    ],
+    "f32.lt": [
+        "<5D: hex>"
+    ],
+    "f32.floor": [
+        "<8E: hex>"
+    ],
+    "f32x4.nearest": [
+        "<FD: hex>",
+        "<106: u32>"
+    ],
+    "v128.load32_splat": [
+        "<FD: hex>",
+        "<9: u32>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "f64x2.add": [
+        "<FD: hex>",
+        "<240: u32>"
+    ],
+    "return": [
+        "<0F: hex>"
+    ],
+    "f64.le": [
+        "<65: hex>"
+    ],
+    "i64.trunc_f32_u": [
+        "<AF: hex>"
+    ],
+    "i16x8.neg": [
+        "<FD: hex>",
+        "<129: u32>"
+    ],
+    "local.get": [
+        "<20: hex>",
+        "<x: localidx>"
+    ],
+    "i32x4.min_u": [
+        "<FD: hex>",
+        "<183: u32>"
+    ],
+    "f32.sub": [
+        "<93: hex>"
+    ],
+    "f32x4.max": [
+        "<FD: hex>",
+        "<233: u32>"
+    ],
+    "f64x2.max": [
+        "<FD: hex>",
+        "<245: u32>"
+    ],
+    "br_if": [
+        "<0D: hex>",
+        "<l: labelidx>"
+    ],
+    "i16x8.all_true": [
+        "<FD: hex>",
+        "<131: u32>"
+    ],
+    "f64x2.lt": [
+        "<FD: hex>",
+        "<73: u32>"
+    ],
+    "if": [
+        "<04: hex>",
+        "<bt: blocktype>",
+        "<in: instr *>",
+        "<0B: hex>"
+    ],
+    "i32.gt_s": [
+        "<4A: hex>"
+    ],
+    "br_table": [
+        "<0E: hex>",
+        "<l: vec(labelidx) *>",
+        "<l_N: labelidx>"
+    ],
+    "i32.extend8_s": [
+        "<C0: hex>"
+    ],
+    "f64x2.sub": [
+        "<FD: hex>",
+        "<241: u32>"
+    ],
+    "i64.ge_s": [
+        "<59: hex>"
+    ],
+    "i8x16.narrow_i16x8_u": [
+        "<FD: hex>",
+        "<102: u32>"
+    ],
+    "i64.rotr": [
+        "<8A: hex>"
+    ],
+    "i8x16.min_s": [
+        "<FD: hex>",
+        "<118: u32>"
+    ],
+    "i64.rem_s": [
+        "<81: hex>"
+    ],
+    "i8x16.narrow_i16x8_s": [
+        "<FD: hex>",
+        "<101: u32>"
+    ],
+    "v128.const": [
+        "<FD: hex>",
+        "<12: u32>",
+        "<b: byte: 16>"
+    ],
+    "i32x4.extmul_high_i16x8_u": [
+        "<FD: hex>",
+        "<191: u32>"
+    ],
+    "local.set": [
+        "<21: hex>",
+        "<x: localidx>"
+    ],
+    "i64.load16_u": [
+        "<33: hex>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i8x16.gt_s": [
+        "<FD: hex>",
+        "<39: u32>"
+    ],
+    "i8x16.extract_lane_s": [
+        "<FD: hex>",
+        "<21: u32>",
+        "<l: laneidx>"
+    ],
+    "i64x2.le_s": [
+        "<FD: hex>",
+        "<218: u32>"
+    ],
+    "i32.rem_s": [
+        "<6F: hex>"
+    ],
+    "i32.shr_s": [
+        "<75: hex>"
+    ],
+    "i32x4.extadd_pairwise_i16x8_s": [
+        "<FD: hex>",
+        "<126: u32>"
+    ],
+    "i64x2.shr_s": [
+        "<FD: hex>",
+        "<204: u32>"
+    ],
+    "i32x4.extmul_low_i16x8_s": [
+        "<FD: hex>",
+        "<188: u32>"
+    ],
+    "v128.store": [
+        "<FD: hex>",
+        "<11: u32>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i32.trunc_f64_s": [
+        "<AA: hex>"
+    ],
+    "i8x16.add": [
+        "<FD: hex>",
+        "<110: u32>"
+    ],
+    "i64.and": [
+        "<83: hex>"
+    ],
+    "f32x4.le": [
+        "<FD: hex>",
+        "<69: u32>"
+    ],
+    "i32.add": [
+        "<6A: hex>"
+    ],
+    "i16x8.add_sat_s": [
+        "<FD: hex>",
+        "<143: u32>"
+    ],
+    "i64.load32_s": [
+        "<34: hex>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "f32.div": [
+        "<95: hex>"
+    ],
+    "i32x4.lt_s": [
+        "<FD: hex>",
+        "<57: u32>"
+    ],
+    "f64.load": [
+        "<2B: hex>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i16x8.le_u": [
+        "<FD: hex>",
+        "<52: u32>"
+    ],
+    "i32.eq": [
+        "<46: hex>"
+    ],
+    "i32.const": [
+        "<41: hex>",
+        "<n: i32>"
+    ],
+    "i64.shl": [
+        "<86: hex>"
+    ],
+    "i64.extend_i32_u": [
+        "<AD: hex>"
+    ],
+    "i16x8.narrow_i32x4_u": [
+        "<FD: hex>",
+        "<134: u32>"
+    ],
+    "i32x4.extend_high_i16x8_s": [
+        "<FD: hex>",
+        "<168: u32>"
+    ],
+    "i16x8.abs": [
+        "<FD: hex>",
+        "<128: u32>"
+    ],
+    "f32x4.convert_i32x4_s": [
+        "<FD: hex>",
+        "<250: u32>"
+    ],
+    "i64x2.mul": [
+        "<FD: hex>",
+        "<213: u32>"
+    ],
+    "i16x8.extmul_low_i8x16_u": [
+        "<FD: hex>",
+        "<158: u32>"
+    ],
+    "i64.trunc_sat_f64_s": [
+        "<FC: hex>",
+        "<6: u32>"
+    ],
+    "i64.xor": [
+        "<85: hex>"
+    ],
+    "i32.wrap_i64": [
+        "<A7: hex>"
+    ],
+    "i64.ne": [
+        "<52: hex>"
+    ],
+    "i32.rotr": [
+        "<78: hex>"
+    ],
+    "f64x2.floor": [
+        "<FD: hex>",
+        "<117: u32>"
+    ],
+    "i32x4.gt_u": [
+        "<FD: hex>",
+        "<60: u32>"
+    ],
+    "drop": [
+        "<1A: hex>"
+    ],
+    "i32x4.trunc_sat_f64x2_s_zero": [
+        "<FD: hex>",
+        "<252: u32>"
+    ],
+    "i64.mul": [
+        "<7E: hex>"
+    ],
+    "i32x4.gt_s": [
+        "<FD: hex>",
+        "<59: u32>"
+    ],
+    "i32.ne": [
+        "<47: hex>"
+    ],
+    "i8x16.shuffle": [
+        "<FD: hex>",
+        "<13: u32>",
+        "<l: laneidx: 16>"
+    ],
+    "f32.convert_i64_s": [
+        "<B4: hex>"
+    ],
+    "i64x2.extmul_low_i32x4_u": [
+        "<FD: hex>",
+        "<222: u32>"
+    ],
+    "i32x4.extmul_low_i16x8_u": [
+        "<FD: hex>",
+        "<190: u32>"
+    ],
+    "i8x16.popcnt": [
+        "<FD: hex>",
+        "<98: u32>"
+    ],
+    "i64.trunc_sat_f32_s": [
+        "<FC: hex>",
+        "<4: u32>"
+    ],
+    "i64x2.eq": [
+        "<FD: hex>",
+        "<214: u32>"
+    ],
+    "i16x8.replace_lane": [
+        "<FD: hex>",
+        "<26: u32>",
+        "<l: laneidx>"
+    ],
+    "i16x8.extadd_pairwise_i8x16_s": [
+        "<FD: hex>",
+        "<124: u32>"
+    ],
+    "f32x4.pmin": [
+        "<FD: hex>",
+        "<234: u32>"
+    ],
+    "ref.null": [
+        "<D0: hex>",
+        "<t: reftype>"
+    ],
+    "f32.const": [
+        "<43: hex>",
+        "<z: f32>"
+    ],
+    "i64x2.shl": [
+        "<FD: hex>",
+        "<203: u32>"
+    ],
+    "i64.clz": [
+        "<79: hex>"
+    ],
+    "i32.load8_u": [
+        "<2D: hex>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i64.popcnt": [
+        "<7B: hex>"
+    ],
+    "i32.load": [
+        "<28: hex>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "f64x2.trunc": [
+        "<FD: hex>",
+        "<122: u32>"
+    ],
+    "i64.rotl": [
+        "<89: hex>"
+    ],
+    "f32x4.ceil": [
+        "<FD: hex>",
+        "<103: u32>"
+    ],
+    "f64x2.sqrt": [
+        "<FD: hex>",
+        "<239: u32>"
+    ],
+    "i32.div_s": [
+        "<6D: hex>"
+    ],
+    "i32.reinterpret_f32": [
+        "<BC: hex>"
+    ],
+    "i16x8.ge_u": [
+        "<FD: hex>",
+        "<54: u32>"
+    ],
+    "i32.store16": [
+        "<3B: hex>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i32.sub": [
+        "<6B: hex>"
+    ],
+    "i64.div_s": [
+        "<7F: hex>"
+    ],
+    "f32x4.replace_lane": [
+        "<FD: hex>",
+        "<32: u32>",
+        "<l: laneidx>"
+    ],
+    "i64.load32_u": [
+        "<35: hex>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i32.extend16_s": [
+        "<C1: hex>"
+    ],
+    "f32.ne": [
+        "<5C: hex>"
+    ],
+    "memory.init": [
+        "<FC: hex>",
+        "<8: u32>",
+        "<x: dataidx>",
+        "<00: hex>"
+    ],
+    "i64.store16": [
+        "<3D: hex>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i32x4.abs": [
+        "<FD: hex>",
+        "<160: u32>"
+    ],
+    "i32.trunc_sat_f32_u": [
+        "<FC: hex>",
+        "<1: u32>"
+    ],
+    "i64x2.bitmask": [
+        "<FD: hex>",
+        "<196: u32>"
+    ],
+    "f64.lt": [
+        "<63: hex>"
+    ],
+    "i64.trunc_sat_f64_u": [
+        "<FC: hex>",
+        "<7: u32>"
+    ],
+    "i32.trunc_sat_f32_s": [
+        "<FC: hex>",
+        "<0: u32>"
+    ],
+    "v128.store8_lane": [
+        "<FD: hex>",
+        "<88: u32>",
+        "<align: align>",
+        "<offset: offset>",
+        "<l: laneidx>"
+    ],
+    "f64.convert_i64_u": [
+        "<BA: hex>"
+    ],
+    "f32.store": [
+        "<38: hex>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i64x2.extmul_high_i32x4_s": [
+        "<FD: hex>",
+        "<221: u32>"
+    ],
+    "i8x16.le_u": [
+        "<FD: hex>",
+        "<42: u32>"
+    ],
+    "f64.min": [
+        "<A4: hex>"
+    ],
+    "v128.store32_lane": [
+        "<FD: hex>",
+        "<90: u32>",
+        "<align: align>",
+        "<offset: offset>",
+        "<l: laneidx>"
+    ],
+    "ref.is_null": [
+        "<D1: hex>"
+    ],
+    "memory.size": [
+        "<3F: hex>",
+        "<00: hex>"
+    ],
+    "i64x2.gt_s": [
+        "<FD: hex>",
+        "<217: u32>"
+    ],
+    "f64.trunc": [
+        "<9D: hex>"
+    ],
+    "i16x8.extend_high_i8x16_u": [
+        "<FD: hex>",
+        "<138: u32>"
+    ],
+    "i16x8.extend_high_i8x16_s": [
+        "<FD: hex>",
+        "<136: u32>"
+    ],
+    "i16x8.lt_u": [
+        "<FD: hex>",
+        "<48: u32>"
+    ],
+    "f64.floor": [
+        "<9C: hex>"
+    ],
+    "i8x16.bitmask": [
+        "<FD: hex>",
+        "<100: u32>"
+    ],
+    "i64x2.extend_low_i32x4_u": [
+        "<FD: hex>",
+        "<201: u32>"
+    ],
+    "f32.convert_i64_u": [
+        "<B5: hex>"
+    ],
+    "i8x16.max_s": [
+        "<FD: hex>",
+        "<120: u32>"
+    ],
+    "i64x2.shr_u": [
+        "<FD: hex>",
+        "<205: u32>"
+    ],
+    "if_04~bt~in_1~05~in_2~0B": [
+        "<04: hex>",
+        "<bt: blocktype>",
+        "<in_1: instr *>",
+        "<05: hex>",
+        "<in_2: instr *>",
+        "<0B: hex>"
+    ],
+    "i64.div_u": [
+        "<80: hex>"
+    ],
+    "v128.xor": [
+        "<FD: hex>",
+        "<81: u32>"
+    ],
+    "i32.ge_s": [
+        "<4E: hex>"
+    ],
+    "v128.not": [
+        "<FD: hex>",
+        "<77: u32>"
+    ],
+    "i64x2.extmul_low_i32x4_s": [
+        "<FD: hex>",
+        "<220: u32>"
+    ],
+    "i32x4.bitmask": [
+        "<FD: hex>",
+        "<164: u32>"
+    ],
+    "i64x2.add": [
+        "<FD: hex>",
+        "<206: u32>"
+    ],
+    "i8x16.sub_sat_s": [
+        "<FD: hex>",
+        "<114: u32>"
+    ],
+    "i64.le_s": [
+        "<57: hex>"
+    ],
+    "i64x2.ne": [
+        "<FD: hex>",
+        "<215: u32>"
+    ],
+    "table.grow": [
+        "<FC: hex>",
+        "<15: u32>",
+        "<x: tableidx>"
+    ],
+    "f64.convert_i32_u": [
+        "<B8: hex>"
+    ],
+    "i64.extend_i32_s": [
+        "<AC: hex>"
+    ],
+    "i64x2.extmul_high_i32x4_u": [
+        "<FD: hex>",
+        "<223: u32>"
+    ],
+    "f64x2.le": [
+        "<FD: hex>",
+        "<75: u32>"
+    ],
+    "i16x8.min_s": [
+        "<FD: hex>",
+        "<150: u32>"
+    ],
+    "i32x4.min_s": [
+        "<FD: hex>",
+        "<182: u32>"
+    ],
+    "f64x2.neg": [
+        "<FD: hex>",
+        "<237: u32>"
+    ],
+    "global.get": [
+        "<23: hex>",
+        "<x: globalidx>"
+    ],
+    "i32.trunc_f32_u": [
+        "<A9: hex>"
+    ],
+    "i64.eq": [
+        "<51: hex>"
+    ],
+    "f64x2.pmax": [
+        "<FD: hex>",
+        "<247: u32>"
+    ],
+    "i8x16.abs": [
+        "<FD: hex>",
+        "<96: u32>"
+    ],
+    "i64x2.sub": [
+        "<FD: hex>",
+        "<209: u32>"
+    ],
+    "i64x2.splat": [
+        "<FD: hex>",
+        "<18: u32>"
+    ],
+    "i64.store8": [
+        "<3C: hex>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i16x8.shr_s": [
+        "<FD: hex>",
+        "<140: u32>"
+    ],
+    "f64x2.mul": [
+        "<FD: hex>",
+        "<242: u32>"
+    ],
+    "i32x4.extadd_pairwise_i16x8_u": [
+        "<FD: hex>",
+        "<127: u32>"
+    ],
+    "unreachable": [
+        "<00: hex>"
+    ],
+    "i32.rotl": [
+        "<77: hex>"
+    ],
+    "i64x2.all_true": [
+        "<FD: hex>",
+        "<195: u32>"
+    ],
+    "i32.store": [
+        "<36: hex>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i32x4.eq": [
+        "<FD: hex>",
+        "<55: u32>"
+    ],
+    "i32x4.extmul_high_i16x8_s": [
+        "<FD: hex>",
+        "<189: u32>"
+    ],
+    "v128.load64_zero": [
+        "<FD: hex>",
+        "<93: u32>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "f64.eq": [
+        "<61: hex>"
+    ],
+    "i64x2.extract_lane": [
+        "<FD: hex>",
+        "<29: u32>",
+        "<l: laneidx>"
+    ],
+    "f64.div": [
+        "<A3: hex>"
+    ],
+    "f32x4.convert_i32x4_u": [
+        "<FD: hex>",
+        "<251: u32>"
+    ],
+    "f64.convert_i64_s": [
+        "<B9: hex>"
+    ],
+    "i32.mul": [
+        "<6C: hex>"
+    ],
+    "i64.le_u": [
+        "<58: hex>"
+    ],
+    "f64.abs": [
+        "<99: hex>"
+    ],
+    "i32.div_u": [
+        "<6E: hex>"
+    ],
+    "block": [
+        "<02: hex>",
+        "<bt: blocktype>",
+        "<in: instr *>",
+        "<0B: hex>"
+    ],
+    "i32.shr_u": [
+        "<76: hex>"
+    ],
+    "f32x4.mul": [
+        "<FD: hex>",
+        "<230: u32>"
+    ],
+    "v128.store16_lane": [
+        "<FD: hex>",
+        "<89: u32>",
+        "<align: align>",
+        "<offset: offset>",
+        "<l: laneidx>"
+    ],
+    "f64.reinterpret_i64": [
+        "<BF: hex>"
+    ],
+    "i64x2.ge_s": [
+        "<FD: hex>",
+        "<219: u32>"
+    ],
+    "i8x16.ne": [
+        "<FD: hex>",
+        "<36: u32>"
+    ],
+    "i64.reinterpret_f64": [
+        "<BD: hex>"
+    ],
+    "i32x4.extend_high_i16x8_u": [
+        "<FD: hex>",
+        "<170: u32>"
+    ],
+    "i8x16.extract_lane_u": [
+        "<FD: hex>",
+        "<22: u32>",
+        "<l: laneidx>"
+    ],
+    "i32.trunc_sat_f64_s": [
+        "<FC: hex>",
+        "<2: u32>"
+    ],
+    "f64.convert_i32_s": [
+        "<B7: hex>"
+    ],
+    "i64.load": [
+        "<29: hex>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i8x16.swizzle": [
+        "<FD: hex>",
+        "<14: u32>"
+    ],
+    "f64x2.nearest": [
+        "<FD: hex>",
+        "<148: u32>"
+    ],
+    "i32x4.trunc_sat_f32x4_s": [
+        "<FD: hex>",
+        "<248: u32>"
+    ],
+    "i8x16.add_sat_u": [
+        "<FD: hex>",
+        "<112: u32>"
+    ],
+    "i8x16.sub": [
+        "<FD: hex>",
+        "<113: u32>"
+    ],
+    "f32.mul": [
+        "<94: hex>"
+    ],
+    "f64.copysign": [
+        "<A6: hex>"
+    ],
+    "f32x4.trunc": [
+        "<FD: hex>",
+        "<105: u32>"
+    ],
+    "i32x4.neg": [
+        "<FD: hex>",
+        "<161: u32>"
+    ],
+    "i8x16.ge_u": [
+        "<FD: hex>",
+        "<44: u32>"
+    ],
+    "i8x16.min_u": [
+        "<FD: hex>",
+        "<119: u32>"
+    ],
+    "f32.max": [
+        "<97: hex>"
+    ],
+    "f32x4.floor": [
+        "<FD: hex>",
+        "<104: u32>"
+    ],
+    "f64.mul": [
+        "<A2: hex>"
+    ],
+    "table.copy": [
+        "<FC: hex>",
+        "<14: u32>",
+        "<x: tableidx>",
+        "<y: tableidx>"
+    ],
+    "f32.ge": [
+        "<60: hex>"
+    ],
+    "v128.load16_lane": [
+        "<FD: hex>",
+        "<85: u32>",
+        "<align: align>",
+        "<offset: offset>",
+        "<l: laneidx>"
+    ],
+    "i64.trunc_f64_s": [
+        "<B0: hex>"
+    ],
+    "i32.ctz": [
+        "<68: hex>"
+    ],
+    "i32x4.le_u": [
+        "<FD: hex>",
+        "<62: u32>"
+    ],
+    "i16x8.extend_low_i8x16_u": [
+        "<FD: hex>",
+        "<137: u32>"
+    ],
+    "v128.load": [
+        "<FD: hex>",
+        "<0: u32>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "f32x4.lt": [
+        "<FD: hex>",
+        "<67: u32>"
+    ],
+    "i8x16.all_true": [
+        "<FD: hex>",
+        "<99: u32>"
+    ],
+    "f32.abs": [
+        "<8B: hex>"
+    ],
+    "i32.clz": [
+        "<67: hex>"
+    ],
+    "i64.shr_s": [
+        "<87: hex>"
+    ],
+    "i8x16.gt_u": [
+        "<FD: hex>",
+        "<40: u32>"
+    ],
+    "i32x4.ne": [
+        "<FD: hex>",
+        "<56: u32>"
+    ],
+    "i32x4.max_s": [
+        "<FD: hex>",
+        "<184: u32>"
+    ],
+    "memory.fill": [
+        "<FC: hex>",
+        "<11: u32>",
+        "<00: hex>"
+    ],
+    "i64x2.replace_lane": [
+        "<FD: hex>",
+        "<30: u32>",
+        "<l: laneidx>"
+    ],
+    "v128.load16_splat": [
+        "<FD: hex>",
+        "<8: u32>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i32x4.dot_i16x8_s": [
+        "<FD: hex>",
+        "<186: u32>"
+    ],
+    "i64.extend16_s": [
+        "<C3: hex>"
+    ],
+    "f32x4.extract_lane": [
+        "<FD: hex>",
+        "<31: u32>",
+        "<l: laneidx>"
+    ],
+    "i16x8.sub_sat_s": [
+        "<FD: hex>",
+        "<146: u32>"
+    ],
+    "i32.load16_s": [
+        "<2E: hex>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "f64x2.abs": [
+        "<FD: hex>",
+        "<236: u32>"
+    ],
+    "i64.add": [
+        "<7C: hex>"
+    ],
+    "f32.reinterpret_i32": [
+        "<BE: hex>"
+    ],
+    "i32.store8": [
+        "<3A: hex>",
+        "<align: align>",
+        "<offset: offset>"
+    ],
+    "i32.gt_u": [
+        "<4B: hex>"
+    ],
+    "i16x8.extadd_pairwise_i8x16_u": [
+        "<FD: hex>",
+        "<125: u32>"
+    ],
+    "f64x2.min": [
+        "<FD: hex>",
+        "<244: u32>"
+    ],
+    "i16x8.max_s": [
+        "<FD: hex>",
+        "<152: u32>"
+    ],
+    "i8x16.lt_s": [
+        "<FD: hex>",
+        "<37: u32>"
+    ]
+}
